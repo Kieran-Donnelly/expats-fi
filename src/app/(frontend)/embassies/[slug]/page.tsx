@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { countryFlag, representationLabels, representationSummary } from '@/lib/embassies'
+import { representationLabels, representationSummary } from '@/lib/embassies'
 import { getEmbassy } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -29,7 +29,7 @@ export default async function EmbassyPage({ params }: { params: Promise<{ slug: 
           <h1>{embassy.country}</h1>
           <p className="embassy-profile__summary">{representationSummary(embassy)}</p>
         </div>
-        <span className="country-flag country-flag--large" aria-hidden="true">{countryFlag(embassy.countryCode)}</span>
+        <span className={`fi fi-${embassy.countryCode.toLowerCase()} country-flag country-flag--large`} aria-hidden="true" />
       </header>
       <div className="embassy-profile__body">
         <section>

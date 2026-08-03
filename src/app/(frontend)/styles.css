@@ -142,8 +142,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .embassy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
 .embassy-card { min-inline-size: 0; min-block-size: 22rem; display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--snow); }
 .embassy-card__top { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
-.country-flag { font-size: 2.35rem; line-height: 1; filter: saturate(.9); }
-.country-flag--large { font-size: clamp(5rem, 10vw, 8rem); }
+.country-flag { flex: none; inline-size: 3.1rem; block-size: 2.325rem; border: 1px solid var(--line); border-radius: .22rem; background-size: cover; }
+.country-flag--large { inline-size: clamp(7rem, 14vw, 10rem); block-size: auto; aspect-ratio: 4 / 3; }
 .representation-badge { inline-size: fit-content; display: inline-flex; align-items: center; padding: .3rem .58rem; border-radius: 999px; background: var(--blue-soft); color: var(--blue-dark); font-size: .65rem; font-weight: 720; letter-spacing: .025em; line-height: 1.25; text-align: center; }
 .representation-badge--resident-embassy, .representation-badge--representative-office { background: oklch(93% .045 150); color: oklch(36% .09 150); }
 .representation-badge--honorary-consulate { background: oklch(96% .06 88); color: oklch(40% .1 70); }
@@ -257,7 +257,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .site-footer__bottom { align-items: start; flex-direction: column; gap: .3rem; }
   .embassy-grid { grid-template-columns: 1fr; }
   .source-notice { grid-template-columns: 1fr; }
-  .country-flag--large { grid-row: 1; font-size: 5rem; }
+  .country-flag--large { grid-row: 1; inline-size: 7rem; }
 }
 
 @media (max-width: 440px) {

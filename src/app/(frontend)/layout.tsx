@@ -5,6 +5,7 @@ import type { ReactNode } from 'react'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 
+import 'flag-icons/css/flag-icons.min.css'
 import './styles.css'
 
 const schibsted = Schibsted_Grotesk({

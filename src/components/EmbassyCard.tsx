@@ -1,13 +1,13 @@
 import Link from 'next/link'
 
-import { countryFlag, representationLabels, representationSummary } from '@/lib/embassies'
+import { representationLabels, representationSummary } from '@/lib/embassies'
 import type { Embassy } from '@/payload-types'
 
 export function EmbassyCard({ embassy }: { embassy: Embassy }) {
   return (
     <article className="embassy-card">
       <div className="embassy-card__top">
-        <span className="country-flag" aria-hidden="true">{countryFlag(embassy.countryCode)}</span>
+        <span className={`fi fi-${embassy.countryCode.toLowerCase()} country-flag`} aria-hidden="true" />
         <span className={`representation-badge representation-badge--${embassy.representationType}`}>{representationLabels[embassy.representationType]}</span>
       </div>
       <p className="embassy-card__region">{embassy.region}</p>

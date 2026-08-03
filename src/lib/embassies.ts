@@ -8,11 +8,6 @@ export const representationLabels: Record<Embassy['representationType'], string>
   'foreign-ministry': 'Foreign ministry fallback',
 }
 
-export function countryFlag(code: string) {
-  if (!/^[A-Z]{2}$/.test(code)) return '🌐'
-  return String.fromCodePoint(...code.split('').map((letter) => 127397 + letter.charCodeAt(0)))
-}
-
 export function representationSummary(embassy: Embassy) {
   if (embassy.representationType === 'resident-embassy') return 'This country has a resident embassy in Helsinki.'
   if (embassy.representationType === 'representative-office') return 'This country or territory maintains a representative office in Helsinki.'
