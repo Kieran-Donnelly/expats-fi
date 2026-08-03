@@ -6,6 +6,7 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 
 import 'flag-icons/css/flag-icons.min.css'
+import 'maplibre-gl/dist/maplibre-gl.css'
 import './styles.css'
 
 const schibsted = Schibsted_Grotesk({

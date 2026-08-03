@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 
-import { EmbassyCard } from '@/components/EmbassyCard'
+import { EmbassyDirectoryView } from '@/components/EmbassyDirectoryView'
 import { representationLabels } from '@/lib/embassies'
 import { getEmbassies } from '@/lib/content'
 import type { Embassy } from '@/payload-types'
@@ -15,8 +15,8 @@ export const metadata: Metadata = {
 const regions: Embassy['region'][] = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania']
 const representationTypes: Embassy['representationType'][] = ['resident-embassy', 'representative-office', 'non-resident-embassy', 'honorary-consulate', 'foreign-ministry']
 
-export default async function EmbassiesPage({ searchParams }: { searchParams: Promise<{ q?: string; region?: string; type?: string }> }) {
-  const { q = '', region = '', type = '' } = await searchParams
+export default async function EmbassiesPage({ searchParams }: { searchParams: Promise<{ q?: string; region?: string; type?: string; view?: string }> }) {
+  const { q = '', region = '', type = '', view = '' } = await searchParams
   const [embassies, allEmbassies] = await Promise.all([
     getEmbassies({ query: q || undefined, region: region || undefined, representationType: type || undefined }),
     getEmbassies(),
@@ -41,13 +41,13 @@ export default async function EmbassiesPage({ searchParams }: { searchParams: Pr
       <section className="shell listing-section" aria-label="Embassy directory">
         <div className="source-notice"><strong>Official starting point</strong><p>Representation details can change. Records were checked against the Finnish Ministry for Foreign Affairs’ Helsinki Diplomatic List on 3 August 2026.</p><a href="https://um.fi/the-helsinki-diplomatic-list" target="_blank" rel="noreferrer">Open the official diplomatic list ↗</a></div>
         <form className="filter-form embassy-filter" action="/embassies/" method="get" role="search">
+          {view === 'map' ? <input type="hidden" name="view" value="map" /> : null}
           <label>Country or city<input name="q" defaultValue={q} placeholder="India, Helsinki, Stockholm…" /></label>
           <label>Region<select name="region" defaultValue={region}><option value="">All regions</option>{regions.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label>Representation<select name="type" defaultValue={type}><option value="">All types</option>{representationTypes.map((item) => <option key={item} value={item}>{representationLabels[item]}</option>)}</select></label>
           <button type="submit">Find a mission</button>
         </form>
-        <p className="results-note">{embassies.length} {embassies.length === 1 ? 'country' : 'countries'} found</p>
-        {embassies.length ? <div className="embassy-grid">{embassies.map((embassy) => <EmbassyCard embassy={embassy} key={embassy.id} />)}</div> : <div className="empty-state"><h2>No countries match those filters</h2><p>Try a country name, capital, or remove one of the filters.</p></div>}
+        <EmbassyDirectoryView embassies={embassies} initialView={view === 'map' ? 'map' : 'list'} />
       </section>
     </main>
   )

@@ -1,0 +1,1034 @@
+{
+  "AF": {
+    "lat": 59.3012801,
+    "lng": 18.2050854,
+    "precision": "address",
+    "displayName": "2B, Skepparbacken, Saltsjö-Duvnäs, Nacka, Nacka kommun, Stockholm County, 131 50, Sweden"
+  },
+  "AL": {
+    "lat": 59.3608918,
+    "lng": 18.1361698,
+    "precision": "address",
+    "displayName": "Embassy of Albania, 7, Capellavägen, Mosstorp, Torsvik, Lidingö, Lidingö kommun, Stockholm County, 181 32, Sweden"
+  },
+  "DZ": {
+    "lat": 60.1656749,
+    "lng": 24.9505117,
+    "precision": "address",
+    "displayName": "Pohjoinen Makasiinikatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "AD": {
+    "lat": 42.5069168,
+    "lng": 1.5245288,
+    "precision": "address",
+    "displayName": "Carrer Prat de la Creu, Centre històric, La Comella, Andorra la Vella, AD500, Andorra"
+  },
+  "AO": {
+    "lat": 59.3677456,
+    "lng": 18.006181,
+    "precision": "address",
+    "displayName": "7, Pyramidvägen, Arenastaden, Råsunda, Solna, Solna kommun, Stockholm County, 169 79, Sweden"
+  },
+  "AR": {
+    "lat": 60.1654572,
+    "lng": 24.9402672,
+    "precision": "address",
+    "displayName": "Bulevardi, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "AM": {
+    "lat": 59.3399816,
+    "lng": 18.0596602,
+    "precision": "address",
+    "displayName": "76, Sveavägen, Vasastaden, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 111 83, Sweden"
+  },
+  "AU": {
+    "lat": 59.3302177,
+    "lng": 18.0551469,
+    "precision": "address",
+    "displayName": "63, Klarabergsviadukten, Klara, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 111 64, Sweden"
+  },
+  "AT": {
+    "lat": 60.1663562,
+    "lng": 24.9510234,
+    "precision": "address",
+    "displayName": "22, Unioninkatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "AZ": {
+    "lat": 59.3363838,
+    "lng": 18.0578733,
+    "precision": "address",
+    "displayName": "3, Barnhusgatan, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 111 23, Sweden"
+  },
+  "BH": {
+    "lat": 52.5070372,
+    "lng": 13.3510372,
+    "precision": "address",
+    "displayName": "Embassy of the Kingdom of Bahrain, 7, Klingelhöferstraße, Botschaftsviertel, Tiergarten, Mitte, Berlin, 10785, Germany"
+  },
+  "BD": {
+    "lat": 59.3560532,
+    "lng": 18.0001212,
+    "precision": "address",
+    "displayName": "Solna Folkets Hus, 2, Skytteholmsvägen, Skytteholm, Solna, Solna kommun, Stockholm County, 171 25, Sweden"
+  },
+  "BB": {
+    "lat": 50.8467372,
+    "lng": 4.352493,
+    "precision": "city",
+    "displayName": "Brussels, Brussels-Capital, Belgium"
+  },
+  "BY": {
+    "lat": 60.1656136,
+    "lng": 24.9509029,
+    "precision": "address",
+    "displayName": "4, Pohjoinen Makasiinikatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "BE": {
+    "lat": 60.1585054,
+    "lng": 24.9597783,
+    "precision": "address",
+    "displayName": "Embassy of Belgium, 5, Kalliolinnantie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "BJ": {
+    "lat": 48.8699861,
+    "lng": 2.2863873,
+    "precision": "address",
+    "displayName": "87, Avenue Victor Hugo, Chaillot, 16th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75116, France"
+  },
+  "BT": {
+    "lat": 50.8322041,
+    "lng": 4.41772,
+    "precision": "address",
+    "displayName": "Embassy of the Kingdom of Bhutan, 70, Avenue Jules César - Julius Caesarlaan, Woluwe-Saint-Pierre - Sint-Pieters-Woluwe, Brussels-Capital, 1150, Belgium"
+  },
+  "BO": {
+    "lat": 59.3622958,
+    "lng": 18.1231874,
+    "precision": "address",
+    "displayName": "Embassy of Bolivia, 2A, Stjärnvägen, Herserud, Lidingö, Lidingö kommun, Stockholm County, 181 50, Sweden"
+  },
+  "BA": {
+    "lat": 59.3400332,
+    "lng": 18.0664509,
+    "precision": "address",
+    "displayName": "55, Birger Jarlsgatan, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 29, Sweden"
+  },
+  "BW": {
+    "lat": 59.3462302,
+    "lng": 18.0669692,
+    "precision": "address",
+    "displayName": "11, Tyrgatan, Lärkstaden, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 100 41, Sweden"
+  },
+  "BR": {
+    "lat": 60.1590999,
+    "lng": 24.9565284,
+    "precision": "address",
+    "displayName": "Itäinen Puistotie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "BN": {
+    "lat": 52.5113876,
+    "lng": 13.3906041,
+    "precision": "address",
+    "displayName": "Haircondition, 55-58, Kronenstraße, Friedrichswerder, Friedrichstadt, Mitte, Berlin, 10117, Germany"
+  },
+  "BG": {
+    "lat": 60.1869024,
+    "lng": 24.8702284,
+    "precision": "address",
+    "displayName": "Embassy of Bulgaria, 2, Kuusisaarentie, Kuusisaari, Munkkiniemi, Western major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00340, Finland"
+  },
+  "BF": {
+    "lat": 55.719184,
+    "lng": 12.575914,
+    "precision": "address",
+    "displayName": "20, Svanemøllevej, Østerbro, Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 2100, Denmark"
+  },
+  "BI": {
+    "lat": 52.4866918,
+    "lng": 13.3217499,
+    "precision": "address",
+    "displayName": "Embassy of the Republic of Burundi, 36, Berliner Straße, Wilhelmsaue, Güntzelkiez, Wilmersdorf, Charlottenburg-Wilmersdorf, Berlin, 10715, Germany"
+  },
+  "CV": {
+    "lat": 52.5562702,
+    "lng": 13.4095859,
+    "precision": "address",
+    "displayName": "Botschaft der Republik Kap Verde, 16, Stavangerstraße, Nordisches Viertel, Prenzlauer Berg, Pankow, Berlin, 10439, Germany"
+  },
+  "KH": {
+    "lat": 51.545551,
+    "lng": -0.2214001,
+    "precision": "address",
+    "displayName": "Royal Embassy of Cambodia, 64, Brondesbury Park, Brondesbury, London Borough of Brent, Greater London, England, NW6 7AT, United Kingdom"
+  },
+  "CM": {
+    "lat": 51.5055616,
+    "lng": -0.2090524,
+    "precision": "address",
+    "displayName": "High Commission of Cameroon, 84, Holland Park, Notting Hill, Royal Borough of Kensington and Chelsea, Greater London, England, W11 3SB, United Kingdom"
+  },
+  "CA": {
+    "lat": 60.1680048,
+    "lng": 24.9480656,
+    "precision": "address",
+    "displayName": "Embassy of Iceland, 25B, Pohjoisesplanadi, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "CF": {
+    "lat": 50.8987214,
+    "lng": 4.3496996,
+    "precision": "address",
+    "displayName": "101, Avenue de Meysse - Meiseselaan, Laeken - Laken, Brussels, Brussels-Capital, 1020, Belgium"
+  },
+  "TD": {
+    "lat": 52.456071,
+    "lng": 13.3121568,
+    "precision": "address",
+    "displayName": "114, Lepsiusstraße, Steglitz, Steglitz-Zehlendorf, Berlin, 12165, Germany"
+  },
+  "CL": {
+    "lat": 60.165354,
+    "lng": 24.9441361,
+    "precision": "address",
+    "displayName": "11, Erottajankatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "CN": {
+    "lat": 60.1829109,
+    "lng": 25.0063352,
+    "precision": "address",
+    "displayName": "Embassy of the People’s Republic of China, 9-11, Vanha kelkkamäki, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "CO": {
+    "lat": 60.1655565,
+    "lng": 24.9511897,
+    "precision": "address",
+    "displayName": "18, Unioninkatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "KM": {
+    "lat": 48.8746198,
+    "lng": 2.2805084,
+    "precision": "address",
+    "displayName": "20, Rue Marbeau, Quartier de la Porte-Dauphine, 16th Arrondissement, Paris, Ile-de-France, Metropolitan France, 75116, France"
+  },
+  "CG": {
+    "lat": 59.3251172,
+    "lng": 18.0710935,
+    "precision": "city",
+    "displayName": "Stockholm, Stockholm Municipality, Stockholm County, 111 29, Sweden"
+  },
+  "CR": {
+    "lat": 9.9327707,
+    "lng": -84.0796144,
+    "precision": "city",
+    "displayName": "San José, San Jose Province, Costa Rica"
+  },
+  "CI": {
+    "lat": 55.733842,
+    "lng": 12.567833,
+    "precision": "address",
+    "displayName": "8, Gersonsvej, Hellerup, Gentofte Municipality, Capital Region of Denmark, 2900, Denmark"
+  },
+  "HR": {
+    "lat": 60.1663478,
+    "lng": 24.9357569,
+    "precision": "address",
+    "displayName": "18, Kalevankatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "CU": {
+    "lat": 60.16796,
+    "lng": 24.9323807,
+    "precision": "address",
+    "displayName": "61, Fredrikinkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "CY": {
+    "lat": 60.1642624,
+    "lng": 24.936841,
+    "precision": "address",
+    "displayName": "Bulevardi, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "CZ": {
+    "lat": 60.1568889,
+    "lng": 24.9390613,
+    "precision": "address",
+    "displayName": "Embassy of the Czech Republic, 14, Armfeltintie, Eira, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00150, Finland"
+  },
+  "CD": {
+    "lat": 51.5074456,
+    "lng": -0.1277653,
+    "precision": "city",
+    "displayName": "Greater London, England, United Kingdom"
+  },
+  "DK": {
+    "lat": 60.1672477,
+    "lng": 24.9417355,
+    "precision": "address",
+    "displayName": "Embassy of Denmark, 8, Mannerheimintie, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "DJ": {
+    "lat": 55.625578,
+    "lng": 37.6063916,
+    "precision": "city",
+    "displayName": "Moscow, Central Federal District, Russia"
+  },
+  "DO": {
+    "lat": 59.3209511,
+    "lng": 18.0642933,
+    "precision": "address",
+    "displayName": "21, Söder Mälarstrand, Södermalm, Södermalms stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 118 20, Sweden"
+  },
+  "EC": {
+    "lat": 59.3310604,
+    "lng": 18.0698605,
+    "precision": "address",
+    "displayName": "11A, Västra Trädgårdsgatan, Klara, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 111 74, Sweden"
+  },
+  "EG": {
+    "lat": 60.1576629,
+    "lng": 24.9375105,
+    "precision": "address",
+    "displayName": "Embassy of Arab Republic of Egypt, 34a, Tehtaankatu, Viiskulma, Punavuori, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00150, Finland"
+  },
+  "SV": {
+    "lat": 59.3585324,
+    "lng": 18.1262044,
+    "precision": "address",
+    "displayName": "Herserudsvägen, Baggeby, Lidingö, Lidingö kommun, Stockholm County, 181 50, Sweden"
+  },
+  "ER": {
+    "lat": 59.3623272,
+    "lng": 18.1232555,
+    "precision": "address",
+    "displayName": "2, Stjärnvägen, Herserud, Lidingö, Lidingö kommun, Stockholm County, 181 50, Sweden"
+  },
+  "EE": {
+    "lat": 60.1578129,
+    "lng": 24.9594302,
+    "precision": "address",
+    "displayName": "10, Itäinen Puistotie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "SZ": {
+    "lat": 51.4995081,
+    "lng": -0.1400273,
+    "precision": "address",
+    "displayName": "High Commission of Eswatini, 20, Buckingham Gate, Westminster, Victoria, City of Westminster, Greater London, England, SW1E 6DY, United Kingdom"
+  },
+  "ET": {
+    "lat": 59.3849126,
+    "lng": 18.0418127,
+    "precision": "address",
+    "displayName": "Brovägen, Inverness, Mörby, Stocksund, Danderyds kommun, Stockholm County, 182 76, Sweden"
+  },
+  "FR": {
+    "lat": 60.1566639,
+    "lng": 24.9594657,
+    "precision": "address",
+    "displayName": "French Embassy, 13, Itäinen Puistotie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "GA": {
+    "lat": 51.4976452,
+    "lng": -0.1809025,
+    "precision": "address",
+    "displayName": "Embassy of Gabon, 27, Elvaston Place, South Kensington, Royal Borough of Kensington and Chelsea, Greater London, England, SW7 5QG, United Kingdom"
+  },
+  "GM": {
+    "lat": 51.5017808,
+    "lng": -0.1876073,
+    "precision": "address",
+    "displayName": "The Gambia High Commission, 57, Kensington Court, South Kensington, Royal Borough of Kensington and Chelsea, Greater London, England, W8 5DG, United Kingdom"
+  },
+  "GE": {
+    "lat": 60.1722433,
+    "lng": 24.9444598,
+    "precision": "address",
+    "displayName": "Embassy of Georgia, 1, Itäinen Teatterikuja, Kaisaniemi, Kluuvi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "DE": {
+    "lat": 60.1851192,
+    "lng": 24.8640713,
+    "precision": "address",
+    "displayName": "Krogiuksentie, Kuusisaari, Munkkiniemi, Western major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00340, Finland"
+  },
+  "GH": {
+    "lat": 59.910652,
+    "lng": 10.7387,
+    "precision": "address",
+    "displayName": "1, Akersgata, Kvadraturen, Sentrum, Oslo, 0158, Norway"
+  },
+  "GR": {
+    "lat": 60.173318,
+    "lng": 24.960686,
+    "precision": "address",
+    "displayName": "Embassy of Greece, 2 A 4;2, Maneesikatu, Siltavuori, Kruununhaka, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00170, Finland"
+  },
+  "GT": {
+    "lat": 59.3311009,
+    "lng": 18.0482651,
+    "precision": "address",
+    "displayName": "10, Kungsholmsgatan, Kungsholmen, Kungsholmens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 112 27, Sweden"
+  },
+  "GN": {
+    "lat": 55.7408114,
+    "lng": 37.591849,
+    "precision": "address",
+    "displayName": "Prechistenka Street, 33, Khamovniki District, Moscow, Central Federal District, 119034, Russia"
+  },
+  "GW": {
+    "lat": 50.8467372,
+    "lng": 4.352493,
+    "precision": "city",
+    "displayName": "Brussels, Brussels-Capital, Belgium"
+  },
+  "GY": {
+    "lat": 46.2017559,
+    "lng": 6.1466014,
+    "precision": "city",
+    "displayName": "Geneva, Switzerland"
+  },
+  "HT": {
+    "lat": 60.1678933,
+    "lng": 24.9480068,
+    "precision": "address",
+    "displayName": "27, Pohjoisesplanadi, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "HN": {
+    "lat": 50.8450596,
+    "lng": 4.3904046,
+    "precision": "address",
+    "displayName": "89, Avenue de Cortenbergh - Kortenberglaan, Quartier des Squares - Wijk van de Squares, European Quarter, Brussels, Brussels-Capital, 1000, Belgium"
+  },
+  "HU": {
+    "lat": 60.1830883,
+    "lng": 24.858285,
+    "precision": "address",
+    "displayName": "Unkarin suurlähetystö, 6, Kuusisaarenkuja, Kuusisaari, Munkkiniemi, Western major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00340, Finland"
+  },
+  "IS": {
+    "lat": 60.1680048,
+    "lng": 24.9480656,
+    "precision": "address",
+    "displayName": "Embassy of Iceland, 25B, Pohjoisesplanadi, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "IN": {
+    "lat": 60.1844355,
+    "lng": 25.0091402,
+    "precision": "address",
+    "displayName": "Embassy of India, 32, Kulosaarentie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "ID": {
+    "lat": 60.1872884,
+    "lng": 24.8680602,
+    "precision": "address",
+    "displayName": "Embassy of Indonesia, 3, Kuusisaarentie, Kuusisaari, Munkkiniemi, Western major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00340, Finland"
+  },
+  "IR": {
+    "lat": 60.1840033,
+    "lng": 25.0048983,
+    "precision": "address",
+    "displayName": "Embassy of Iran, 9, Kulosaarentie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "IQ": {
+    "lat": 60.1833466,
+    "lng": 25.0139448,
+    "precision": "address",
+    "displayName": "Embassy of the republic of Iraq, 2, Lars Sonckin tie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "IE": {
+    "lat": 60.1648619,
+    "lng": 24.9442857,
+    "precision": "address",
+    "displayName": "Embassy of Ireland, 7A, Erottajankatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "IL": {
+    "lat": 60.1686236,
+    "lng": 24.9364026,
+    "precision": "address",
+    "displayName": "Embassy of Israel, 36 A, Yrjönkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "IT": {
+    "lat": 60.1588063,
+    "lng": 24.9577647,
+    "precision": "address",
+    "displayName": "4A, Itäinen Puistotie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "JM": {
+    "lat": 51.5001708,
+    "lng": -0.1749031,
+    "precision": "address",
+    "displayName": "Jamaican High Commission, 1-2, Prince Consort Road, Knightsbridge, City of Westminster, Greater London, England, SW7 2BP, United Kingdom"
+  },
+  "JP": {
+    "lat": 60.1659845,
+    "lng": 24.9512811,
+    "precision": "address",
+    "displayName": "Unioninkatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "JO": {
+    "lat": 52.5118667,
+    "lng": 13.2015961,
+    "precision": "address",
+    "displayName": "Botschaft Jordanien, 201, Heerstraße, Pichelswerder, Pichelsdorf, Wilhelmstadt, Spandau, Berlin, 13595, Germany"
+  },
+  "KZ": {
+    "lat": 60.1840204,
+    "lng": 25.0023838,
+    "precision": "address",
+    "displayName": "India house, 4, Hopeasalmentie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "KE": {
+    "lat": 59.338393,
+    "lng": 18.0683078,
+    "precision": "address",
+    "displayName": "Bongo Kök & Bar, 37, Birger Jarlsgatan, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 113 58, Sweden"
+  },
+  "XK": {
+    "lat": 59.3378782,
+    "lng": 18.0690582,
+    "precision": "address",
+    "displayName": "33, Birger Jarlsgatan, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 111 45, Sweden"
+  },
+  "KW": {
+    "lat": 59.3370456,
+    "lng": 18.0595751,
+    "precision": "address",
+    "displayName": "13, Adolf Fredriks Kyrkogata, Norrmalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 111 37, Sweden"
+  },
+  "KG": {
+    "lat": 52.5198184,
+    "lng": 13.3003236,
+    "precision": "address",
+    "displayName": "Embassy of Kyrgyzstan, 146, Otto-Suhr-Allee, Gierkekiez, Mierendorffkiez, Charlottenburg, Charlottenburg-Wilmersdorf, Berlin, 10585, Germany"
+  },
+  "LA": {
+    "lat": 59.3232595,
+    "lng": 17.992205,
+    "precision": "address",
+    "displayName": "11, Badstrandsvägen, Stora Essingen, Kungsholmens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 112 65, Sweden"
+  },
+  "LV": {
+    "lat": 60.1563872,
+    "lng": 24.9389981,
+    "precision": "address",
+    "displayName": "Embassy of Latvia, 10, Armfeltintie, Eira, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00150, Finland"
+  },
+  "LB": {
+    "lat": 59.3849126,
+    "lng": 18.0418127,
+    "precision": "address",
+    "displayName": "Brovägen, Inverness, Mörby, Stocksund, Danderyds kommun, Stockholm County, 182 76, Sweden"
+  },
+  "LS": {
+    "lat": 53.3350637,
+    "lng": -6.2460117,
+    "precision": "address",
+    "displayName": "Embassy of the Kingdom of Lesotho, 66, Baggot Street Lower, South Dock ED, Dublin, County Dublin, Leinster, D02 P593, Ireland"
+  },
+  "LR": {
+    "lat": 52.4975967,
+    "lng": 13.3090572,
+    "precision": "address",
+    "displayName": "38, Düsseldorfer Straße, Fasanenkiez, Wilmersdorf, Charlottenburg-Wilmersdorf, Berlin, 10707, Germany"
+  },
+  "LY": {
+    "lat": 59.3456536,
+    "lng": 18.0696103,
+    "precision": "address",
+    "displayName": "74, Valhallavägen, Lärkstaden, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 26, Sweden"
+  },
+  "LT": {
+    "lat": 60.1698677,
+    "lng": 24.9594049,
+    "precision": "address",
+    "displayName": "Pohjoisranta, Torikorttelit, Kruununhaka, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00170, Finland"
+  },
+  "LU": {
+    "lat": 55.6867243,
+    "lng": 12.5700724,
+    "precision": "city",
+    "displayName": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark"
+  },
+  "MG": {
+    "lat": 51.5029954,
+    "lng": -0.0014602,
+    "precision": "address",
+    "displayName": "United Kingdom, Blackwall Tunnel, Blackwall Reach, Greenwich Peninsula, Royal Borough of Greenwich, Greater London, England, E14 9PB, United Kingdom"
+  },
+  "MW": {
+    "lat": 51.5215018,
+    "lng": -0.1151684,
+    "precision": "address",
+    "displayName": "Malawi High Commission, 36, John Street, Hatton Garden, Holborn, London Borough of Camden, Greater London, England, WC1N 2AT, United Kingdom"
+  },
+  "MY": {
+    "lat": 60.1689405,
+    "lng": 24.9436397,
+    "precision": "address",
+    "displayName": "17, Aleksanterinkatu, Kaisaniemi, Kluuvi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "MV": {
+    "lat": 52.5096155,
+    "lng": 13.3902605,
+    "precision": "address",
+    "displayName": "Embassy of Maldives, 55A, Friedrichstrasse, Friedrichstadt, Mitte, Berlin, 10117, Germany"
+  },
+  "ML": {
+    "lat": 52.5001153,
+    "lng": 13.3059684,
+    "precision": "address",
+    "displayName": "Embassy of the Republic of Mali, 72, Kurfürstendamm, Charlottenburg, Charlottenburg-Wilmersdorf, Berlin, 10709, Germany"
+  },
+  "MT": {
+    "lat": 35.8953545,
+    "lng": 14.5097558,
+    "precision": "address",
+    "displayName": "Central Bank of Malta, Castille Place, Valletta, Port Region, VLT 1060, Malta"
+  },
+  "MR": {
+    "lat": 50.7981844,
+    "lng": 4.3919141,
+    "precision": "address",
+    "displayName": "6, Avenue de la Colombie - Colombialaan, south extension of Brussels, Brussels, Brussels-Capital, 1000, Belgium"
+  },
+  "MU": {
+    "lat": 51.4975629,
+    "lng": -0.1817773,
+    "precision": "address",
+    "displayName": "High Commission of Mauritius, 32/33, Elvaston Place, South Kensington, Royal Borough of Kensington and Chelsea, Greater London, England, SW7 5QG, United Kingdom"
+  },
+  "MX": {
+    "lat": 60.1691873,
+    "lng": 24.9367234,
+    "precision": "address",
+    "displayName": "Simonkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "MD": {
+    "lat": 59.3432708,
+    "lng": 18.0722082,
+    "precision": "address",
+    "displayName": "10, Engelbrektsgatan, Villastaden, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 26, Sweden"
+  },
+  "MN": {
+    "lat": 59.402486,
+    "lng": 18.0354482,
+    "precision": "address",
+    "displayName": "29, Svärdvägen, Mörby, Stocksund, Danderyds kommun, Stockholm County, 182 33, Sweden"
+  },
+  "ME": {
+    "lat": 55.682076,
+    "lng": 12.591874,
+    "precision": "address",
+    "displayName": "6, Amaliegade, Frederiksstaden, Indre By, Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1256, Denmark"
+  },
+  "MA": {
+    "lat": 60.1656832,
+    "lng": 24.9507793,
+    "precision": "address",
+    "displayName": "Pohjoinen Makasiinikatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "MZ": {
+    "lat": 59.4290379,
+    "lng": 17.9465642,
+    "precision": "address",
+    "displayName": "Embassy of Mozambique, 19, Tingsvägen, Töjnan, Tureberg, Sollentuna kommun, Stockholm County, 191 61, Sweden"
+  },
+  "MM": {
+    "lat": 52.4553122,
+    "lng": 13.2848421,
+    "precision": "address",
+    "displayName": "Botschaft der Republik der Union Myanmar, 19, Thielallee, Dahlem, Steglitz-Zehlendorf, Berlin, 14195, Germany"
+  },
+  "NA": {
+    "lat": 60.1655565,
+    "lng": 24.9511897,
+    "precision": "address",
+    "displayName": "18, Unioninkatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "NP": {
+    "lat": 55.6867243,
+    "lng": 12.5700724,
+    "precision": "city",
+    "displayName": "Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1357, Denmark"
+  },
+  "NL": {
+    "lat": 60.1663786,
+    "lng": 24.9442849,
+    "precision": "address",
+    "displayName": "Embassy of the Kingdom of the Netherlands in Helsinki, 19B, Erottajankatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "NZ": {
+    "lat": 59.3341796,
+    "lng": 18.1078902,
+    "precision": "address",
+    "displayName": "6, Skarpögatan, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 115 93, Sweden"
+  },
+  "NE": {
+    "lat": 55.722502,
+    "lng": 12.573787,
+    "precision": "address",
+    "displayName": "11, Rosbæksvej, Østerbro, Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 2100, Denmark"
+  },
+  "NG": {
+    "lat": 59.3462246,
+    "lng": 18.0673383,
+    "precision": "address",
+    "displayName": "8, Tyrgatan, Lärkstaden, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 100 41, Sweden"
+  },
+  "KP": {
+    "lat": 59.3711501,
+    "lng": 18.1325767,
+    "precision": "address",
+    "displayName": "Embassy of North Korea, 39, Norra Kungsvägen, Torsvik, Lidingö, Lidingö kommun, Stockholm County, 181 31, Sweden"
+  },
+  "MK": {
+    "lat": 59.3326603,
+    "lng": 18.0858918,
+    "precision": "address",
+    "displayName": "35, Riddargatan, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 57, Sweden"
+  },
+  "NO": {
+    "lat": 60.1572568,
+    "lng": 24.9381345,
+    "precision": "address",
+    "displayName": "1, Hornintie, Eira, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00150, Finland"
+  },
+  "OM": {
+    "lat": 52.4618053,
+    "lng": 13.2761058,
+    "precision": "address",
+    "displayName": "Embassy of Oman, 82, Clayallee, Dahlem, Steglitz-Zehlendorf, Berlin, 14195, Germany"
+  },
+  "PK": {
+    "lat": 59.3396216,
+    "lng": 18.0815934,
+    "precision": "address",
+    "displayName": "65, Karlavägen, Villastaden, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 43, Sweden"
+  },
+  "PS": {
+    "lat": 60.1657549,
+    "lng": 24.9287443,
+    "precision": "address",
+    "displayName": "8, Ruoholahdenkatu, Hietalahti, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00180, Finland"
+  },
+  "PA": {
+    "lat": 59.3417459,
+    "lng": 18.0787399,
+    "precision": "address",
+    "displayName": "59, Östermalmsgatan, Villastaden, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 43, Sweden"
+  },
+  "PY": {
+    "lat": 52.5083806,
+    "lng": 13.3268951,
+    "precision": "address",
+    "displayName": "Embassy of the Republic of Paraguay, 12, Hardenbergstraße, Alt-Lietzow, Charlottenburg, Charlottenburg-Wilmersdorf, Berlin, 10623, Germany"
+  },
+  "PE": {
+    "lat": 60.1668712,
+    "lng": 24.9399671,
+    "precision": "address",
+    "displayName": "Lönnrotinkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "PH": {
+    "lat": 60.1666204,
+    "lng": 24.9435408,
+    "precision": "city",
+    "displayName": "Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, Finland"
+  },
+  "PL": {
+    "lat": 60.1795815,
+    "lng": 25.0161758,
+    "precision": "address",
+    "displayName": "Embassy of the Republic of Poland, 21, Armas Lindgrenin tie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "PT": {
+    "lat": 60.1663562,
+    "lng": 24.9510234,
+    "precision": "address",
+    "displayName": "22, Unioninkatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "QA": {
+    "lat": 60.1655565,
+    "lng": 24.9511897,
+    "precision": "address",
+    "displayName": "18, Unioninkatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "RO": {
+    "lat": 60.1863829,
+    "lng": 24.9102856,
+    "precision": "address",
+    "displayName": "Embassy of Romania, 24, Stenbäckinkatu, Meilahti, Western major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00250, Finland"
+  },
+  "RU": {
+    "lat": 60.1596463,
+    "lng": 24.9519702,
+    "precision": "address",
+    "displayName": "Embassy of Russia, 1 B, Tehtaankatu, Ullanlinna, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "RW": {
+    "lat": 59.3499016,
+    "lng": 18.046248,
+    "precision": "address",
+    "displayName": "159, Sveavägen, Hagastaden, Vasastaden, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 113 46, Sweden"
+  },
+  "VC": {
+    "lat": 51.5013388,
+    "lng": -0.1869024,
+    "precision": "address",
+    "displayName": "10, Kensington Court, South Kensington, Royal Borough of Kensington and Chelsea, Greater London, England, W8 5DL, United Kingdom"
+  },
+  "SM": {
+    "lat": 43.9363996,
+    "lng": 12.4466991,
+    "precision": "city",
+    "displayName": "City of San Marino, 47890, San Marino"
+  },
+  "ST": {
+    "lat": 50.8365479,
+    "lng": 4.4078063,
+    "precision": "address",
+    "displayName": "Embassy of the Democratic Republic of São Tomé and Príncipe, 175, Avenue de Tervueren - Tervurenlaan, Woluwe-Saint-Pierre - Sint-Pieters-Woluwe, Brussels-Capital, 1150, Belgium"
+  },
+  "SA": {
+    "lat": 60.1861888,
+    "lng": 24.9097954,
+    "precision": "address",
+    "displayName": "Embassy of Saudi Arabia, 26, Stenbäckinkatu, Meilahti, Western major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00250, Finland"
+  },
+  "SN": {
+    "lat": 52.0860417,
+    "lng": 4.298827,
+    "precision": "address",
+    "displayName": "Embassy of Senegal, 22, Laan van Meerdervoort, Centrum, The Hague, South Holland, Netherlands, 2517 AK, Netherlands"
+  },
+  "RS": {
+    "lat": 60.184281,
+    "lng": 25.0099627,
+    "precision": "address",
+    "displayName": "Embassy of Serbia, 36, Kulosaarentie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "SC": {
+    "lat": 51.4934124,
+    "lng": -0.1471873,
+    "precision": "address",
+    "displayName": "Buckingham Palace Road, Victoria, City of Westminster, Greater London, England, SW1W 9SA, United Kingdom"
+  },
+  "SL": {
+    "lat": 51.5189171,
+    "lng": -0.1174267,
+    "precision": "address",
+    "displayName": "Sierra Leone High Commission, 41, Eagle Street, Holborn, London Borough of Camden, Greater London, England, WC1R 4AT, United Kingdom"
+  },
+  "SG": {
+    "lat": 1.3042047,
+    "lng": 103.8184717,
+    "precision": "address",
+    "displayName": "Ministry of Foreign Affairs, Singapore, Camp Road, Ridout, Tanglin, Central Region, Singapore, 258507, Singapore"
+  },
+  "SK": {
+    "lat": 60.1844107,
+    "lng": 25.0172387,
+    "precision": "address",
+    "displayName": "Embassy of Slovakia, 5, Vähäniityntie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "SI": {
+    "lat": 55.682076,
+    "lng": 12.591874,
+    "precision": "address",
+    "displayName": "6, Amaliegade, Frederiksstaden, Indre By, Copenhagen, Copenhagen Municipality, Capital Region of Denmark, 1256, Denmark"
+  },
+  "SO": {
+    "lat": 59.4323628,
+    "lng": 17.9454796,
+    "precision": "address",
+    "displayName": "5, Turebergsvägen, Södra Häggvik, Tureberg, Sollentuna kommun, Stockholm County, 191 47, Sweden"
+  },
+  "ZA": {
+    "lat": 59.3130069,
+    "lng": 18.1012809,
+    "precision": "address",
+    "displayName": "7, Alsnögatan, Danvikstull, Södermalm, Södermalms stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 116 41, Sweden"
+  },
+  "KR": {
+    "lat": 60.1656136,
+    "lng": 24.9509029,
+    "precision": "address",
+    "displayName": "4, Pohjoinen Makasiinikatu, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00130, Finland"
+  },
+  "SS": {
+    "lat": 59.9133301,
+    "lng": 10.7389701,
+    "precision": "city",
+    "displayName": "Oslo, Norway"
+  },
+  "ES": {
+    "lat": 60.1592895,
+    "lng": 24.9586412,
+    "precision": "address",
+    "displayName": "Embassy of Spain in Helsinki, 6, Kalliolinnantie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "LK": {
+    "lat": 59.3319518,
+    "lng": 18.0900984,
+    "precision": "address",
+    "displayName": "39, Strandvägen, Östermalm, Norra innerstadens stadsdelsområde, Stockholm, Stockholm Municipality, Stockholm County, 114 57, Sweden"
+  },
+  "SD": {
+    "lat": 59.3649311,
+    "lng": 18.1268942,
+    "precision": "address",
+    "displayName": "Embassy of Sudan, 33, Stockholmsvägen, Herserud, Lidingö, Lidingö kommun, Stockholm County, 181 33, Sweden"
+  },
+  "SR": {
+    "lat": 52.0874727,
+    "lng": 4.2864947,
+    "precision": "address",
+    "displayName": "Embassy of Suriname, 2, Alexander Gogelweg, Zorgvliet, Scheveningen, The Hague, South Holland, Netherlands, 2517 JH, Netherlands"
+  },
+  "SE": {
+    "lat": 60.1682907,
+    "lng": 24.9541012,
+    "precision": "address",
+    "displayName": "Embassy of Sweden, 7B, Pohjoisesplanadi, Kaartinkaupunki, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00170, Finland"
+  },
+  "CH": {
+    "lat": 60.1666204,
+    "lng": 24.9435408,
+    "precision": "city",
+    "displayName": "Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, Finland"
+  },
+  "SY": {
+    "lat": 59.3945647,
+    "lng": 18.0488044,
+    "precision": "address",
+    "displayName": "Embassy of Syria, 90, Vendevägen, Ösby, Mörby, Stocksund, Lidingö, Danderyds kommun, Stockholm County, 182 32, Sweden"
+  },
+  "TW": {
+    "lat": 60.1689405,
+    "lng": 24.9436397,
+    "precision": "address",
+    "displayName": "17, Aleksanterinkatu, Kaisaniemi, Kluuvi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00100, Finland"
+  },
+  "TJ": {
+    "lat": 53.9024716,
+    "lng": 27.5618225,
+    "precision": "city",
+    "displayName": "Minsk, Belarus"
+  },
+  "TZ": {
+    "lat": 59.4277855,
+    "lng": 18.0842344,
+    "precision": "address",
+    "displayName": "Embassy of Tanzania, 6, Näsby allé, Näsbypark, Täby, Täby kommun, Stockholm County, 183 71, Sweden"
+  },
+  "TH": {
+    "lat": 60.1669672,
+    "lng": 24.9402467,
+    "precision": "address",
+    "displayName": "Lönnrotinkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "TG": {
+    "lat": 60.3058309,
+    "lng": 24.9715033,
+    "precision": "address",
+    "displayName": "Teknobulevardi, Aerola, Veromies, Aviapoliksen suuralue, Vantaa, Helsinki sub-region, Uusimaa, Mainland Finland, 01530, Finland"
+  },
+  "TT": {
+    "lat": 51.4998437,
+    "lng": -0.1520781,
+    "precision": "address",
+    "displayName": "High Commission of Trinidad and Tobago, 42, Belgrave Square, Belgravia, City of Westminster, Greater London, England, SW1X 8NT, United Kingdom"
+  },
+  "TN": {
+    "lat": 60.1613879,
+    "lng": 24.9411447,
+    "precision": "address",
+    "displayName": "Fredrikinkatu, Viiskulma, Punavuori, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "TR": {
+    "lat": 60.1666204,
+    "lng": 24.9435408,
+    "precision": "city",
+    "displayName": "Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, Finland"
+  },
+  "TM": {
+    "lat": 51.5058337,
+    "lng": -0.2096164,
+    "precision": "address",
+    "displayName": "Embassy of Turkmenistan, 131, Holland Park Avenue, Notting Hill, Royal Borough of Kensington and Chelsea, Greater London, England, W11 4UT, United Kingdom"
+  },
+  "UG": {
+    "lat": 55.73277,
+    "lng": 12.572492,
+    "precision": "address",
+    "displayName": "15, Sofievej, Hellerup, Gentofte Municipality, Capital Region of Denmark, 2900, Denmark"
+  },
+  "UA": {
+    "lat": 60.185393,
+    "lng": 25.0176394,
+    "precision": "address",
+    "displayName": "Embassy of Ukraine, 9, Vähäniityntie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "AE": {
+    "lat": 60.1658942,
+    "lng": 24.9367624,
+    "precision": "address",
+    "displayName": "Pikkulintu Ruttopuisto, 11, Lönnrotinkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "GB": {
+    "lat": 60.1563382,
+    "lng": 24.9600597,
+    "precision": "address",
+    "displayName": "British Embassy, 17, Itäinen Puistotie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "US": {
+    "lat": 60.1568946,
+    "lng": 24.9616215,
+    "precision": "address",
+    "displayName": "14, Itäinen Puistotie, Kaivopuisto, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00140, Finland"
+  },
+  "UY": {
+    "lat": 60.165262,
+    "lng": 24.9423685,
+    "precision": "address",
+    "displayName": "16, Yrjönkatu, Kamppi, Southern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00120, Finland"
+  },
+  "UZ": {
+    "lat": 56.9547281,
+    "lng": 24.1171937,
+    "precision": "address",
+    "displayName": "Elizabetes iela, Centra rajons, Centre, Centra apkaime, Riga, LV-1010, Latvia"
+  },
+  "VA": {
+    "lat": 59.4092862,
+    "lng": 18.0931731,
+    "precision": "address",
+    "displayName": "Apostolic Nunciature, 10, Svalnäsvägen, Svalnäs, Djursholm, Danderyds kommun, Stockholm County, 182 63, Sweden"
+  },
+  "VE": {
+    "lat": 52.0941368,
+    "lng": 4.2830255,
+    "precision": "address",
+    "displayName": "Embassy of Venezuela, 5, Churchillplein, Scheveningen, The Hague, South Holland, Netherlands, 2517 JW, Netherlands"
+  },
+  "VN": {
+    "lat": 60.1846484,
+    "lng": 25.0042112,
+    "precision": "address",
+    "displayName": "Embassy of Vietnam, 12, Kulosaarentie, Kulosaari, Southeastern major district, Helsinki, Helsinki sub-region, Uusimaa, Mainland Finland, 00570, Finland"
+  },
+  "YE": {
+    "lat": 52.4586296,
+    "lng": 13.3114537,
+    "precision": "address",
+    "displayName": "7, Schmidt-Ott-Straße, Steglitz, Steglitz-Zehlendorf, Berlin, 12165, Germany"
+  },
+  "ZM": {
+    "lat": 59.3679296,
+    "lng": 18.0105427,
+    "precision": "address",
+    "displayName": "Embassy of Zambia, 18, Gårdsvägen, Hagalund, Solna, Solna kommun, Stockholm County, 169 03, Sweden"
+  },
+  "ZW": {
+    "lat": 59.3585324,
+    "lng": 18.1262044,
+    "precision": "address",
+    "displayName": "Herserudsvägen, Baggeby, Lidingö, Lidingö kommun, Stockholm County, 181 50, Sweden"
+  }
+}
