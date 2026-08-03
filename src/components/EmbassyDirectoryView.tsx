@@ -10,6 +10,67 @@ import { EmbassyCard } from './EmbassyCard'
 
 type DirectoryView = 'list' | 'map'
 
+type MapInstance = {
+  addControl: (control: unknown, position?: string) => void
+  fitBounds: (bounds: BoundsInstance, options?: Record<string, unknown>) => void
+  jumpTo: (options: Record<string, unknown>) => void
+  remove: () => void
+}
+
+type BoundsInstance = { extend: (coordinates: [number, number]) => BoundsInstance }
+
+type MapLibreRuntime = {
+  Map: new (options: Record<string, unknown>) => MapInstance
+  NavigationControl: new (options?: Record<string, unknown>) => unknown
+  LngLatBounds: new () => BoundsInstance
+  Marker: new (options?: Record<string, unknown>) => {
+    setLngLat: (coordinates: [number, number]) => {
+      setPopup: (popup: unknown) => { addTo: (map: MapInstance) => void }
+    }
+  }
+  Popup: new (options?: Record<string, unknown>) => {
+    setDOMContent: (content: HTMLElement) => unknown
+  }
+}
+
+declare global {
+  interface Window { maplibregl?: MapLibreRuntime }
+}
+
+const mapLibreVersion = '5.12.0'
+
+async function loadMapLibre(): Promise<MapLibreRuntime> {
+  if (window.maplibregl) return window.maplibregl
+
+  if (!document.querySelector('link[data-maplibre]')) {
+    const styles = document.createElement('link')
+    styles.rel = 'stylesheet'
+    styles.href = `https://cdn.jsdelivr.net/npm/maplibre-gl@${mapLibreVersion}/dist/maplibre-gl.css`
+    styles.dataset.maplibre = 'true'
+    document.head.append(styles)
+  }
+
+  await new Promise<void>((resolve, reject) => {
+    const existing = document.querySelector<HTMLScriptElement>('script[data-maplibre]')
+    if (existing) {
+      existing.addEventListener('load', () => resolve(), { once: true })
+      existing.addEventListener('error', () => reject(new Error('Map runtime failed to load')), { once: true })
+      return
+    }
+
+    const script = document.createElement('script')
+    script.src = `https://cdn.jsdelivr.net/npm/maplibre-gl@${mapLibreVersion}/dist/maplibre-gl.js`
+    script.defer = true
+    script.dataset.maplibre = 'true'
+    script.addEventListener('load', () => resolve(), { once: true })
+    script.addEventListener('error', () => reject(new Error('Map runtime failed to load')), { once: true })
+    document.head.append(script)
+  })
+
+  if (!window.maplibregl) throw new Error('Map runtime is unavailable')
+  return window.maplibregl
+}
+
 export function EmbassyDirectoryView({
   embassies,
   initialView,
@@ -76,11 +137,11 @@ function EmbassyMap({
     if (!mapContainerRef.current || !embassies.length) return
 
     let disposed = false
-    let mapInstance: import('maplibre-gl').Map | undefined
+    let mapInstance: MapInstance | undefined
 
     async function initialiseMap() {
       try {
-        const maplibre = await import('maplibre-gl')
+        const maplibre = await loadMapLibre()
         if (disposed || !mapContainerRef.current) return
 
         mapInstance = new maplibre.Map({
