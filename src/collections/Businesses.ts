@@ -1,0 +1,78 @@
+import type { CollectionConfig } from 'payload'
+
+export const Businesses: CollectionConfig = {
+  slug: 'businesses',
+  admin: {
+    group: 'Directory',
+    useAsTitle: 'name',
+    defaultColumns: ['name', 'categories', 'locations', 'status'],
+  },
+  access: {
+    read: ({ req: { user } }) => Boolean(user) || { status: { equals: 'published' } },
+    create: ({ req: { user } }) => Boolean(user),
+    update: ({ req: { user } }) => Boolean(user),
+    delete: ({ req: { user } }) => Boolean(user),
+  },
+  fields: [
+    {
+      name: 'name',
+      type: 'text',
+      required: true,
+    },
+    {
+      name: 'slug',
+      type: 'text',
+      required: true,
+      unique: true,
+      index: true,
+      admin: { position: 'sidebar' },
+    },
+    {
+      name: 'summary',
+      type: 'textarea',
+      required: true,
+    },
+    {
+      name: 'description',
+      type: 'textarea',
+      required: true,
+    },
+    {
+      name: 'categories',
+      type: 'array',
+      required: true,
+      minRows: 1,
+      fields: [{ name: 'label', type: 'text', required: true }],
+    },
+    {
+      name: 'locations',
+      type: 'array',
+      required: true,
+      minRows: 1,
+      fields: [{ name: 'label', type: 'text', required: true }],
+    },
+    { name: 'address', type: 'text', required: true },
+    { name: 'website', type: 'text', required: true },
+    { name: 'phone', type: 'text' },
+    {
+      name: 'featured',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: { position: 'sidebar' },
+    },
+    {
+      name: 'status',
+      type: 'select',
+      required: true,
+      defaultValue: 'published',
+      options: ['draft', 'published'],
+      index: true,
+      admin: { position: 'sidebar' },
+    },
+    {
+      name: 'image',
+      type: 'upload',
+      relationTo: 'media',
+    },
+  ],
+}
