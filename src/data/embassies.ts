@@ -1,3 +1,5 @@
+import { embassyAddresses } from './embassy-addresses'
+
 export type EmbassySeed = {
   country: string
   countryCode: string
@@ -8,6 +10,7 @@ export type EmbassySeed = {
   city: string
   hostCountry: string
   sourceUrl: string
+  address?: string
   notes: string
   lastVerifiedAt: string
 }
@@ -221,7 +224,7 @@ const residents = new Set(`Algeria|Argentina|Austria|Belarus|Belgium|Brazil|Bulg
 const nonResidentGroups: Record<string, string[]> = {
   'Berlin|Germany': `Bahrain|Brunei|Burundi|Cabo Verde|Chad|Jordan|Kyrgyzstan|Liberia|Maldives|Mali|Myanmar|Oman|Paraguay|Yemen`.split('|'),
   'Brussels|Belgium': `Barbados|Bhutan|Central African Republic|Guinea-Bissau|Honduras|Mauritania|São Tomé and Príncipe`.split('|'),
-  'Copenhagen|Denmark': `Burkina Faso|Côte d'Ivoire|Luxembourg|Nepal|Niger|Slovenia|Uganda`.split('|'),
+  'Copenhagen|Denmark': `Burkina Faso|Côte d'Ivoire|Luxembourg|Montenegro|Nepal|Niger|Slovenia|Uganda`.split('|'),
   'London|United Kingdom': `Cambodia|Cameroon|Democratic Republic of the Congo|Eswatini|Gabon|Gambia|Jamaica|Madagascar|Malawi|Mauritius|Saint Vincent and the Grenadines|Seychelles|Sierra Leone|Trinidad and Tobago|Turkmenistan`.split('|'),
   'Moscow|Russia': `Djibouti|Guinea`.split('|'),
   'Oslo|Norway': `Ghana|South Sudan`.split('|'),
@@ -232,7 +235,6 @@ const nonResidentGroups: Record<string, string[]> = {
   'Geneva|Switzerland': ['Guyana'],
   'Dublin|Ireland': ['Lesotho'],
   'Valletta|Malta': ['Malta'],
-  'Podgorica|Montenegro': ['Montenegro'],
   'San Marino|San Marino': ['San Marino'],
   'The Hague|Netherlands': ['Senegal', 'Suriname', 'Venezuela'],
   'Singapore|Singapore': ['Singapore'],
@@ -254,7 +256,16 @@ function slugify(value: string) {
 }
 
 export const embassySeeds: EmbassySeed[] = countryRows.map(({ country, countryCode, region, capital }) => {
-  const shared = { country, countryCode, slug: slugify(country), region, sourceUrl: directoryUrl, lastVerifiedAt: '2026-08-03T00:00:00.000Z' }
+  const contact = embassyAddresses[countryCode]
+  const shared = {
+    country,
+    countryCode,
+    slug: slugify(country),
+    region,
+    sourceUrl: contact?.sourceUrl ?? directoryUrl,
+    address: contact?.address,
+    lastVerifiedAt: '2026-08-03T00:00:00.000Z',
+  }
 
   if (residents.has(country)) {
     return { ...shared, representationType: 'resident-embassy', missionName: `Embassy of ${country} in Finland`, city: 'Helsinki', hostCountry: 'Finland', notes: 'Resident embassy in Helsinki. Check the official directory before visiting because opening hours and contact details can change.' }
