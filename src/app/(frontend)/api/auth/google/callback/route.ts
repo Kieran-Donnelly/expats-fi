@@ -9,7 +9,8 @@ import { createGoogleSessionToken, GOOGLE_OAUTH_COOKIE, GOOGLE_SESSION_COOKIE, s
 const googleKeys = createRemoteJWKSet(new URL('https://www.googleapis.com/oauth2/v3/certs'))
 
 export async function GET(request: NextRequest) {
-  const fail = () => NextResponse.redirect(new URL('/login/?error=google', request.url))
+  const appURL = process.env.NEXT_PUBLIC_SERVER_URL || request.url
+  const fail = () => NextResponse.redirect(new URL('/login/?error=google', appURL))
   const clientId = process.env.GOOGLE_CLIENT_ID
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET
   const code = request.nextUrl.searchParams.get('code')
@@ -18,7 +19,7 @@ export async function GET(request: NextRequest) {
   if (!clientId || !clientSecret || !code || !state || state !== expectedState) return fail()
 
   try {
-    const redirectUri = new URL('/api/auth/google/callback', request.url).toString()
+    const redirectUri = new URL('/api/auth/google/callback', appURL).toString()
     const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -68,7 +69,7 @@ export async function GET(request: NextRequest) {
     }
 
     const session = await createGoogleSessionToken({ id: member.id, email: member.email, name: member.name, picture: member.picture, provider: member.provider })
-    const response = NextResponse.redirect(new URL('/account/', request.url))
+    const response = NextResponse.redirect(new URL('/account/', appURL))
     response.cookies.set(GOOGLE_SESSION_COOKIE, session, { ...secureCookieOptions(), maxAge: 60 * 60 * 24 * 30 })
     response.cookies.set(GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     return response

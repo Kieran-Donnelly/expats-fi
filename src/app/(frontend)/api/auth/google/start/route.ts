@@ -6,10 +6,11 @@ import { GOOGLE_OAUTH_COOKIE, secureCookieOptions } from '@/lib/member-auth'
 export async function GET(request: Request) {
   const clientId = process.env.GOOGLE_CLIENT_ID
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET
-  if (!clientId || !clientSecret) return NextResponse.redirect(new URL('/login/?error=google', request.url))
+  const appURL = process.env.NEXT_PUBLIC_SERVER_URL || request.url
+  if (!clientId || !clientSecret) return NextResponse.redirect(new URL('/login/?error=google', appURL))
 
   const state = randomBytes(32).toString('base64url')
-  const redirectUri = new URL('/api/auth/google/callback', request.url).toString()
+  const redirectUri = new URL('/api/auth/google/callback', appURL).toString()
   const authorization = new URL('https://accounts.google.com/o/oauth2/v2/auth')
   authorization.search = new URLSearchParams({
     client_id: clientId,
