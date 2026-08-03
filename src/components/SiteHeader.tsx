@@ -27,6 +27,7 @@ export function SiteHeader() {
           {guideLinks.map(([label, category]) => (
             <Link key={label} href={`/resources/?category=${encodeURIComponent(category)}`}>{label}</Link>
           ))}
+          <Link href="/embassies/">Embassies</Link>
           <Link href="/businesses/">Community</Link>
         </nav>
         <div className="site-header__actions">
@@ -39,6 +40,7 @@ export function SiteHeader() {
             <nav aria-label="Mobile navigation">
               <Link href="/">Start Here</Link>
               <Link href="/resources/">All guides</Link>
+              <Link href="/embassies/">Embassies</Link>
               {guideLinks.map(([label, category]) => (
                 <Link key={label} href={`/resources/?category=${encodeURIComponent(category)}`}>{label}</Link>
               ))}

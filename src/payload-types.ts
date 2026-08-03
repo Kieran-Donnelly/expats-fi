@@ -70,6 +70,7 @@ export interface Config {
     users: User;
     articles: Article;
     businesses: Business;
+    embassies: Embassy;
     media: Media;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
@@ -82,6 +83,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
     businesses: BusinessesSelect<false> | BusinessesSelect<true>;
+    embassies: EmbassiesSelect<false> | EmbassiesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
@@ -246,6 +248,37 @@ export interface Media {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "embassies".
+ */
+export interface Embassy {
+  id: number;
+  country: string;
+  countryCode: string;
+  slug: string;
+  region: 'Africa' | 'Asia' | 'Europe' | 'North America' | 'South America' | 'Oceania';
+  representationType:
+    'resident-embassy' | 'representative-office' | 'non-resident-embassy' | 'honorary-consulate' | 'foreign-ministry';
+  missionName: string;
+  city: string;
+  hostCountry: string;
+  /**
+   * Official mission website, when known.
+   */
+  website?: string | null;
+  phone?: string | null;
+  email?: string | null;
+  address?: string | null;
+  /**
+   * Primary official directory used to verify this representation.
+   */
+  sourceUrl: string;
+  notes?: string | null;
+  lastVerifiedAt: string;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -373,6 +406,10 @@ export interface PayloadLockedDocument {
         value: number | Business;
       } | null)
     | ({
+        relationTo: 'embassies';
+        value: number | Embassy;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
       } | null);
@@ -486,6 +523,29 @@ export interface BusinessesSelect<T extends boolean = true> {
   featured?: T;
   status?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "embassies_select".
+ */
+export interface EmbassiesSelect<T extends boolean = true> {
+  country?: T;
+  countryCode?: T;
+  slug?: T;
+  region?: T;
+  representationType?: T;
+  missionName?: T;
+  city?: T;
+  hostCountry?: T;
+  website?: T;
+  phone?: T;
+  email?: T;
+  address?: T;
+  sourceUrl?: T;
+  notes?: T;
+  lastVerifiedAt?: T;
   updatedAt?: T;
   createdAt?: T;
 }

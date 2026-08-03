@@ -19,6 +19,7 @@ export function SiteFooter() {
         <nav aria-label="Community links">
           <strong>Community</strong>
           <Link href="/businesses/">Business directory</Link>
+          <Link href="/embassies/">Embassies and consulates</Link>
           <Link href="/submit-business/">List a business</Link>
           <Link href="/resources/">Latest guides</Link>
         </nav>

@@ -130,6 +130,43 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .empty-state { padding-block: 4rem; text-align: center; }
 .empty-state p { color: var(--ink-soft); }
 
+.embassy-hero h1 { max-inline-size: 15ch; }
+.coverage-summary { max-inline-size: 58rem; display: flex; flex-wrap: wrap; gap: .5rem 1.2rem; margin-block-start: 2.5rem; padding-block-start: 1.15rem; border-block-start: 1px solid var(--line-strong); }
+.coverage-summary strong { color: var(--blue-dark); }
+.coverage-summary span { color: var(--ink-soft); font-size: .86rem; }
+.source-notice { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: 1rem 1.4rem; margin-block-end: 1.2rem; padding: 1rem 1.2rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--blue-pale); }
+.source-notice strong { color: var(--blue-dark); }
+.source-notice p { margin: 0; color: var(--ink-soft); font-size: .86rem; }
+.source-notice a { color: var(--blue); font-size: .84rem; font-weight: 680; text-decoration: none; }
+.embassy-filter { grid-template-columns: minmax(14rem, 1.4fr) repeat(2, minmax(12rem, .8fr)) auto; }
+.embassy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.embassy-card { min-inline-size: 0; min-block-size: 22rem; display: flex; flex-direction: column; padding: 1.5rem; border: 1px solid var(--line); border-radius: .9rem; background: var(--snow); }
+.embassy-card__top { display: flex; align-items: start; justify-content: space-between; gap: 1rem; }
+.country-flag { font-size: 2.35rem; line-height: 1; filter: saturate(.9); }
+.country-flag--large { font-size: clamp(5rem, 10vw, 8rem); }
+.representation-badge { inline-size: fit-content; display: inline-flex; align-items: center; padding: .3rem .58rem; border-radius: 999px; background: var(--blue-soft); color: var(--blue-dark); font-size: .65rem; font-weight: 720; letter-spacing: .025em; line-height: 1.25; text-align: center; }
+.representation-badge--resident-embassy, .representation-badge--representative-office { background: oklch(93% .045 150); color: oklch(36% .09 150); }
+.representation-badge--honorary-consulate { background: oklch(96% .06 88); color: oklch(40% .1 70); }
+.representation-badge--foreign-ministry { background: oklch(95% .02 255); color: var(--ink-soft); }
+.embassy-card__region { margin: 1.6rem 0 .3rem; color: var(--muted); font-size: .72rem; font-weight: 700; letter-spacing: .06em; text-transform: uppercase; }
+.embassy-card h2 { font-size: 1.55rem; }
+.embassy-card h2 a { text-decoration: none; }
+.embassy-card h2 a:hover { color: var(--blue); }
+.embassy-card > p:not(.embassy-card__region) { margin: .7rem 0 1rem; color: var(--ink-soft); font-size: .9rem; line-height: 1.6; }
+.embassy-card__location { display: flex; align-items: start; gap: .45rem; margin-block: auto 1.2rem; padding-block-start: 1rem; border-block-start: 1px solid var(--line); color: var(--ink-soft); font-size: .82rem; }
+.embassy-card__location > span:first-child { color: var(--blue); font-size: 1rem; }
+.embassy-card .text-link { font-size: .85rem; }
+.embassy-profile__header { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 3rem; align-items: end; padding-block-end: 2.5rem; border-block-end: 1px solid var(--line); }
+.embassy-profile__header h1 { max-inline-size: 18ch; }
+.embassy-profile__summary { max-inline-size: 48rem; margin: 1rem 0 0; color: var(--ink-soft); font-size: 1.17rem; }
+.embassy-profile__body { display: grid; grid-template-columns: minmax(0, 1fr) 22rem; gap: clamp(3rem, 8vw, 6rem); padding-block-start: 3rem; }
+.embassy-profile__body section > h2 { max-inline-size: 24ch; margin-block: 1.2rem .8rem; font-size: clamp(1.8rem, 3vw, 2.35rem); }
+.embassy-profile__body section > p { max-inline-size: 65ch; color: var(--ink-soft); }
+.verification-callout { max-inline-size: 44rem; margin-block-start: 2rem; padding: 1.25rem; border: 1px solid var(--line-strong); border-radius: .75rem; background: var(--blue-pale); }
+.verification-callout strong { display: block; margin-block-end: .35rem; }
+.verification-callout p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
+.embassy-facts .button { inline-size: 100%; padding-inline: .8rem; font-size: .82rem; }
+
 .detail-shell { padding-block: clamp(3rem, 7vw, 5rem) 7rem; }
 .back-link { display: inline-flex; margin-block-end: 2rem; color: var(--blue); font-weight: 650; text-decoration: none; }
 .business-profile__header { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; padding-block-end: 2.5rem; border-block-end: 1px solid var(--line); }
@@ -194,6 +231,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .business-card:nth-child(even), .article-grid .article-card:nth-child(even) { border-inline-start: 0; }
   .site-footer__grid { grid-template-columns: 1.5fr repeat(2, 1fr); }
   .site-footer__grid nav:last-child { grid-column: 2; }
+  .embassy-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -210,13 +248,16 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .business-card + .business-card, .business-card:nth-child(even), .article-grid .article-card + .article-card, .article-grid .article-card:nth-child(even) { border-inline-start: 1px solid var(--line); border-block-start: 0; }
   .directory-callout { align-items: start; flex-direction: column; }
   .filter-form { grid-template-columns: 1fr; }
-  .business-profile__header, .business-profile__body, .article-page__layout, .submission-page { grid-template-columns: 1fr; }
+  .business-profile__header, .business-profile__body, .article-page__layout, .submission-page, .embassy-profile__header, .embassy-profile__body { grid-template-columns: 1fr; }
   .business-profile__mark { grid-row: 1; inline-size: 6rem; }
   .article-aside { position: static; }
   .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
   .site-footer__intro { grid-column: 1 / -1; }
   .site-footer__grid nav:last-child { grid-column: auto; }
   .site-footer__bottom { align-items: start; flex-direction: column; gap: .3rem; }
+  .embassy-grid { grid-template-columns: 1fr; }
+  .source-notice { grid-template-columns: 1fr; }
+  .country-flag--large { grid-row: 1; font-size: 5rem; }
 }
 
 @media (max-width: 440px) {

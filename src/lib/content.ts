@@ -1,7 +1,7 @@
 import config from '@payload-config'
 import { getPayload, type Where } from 'payload'
 
-import type { Article, Business } from '@/payload-types'
+import type { Article, Business, Embassy } from '@/payload-types'
 
 export async function getArticles({
   category,
@@ -101,6 +101,54 @@ export async function getBusiness(slug: string): Promise<Business | null> {
   const result = await payload.find({
     collection: 'businesses',
     depth: 1,
+    limit: 1,
+    overrideAccess: false,
+    where: { slug: { equals: slug } },
+  })
+  return result.docs[0] || null
+}
+
+export async function getEmbassies({
+  query,
+  region,
+  representationType,
+}: {
+  query?: string
+  region?: string
+  representationType?: string
+} = {}): Promise<Embassy[]> {
+  const payload = await getPayload({ config })
+  const and: Where[] = []
+
+  if (region) and.push({ region: { equals: region } })
+  if (representationType) and.push({ representationType: { equals: representationType } })
+  if (query) {
+    and.push({
+      or: [
+        { country: { contains: query } },
+        { missionName: { contains: query } },
+        { city: { contains: query } },
+        { hostCountry: { contains: query } },
+      ],
+    })
+  }
+
+  const result = await payload.find({
+    collection: 'embassies',
+    limit: 250,
+    overrideAccess: false,
+    pagination: false,
+    sort: 'country',
+    where: and.length ? { and } : undefined,
+  })
+
+  return result.docs
+}
+
+export async function getEmbassy(slug: string): Promise<Embassy | null> {
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'embassies',
     limit: 1,
     overrideAccess: false,
     where: { slug: { equals: slug } },
