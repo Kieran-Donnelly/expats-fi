@@ -24,7 +24,6 @@ export async function getArticles({
       or: [
         { title: { contains: query } },
         { description: { contains: query } },
-        { category: { contains: query } },
       ],
     })
   }
