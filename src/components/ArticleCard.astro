@@ -1,0 +1,12 @@
+---
+import type { Article } from '../data/articles';
+const { article, heading = 'h2' } = Astro.props as { article: Article; heading?: 'h2' | 'h3' };
+const Heading = heading;
+const date = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(article.publishedAt));
+---
+<article class="article-card" data-search-item data-title={article.title.toLowerCase()} data-category={article.category.toLowerCase()}>
+  <div class="eyebrow">{article.category}</div>
+  <Heading><a href={`/resources/${article.slug}/`}>{article.title}</a></Heading>
+  <p>{article.description}</p>
+  <div class="article-card__meta"><span>{date}</span><span>{article.readingMinutes} min read</span></div>
+</article>

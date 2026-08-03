@@ -1,0 +1,39 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="List your business" description="Suggest an expat-owned business for the Expats.fi directory. Listings are free.">
+  <section class="form-page shell">
+    <div class="form-page__intro"><p class="kicker">Free community listing</p><h1>Put your business on Finland’s expat map</h1><p>If the business is owned or co-owned by someone who moved to Finland from another country, it belongs here. Send the details and we will review the listing before it goes live.</p></div>
+    <form class="submission-form" data-mail-form>
+      <label><span>Your name</span><input name="name" autocomplete="name" required /></label>
+      <label><span>Your email</span><input name="email" type="email" autocomplete="email" required /></label>
+      <label><span>Business name</span><input name="business" required /></label>
+      <label><span>Website or social profile</span><input name="website" type="url" placeholder="https://" required /></label>
+      <label><span>City or service area</span><input name="location" required /></label>
+      <label><span>What does the business do?</span><textarea name="description" rows="5" required></textarea></label>
+      <label class="checkbox"><input name="consent" type="checkbox" required /><span>I confirm the details are accurate and may be published on Expats.fi.</span></label>
+      <button class="button" type="submit">Prepare my free listing</button>
+      <p class="form-status" data-form-status>This opens your email app with the listing details ready to send.</p>
+    </form>
+  </section>
+  <script>
+    const form = document.querySelector<HTMLFormElement>('[data-mail-form]');
+    form?.addEventListener('submit', (event) => {
+      event.preventDefault();
+      if (!form.reportValidity()) return;
+      const data = new FormData(form);
+      const subject = `Expats.fi listing: ${data.get('business')}`;
+      const body = [
+        `Your name: ${data.get('name')}`,
+        `Your email: ${data.get('email')}`,
+        `Business: ${data.get('business')}`,
+        `Website: ${data.get('website')}`,
+        `Location: ${data.get('location')}`,
+        '',
+        'About the business:',
+        String(data.get('description')),
+      ].join('\n');
+      window.location.href = `mailto:listings@expats.fi?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  </script>
+</BaseLayout>

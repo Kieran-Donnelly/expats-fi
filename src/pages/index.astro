@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import BusinessCard from '../components/BusinessCard.astro';
+import ArticleCard from '../components/ArticleCard.astro';
+import { businesses } from '../data/businesses';
+import { articles } from '../data/articles';
+const featuredBusinesses = businesses.filter((business) => business.featured).slice(0, 2);
+const featuredArticles = articles.slice(0, 3);
+---
+<BaseLayout>
+  <section class="hero">
+    <div class="shell hero__grid">
+      <div class="hero__copy">
+        <p class="kicker">Your Finland, made more familiar</p>
+        <h1>Find your people.<br />Find your way.</h1>
+        <p class="hero__lede">Discover expat-owned businesses and get straight answers to the practical questions that come with building a life in Finland.</p>
+        <div class="button-row">
+          <a class="button" href="/businesses/">Explore businesses</a>
+          <a class="button button--quiet" href="/resources/">Browse Finland guides</a>
+        </div>
+      </div>
+      <div class="hero__scene" aria-label="A stylised view of Finland's international community">
+        <div class="hero__sun"></div>
+        <div class="hero__landmark hero__landmark--one">HELSINKI</div>
+        <div class="hero__landmark hero__landmark--two">TAMPERE</div>
+        <div class="hero__landmark hero__landmark--three">OULU</div>
+        <p><strong>Local knowledge</strong><span>from people who have made the move</span></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="pathways shell" aria-labelledby="choose-path">
+    <div class="section-heading section-heading--split">
+      <div><p class="kicker">Start here</p><h2 id="choose-path">What do you need today?</h2></div>
+      <p>We are building the practical front door to Finland’s international community, one useful listing and guide at a time.</p>
+    </div>
+    <div class="pathways__grid">
+      <a class="pathway" href="/businesses/" data-tone="blue">
+        <span class="pathway__number">01</span>
+        <div><h3>Spend local</h3><p>Find restaurants, services and makers owned by people who moved to Finland.</p><span>Open the directory →</span></div>
+      </a>
+      <a class="pathway" href="/resources/" data-tone="red">
+        <span class="pathway__number">02</span>
+        <div><h3>Get unstuck</h3><p>Plain-English guides for permits, healthcare, transport and everyday Finnish life.</p><span>Explore the library →</span></div>
+      </a>
+    </div>
+  </section>
+
+  <section class="feature-section">
+    <div class="shell">
+      <div class="section-heading section-heading--split">
+        <div><p class="kicker">Community directory</p><h2>Good businesses travel by word of mouth</h2></div>
+        <a class="text-link" href="/businesses/">See all businesses <span aria-hidden="true">→</span></a>
+      </div>
+      <div class="business-grid business-grid--featured">
+        {featuredBusinesses.map((business) => <BusinessCard business={business} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="resource-preview shell">
+    <div class="section-heading section-heading--split">
+      <div><p class="kicker">Life in Finland</p><h2>Answers for the questions nobody warns you about</h2></div>
+      <a class="text-link" href="/resources/">See every guide <span aria-hidden="true">→</span></a>
+    </div>
+    <div class="article-grid">
+      {featuredArticles.map((article) => <ArticleCard article={article} />)}
+    </div>
+  </section>
+
+  <section class="community-cta">
+    <div class="shell community-cta__inner">
+      <div><p class="kicker">Know a brilliant expat-owned business?</p><h2>Help the directory grow beyond the capital.</h2></div>
+      <a class="button button--light" href="/submit-business/">Add a business for free</a>
+    </div>
+  </section>
+</BaseLayout>

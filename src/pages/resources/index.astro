@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
+import FilterBar from '../../components/FilterBar.astro';
+import { articles, articleCategories } from '../../data/articles';
+---
+<BaseLayout title="Practical guides to life in Finland" description="Plain-English guides to permits, healthcare, transport and everyday life in Finland.">
+  <header class="page-hero page-hero--resources">
+    <div class="shell page-hero__inner">
+      <div><p class="kicker">Resource library</p><h1>Life in Finland, explained clearly</h1></div>
+      <p>Practical answers for the awkward, urgent and surprisingly complicated parts of making Finland home.</p>
+    </div>
+  </header>
+  <section class="directory shell">
+    <FilterBar kind="resources" categories={articleCategories} />
+    <div class="article-grid article-grid--library">
+      {articles.map((article) => <ArticleCard article={article} />)}
+    </div>
+    <div class="empty-state" data-empty-state hidden><h2>No guide matches that search</h2><p>Try another phrase or browse all categories.</p></div>
+  </section>
+</BaseLayout>
