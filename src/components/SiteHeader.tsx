@@ -1,5 +1,7 @@
 import Link from 'next/link'
 
+import { AccountNav } from './AccountNav'
+
 const guideLinks = [
   ['Immigration', 'Immigration & permits'],
   ['Work', 'Work & money'],
@@ -31,6 +33,7 @@ export function SiteHeader() {
           <Link href="/businesses/">Community</Link>
         </nav>
         <div className="site-header__actions">
+          <AccountNav />
           <Link className="icon-button" href="/resources/" aria-label="Search guides">
             <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
           </Link>
@@ -46,6 +49,7 @@ export function SiteHeader() {
               ))}
               <Link href="/businesses/">Business directory</Link>
               <Link href="/submit-business/">List a business</Link>
+              <AccountNav mobile />
             </nav>
           </details>
         </div>

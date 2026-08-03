@@ -4,6 +4,7 @@ import * as migration_20260803_133319_add_embassies from './20260803_133319_add_
 import * as migration_20260803_133320_seed_embassies from './20260803_133320_seed_embassies';
 import * as migration_20260803_150000_add_embassy_addresses from './20260803_150000_add_embassy_addresses';
 import * as migration_20260803_160742_add_media_prefix from './20260803_160742_add_media_prefix';
+import * as migration_20260803_200449_add_members from './20260803_200449_add_members';
 
 export const migrations = [
   {
@@ -34,6 +35,11 @@ export const migrations = [
   {
     up: migration_20260803_160742_add_media_prefix.up,
     down: migration_20260803_160742_add_media_prefix.down,
-    name: '20260803_160742_add_media_prefix'
+    name: '20260803_160742_add_media_prefix',
+  },
+  {
+    up: migration_20260803_200449_add_members.up,
+    down: migration_20260803_200449_add_members.down,
+    name: '20260803_200449_add_members'
   },
 ];
