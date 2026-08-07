@@ -6,7 +6,7 @@ import type { Article, Business, Embassy } from '@/payload-types'
 export async function getArticles({
   category,
   featured,
-  limit = 100,
+  limit = 250,
   query,
 }: {
   category?: string
