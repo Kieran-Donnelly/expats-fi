@@ -6,6 +6,7 @@ import * as migration_20260803_150000_add_embassy_addresses from './20260803_150
 import * as migration_20260803_160742_add_media_prefix from './20260803_160742_add_media_prefix';
 import * as migration_20260803_200449_add_members from './20260803_200449_add_members';
 import * as migration_20260807_100000_seed_original_guides from './20260807_100000_seed_original_guides';
+import * as migration_20260807_130000_refresh_original_guides from './20260807_130000_refresh_original_guides';
 
 export const migrations = [
   {
@@ -47,5 +48,10 @@ export const migrations = [
     up: migration_20260807_100000_seed_original_guides.up,
     down: migration_20260807_100000_seed_original_guides.down,
     name: '20260807_100000_seed_original_guides'
+  },
+  {
+    up: migration_20260807_130000_refresh_original_guides.up,
+    down: migration_20260807_130000_refresh_original_guides.down,
+    name: '20260807_130000_refresh_original_guides'
   },
 ];

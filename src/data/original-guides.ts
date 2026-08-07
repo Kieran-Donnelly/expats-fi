@@ -9,6 +9,8 @@ export type OriginalGuide = {
   featured: boolean
 }
 
+import { originalGuideProfiles } from './original-guide-profiles'
+
 type GuideRow = { section: string; slug: string; category: OriginalGuide['category']; title?: string; officialUrl?: string }
 
 const rows: GuideRow[] = [
@@ -95,60 +97,19 @@ function topicWords(title: string): string {
   return title.replace(/: a practical guide.*$/i, '').replace(/: planning your route to Finland$/i, '').replace(/: the decisions before you make an offer$/i, '').trim()
 }
 
-function actionsFor(row: GuideRow, topic: string): [string, string, string] {
-  const slug = row.slug
-  if (row.category === 'Immigration & permits') return [
-    `Write down the outcome you need from ${topic.toLowerCase()} and the date by which you need it.`,
-    'Separate official requirements from helpful extras, then collect the documents that prove each requirement.',
-    'Keep copies, confirmation numbers and dates together so you can answer follow-up questions quickly.',
-  ]
-  if (row.category === 'Housing') return [
-    `Define the home, service or housing arrangement you need before comparing ${topic.toLowerCase()}.`,
-    'Ask for the full cost, the length of the commitment and the conditions that apply if your plans change.',
-    'Read the agreement slowly, record the starting condition and keep every receipt, message and inspection note.',
-  ]
-  if (row.category === 'Health & wellbeing') return [
-    'Start with urgency: use emergency services for an emergency and a normal appointment route for a routine concern.',
-    'Prepare your identity details, relevant history, medicines and language needs before contacting a provider.',
-    'Ask what happens next, what the likely cost is and where your records or instructions will be stored.',
-  ]
-  if (row.category === 'Getting around') return [
-    `Plan the route and the backup route before relying on ${topic.toLowerCase()}, especially in winter or at night.`,
-    'Check the operator, ticket conditions, accessibility information and any local rules that apply to your journey.',
-    'Save live-service links and allow extra time when weather, maintenance or a public holiday could change the plan.',
-  ]
-  if (row.category === 'Work & money' && (slug.includes('business') || row.section === 'entrepreneurship')) return [
-    `Describe the customer, activity and risk behind ${topic.toLowerCase()} before choosing a structure or provider.`,
-    'Create a simple record of income, costs, contracts and deadlines from the very beginning.',
-    'Get specialist advice when tax, employment, insurance or liability decisions could affect the business.',
-  ]
-  if (row.category === 'Work & money') return [
-    `Start with the decision you need to make about ${topic.toLowerCase()}, not with a long list of providers.`,
-    'Compare total cost, eligibility, terms and the quality of customer support in a language you understand.',
-    'Keep a calendar for renewals, reporting dates, payments and the documents you may need later.',
-  ]
-  if (row.category === 'Family') return [
-    `Choose the kind of support or connection you want from ${topic.toLowerCase()}.`,
-    'Check who runs the service or group, how participation works and whether there are language or membership expectations.',
-    'Start with one low-pressure contact and build a routine before deciding whether a larger commitment suits you.',
-  ]
-  return [
-    `Decide what a good result would look like for ${topic.toLowerCase()} in your own week.`,
-    'Compare practical details such as location, opening times, language, total cost and how easy it is to change course.',
-    'Save the small pieces of information you will want again: links, account details, receipts and contact names.',
-  ]
-}
-
 function guideHtml(row: GuideRow, title: string, topic: string): string {
-  const [first, second, third] = actionsFor(row, topic)
-  const officialUrl = row.officialUrl || officialUrls[row.category]
+  const key = row.section + '-' + row.slug
+  const profile = originalGuideProfiles[key]
+  if (!profile) throw new Error('Missing researched guide profile for ' + key)
+  const officialUrl = row.officialUrl || profile.officialUrl || officialUrls[row.category]
   return [
-    `<p>Starting something new in Finland is easier when the next decision is visible. This original Expats.fi guide turns <strong>${topic.toLowerCase()}</strong> into a practical sequence, with room for your own circumstances and a reminder to verify details before you act.</p>`,
-    `<h2>What this guide is for</h2><p>${title} is a starting point, not a substitute for a decision made by a Finnish authority, provider or qualified professional. Use it to prepare better questions, compare your options and keep track of what you have already done.</p>`,
-    `<h2>A sensible way to approach it</h2><ol><li>${first}</li><li>${second}</li><li>${third}</li></ol>`,
-    `<h2>Questions worth answering early</h2><ul><li>What is the exact outcome I need, and who has the authority to confirm it?</li><li>Which dates, costs or eligibility conditions could change the decision?</li><li>What will I do if the first route is unavailable, delayed or not a good fit?</li></ul>`,
-    `<h2>Keep a small Finland file</h2><p>Save the official page you used, the date you checked it, any reference number and the documents you submitted. A short timeline is often more useful than a large folder of screenshots. If another person is helping you, write down what they are responsible for and what you still need to confirm yourself.</p>`,
-    `<h2>Verify before you act</h2><p>Rules, prices, opening times and available services change. Begin with <a href="${officialUrl}" target="_blank" rel="noreferrer">the relevant official starting point</a>, then confirm the specific instructions for your municipality, provider or situation. If the decision affects immigration status, health, tax, employment or a large financial commitment, get advice for your individual circumstances.</p>`,
+    '<p>' + profile.focus + '</p>',
+    '<h2>What this guide is for</h2><p>This is an original Expats.fi editorial guide to <strong>' + topic.toLowerCase() + '</strong>. It gives you a useful starting structure, explains the decisions that deserve attention and points to the authority or service that can confirm the current answer.</p>',
+    '<h2>Plan it in this order</h2><ol>' + profile.plan.map((item) => '<li>' + item + '</li>').join('') + '</ol>',
+    '<h2>Check these before you commit</h2><ul>' + profile.watch.map((item) => '<li>' + item + '</li>').join('') + '</ul>',
+    '<h2>Questions worth answering early</h2><ul><li>Which Finnish authority, provider or organisation owns the decision?</li><li>What evidence, date or total cost could change the answer for my household?</li><li>What is my backup route if the first option is delayed, full or unsuitable?</li></ul>',
+    '<h2>Keep a small Finland file</h2><p>Save the official page you used, the date you checked it, any reference number and the documents you submitted. A short timeline is often more useful than a large folder of screenshots. If another person is helping you, write down what they are responsible for and what you still need to confirm yourself.</p>',
+    '<h2>Verify before you act</h2><p>Rules, prices, opening times and available services change. Begin with <a href="' + officialUrl + '" target="_blank" rel="noreferrer">the relevant official starting point</a>, then confirm the specific instructions for your municipality, provider or situation. If the decision affects immigration status, health, tax, employment or a large financial commitment, get advice for your individual circumstances.</p>',
   ].join('')
 }
 
@@ -157,10 +118,11 @@ export const originalGuides: OriginalGuide[] = rows.map((row) => {
   const topic = topicWords(title)
   const slug = `guide-${row.section}-${row.slug}`.replace(/[^a-z0-9]+/gi, '-').replace(/-+$/, '').toLowerCase()
   const html = guideHtml(row, title, topic)
+  const profile = originalGuideProfiles[row.section + '-' + row.slug]
   return {
     slug,
     title,
-    description: `An original, plain-English guide to ${topic.toLowerCase()}, focused on the decisions, questions and practical preparation that matter in Finland.`,
+    description: profile.focus,
     category: row.category,
     publishedAt: '2026-08-07',
     readingMinutes: Math.max(3, Math.round(html.replace(/<[^>]+>/g, ' ').split(/\s+/).filter(Boolean).length / 180)),
@@ -168,4 +130,3 @@ export const originalGuides: OriginalGuide[] = rows.map((row) => {
     featured: row.slug === 'index',
   }
 })
-
