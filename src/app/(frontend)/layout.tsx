@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Schibsted_Grotesk } from 'next/font/google'
+import Script from 'next/script'
 import type { ReactNode } from 'react'
 
 import { SiteFooter } from '@/components/SiteFooter'
@@ -32,6 +33,18 @@ export default function FrontendLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={schibsted.variable}>
       <body>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-CB5QYGM914"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){window.dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-CB5QYGM914');
+          `}
+        </Script>
         <a className="skip-link" href="#main">Skip to content</a>
         <SiteHeader />
         {children}
