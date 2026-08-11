@@ -2,6 +2,8 @@ import Link from 'next/link'
 
 import { ArticleCard } from '@/components/ArticleCard'
 import { BusinessCard } from '@/components/BusinessCard'
+import { EventCard } from '@/components/EventCard'
+import { getUpcomingEvents } from '@/data/events'
 import { getArticles, getBusinesses } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -32,6 +34,7 @@ export default async function HomePage() {
     getArticles({ limit: 6 }),
     getBusinesses({ limit: 3 }),
   ])
+  const upcomingEvents = getUpcomingEvents().slice(0, 3)
   const lead = articles[0]
   const secondary = articles.slice(1, 3)
 
@@ -50,7 +53,7 @@ export default async function HomePage() {
             <input id="home-search" name="q" placeholder="What are you looking for?" />
             <button type="submit">Search</button>
           </form>
-          <div className="popular-links"><span>Popular right now</span><Link href="/resources/?q=residence+permit">residence permit</Link><Link href="/resources/?q=Finnish">learning Finnish</Link><Link href="/embassies/">find my embassy</Link><Link href="/businesses/">expat businesses</Link></div>
+          <div className="popular-links"><span>Popular right now</span><Link href="/resources/?q=residence+permit">residence permit</Link><Link href="/learn-finnish/">learning Finnish</Link><Link href="/embassies/">find my embassy</Link><Link href="/businesses/">expat businesses</Link></div>
           <div className="quick-grid">
             {quickLinks.map(([label, category, icon]) => (
               <Link key={label} href={`/resources/?category=${encodeURIComponent(category)}`}>
@@ -90,6 +93,14 @@ export default async function HomePage() {
           <div className="business-grid">{businesses.map((business) => <BusinessCard business={business} key={business.id} />)}</div>
           <div className="directory-callout"><div><strong>Know a business we should include?</strong><p>Help us grow the directory beyond the capital region.</p></div><Link className="button" href="/submit-business/">List a business for free</Link></div>
         </div>
+      </section>
+
+      <section className="section shell home-events" aria-labelledby="home-events-heading">
+        <div className="section-heading">
+          <div><p className="eyebrow">Helsinki, right now</p><h2 id="home-events-heading">A reason to leave the apartment.</h2></div>
+          <Link className="text-link" href="/events/">Explore all events <span aria-hidden="true">→</span></Link>
+        </div>
+        <div className="event-grid">{upcomingEvents.map((event) => <EventCard event={event} key={event.slug} />)}</div>
       </section>
 
       <section className="section shell" aria-labelledby="latest-heading">

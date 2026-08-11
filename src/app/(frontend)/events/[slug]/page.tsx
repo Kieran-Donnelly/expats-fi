@@ -1,0 +1,52 @@
+import type { Metadata } from 'next'
+import Link from 'next/link'
+import { notFound } from 'next/navigation'
+
+import { EventLocationMap } from '@/components/EventsMap'
+import { events, getEvent } from '@/data/events'
+
+export function generateStaticParams() {
+  return events.map((event) => ({ slug: event.slug }))
+}
+
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
+  const { slug } = await params
+  const event = getEvent(slug)
+  if (!event) return {}
+  return { title: event.title, description: event.blurb, alternates: { canonical: `/events/${event.slug}/` } }
+}
+
+export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const event = getEvent(slug)
+  if (!event) notFound()
+
+  return (
+    <main id="main"><div className="shell detail-shell event-detail">
+      <Link className="back-link" href="/events/">← All Helsinki events</Link>
+      <header className="event-detail__header">
+        <div><div className="event-detail__kicker"><span>{event.category}</span>{event.free && <span>Free</span>}{event.familyFriendly && <span>Family-friendly</span>}</div><h1>{event.title}</h1><p>{event.blurb}</p></div>
+        <div className="event-detail__when"><strong>{event.dateLabel}</strong><span>{event.timeLabel}</span></div>
+      </header>
+      <div className="event-detail__layout">
+        <article className="event-detail__story">
+          <h2>Why it’s worth going</h2>
+          {event.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
+          <div className="event-detail__transport"><p className="eyebrow">Getting there</p><h2>Choose your route</h2><div>{event.transport.map((option) => <section key={option.mode}><strong>{option.mode}</strong><p>{option.advice}</p></section>)}</div><a className="text-link" href="https://www.hsl.fi/en/journey-planner" target="_blank" rel="noreferrer">Open the HSL Journey Planner <span aria-hidden="true">↗</span></a></div>
+        </article>
+        <aside className="event-detail__aside">
+          <EventLocationMap event={event} />
+          <div className="event-detail__facts">
+            <div><strong>When</strong><span>{event.dateLabel}<br />{event.timeLabel}</span></div>
+            <div><strong>Where</strong><span>{event.location}<br />{event.address}</span></div>
+            <div><strong>Cost</strong><span>{event.price}</span></div>
+            {event.ageNote && <div><strong>Age guidance</strong><span>{event.ageNote}</span></div>}
+            <div><strong>Before you go</strong><span>{event.bookingNote}</span></div>
+            <a className="button" href={event.sourceUrl} target="_blank" rel="noreferrer">Check official details ↗</a>
+            <small>Source: {event.sourceName}<br />Checked {event.lastChecked}</small>
+          </div>
+        </aside>
+      </div>
+    </div></main>
+  )
+}

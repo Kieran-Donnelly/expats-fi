@@ -7,6 +7,7 @@ import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 
 import 'flag-icons/css/flag-icons.min.css'
+import 'leaflet/dist/leaflet.css'
 import './styles.css'
 
 const schibsted = Schibsted_Grotesk({
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
     default: 'Expats.fi | Living in Finland, made clearer',
     template: '%s | Expats.fi',
   },
-  description: 'Practical guides for life in Finland and a directory of expat-owned Finnish businesses.',
+  description: 'Practical guides for life in Finland, Helsinki event picks and a directory of expat-owned Finnish businesses.',
   openGraph: {
     siteName: 'Expats.fi',
     type: 'website',
