@@ -18,6 +18,7 @@ export function SiteFooter() {
         </nav>
         <nav aria-label="Community links">
           <strong>Community</strong>
+          <Link href="/learn-finnish/">Learn Finnish</Link>
           <Link href="/events/">Helsinki events</Link>
           <Link href="/businesses/">Business directory</Link>
           <Link href="/embassies/">Embassies and consulates</Link>

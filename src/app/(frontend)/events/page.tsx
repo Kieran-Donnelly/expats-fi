@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
+import { EventsMap } from '@/components/EventsMap'
 import { eventCategories, getUpcomingEvents } from '@/data/events'
 
 export const dynamic = 'force-dynamic'
@@ -60,6 +61,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
           <button type="submit">Find events</button>
         </form>
         <div className="events-listing__heading"><div><p className="eyebrow">Curated and checked</p><h2>Upcoming in Helsinki</h2></div><p>{filteredEvents.length} {filteredEvents.length === 1 ? 'event' : 'events'} found</p></div>
+        <EventsMap events={filteredEvents} />
         {filteredEvents.length ? <div className="event-grid">{filteredEvents.map((event) => <EventCard event={event} key={event.slug} />)}</div> : <div className="empty-state"><h2>No events match those filters</h2><p>Try another category or remove a filter.</p></div>}
         <div className="event-source-note"><strong>Plans can change.</strong><p>We link every listing to its organiser or a trusted city source. Check the official page before travelling or buying a ticket.</p></div>
       </section>

@@ -10,6 +10,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   return [
     { url: 'https://expats.fi/', lastModified: now, priority: 1 },
     { url: 'https://expats.fi/resources/', lastModified: now, priority: .9 },
+    { url: 'https://expats.fi/learn-finnish/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/events/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/businesses/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/embassies/', lastModified: now, priority: .9 },

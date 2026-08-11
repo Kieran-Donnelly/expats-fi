@@ -24,6 +24,10 @@ export type CityEvent = {
   location: string
   address: string
   district: string
+  coordinates?: {
+    latitude: number
+    longitude: number
+  }
   blurb: string
   description: string[]
   price: string
@@ -50,6 +54,7 @@ export const events: CityEvent[] = [
     location: 'Hietalahti Market Square',
     address: 'Hietalahdentori, 00180 Helsinki',
     district: 'Hietalahti',
+    coordinates: { latitude: 60.1621, longitude: 24.9298 },
     blurb: 'A cheerful weekend rummage through vintage clothes, Finnish design, old books and gloriously unpredictable finds—best paired with lunch in the market hall next door.',
     description: [
       'Up to 80 stalls fill one of Helsinki’s best-loved market squares on summer weekends. It is an easy, low-pressure way to meet locals, practise a little Finnish and take home something with more character than a souvenir-shop magnet.',
@@ -79,6 +84,7 @@ export const events: CityEvent[] = [
     location: 'Töölönlahti Summer Park',
     address: 'Töölönlahden puisto, 00100 Helsinki',
     district: 'Töölönlahti',
+    coordinates: { latitude: 60.1788, longitude: 24.9353 },
     blurb: 'A free Brazilian partner-dance evening by the bay, complete with a beginner-friendly drop-in lesson and plenty of room for two left feet.',
     description: [
       'Forró is social, warm and easy to join even if you arrive alone. The evening usually begins with a short introductory class before the music opens up for relaxed outdoor dancing.',
@@ -108,6 +114,7 @@ export const events: CityEvent[] = [
     location: 'Suvilahti',
     address: 'Hanasaarenkatu 10, 00500 Helsinki',
     district: 'Suvilahti',
+    coordinates: { latitude: 60.1861, longitude: 24.9685 },
     blurb: 'Helsinki’s big post-industrial weekend: global headliners, left-field discoveries, ambitious food and the annual joy of dancing beneath old gasometers.',
     description: [
       'Flow mixes music, visual art, talks and a notably serious food programme inside Suvilahti’s former power-plant grounds. It is polished but still rewards wandering away from the biggest stage to find something unexpected.',
@@ -139,6 +146,7 @@ export const events: CityEvent[] = [
     location: 'Ala-Malmi Square',
     address: 'Ala-Malmin tori 1, 00700 Helsinki',
     district: 'Malmi',
+    coordinates: { latitude: 60.251, longitude: 25.0125 },
     blurb: 'A free neighbourhood programme that makes a persuasive case for looking beyond the city centre—music, workshops and easy-going square-side culture included.',
     description: [
       'The City of Helsinki’s suburban summer programme brings free events to Ala-Malmi Square for residents of all ages. It is especially useful for newcomers who want to see everyday Helsinki rather than only its postcard centre.',
@@ -226,6 +234,7 @@ export const events: CityEvent[] = [
     location: 'Meripuisto and central Helsinki',
     address: 'Merisatamanranta & Neitsytpolku, Helsinki',
     district: 'Eira / city centre',
+    coordinates: { latitude: 60.1548, longitude: 24.949 },
     blurb: 'Run the waterfront, tackle a relay with friends or simply bring coffee and cheer as the course loops through Helsinki’s seaside streets.',
     description: [
       'The weekend includes a marathon, half marathon, relay, 10K, children’s runs and a free timed street mile. Main starts and the event village are in Meripuisto, while the 10K begins at Kaisaniemenranta.',
@@ -343,6 +352,7 @@ export const events: CityEvent[] = [
     location: 'Market Square',
     address: 'Eteläsatama, 00170 Helsinki',
     district: 'South Harbour',
+    coordinates: { latitude: 60.1675, longitude: 24.9524 },
     blurb: 'An old harbour tradition with fishing boats, archipelago flavours and enough jars of seasoned herring to make supermarket shelves look timid.',
     description: [
       'Held since 1743, the market brings fishers and archipelago producers directly to Helsinki’s waterfront. The 2026 edition is expanding its food offer and adding a restaurant yard around Market Square.',

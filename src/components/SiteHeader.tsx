@@ -30,6 +30,7 @@ export function SiteHeader() {
             <Link key={label} href={`/resources/?category=${encodeURIComponent(category)}`}>{label}</Link>
           ))}
           <Link href="/embassies/">Embassies</Link>
+          <Link href="/learn-finnish/">Learn Finnish</Link>
           <Link href="/events/">Events</Link>
           <Link href="/businesses/">Community</Link>
         </nav>
@@ -48,6 +49,7 @@ export function SiteHeader() {
               {guideLinks.map(([label, category]) => (
                 <Link key={label} href={`/resources/?category=${encodeURIComponent(category)}`}>{label}</Link>
               ))}
+              <Link href="/learn-finnish/">Learn Finnish</Link>
               <Link href="/events/">Helsinki events</Link>
               <Link href="/businesses/">Business directory</Link>
               <Link href="/submit-business/">List a business</Link>

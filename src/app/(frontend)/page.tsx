@@ -53,7 +53,7 @@ export default async function HomePage() {
             <input id="home-search" name="q" placeholder="What are you looking for?" />
             <button type="submit">Search</button>
           </form>
-          <div className="popular-links"><span>Popular right now</span><Link href="/resources/?q=residence+permit">residence permit</Link><Link href="/resources/?q=Finnish">learning Finnish</Link><Link href="/embassies/">find my embassy</Link><Link href="/businesses/">expat businesses</Link></div>
+          <div className="popular-links"><span>Popular right now</span><Link href="/resources/?q=residence+permit">residence permit</Link><Link href="/learn-finnish/">learning Finnish</Link><Link href="/embassies/">find my embassy</Link><Link href="/businesses/">expat businesses</Link></div>
           <div className="quick-grid">
             {quickLinks.map(([label, category, icon]) => (
               <Link key={label} href={`/resources/?category=${encodeURIComponent(category)}`}>
