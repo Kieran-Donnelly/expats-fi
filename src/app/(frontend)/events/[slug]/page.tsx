@@ -3,22 +3,20 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { EventLocationMap } from '@/components/EventsMap'
-import { events, getEvent } from '@/data/events'
+import { getEvent } from '@/lib/content'
 
-export function generateStaticParams() {
-  return events.map((event) => ({ slug: event.slug }))
-}
+export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
-  const event = getEvent(slug)
+  const event = await getEvent(slug)
   if (!event) return {}
   return { title: event.title, description: event.blurb, alternates: { canonical: `/events/${event.slug}/` } }
 }
 
 export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
-  const event = getEvent(slug)
+  const event = await getEvent(slug)
   if (!event) notFound()
 
   return (

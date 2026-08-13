@@ -3,6 +3,7 @@
     "baseUrl": ".",
     "esModuleInterop": true,
     "incremental": true,
+    "ignoreDeprecations": "6.0",
     "jsx": "react-jsx",
     "lib": [
       "dom",

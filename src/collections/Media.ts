@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { canManageContent } from '@/lib/admin-access'
+
 export const Media: CollectionConfig = {
   slug: 'media',
   admin: {
@@ -8,9 +10,9 @@ export const Media: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    create: ({ req: { user } }) => canManageContent(user),
+    update: ({ req: { user } }) => canManageContent(user),
+    delete: ({ req: { user } }) => canManageContent(user),
   },
   upload: {
     mimeTypes: ['image/*'],

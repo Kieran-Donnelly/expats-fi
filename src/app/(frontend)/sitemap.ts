@@ -1,11 +1,10 @@
 import type { MetadataRoute } from 'next'
-import { events } from '@/data/events'
-import { getArticles, getBusinesses, getEmbassies } from '@/lib/content'
+import { getArticles, getBusinesses, getEmbassies, getEvents } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const [articles, businesses, embassies] = await Promise.all([getArticles(), getBusinesses(), getEmbassies()])
+  const [articles, businesses, embassies, events] = await Promise.all([getArticles(), getBusinesses(), getEmbassies(), getEvents()])
   const now = new Date()
   return [
     { url: 'https://expats.fi/', lastModified: now, priority: 1 },

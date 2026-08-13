@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { canManageContent } from '@/lib/admin-access'
+
 export const Businesses: CollectionConfig = {
   slug: 'businesses',
   admin: {
@@ -8,10 +10,10 @@ export const Businesses: CollectionConfig = {
     defaultColumns: ['name', 'categories', 'locations', 'status'],
   },
   access: {
-    read: ({ req: { user } }) => Boolean(user) || { status: { equals: 'published' } },
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },
+    create: ({ req: { user } }) => canManageContent(user),
+    update: ({ req: { user } }) => canManageContent(user),
+    delete: ({ req: { user } }) => canManageContent(user),
   },
   fields: [
     {

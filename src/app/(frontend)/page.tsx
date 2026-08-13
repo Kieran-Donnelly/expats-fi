@@ -3,8 +3,7 @@ import Link from 'next/link'
 import { ArticleCard } from '@/components/ArticleCard'
 import { BusinessCard } from '@/components/BusinessCard'
 import { EventCard } from '@/components/EventCard'
-import { getUpcomingEvents } from '@/data/events'
-import { getArticles, getBusinesses } from '@/lib/content'
+import { getArticles, getBusinesses, getEvents } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
 
@@ -30,11 +29,12 @@ function QuickIcon({ name }: { name: string }) {
 }
 
 export default async function HomePage() {
-  const [articles, businesses] = await Promise.all([
+  const [articles, businesses, upcoming] = await Promise.all([
     getArticles({ limit: 6 }),
     getBusinesses({ limit: 3 }),
+    getEvents({ upcoming: true }),
   ])
-  const upcomingEvents = getUpcomingEvents().slice(0, 3)
+  const upcomingEvents = upcoming.slice(0, 3)
   const lead = articles[0]
   const secondary = articles.slice(1, 3)
 

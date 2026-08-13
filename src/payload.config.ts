@@ -9,9 +9,14 @@ import sharp from 'sharp'
 import { Articles } from './collections/Articles'
 import { Businesses } from './collections/Businesses'
 import { Embassies } from './collections/Embassies'
+import { Events } from './collections/Events'
+import { LearningPaths } from './collections/LearningPaths'
+import { LearningResources } from './collections/LearningResources'
 import { Media } from './collections/Media'
 import { Members } from './collections/Members'
+import { PracticeGroups } from './collections/PracticeGroups'
 import { Users } from './collections/Users'
+import { YkiResources } from './collections/YkiResources'
 import { migrations } from './migrations'
 
 const filename = fileURLToPath(import.meta.url)
@@ -22,11 +27,15 @@ export default buildConfig({
   admin: {
     user: Users.slug,
     importMap: { baseDir: path.resolve(dirname) },
+    components: {
+      beforeDashboard: [{ path: './admin/components/ContentOverview.tsx', exportName: 'default' }],
+      beforeLogin: [{ path: './admin/components/AdminGoogleLogin.tsx', exportName: 'default' }],
+    },
     meta: {
       titleSuffix: ' | Expats.fi',
     },
   },
-  collections: [Users, Members, Articles, Businesses, Embassies, Media],
+  collections: [Users, Members, Articles, Businesses, Embassies, Events, LearningPaths, LearningResources, Media, PracticeGroups, YkiResources],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'local-development-secret-change-me',
   serverURL,

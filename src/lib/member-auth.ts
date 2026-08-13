@@ -4,6 +4,7 @@ import { getPayload, type Payload } from 'payload'
 
 export const GOOGLE_SESSION_COOKIE = 'expats-google-session'
 export const GOOGLE_OAUTH_COOKIE = 'expats-google-oauth'
+export const ADMIN_GOOGLE_OAUTH_COOKIE = 'expats-admin-google-oauth'
 
 export type MemberSession = {
   id: string | number

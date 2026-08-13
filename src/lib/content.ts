@@ -1,6 +1,8 @@
 import config from '@payload-config'
 import { getPayload, type Where } from 'payload'
 
+import type { CityEvent, EventTransport } from '@/data/events'
+import type { LearningResource, PracticeGroup } from '@/data/finnishLearning'
 import type { Article, Business, Embassy } from '@/payload-types'
 
 export async function getArticles({
@@ -158,4 +160,151 @@ export async function getEmbassy(slug: string): Promise<Embassy | null> {
 
 export function labels(items?: null | { label: string }[]): string[] {
   return items?.map((item) => item.label).filter(Boolean) || []
+}
+
+function dateOnly(value: unknown): string {
+  if (typeof value !== 'string' && !(value instanceof Date)) return ''
+  return new Date(value).toISOString().slice(0, 10)
+}
+
+function stringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return []
+  return value.filter((item): item is string => typeof item === 'string')
+}
+
+function eventTransport(value: unknown): EventTransport[] {
+  if (!Array.isArray(value)) return []
+  return value.filter((item): item is EventTransport => {
+    if (!item || typeof item !== 'object') return false
+    const candidate = item as Partial<EventTransport>
+    return typeof candidate.mode === 'string' && typeof candidate.advice === 'string'
+  })
+}
+
+function eventCoordinates(value: unknown): CityEvent['coordinates'] {
+  if (!value || typeof value !== 'object') return undefined
+  const candidate = value as { latitude?: unknown; longitude?: unknown }
+  if (typeof candidate.latitude !== 'number' || typeof candidate.longitude !== 'number') return undefined
+  return { latitude: candidate.latitude, longitude: candidate.longitude }
+}
+
+function mapEvent(record: Record<string, unknown>): CityEvent {
+  return {
+    slug: String(record.slug || ''),
+    title: String(record.title || ''),
+    category: record.category as CityEvent['category'],
+    startDate: dateOnly(record.startDate),
+    endDate: dateOnly(record.endDate),
+    dateLabel: String(record.dateLabel || ''),
+    timeLabel: String(record.timeLabel || ''),
+    location: String(record.location || ''),
+    address: String(record.address || ''),
+    district: String(record.district || ''),
+    coordinates: eventCoordinates(record.coordinates),
+    blurb: String(record.blurb || ''),
+    description: stringArray(record.description),
+    price: String(record.price || ''),
+    free: Boolean(record.free),
+    familyFriendly: Boolean(record.familyFriendly),
+    ageNote: typeof record.ageNote === 'string' ? record.ageNote : undefined,
+    bookingNote: String(record.bookingNote || ''),
+    sourceName: String(record.sourceName || ''),
+    sourceUrl: String(record.sourceUrl || ''),
+    lastChecked: String(record.lastChecked || ''),
+    featured: Boolean(record.featured),
+    transport: eventTransport(record.transport),
+  }
+}
+
+export async function getEvents({ upcoming = false }: { upcoming?: boolean } = {}): Promise<CityEvent[]> {
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'events',
+    limit: 250,
+    pagination: false,
+    overrideAccess: false,
+    sort: 'startDate',
+    where: { status: { equals: 'published' } },
+  })
+  const mapped = result.docs.map((record) => mapEvent(record as unknown as Record<string, unknown>))
+  if (!upcoming) return mapped
+
+  const today = new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Europe/Helsinki',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).format(new Date())
+  return mapped.filter((event) => event.endDate >= today)
+}
+
+export async function getEvent(slug: string): Promise<CityEvent | null> {
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'events',
+    limit: 1,
+    pagination: false,
+    overrideAccess: false,
+    where: { and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }] },
+  })
+  const record = result.docs[0]
+  return record ? mapEvent(record as unknown as Record<string, unknown>) : null
+}
+
+function reviewDate(value: unknown): string {
+  const raw = dateOnly(value)
+  if (!raw) return ''
+  return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(new Date(`${raw}T00:00:00Z`))
+}
+
+export async function getLearningPageData(): Promise<{
+  learningPaths: Array<{ title: string; level: string; recipe: string; links: string[] }>
+  learningResources: LearningResource[]
+  practiceGroups: PracticeGroup[]
+  ykiResources: Array<{ name: string; url: string; description: string }>
+  lastLearningReview: string
+}> {
+  const payload = await getPayload({ config })
+  const [paths, resources, groups, yki] = await Promise.all([
+    payload.find({ collection: 'learning-paths', limit: 100, pagination: false, overrideAccess: false, sort: 'title', where: { status: { equals: 'published' } } }),
+    payload.find({ collection: 'learning-resources', limit: 100, pagination: false, overrideAccess: false, sort: 'name', where: { status: { equals: 'published' } } }),
+    payload.find({ collection: 'practice-groups', limit: 100, pagination: false, overrideAccess: false, sort: 'name', where: { status: { equals: 'published' } } }),
+    payload.find({ collection: 'yki-resources', limit: 100, pagination: false, overrideAccess: false, sort: 'name', where: { status: { equals: 'published' } } }),
+  ])
+
+  const pathRecords = paths.docs as unknown as Array<Record<string, unknown>>
+  const resourceRecords = resources.docs as unknown as Array<Record<string, unknown>>
+  const groupRecords = groups.docs as unknown as Array<Record<string, unknown>>
+  const ykiRecords = yki.docs as unknown as Array<Record<string, unknown>>
+  const reviews = [...pathRecords, ...resourceRecords, ...groupRecords, ...ykiRecords]
+    .map((record) => dateOnly(record.lastReviewedAt))
+    .filter(Boolean)
+    .sort()
+
+  return {
+    learningPaths: pathRecords.map((record) => ({ title: String(record.title || ''), level: String(record.level || ''), recipe: String(record.recipe || ''), links: stringArray(record.links) })),
+    learningResources: resourceRecords.map((record) => ({
+      name: String(record.name || ''),
+      category: record.category as LearningResource['category'],
+      cost: record.cost as LearningResource['cost'],
+      level: String(record.level || ''),
+      format: String(record.format || ''),
+      url: String(record.url || ''),
+      description: String(record.description || ''),
+      bestFor: String(record.bestFor || ''),
+      note: typeof record.note === 'string' ? record.note : undefined,
+      featured: Boolean(record.featured),
+    })),
+    practiceGroups: groupRecords.map((record) => ({
+      name: String(record.name || ''),
+      location: String(record.location || ''),
+      schedule: String(record.schedule || ''),
+      cost: String(record.cost || ''),
+      url: String(record.url || ''),
+      description: String(record.description || ''),
+      checkFirst: String(record.checkFirst || ''),
+    })),
+    ykiResources: ykiRecords.map((record) => ({ name: String(record.name || ''), url: String(record.url || ''), description: String(record.description || '') })),
+    lastLearningReview: reviews.length ? reviewDate(reviews[reviews.length - 1]) : 'Not reviewed yet',
+  }
 }

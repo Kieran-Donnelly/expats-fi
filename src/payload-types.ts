@@ -73,7 +73,12 @@ export interface Config {
     articles: Article;
     businesses: Business;
     embassies: Embassy;
+    events: Event;
+    'learning-paths': LearningPath;
+    'learning-resources': LearningResource;
     media: Media;
+    'practice-groups': PracticeGroup;
+    'yki-resources': YkiResource;
     'payload-kv': PayloadKv;
     'payload-jobs': PayloadJob;
     'payload-locked-documents': PayloadLockedDocument;
@@ -87,7 +92,12 @@ export interface Config {
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
     businesses: BusinessesSelect<false> | BusinessesSelect<true>;
     embassies: EmbassiesSelect<false> | EmbassiesSelect<true>;
+    events: EventsSelect<false> | EventsSelect<true>;
+    'learning-paths': LearningPathsSelect<false> | LearningPathsSelect<true>;
+    'learning-resources': LearningResourcesSelect<false> | LearningResourcesSelect<true>;
     media: MediaSelect<false> | MediaSelect<true>;
+    'practice-groups': PracticeGroupsSelect<false> | PracticeGroupsSelect<true>;
+    'yki-resources': YkiResourcesSelect<false> | YkiResourcesSelect<true>;
     'payload-kv': PayloadKvSelect<false> | PayloadKvSelect<true>;
     'payload-jobs': PayloadJobsSelect<false> | PayloadJobsSelect<true>;
     'payload-locked-documents': PayloadLockedDocumentsSelect<false> | PayloadLockedDocumentsSelect<true>;
@@ -159,6 +169,10 @@ export interface MemberAuthOperations {
 export interface User {
   id: number;
   name?: string | null;
+  /**
+   * Super admins manage users and members. Editors manage published site content.
+   */
+  role: 'super-admin' | 'editor';
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -346,6 +360,154 @@ export interface Embassy {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events".
+ */
+export interface Event {
+  id: number;
+  title: string;
+  slug: string;
+  category: 'Music & nightlife' | 'Arts & culture' | 'Food & markets' | 'Community & free' | 'Sports & outdoors';
+  startDate: string;
+  endDate: string;
+  dateLabel: string;
+  timeLabel: string;
+  location: string;
+  address: string;
+  district: string;
+  /**
+   * Optional map coordinates: { "latitude": 60.17, "longitude": 24.94 }.
+   */
+  coordinates?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  blurb: string;
+  /**
+   * An array of story paragraphs.
+   */
+  description:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  price: string;
+  free?: boolean | null;
+  familyFriendly?: boolean | null;
+  ageNote?: string | null;
+  bookingNote: string;
+  sourceName: string;
+  sourceUrl: string;
+  /**
+   * Human-readable date shown to visitors.
+   */
+  lastChecked: string;
+  /**
+   * An array of { mode, advice } route tips.
+   */
+  transport:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  featured?: boolean | null;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "learning-paths".
+ */
+export interface LearningPath {
+  id: number;
+  title: string;
+  level: string;
+  recipe: string;
+  /**
+   * An array of related resource names.
+   */
+  links:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  lastReviewedAt: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "learning-resources".
+ */
+export interface LearningResource {
+  id: number;
+  name: string;
+  category: 'Free foundations' | 'Courses & teachers' | 'Apps & tools' | 'Listen & watch';
+  cost: 'Free' | 'Freemium' | 'Paid' | 'Free & paid';
+  level: string;
+  format: string;
+  url: string;
+  description: string;
+  bestFor: string;
+  note?: string | null;
+  featured?: boolean | null;
+  lastReviewedAt: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "practice-groups".
+ */
+export interface PracticeGroup {
+  id: number;
+  name: string;
+  location: string;
+  schedule: string;
+  cost: string;
+  url: string;
+  description: string;
+  checkFirst: string;
+  lastReviewedAt: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "yki-resources".
+ */
+export interface YkiResource {
+  id: number;
+  name: string;
+  url: string;
+  description: string;
+  lastReviewedAt: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "payload-kv".
  */
 export interface PayloadKv {
@@ -481,8 +643,28 @@ export interface PayloadLockedDocument {
         value: number | Embassy;
       } | null)
     | ({
+        relationTo: 'events';
+        value: number | Event;
+      } | null)
+    | ({
+        relationTo: 'learning-paths';
+        value: number | LearningPath;
+      } | null)
+    | ({
+        relationTo: 'learning-resources';
+        value: number | LearningResource;
+      } | null)
+    | ({
         relationTo: 'media';
         value: number | Media;
+      } | null)
+    | ({
+        relationTo: 'practice-groups';
+        value: number | PracticeGroup;
+      } | null)
+    | ({
+        relationTo: 'yki-resources';
+        value: number | YkiResource;
       } | null);
   globalSlug?: string | null;
   user:
@@ -542,6 +724,7 @@ export interface PayloadMigration {
  */
 export interface UsersSelect<T extends boolean = true> {
   name?: T;
+  role?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -672,6 +855,72 @@ export interface EmbassiesSelect<T extends boolean = true> {
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "events_select".
+ */
+export interface EventsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  category?: T;
+  startDate?: T;
+  endDate?: T;
+  dateLabel?: T;
+  timeLabel?: T;
+  location?: T;
+  address?: T;
+  district?: T;
+  coordinates?: T;
+  blurb?: T;
+  description?: T;
+  price?: T;
+  free?: T;
+  familyFriendly?: T;
+  ageNote?: T;
+  bookingNote?: T;
+  sourceName?: T;
+  sourceUrl?: T;
+  lastChecked?: T;
+  transport?: T;
+  featured?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "learning-paths_select".
+ */
+export interface LearningPathsSelect<T extends boolean = true> {
+  title?: T;
+  level?: T;
+  recipe?: T;
+  links?: T;
+  lastReviewedAt?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "learning-resources_select".
+ */
+export interface LearningResourcesSelect<T extends boolean = true> {
+  name?: T;
+  category?: T;
+  cost?: T;
+  level?: T;
+  format?: T;
+  url?: T;
+  description?: T;
+  bestFor?: T;
+  note?: T;
+  featured?: T;
+  lastReviewedAt?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "media_select".
  */
 export interface MediaSelect<T extends boolean = true> {
@@ -687,6 +936,36 @@ export interface MediaSelect<T extends boolean = true> {
   height?: T;
   focalX?: T;
   focalY?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "practice-groups_select".
+ */
+export interface PracticeGroupsSelect<T extends boolean = true> {
+  name?: T;
+  location?: T;
+  schedule?: T;
+  cost?: T;
+  url?: T;
+  description?: T;
+  checkFirst?: T;
+  lastReviewedAt?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "yki-resources_select".
+ */
+export interface YkiResourcesSelect<T extends boolean = true> {
+  name?: T;
+  url?: T;
+  description?: T;
+  lastReviewedAt?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { canManageContent } from '@/lib/admin-access'
+
 export const Embassies: CollectionConfig = {
   slug: 'embassies',
   admin: {
@@ -9,9 +11,9 @@ export const Embassies: CollectionConfig = {
   },
   access: {
     read: () => true,
-    create: ({ req: { user } }) => Boolean(user),
-    update: ({ req: { user } }) => Boolean(user),
-    delete: ({ req: { user } }) => Boolean(user),
+    create: ({ req: { user } }) => canManageContent(user),
+    update: ({ req: { user } }) => canManageContent(user),
+    delete: ({ req: { user } }) => canManageContent(user),
   },
   fields: [
     { name: 'country', type: 'text', required: true, index: true },

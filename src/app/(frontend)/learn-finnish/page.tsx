@@ -1,13 +1,7 @@
 import type { Metadata } from 'next'
 
-import {
-  lastLearningReview,
-  learningPaths,
-  learningResources,
-  practiceGroups,
-  ykiResources,
-  type LearningResource,
-} from '@/data/finnishLearning'
+import type { LearningResource } from '@/data/finnishLearning'
+import { getLearningPageData } from '@/lib/content'
 
 export const metadata: Metadata = {
   title: 'Finnish, finally — learn Finnish in Finland',
@@ -65,7 +59,11 @@ function ResourceCard({ resource }: { resource: LearningResource }) {
   )
 }
 
-export default function LearnFinnishPage() {
+export const dynamic = 'force-dynamic'
+
+export default async function LearnFinnishPage() {
+  const { lastLearningReview, learningPaths, learningResources, practiceGroups, ykiResources } = await getLearningPageData()
+
   return (
     <main id="main">
       <header className="learning-hero">

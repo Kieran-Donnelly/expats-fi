@@ -2,3 +2,196 @@
   --theme-elevation-100: #eef6fc;
   --theme-success-500: #2e7d32;
 }
+
+.expats-admin-dashboard {
+  display: grid;
+  gap: 1.25rem;
+  max-width: 1180px;
+  margin: 0 auto;
+  padding: 0 0 2rem;
+}
+
+.expats-admin-dashboard__header,
+.expats-admin-dashboard__panel {
+  border: 1px solid var(--theme-elevation-150, #d9e2ea);
+  border-radius: 14px;
+  background: var(--theme-elevation-0, #fff);
+}
+
+.expats-admin-dashboard__header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 2rem;
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  background: linear-gradient(135deg, #eff7ff 0%, #fff 72%);
+}
+
+.expats-admin-dashboard__header h2 {
+  margin: .3rem 0 .6rem;
+  color: #12253f;
+  font-size: clamp(1.65rem, 3vw, 2.5rem);
+  letter-spacing: -.04em;
+}
+
+.expats-admin-dashboard__header p:not(.expats-admin-dashboard__eyebrow) {
+  max-width: 62ch;
+  margin: 0;
+  color: #536476;
+  line-height: 1.6;
+}
+
+.expats-admin-dashboard__eyebrow {
+  margin: 0;
+  color: #1b639b;
+  font-size: .7rem;
+  font-weight: 760;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.expats-admin-dashboard__primary-action {
+  flex: none;
+  display: inline-flex;
+  align-items: center;
+  gap: .45rem;
+  min-block-size: 2.6rem;
+  padding: 0 1rem;
+  border-radius: 7px;
+  background: #155c91;
+  color: #fff;
+  font-size: .82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.expats-admin-dashboard__primary-action:hover { background: #0d426c; }
+
+.expats-admin-dashboard__metrics {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: .75rem;
+}
+
+.expats-admin-dashboard__metric {
+  display: grid;
+  gap: .35rem;
+  min-block-size: 8.2rem;
+  padding: 1rem;
+  border: 1px solid var(--theme-elevation-150, #d9e2ea);
+  border-radius: 10px;
+  background: var(--theme-elevation-0, #fff);
+  color: #536476;
+  text-decoration: none;
+}
+
+.expats-admin-dashboard__metric:hover { border-color: #4892c7; }
+.expats-admin-dashboard__metric > span { font-size: .76rem; font-weight: 680; }
+.expats-admin-dashboard__metric > strong { color: #12253f; font-size: 2rem; letter-spacing: -.05em; }
+.expats-admin-dashboard__metric > small { align-self: end; color: #1b639b; font-size: .7rem; font-weight: 700; }
+
+.expats-admin-dashboard__columns {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.expats-admin-dashboard__panel { overflow: hidden; }
+.expats-admin-dashboard__panel-heading { padding: 1.3rem 1.4rem 1rem; }
+.expats-admin-dashboard__panel-heading h3 { margin: .35rem 0 0; color: #12253f; font-size: 1.25rem; letter-spacing: -.03em; }
+
+.expats-admin-dashboard__actions,
+.expats-admin-dashboard__attention-list { display: grid; }
+
+.expats-admin-dashboard__actions a,
+.expats-admin-dashboard__attention-list a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: .18rem .75rem;
+  align-items: center;
+  padding: .9rem 1.4rem;
+  border-top: 1px solid var(--theme-elevation-100, #eef2f6);
+  color: #12253f;
+  text-decoration: none;
+}
+
+.expats-admin-dashboard__actions a:hover,
+.expats-admin-dashboard__attention-list a:hover { background: #f5f9fc; }
+.expats-admin-dashboard__actions strong { font-size: .86rem; }
+.expats-admin-dashboard__actions span { color: #667789; font-size: .74rem; }
+.expats-admin-dashboard__actions b,
+.expats-admin-dashboard__attention-list b { grid-row: 1 / span 2; grid-column: 2; color: #1b639b; font-size: 1.1rem; }
+
+.expats-admin-dashboard__attention-list a { grid-template-columns: auto auto minmax(0, 1fr) auto; gap: .55rem; }
+.expats-admin-dashboard__attention-list strong { font-size: .84rem; }
+.expats-admin-dashboard__attention-list span:not(.expats-admin-dashboard__status-dot) { color: #667789; font-size: .76rem; }
+.expats-admin-dashboard__status-dot { inline-size: .5rem; block-size: .5rem; border-radius: 50%; }
+.expats-admin-dashboard__status-dot--amber { background: #c47c17; }
+.expats-admin-dashboard__status-dot--blue { background: #327eb5; }
+.expats-admin-dashboard__status-dot--green { background: #34865a; }
+
+.expats-admin-dashboard__note {
+  margin: 0;
+  padding: .95rem 1.1rem;
+  border: 1px solid #c9deed;
+  border-top: 3px solid #4b94c6;
+  background: #f1f7fb;
+  color: #536476;
+  font-size: .78rem;
+  line-height: 1.55;
+}
+
+.expats-admin-dashboard__note strong { color: #12253f; }
+
+.expats-admin-google-login {
+  display: grid;
+  gap: .55rem;
+  margin-block-end: 1.4rem;
+  padding: 1rem;
+  border: 1px solid #c9deed;
+  border-radius: 10px;
+  background: #f1f7fb;
+}
+
+.expats-admin-google-login__label {
+  margin: 0;
+  color: #1b639b;
+  font-size: .68rem;
+  font-weight: 760;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.expats-admin-google-login__button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: .55rem;
+  min-block-size: 2.75rem;
+  border: 1px solid #b7cad8;
+  border-radius: 7px;
+  background: #fff;
+  color: #12253f;
+  font-size: .84rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.expats-admin-google-login__button:hover { border-color: #327eb5; background: #f8fbfd; }
+.expats-admin-google-login__button > span { color: #2f73b8; font-size: 1.05rem; font-weight: 800; }
+.expats-admin-google-login__note { margin: 0; color: #667789; font-size: .72rem; line-height: 1.45; }
+
+@media (max-width: 1050px) {
+  .expats-admin-dashboard__metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+
+@media (max-width: 720px) {
+  .expats-admin-dashboard__header,
+  .expats-admin-dashboard__columns { grid-template-columns: 1fr; display: grid; }
+  .expats-admin-dashboard__metrics { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .expats-admin-dashboard__primary-action { justify-self: start; }
+}
+
+@media (max-width: 420px) {
+  .expats-admin-dashboard__metrics { grid-template-columns: 1fr; }
+}

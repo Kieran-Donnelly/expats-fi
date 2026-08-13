@@ -1,5 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
+import { canManageMembers } from '@/lib/admin-access'
+
 export const Members: CollectionConfig = {
   slug: 'members',
   auth: {
@@ -13,10 +15,10 @@ export const Members: CollectionConfig = {
     defaultColumns: ['name', 'email', 'provider', 'createdAt'],
   },
   access: {
-    create: ({ req: { user } }) => user?.collection === 'users',
-    read: ({ req: { user } }) => user?.collection === 'users' ? true : user?.collection === 'members' ? { id: { equals: user.id } } : false,
-    update: ({ req: { user } }) => user?.collection === 'users' ? true : user?.collection === 'members' ? { id: { equals: user.id } } : false,
-    delete: ({ req: { user } }) => user?.collection === 'users',
+    create: ({ req: { user } }) => canManageMembers(user),
+    read: ({ req: { user } }) => canManageMembers(user) ? true : user?.collection === 'members' ? { id: { equals: user.id } } : false,
+    update: ({ req: { user } }) => canManageMembers(user) ? true : user?.collection === 'members' ? { id: { equals: user.id } } : false,
+    delete: ({ req: { user } }) => canManageMembers(user),
   },
   fields: [
     {
