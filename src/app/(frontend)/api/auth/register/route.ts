@@ -1,11 +1,7 @@
 import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
-function isSameOrigin(request: Request) {
-  const origin = request.headers.get('origin')
-  if (!origin) return true
-  return origin === new URL(request.url).origin
-}
+import { isSameOrigin } from '@/lib/request-origin'
 
 export async function POST(request: Request) {
   if (!isSameOrigin(request)) return Response.json({ message: 'Invalid request origin.' }, { status: 403 })
