@@ -270,7 +270,24 @@ export interface Business {
   }[];
   address: string;
   website: string;
+  newsletterUrl?: string | null;
   phone?: string | null;
+  /**
+   * Include the @ symbol, for example @expats.fi
+   */
+  instagramHandle?: string | null;
+  instagram?: string | null;
+  facebook?: string | null;
+  youtube?: string | null;
+  tiktok?: string | null;
+  bookingUrl?: string | null;
+  whatsapp?: string | null;
+  currentOffer?: string | null;
+  currentOfferEndsAt?: string | null;
+  imagePath?: string | null;
+  imageAlt?: string | null;
+  logoPath?: string | null;
+  logoAlt?: string | null;
   featured?: boolean | null;
   status: 'draft' | 'published';
   image?: (number | null) | Media;
@@ -609,7 +626,21 @@ export interface BusinessesSelect<T extends boolean = true> {
       };
   address?: T;
   website?: T;
+  newsletterUrl?: T;
   phone?: T;
+  instagramHandle?: T;
+  instagram?: T;
+  facebook?: T;
+  youtube?: T;
+  tiktok?: T;
+  bookingUrl?: T;
+  whatsapp?: T;
+  currentOffer?: T;
+  currentOfferEndsAt?: T;
+  imagePath?: T;
+  imageAlt?: T;
+  logoPath?: T;
+  logoAlt?: T;
   featured?: T;
   status?: T;
   image?: T;

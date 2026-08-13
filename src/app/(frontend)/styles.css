@@ -308,13 +308,18 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-profile__header h1 { max-inline-size: 18ch; }
 .business-profile__summary { max-inline-size: 45rem; margin: 1rem 0 0; color: var(--ink-soft); font-size: 1.15rem; }
 .business-profile__mark { inline-size: clamp(7rem, 16vw, 11rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 1rem; background: var(--blue); color: var(--snow); font-size: clamp(3rem, 8vw, 6rem); font-weight: 750; }
+.business-profile__mark--logo { padding: 1rem; overflow: hidden; background: var(--snow); border: 1px solid var(--line); }
+.business-profile__mark--logo img { inline-size: 100%; block-size: 100%; object-fit: contain; }
 .business-profile__body { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: clamp(3rem, 8vw, 6rem); padding-block-start: 3rem; }
 .business-profile__body h2 { margin-block-end: 1rem; font-size: 1.8rem; }
 .business-profile__body p { color: var(--ink-soft); }
+.business-profile__image { margin: 2rem 0 0; overflow: hidden; border-radius: .9rem; background: var(--blue-pale); }
+.business-profile__image img { display: block; inline-size: 100%; block-size: auto; max-block-size: 36rem; object-fit: cover; }
 .facts { display: grid; gap: 1.2rem; align-self: start; padding: 1.5rem; border-radius: .8rem; background: var(--blue-pale); }
 .facts div { display: grid; }
 .facts strong { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
 .facts a { color: var(--blue); overflow-wrap: anywhere; }
+.facts .facts__offer { padding: 1rem; border-radius: .65rem; background: var(--snow); color: var(--ink); }
 
 .article-page__header { max-inline-size: 61rem; padding-block-end: 2.7rem; border-block-end: 1px solid var(--line); }
 .article-page__header h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); }
