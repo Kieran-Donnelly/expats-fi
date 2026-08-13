@@ -9,6 +9,7 @@ import * as migration_20260807_100000_seed_original_guides from './20260807_1000
 import * as migration_20260807_130000_refresh_original_guides from './20260807_130000_refresh_original_guides';
 import * as migration_20260812_120000_add_directory_opt_ins from './20260812_120000_add_directory_opt_ins';
 import * as migration_20260813_100000_add_admin_content from './20260813_100000_add_admin_content';
+import * as migration_20260813_100001_seed_admin_content from './20260813_100001_seed_admin_content';
 
 export const migrations = [
   {
@@ -65,5 +66,10 @@ export const migrations = [
     up: migration_20260813_100000_add_admin_content.up,
     down: migration_20260813_100000_add_admin_content.down,
     name: '20260813_100000_add_admin_content',
+  },
+  {
+    up: migration_20260813_100001_seed_admin_content.up,
+    down: migration_20260813_100001_seed_admin_content.down,
+    name: '20260813_100001_seed_admin_content',
   },
 ];

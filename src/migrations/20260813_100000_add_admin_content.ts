@@ -1,13 +1,9 @@
 import type { MigrateDownArgs, MigrateUpArgs } from '@payloadcms/db-postgres'
 import { sql } from '@payloadcms/db-postgres'
 
-import { events } from '../data/events'
-import { learningPaths, learningResources, practiceGroups, ykiResources } from '../data/finnishLearning'
 import { superAdminEmails } from '../lib/admin-access'
 
-const reviewDate = '2026-08-04'
-
-export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
+export async function up({ db }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
     CREATE TYPE "public"."enum_users_role" AS ENUM('super-admin', 'editor');
     ALTER TABLE "users" ADD COLUMN "role" "enum_users_role" DEFAULT 'editor' NOT NULL;
@@ -151,50 +147,14 @@ export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
     CREATE INDEX "payload_locked_documents_rels_yki_resources_id_idx" ON "payload_locked_documents_rels" USING btree ("yki_resources_id");
   `)
 
-  const currentUsers = await payload.find({ collection: 'users', limit: 100, pagination: false, overrideAccess: true })
-  for (const user of currentUsers.docs) {
-    if (superAdminEmails.includes(user.email.trim().toLowerCase() as (typeof superAdminEmails)[number])) {
-      await payload.update({ collection: 'users', id: user.id, data: { role: 'super-admin' }, overrideAccess: true, req })
-    }
-  }
-
-  for (const event of events) {
-    const existing = await payload.find({ collection: 'events', where: { slug: { equals: event.slug } }, limit: 1, overrideAccess: true, req })
-    if (!existing.totalDocs) {
-      await payload.create({
-        collection: 'events',
-        data: { ...event, status: 'published' },
-        overrideAccess: true,
-        req,
-      })
-    }
-  }
-
-  for (const path of learningPaths) {
-    const existing = await payload.find({ collection: 'learning-paths', where: { title: { equals: path.title } }, limit: 1, overrideAccess: true, req })
-    if (!existing.totalDocs) await payload.create({ collection: 'learning-paths', data: { ...path, links: [...path.links], lastReviewedAt: reviewDate, status: 'published' }, overrideAccess: true, req })
-  }
-  for (const resource of learningResources) {
-    const existing = await payload.find({ collection: 'learning-resources', where: { name: { equals: resource.name } }, limit: 1, overrideAccess: true, req })
-    if (!existing.totalDocs) await payload.create({ collection: 'learning-resources', data: { ...resource, lastReviewedAt: reviewDate, status: 'published' }, overrideAccess: true, req })
-  }
-  for (const group of practiceGroups) {
-    const existing = await payload.find({ collection: 'practice-groups', where: { name: { equals: group.name } }, limit: 1, overrideAccess: true, req })
-    if (!existing.totalDocs) await payload.create({ collection: 'practice-groups', data: { ...group, lastReviewedAt: reviewDate, status: 'published' }, overrideAccess: true, req })
-  }
-  for (const resource of ykiResources) {
-    const existing = await payload.find({ collection: 'yki-resources', where: { name: { equals: resource.name } }, limit: 1, overrideAccess: true, req })
-    if (!existing.totalDocs) await payload.create({ collection: 'yki-resources', data: { ...resource, lastReviewedAt: reviewDate, status: 'published' }, overrideAccess: true, req })
-  }
+  await db.execute(sql`
+    UPDATE "users"
+    SET "role" = 'super-admin'
+    WHERE lower(trim("email")) IN (${sql.join(superAdminEmails.map((email) => sql`${email}`), sql`, `)});
+  `)
 }
 
-export async function down({ db, payload, req }: MigrateDownArgs): Promise<void> {
-  await payload.delete({ collection: 'events', where: {}, overrideAccess: true, req })
-  await payload.delete({ collection: 'learning-paths', where: {}, overrideAccess: true, req })
-  await payload.delete({ collection: 'learning-resources', where: {}, overrideAccess: true, req })
-  await payload.delete({ collection: 'practice-groups', where: {}, overrideAccess: true, req })
-  await payload.delete({ collection: 'yki-resources', where: {}, overrideAccess: true, req })
-
+export async function down({ db }: MigrateDownArgs): Promise<void> {
   await db.execute(sql`
     ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT "payload_locked_documents_rels_events_fk";
     ALTER TABLE "payload_locked_documents_rels" DROP CONSTRAINT "payload_locked_documents_rels_learning_paths_fk";
