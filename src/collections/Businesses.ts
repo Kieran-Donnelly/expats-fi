@@ -53,6 +53,7 @@ export const Businesses: CollectionConfig = {
     },
     { name: 'address', type: 'text', required: true },
     { name: 'website', type: 'text', required: true },
+    { name: 'newsletterUrl', type: 'text' },
     { name: 'phone', type: 'text' },
     {
       name: 'instagramHandle',

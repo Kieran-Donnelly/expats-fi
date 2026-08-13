@@ -9,6 +9,7 @@ const businessSlugs = businessDrafts.map((business) => business.slug)
 export async function up({ db, payload, req }: MigrateUpArgs): Promise<void> {
   await db.execute(sql`
     ALTER TABLE "businesses" ADD COLUMN "instagram_handle" varchar;
+    ALTER TABLE "businesses" ADD COLUMN "newsletter_url" varchar;
     ALTER TABLE "businesses" ADD COLUMN "instagram" varchar;
     ALTER TABLE "businesses" ADD COLUMN "facebook" varchar;
     ALTER TABLE "businesses" ADD COLUMN "youtube" varchar;
@@ -36,6 +37,7 @@ export async function down({ db, payload, req }: MigrateDownArgs): Promise<void>
 
   await db.execute(sql`
     ALTER TABLE "businesses" DROP COLUMN "instagram_handle";
+    ALTER TABLE "businesses" DROP COLUMN "newsletter_url";
     ALTER TABLE "businesses" DROP COLUMN "instagram";
     ALTER TABLE "businesses" DROP COLUMN "facebook";
     ALTER TABLE "businesses" DROP COLUMN "youtube";

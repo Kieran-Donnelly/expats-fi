@@ -7,6 +7,7 @@ export type BusinessDraft = {
   locations: string[]
   address: string
   website: string
+  newsletterUrl?: string
   phone?: string
   instagramHandle?: string
   instagram?: string
@@ -34,6 +35,7 @@ export const businessDrafts: BusinessDraft[] = [
     locations: ['Helsinki'],
     address: 'Uudenmaankatu 19-21 lh3, 00120 Helsinki',
     website: 'https://mimosagalleria.fi/',
+    newsletterUrl: 'https://mimosagalleria.fi/newsletter/',
     phone: '+358 45 359 3581',
     instagramHandle: '@mimosa_galleria',
     instagram: 'https://www.instagram.com/mimosa_galleria/',
@@ -61,6 +63,30 @@ export const businessDrafts: BusinessDraft[] = [
     imageAlt: 'An inclusive group yoga class inside Purna Yoga Helsinki',
     logoPath: '/businesses/purna-yoga-helsinki/logo.png',
     logoAlt: 'Purna Yoga Helsinki logo',
+    status: 'published',
+  },
+  {
+    slug: 'himalayan-beauty-spa',
+    name: 'Himalayan Beauty & Spa',
+    summary: 'Ayurvedic massages, facials and beauty treatments in Pasila, run by Nepal-trained cosmetologist Shila Moktan.',
+    description: "Shila Moktan grew up in Nepal, where her mum introduced her to Ayurvedic care. She trained in beauty and spa therapy in Kathmandu, ran her own spa there and later qualified as a cosmetologist in Helsinki. In 2025, she opened Himalayan Beauty & Spa in Pasila. Treatments include Ayurvedic oil massage, Shirodhara, facials and other beauty treatments, along with packages for couples and new or expectant mothers. Shila tailors the treatments to each person, so it is a good place to go when you need to slow down for a bit.",
+    categories: ['Health & wellbeing', 'Beauty & personal care', 'Massage & spa'],
+    locations: ['Helsinki'],
+    address: 'Veturitie 24 A 65, 3rd floor, 00520 Helsinki',
+    website: 'https://himalayanbeauty.fi/en/',
+    phone: '+358 45 787 05946',
+    instagramHandle: '@himalayanbeautyspa.pasila',
+    instagram: 'https://www.instagram.com/himalayanbeautyspa.pasila',
+    facebook: 'https://www.facebook.com/profile.php?id=61589164485747',
+    tiktok: 'https://www.tiktok.com/@himalayanbeautyspapasila',
+    bookingUrl: 'https://varaa.timma.fi/himalayanbeautyspa',
+    whatsapp: 'https://wa.me/3584578705946',
+    currentOffer: '20% opening discount on all services until 31 August 2026.',
+    currentOfferEndsAt: '2026-08-31T20:59:59.999Z',
+    imagePath: '/businesses/himalayan-beauty-spa/shila.jpg',
+    imageAlt: 'Founder Shila Moktan at Himalayan Beauty & Spa in Pasila',
+    logoPath: '/businesses/himalayan-beauty-spa/logo.png',
+    logoAlt: 'Himalayan Beauty & Spa logo',
     status: 'published',
   },
 ]

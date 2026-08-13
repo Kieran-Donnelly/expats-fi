@@ -7,6 +7,7 @@ export type Business = {
   locations: string[];
   address: string;
   website: string;
+  newsletterUrl?: string;
   phone: string;
   instagramHandle?: string;
   instagram?: string;

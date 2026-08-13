@@ -270,6 +270,7 @@ export interface Business {
   }[];
   address: string;
   website: string;
+  newsletterUrl?: string | null;
   phone?: string | null;
   /**
    * Include the @ symbol, for example @expats.fi
@@ -625,6 +626,7 @@ export interface BusinessesSelect<T extends boolean = true> {
       };
   address?: T;
   website?: T;
+  newsletterUrl?: T;
   phone?: T;
   instagramHandle?: T;
   instagram?: T;
