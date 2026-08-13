@@ -12,7 +12,10 @@ const nextConfig: NextConfig = {
     root: projectRoot,
   },
   images: {
-    localPatterns: [{ pathname: '/api/media/file/**' }],
+    localPatterns: [
+      { pathname: '/api/media/file/**' },
+      { pathname: '/businesses/**' },
+    ],
   },
   async redirects() {
     return [

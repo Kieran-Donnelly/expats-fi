@@ -8,6 +8,19 @@ export type Business = {
   address: string;
   website: string;
   phone: string;
+  instagramHandle?: string;
+  instagram?: string;
+  facebook?: string;
+  youtube?: string;
+  tiktok?: string;
+  bookingUrl?: string;
+  whatsapp?: string;
+  currentOffer?: string;
+  currentOfferEndsAt?: string;
+  imagePath?: string;
+  imageAlt?: string;
+  logoPath?: string;
+  logoAlt?: string;
   featured?: boolean;
 };
 

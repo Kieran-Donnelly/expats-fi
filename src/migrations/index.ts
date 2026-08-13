@@ -7,6 +7,7 @@ import * as migration_20260803_160742_add_media_prefix from './20260803_160742_a
 import * as migration_20260803_200449_add_members from './20260803_200449_add_members';
 import * as migration_20260807_100000_seed_original_guides from './20260807_100000_seed_original_guides';
 import * as migration_20260807_130000_refresh_original_guides from './20260807_130000_refresh_original_guides';
+import * as migration_20260812_120000_add_directory_opt_ins from './20260812_120000_add_directory_opt_ins';
 
 export const migrations = [
   {
@@ -53,5 +54,10 @@ export const migrations = [
     up: migration_20260807_130000_refresh_original_guides.up,
     down: migration_20260807_130000_refresh_original_guides.down,
     name: '20260807_130000_refresh_original_guides'
+  },
+  {
+    up: migration_20260812_120000_add_directory_opt_ins.up,
+    down: migration_20260812_120000_add_directory_opt_ins.down,
+    name: '20260812_120000_add_directory_opt_ins',
   },
 ];
