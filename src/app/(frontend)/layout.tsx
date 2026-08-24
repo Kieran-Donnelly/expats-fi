@@ -26,11 +26,11 @@ export const metadata: Metadata = {
   description: 'Practical guides for life in Finland, things to do in Helsinki, events, sports and a directory of expat-owned Finnish businesses.',
   icons: {
     icon: [
-      { url: '/favicon.svg', type: 'image/svg+xml' },
-      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon-finland.svg', type: 'image/svg+xml' },
+      { url: '/favicon-finland-32.png', sizes: '32x32', type: 'image/png' },
     ],
-    shortcut: '/favicon.svg',
-    apple: [{ url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }],
+    shortcut: '/favicon-finland.svg',
+    apple: [{ url: '/apple-touch-icon-finland.png', sizes: '180x180', type: 'image/png' }],
   },
   openGraph: {
     siteName: 'Expats.fi',
