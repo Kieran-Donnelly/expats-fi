@@ -17,6 +17,6 @@ export async function AccountNav({ mobile = false }: { mobile?: boolean }) {
   const cookieStore = await cookies()
   const signedIn = Boolean(cookieStore.get('expats-google-session')?.value) || isMemberToken(cookieStore.get('payload-token')?.value)
   const href = signedIn ? '/account/' : '/login/'
-  const label = signedIn ? 'My account' : 'Sign in'
+  const label = mobile ? (signedIn ? 'My account' : 'Sign in') : (signedIn ? 'Account' : 'Sign in')
   return <Link className={mobile ? undefined : 'account-link'} href={href}>{label}</Link>
 }
