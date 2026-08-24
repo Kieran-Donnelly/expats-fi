@@ -52,6 +52,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
     label: 'Explore',
     children: [
       { label: 'Events', href: '/events/' },
+      { label: 'Sports & activities', href: '/sports/' },
       { label: 'Community', href: '/businesses/' },
     ],
   },

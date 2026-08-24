@@ -20,6 +20,7 @@ export function SiteFooter() {
           <strong>Community</strong>
           <Link href="/learn-finnish/">Learn Finnish</Link>
           <Link href="/events/">Helsinki events</Link>
+          <Link href="/sports/">Sports and activities</Link>
           <Link href="/businesses/">Business directory</Link>
           <Link href="/embassies/">Embassies and consulates</Link>
           <Link href="/submit-business/">List a business</Link>
@@ -39,3 +40,4 @@ export function SiteFooter() {
     </footer>
   )
 }
+
