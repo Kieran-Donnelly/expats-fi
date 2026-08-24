@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     default: 'Expats.fi | Living in Finland, made clearer',
     template: '%s | Expats.fi',
   },
-  description: 'Practical guides for life in Finland, Helsinki events, sports and activities, plus a directory of expat-owned Finnish businesses.',
+  description: 'Practical guides for life in Finland, things to do in Helsinki, events, sports and a directory of expat-owned Finnish businesses.',
   openGraph: {
     siteName: 'Expats.fi',
     type: 'website',

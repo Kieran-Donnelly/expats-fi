@@ -51,6 +51,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
   {
     label: 'Explore',
     children: [
+      { label: 'Things to do in Helsinki', href: '/explore/' },
       { label: 'Events', href: '/events/' },
       { label: 'Sports & activities', href: '/sports/' },
       { label: 'Community', href: '/businesses/' },

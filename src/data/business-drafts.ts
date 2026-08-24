@@ -27,10 +27,25 @@ export type BusinessDraft = {
 
 export const businessDrafts: BusinessDraft[] = [
   {
+    slug: 'villa-severino',
+    name: 'Villa Severino',
+    summary: 'A Neapolitan family project that has grown in Finland, bringing together years of pizza research and Carmen Luna\u00ae Gelato Identitario.',
+    description: "Severino Salzano and Carmen Castillett brought their Italian and Neapolitan roots to Finland and have built Villa Severino here over the years. Severino has spent years researching grains, dough and long fermentation. That work earned Villa Severino a place in 50 Top Pizza Europa in 2023, 2024, 2025 and 2026, when it ranked No. 46 in Europe. Carmen created Carmen Luna\u00ae Gelato Identitario. It starts with natural ingredients and artisan production, but the idea goes much further than simply making gelato. Each flavour can tell a story about ingredients, memories, places and personal identity. It is a family project that is proudly Neapolitan but has also grown into something of its own here in Finland.",
+    categories: ['Food & drink', 'Nice hangs'],
+    locations: ['Helsinki'],
+    address: 'Helsinki Outlet, Tatti 17, 00760 Helsinki; Kamppi, Urho Kekkosen katu 1, 00100 Helsinki',
+    website: 'https://www.villaseverino.fi/',
+    phone: '+358 41 791 1660',
+    instagramHandle: '@villa_severino_finland',
+    instagram: 'https://www.instagram.com/villa_severino_finland/',
+    facebook: 'https://www.facebook.com/VillaSeverinoFinland/',
+    status: 'draft',
+  },
+  {
     slug: 'mimosa-galleria',
     name: 'Mimosa Galleria',
-    summary: 'A colourful Punavuori gallery and studio where art, movement, workshops and community meet.',
-    description: 'Mexican-born founder Bresley created Mimosa Galleria as a place for beauty, care and connection. The name comes from the affectionate word her grandmother used for the children in her family, inspired by “mi hermosa”. Today the Punavuori space brings together exhibitions, dance and wellness classes, workshops, handmade pieces and small community gatherings. Classes and private events can also travel to venues elsewhere in Helsinki.',
+    summary: 'A colourful little spot in Punavuori for art, dance, workshops, handmade pieces and meeting good people.',
+    description: "Bresley started Mimosa Galleria as a place where people could make things, share ideas and get to know each other. Her Mexican background is woven through the space, right down to the name. Her grandmother called the children in the family 'mimosa', from 'mi hermosa'. You will find exhibitions, dance and wellness classes, workshops, handmade pieces and small events there. They can also bring classes and private events to other venues around Helsinki.",
     categories: ['Art & culture', 'Classes & workshops', 'Community spaces'],
     locations: ['Helsinki'],
     address: 'Uudenmaankatu 19-21 lh3, 00120 Helsinki',
@@ -48,8 +63,8 @@ export const businessDrafts: BusinessDraft[] = [
   {
     slug: 'purna-yoga-helsinki',
     name: 'Purna Yoga Helsinki',
-    summary: 'English-language yoga, meditation and teacher training in central Helsinki, with small classes for every stage of life.',
-    description: 'Nicola Moberg grew up in the Austrian Alps, travelled widely and eventually relocated to Helsinki with her family. She discovered Purna Yoga after the birth of her second child and took over the studio from founder Tove Palmgren in 2017. Purna combines alignment-based movement, breathwork, heart-centred meditation and practical self-care. The welcoming English-language programme includes studio and online classes, pregnancy and postnatal yoga, baby yoga, private sessions, workshops and teacher training.',
+    summary: 'English-speaking yoga in central Helsinki, with small classes and a proper community around it.',
+    description: "Purna Yoga Helsinki is a handy one to know if you would like to try yoga but feel a little nervous walking into a new class, especially in a new country. Nicola Moberg grew up in the Austrian Alps and eventually moved to Helsinki with her family. She found Purna Yoga after her second child was born and took over the studio from founder Tove Palmgren in 2017. All classes are in English. There are regular studio and online classes, as well as pregnancy, postnatal and baby yoga, private sessions, workshops and teacher training.",
     categories: ['Health & wellbeing', 'Yoga', 'Classes & workshops'],
     locations: ['Helsinki'],
     address: 'Fredrikinkatu 67 E 42, 00100 Helsinki',
