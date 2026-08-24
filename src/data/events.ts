@@ -1,3 +1,5 @@
+import { eventAdditions } from './event-additions'
+
 export const eventCategories = [
   'Music & nightlife',
   'Arts & culture',
@@ -433,6 +435,7 @@ export const events: CityEvent[] = [
       { mode: 'Bike', advice: 'Waterfront cycle routes reach the harbour; park outside the busiest market area.' },
     ],
   },
+  ...eventAdditions,
 ]
 
 export function getEvent(slug: string): CityEvent | undefined {
@@ -460,4 +463,3 @@ export function eventDateParts(event: CityEvent): { day: string; month: string }
     month: new Intl.DateTimeFormat('en-GB', { month: 'short', timeZone: 'UTC' }).format(date),
   }
 }
-
