@@ -17,8 +17,9 @@ async function countCollection(payload: Awaited<ReturnType<typeof getPayload>>, 
 async function getMetrics() {
   try {
     const payload = await getPayload({ config })
-    const [articles, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles] = await Promise.all([
+    const [articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories] = await Promise.all([
       countCollection(payload, 'articles'),
+      countCollection(payload, 'news-stories'),
       countCollection(payload, 'businesses'),
       countCollection(payload, 'embassies'),
       countCollection(payload, 'events'),
@@ -26,9 +27,10 @@ async function getMetrics() {
       countCollection(payload, 'practice-groups'),
       countCollection(payload, 'businesses', { status: { equals: 'draft' } }),
       countCollection(payload, 'articles', { _status: { equals: 'draft' } }),
+      countCollection(payload, 'news-stories', { status: { equals: 'draft' } }),
     ])
 
-    return { articles, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles }
+    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories }
   } catch {
     return null
   }
@@ -48,6 +50,7 @@ export default async function ContentOverview() {
   const metrics = await getMetrics()
   const cards: Metric[] = [
     { label: 'Guides', value: metrics?.articles ?? null, href: '/admin/collections/articles' },
+    { label: 'News stories', value: metrics?.newsStories ?? null, href: '/admin/collections/news-stories' },
     { label: 'Businesses', value: metrics?.businesses ?? null, href: '/admin/collections/businesses' },
     { label: 'Embassy records', value: metrics?.embassies ?? null, href: '/admin/collections/embassies' },
     { label: 'Events', value: metrics?.events ?? null, href: '/admin/collections/events' },
@@ -75,6 +78,7 @@ export default async function ContentOverview() {
           <div className="expats-admin-dashboard__panel-heading"><div><p className="expats-admin-dashboard__eyebrow">Shortcuts</p><h3 id="expats-admin-quick-actions">Common actions</h3></div></div>
           <div className="expats-admin-dashboard__actions">
             <Link href="/admin/collections/articles/create"><strong>Write a guide</strong><span>Start a draft article</span><b aria-hidden="true">＋</b></Link>
+            <Link href="/admin/collections/news-stories/create"><strong>Write a news story</strong><span>Start with context and checked sources</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/businesses/create"><strong>Add a business</strong><span>Create a directory profile</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/events/create"><strong>List an event</strong><span>Add a community pick</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/embassies"><strong>Review embassies</strong><span>Check addresses and flags</span><b aria-hidden="true">→</b></Link>
@@ -86,6 +90,7 @@ export default async function ContentOverview() {
           <div className="expats-admin-dashboard__attention-list">
             <Link href="/admin/collections/businesses?where%5Bstatus%5D%5Bequals%5D=draft"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.draftBusinesses ?? '—'}</strong><span>business drafts waiting for review</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/articles?where%5B_status%5D%5Bequals%5D=draft"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--blue" /> <strong>{metrics?.draftArticles ?? '—'}</strong><span>guide drafts in progress</span><b aria-hidden="true">→</b></Link>
+            <Link href="/admin/collections/news-stories?where%5Bstatus%5D%5Bequals%5D=draft"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.draftNewsStories ?? '—'}</strong><span>news drafts waiting for a fact check</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/learning-resources"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--green" /> <strong>Routine</strong><span>review links, prices and dates before publishing</span><b aria-hidden="true">→</b></Link>
           </div>
         </section>

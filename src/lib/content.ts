@@ -4,7 +4,7 @@ import { getPayload, type Where } from 'payload'
 import { eventAdditions } from '@/data/event-additions'
 import type { CityEvent, EventTransport } from '@/data/events'
 import type { LearningResource, PracticeGroup } from '@/data/finnishLearning'
-import type { Article, Business, Embassy } from '@/payload-types'
+import type { Article, Business, Embassy, NewsStory } from '@/payload-types'
 
 export async function getArticles({
   category,
@@ -52,6 +52,44 @@ export async function getArticle(slug: string): Promise<Article | null> {
     limit: 1,
     overrideAccess: false,
     where: { slug: { equals: slug } },
+  })
+  return result.docs[0] || null
+}
+
+export async function getNewsStories({
+  category,
+  featured,
+  limit = 100,
+}: {
+  category?: string
+  featured?: boolean
+  limit?: number
+} = {}): Promise<NewsStory[]> {
+  const payload = await getPayload({ config })
+  const and: Where[] = [{ status: { equals: 'published' } }]
+  if (category) and.push({ category: { equals: category } })
+  if (typeof featured === 'boolean') and.push({ featured: { equals: featured } })
+
+  const result = await payload.find({
+    collection: 'news-stories',
+    depth: 1,
+    limit,
+    overrideAccess: false,
+    pagination: false,
+    sort: '-publishedAt',
+    where: { and },
+  })
+  return result.docs
+}
+
+export async function getNewsStory(slug: string): Promise<NewsStory | null> {
+  const payload = await getPayload({ config })
+  const result = await payload.find({
+    collection: 'news-stories',
+    depth: 1,
+    limit: 1,
+    overrideAccess: false,
+    where: { and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }] },
   })
   return result.docs[0] || null
 }
