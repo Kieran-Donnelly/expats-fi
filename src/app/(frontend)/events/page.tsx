@@ -3,10 +3,10 @@ import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
 import { EventsMap } from '@/components/EventsMap'
-import { eventCategories } from '@/data/events'
-import { getEvents } from '@/lib/content'
+import { eventCategories, getUpcomingEvents } from '@/data/events'
 
 export const dynamic = 'force-dynamic'
+export const revalidate = 0
 
 export const metadata: Metadata = {
   title: 'What’s on in Helsinki',
@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; q?: string }> }) {
   const { category = '', cost = '', q = '' } = await searchParams
-  const allEvents = await getEvents({ upcoming: true })
+  const allEvents = getUpcomingEvents()
   const query = q.trim().toLocaleLowerCase('en')
   const filteredEvents = allEvents.filter((event) => {
     if (category && event.category !== category) return false
