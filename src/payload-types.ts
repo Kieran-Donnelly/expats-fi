@@ -71,6 +71,7 @@ export interface Config {
     users: User;
     members: Member;
     articles: Article;
+    'news-stories': NewsStory;
     businesses: Business;
     embassies: Embassy;
     events: Event;
@@ -90,6 +91,7 @@ export interface Config {
     users: UsersSelect<false> | UsersSelect<true>;
     members: MembersSelect<false> | MembersSelect<true>;
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
+    'news-stories': NewsStoriesSelect<false> | NewsStoriesSelect<true>;
     businesses: BusinessesSelect<false> | BusinessesSelect<true>;
     embassies: EmbassiesSelect<false> | EmbassiesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
@@ -263,6 +265,60 @@ export interface Article {
   updatedAt: string;
   createdAt: string;
   _status?: ('draft' | 'published') | null;
+}
+/**
+ * Original Expats.fi reporting and explainers. Keep the source list and checked date current.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news-stories".
+ */
+export interface NewsStory {
+  id: number;
+  title: string;
+  slug: string;
+  /**
+   * A warm, useful summary for the News page and search results.
+   */
+  standfirst: string;
+  category: 'Helsinki' | 'Finland' | 'Work & money' | 'Life admin' | 'Culture & community';
+  publishedAt: string;
+  readingMinutes: number;
+  featured?: boolean | null;
+  /**
+   * The plain-English answer to: what does this mean for somebody living here?
+   */
+  practicalSummary: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * An array of source objects: [{ "name": "City of Helsinki", "url": "https://..." }].
+   */
+  sources:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  sourceCheckedAt: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -635,6 +691,10 @@ export interface PayloadLockedDocument {
         value: number | Article;
       } | null)
     | ({
+        relationTo: 'news-stories';
+        value: number | NewsStory;
+      } | null)
+    | ({
         relationTo: 'businesses';
         value: number | Business;
       } | null)
@@ -785,6 +845,26 @@ export interface ArticlesSelect<T extends boolean = true> {
   updatedAt?: T;
   createdAt?: T;
   _status?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news-stories_select".
+ */
+export interface NewsStoriesSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  standfirst?: T;
+  category?: T;
+  publishedAt?: T;
+  readingMinutes?: T;
+  featured?: T;
+  practicalSummary?: T;
+  content?: T;
+  sources?: T;
+  sourceCheckedAt?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema

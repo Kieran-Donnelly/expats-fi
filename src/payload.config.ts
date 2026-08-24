@@ -14,6 +14,7 @@ import { LearningPaths } from './collections/LearningPaths'
 import { LearningResources } from './collections/LearningResources'
 import { Media } from './collections/Media'
 import { Members } from './collections/Members'
+import { NewsStories } from './collections/NewsStories'
 import { PracticeGroups } from './collections/PracticeGroups'
 import { Users } from './collections/Users'
 import { YkiResources } from './collections/YkiResources'
@@ -35,7 +36,7 @@ export default buildConfig({
       titleSuffix: ' | Expats.fi',
     },
   },
-  collections: [Users, Members, Articles, Businesses, Embassies, Events, LearningPaths, LearningResources, Media, PracticeGroups, YkiResources],
+  collections: [Users, Members, Articles, NewsStories, Businesses, Embassies, Events, LearningPaths, LearningResources, Media, PracticeGroups, YkiResources],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'local-development-secret-change-me',
   serverURL,

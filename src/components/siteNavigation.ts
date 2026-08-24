@@ -49,6 +49,10 @@ export const primaryNavigation: readonly NavigationItem[] = [
     href: '/learn-finnish/',
   },
   {
+    label: 'News',
+    href: '/news/',
+  },
+  {
     label: 'Explore',
     children: [
       { label: 'Things to do in Helsinki', href: '/explore/' },
