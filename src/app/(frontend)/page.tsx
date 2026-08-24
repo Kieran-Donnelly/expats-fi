@@ -95,6 +95,22 @@ export default async function HomePage() {
         </div>
       </section>
 
+      <section className="sports-home">
+        <div className="shell sports-home__inner">
+          <div className="sports-home__copy">
+            <p className="eyebrow">Sports & activities</p>
+            <h2>Find a team without needing to know someone first.</h2>
+            <p>Beginner-friendly clubs, social sessions, classes and useful places to play around Helsinki, with the awkward first questions already answered.</p>
+            <Link className="button" href="/sports/">Explore sports and activities</Link>
+          </div>
+          <div className="sports-home__routes">
+            <Link href="/sports/?type=Club%20%26%20team"><span>01</span><strong>Join a club or team</strong><small>Regular training and a community</small></Link>
+            <Link href="/sports/?fit=beginner"><span>02</span><strong>Start from scratch</strong><small>First-timer sessions and free trials</small></Link>
+            <Link href="/sports/?type=Venue%20%26%20facility"><span>03</span><strong>Find somewhere to play</strong><small>Pools, parks, walls and trails</small></Link>
+          </div>
+        </div>
+      </section>
+
       <section className="section shell home-events" aria-labelledby="home-events-heading">
         <div className="section-heading">
           <div><p className="eyebrow">Helsinki, right now</p><h2 id="home-events-heading">A reason to leave the apartment.</h2></div>
@@ -110,3 +126,4 @@ export default async function HomePage() {
     </main>
   )
 }
+

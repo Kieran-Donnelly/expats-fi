@@ -9,6 +9,7 @@ import { SiteHeader } from '@/components/SiteHeader'
 import 'flag-icons/css/flag-icons.min.css'
 import 'leaflet/dist/leaflet.css'
 import './styles.css'
+import './sports.css'
 
 const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
     default: 'Expats.fi | Living in Finland, made clearer',
     template: '%s | Expats.fi',
   },
-  description: 'Practical guides for life in Finland, Helsinki event picks and a directory of expat-owned Finnish businesses.',
+  description: 'Practical guides for life in Finland, Helsinki events, sports and activities, plus a directory of expat-owned Finnish businesses.',
   openGraph: {
     siteName: 'Expats.fi',
     type: 'website',
