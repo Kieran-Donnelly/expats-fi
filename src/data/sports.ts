@@ -1,3 +1,5 @@
+import { sportsListingAdditions } from './sports-additions'
+
 export const sportsListingTypes = [
   'Club & team',
   'Social session',
@@ -1083,6 +1085,7 @@ export const sportsListings: SportsListing[] = [
     sourceName: 'City of Helsinki Sports Services',
     lastChecked: '24 August 2026',
   },
+  ...sportsListingAdditions,
 ]
 
 export function getSportsListing(slug: string): SportsListing | undefined {
