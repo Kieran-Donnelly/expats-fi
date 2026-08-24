@@ -27,7 +27,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
     if (query && !searchable.includes(query)) return false
     return true
   })
-  const sportsEvents = getUpcomingEvents().filter((event) => event.category === 'Sports & outdoors').slice(0, 3)
+  const sportsEvents = getUpcomingEvents().filter((event) => event.category === 'Sports & outdoors').slice(0, 6)
   const branches = [
     { label: 'Clubs & teams', detail: 'Train regularly and find your people', href: '/sports/?type=Club%20%26%20team' },
     { label: 'Social sessions', detail: 'Move first, make friends naturally', href: '/sports/?type=Social%20session' },
@@ -72,7 +72,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
       <section className="sports-directory" aria-label="Sports and activities directory">
         <div className="shell section">
           <div className="section-heading sports-directory__heading">
-            <div><p className="eyebrow">Checked starter directory</p><h2>What do you fancy?</h2></div>
+            <div><p className="eyebrow">A growing Helsinki directory</p><h2>What do you fancy?</h2></div>
             <p>{filteredListings.length} {filteredListings.length === 1 ? 'option' : 'options'} found</p>
           </div>
           <form className="filter-form sports-filter" action="/sports/" method="get" role="search">
@@ -85,7 +85,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
           <SportsMap listings={filteredListings} />
           {filteredListings.length ? <div className="sports-grid">{filteredListings.map((listing) => <SportsCard key={listing.slug} listing={listing} />)}</div> : <div className="empty-state"><h2>No exact match yet</h2><p>Try removing one filter. We are starting in Helsinki and will keep adding more sports, clubs and areas.</p></div>}
           <div className="sports-source-note">
-            <div><strong>Useful first. Confirmed next.</strong><p>Official city and facility details are marked as checked. Independent clubs are included from their public information, with organisation confirmation still pending.</p></div>
+            <div><strong>{sportsListings.length} ways to get moving, and growing.</strong><p>Official facilities and public events are checked against their organisers. Club details come from each club’s current information, with clear notes where English support should be confirmed before joining.</p></div>
             <a href="mailto:listings@expats.fi?subject=Sports%20listing%20for%20Expats.fi">Suggest a club or correction</a>
           </div>
         </div>
