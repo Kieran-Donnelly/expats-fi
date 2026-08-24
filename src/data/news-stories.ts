@@ -149,4 +149,153 @@ export const seedNewsStories: SeedNewsStory[] = [
       { name: 'HSL Journey Planner', url: 'https://reittiopas.hsl.fi/' },
     ],
   },
+  {
+    slug: 'siberian-wildfire-smoke-finland-air-quality',
+    title: 'Smoke from Siberia reached Finland. Here is what that hazy sky actually means',
+    standfirst: 'Fine particles travelled thousands of kilometres into Finland this week. The air was expected to clear quickly, but knowing where to check and when to take it easy is useful long after this particular haze has gone.',
+    category: 'Finland',
+    publishedAt: '2026-08-24T15:30:00.000Z',
+    readingMinutes: 6,
+    featured: false,
+    practicalSummary: 'The current smoke episode was expected to ease by Tuesday. If the sky looks hazy or breathing feels uncomfortable, check the live HSY or national air-quality map, ease off hard outdoor exercise and follow local health advice rather than relying on what the weather app says.',
+    html: `
+      <p>Finland is usually the place people point to when they want to show off clean air. Then a pale haze rolls across the sky, the sunset turns suspiciously dramatic, and somebody tells you the smoke has travelled all the way from Siberia.</p>
+      <p>That is what happened this week. Fine particles from extensive wildfires were carried into Lapland over the weekend, then spread down western Finland and into the south. The Finnish Meteorological Institute told Finnish news agency STT that air quality in many areas had dropped to fair or satisfactory on Monday morning, although the situation was expected to improve by Tuesday.</p>
+      <p>For most people this was a short-lived inconvenience rather than an emergency. It is still a useful reminder that Finland's air does not stop at the border, and that a clear-looking day is not always the same thing as a clean-air day.</p>
+      <h2>How can smoke travel that far?</h2>
+      <p>The particles involved are known as PM2.5, meaning they are smaller than 2.5 micrometres across. They are tiny enough to remain suspended in the atmosphere and travel thousands of kilometres with moving air masses.</p>
+      <p>HSY, the Helsinki Region Environmental Services Authority, says long-range transport accounts for more than half of the fine-particle concentration in the capital region on average. Most of the time those particles arrive without creating a noticeable episode. Smoke from wildfires can push levels higher and reduce visibility, producing the washed-out horizon people noticed this week.</p>
+      <p>The current concentrations were described as similar to levels commonly experienced in Central Europe. That gives the story some perspective. The air became worse by Finnish standards, but this was not being described as a repeat of Finland's most serious smoke events.</p>
+      <h2>Who should pay closer attention?</h2>
+      <p>Fine particles can irritate anyone, but people with asthma, other respiratory conditions or cardiovascular disease may react sooner. Older people, small children and pregnant people can also be more sensitive to poor air quality.</p>
+      <p>Symptoms can include coughing, irritation, shortness of breath or an unusual tight feeling while exercising. You do not need to diagnose the sky yourself. If the air-quality index is poor and a hard run makes you feel rough, swap it for something gentler or move the workout indoors.</p>
+      <p>During an intense long-range smoke episode, HSY advises people to reduce strenuous outdoor activity and follow live air-quality information. Going indoors and temporarily limiting ventilation can reduce exposure. There is an important bit of Finnish common sense attached: if your home is overheating and you have a heart or respiratory condition, excessive heat can be the greater risk. Do not turn the flat into a sauna in an attempt to keep every particle outside.</p>
+      <h2>Where should you check?</h2>
+      <p>For Helsinki, Espoo, Vantaa and the surrounding region, HSY publishes a live map and short-term forecast. Monitoring stations update throughout the day, so the map is more useful than a screenshot from somebody's phone taken six hours earlier.</p>
+      <p>Air quality can vary across a city. A busy road, local wood burning and street dust can all affect what you are breathing even when the regional smoke situation is improving. Check the place where you actually plan to be.</p>
+      <p>This week's Siberian haze was forecast to move on quickly. The habit worth keeping is simple: when the horizon looks odd, check the proper air-quality map before assuming it is mist, pollen or your windows needing a wash.</p>
+    `,
+    sources: [
+      { name: 'Yle News report using Finnish Meteorological Institute information', url: 'https://yle.fi/a/74-20242628' },
+      { name: 'HSY live air quality', url: 'https://www.hsy.fi/en/airquality/' },
+      { name: 'HSY guide to long-range fine particles', url: 'https://www.hsy.fi/en/air-quality-and-climate/air-protection-and-health/air-quality-challenges-now-and-in-the-future/long-range-transport-reduces-air-quality/' },
+    ],
+  },
+  {
+    slug: 'aalto-works-unesco-finland-guide',
+    title: 'Finland just gained a whole new UNESCO site, except it comes in 13 pieces',
+    standfirst: 'Thirteen buildings and neighbourhoods designed by Alvar, Aino and Elissa Aalto now form Finland’s eighth World Heritage Site. Five are in Helsinki, while the rest make a rather excellent excuse for a Finnish road trip.',
+    category: 'Culture & community',
+    publishedAt: '2026-08-24T14:00:00.000Z',
+    readingMinutes: 8,
+    featured: false,
+    practicalSummary: 'You do not need to be an architecture expert to explore the new World Heritage Site. Helsinki has five of its 13 locations, including Finlandia Hall, the Aalto home and studio. Check access and tour times before visiting because several sites remain working buildings or have limited entry.',
+    html: `
+      <p>Finland has a new UNESCO World Heritage Site, although calling it a site makes it sound much tidier than it is. Aalto Works stretches across 13 buildings and groups of buildings in seven Finnish locations, from a former tuberculosis sanatorium in Paimio to a mill community in Kotka and five landmarks here in Helsinki.</p>
+      <p>The World Heritage Committee approved the collection in July 2026. It is Finland's eighth entry on the list and the country's first new one since the Kvarken Archipelago was added in 2006.</p>
+      <p>If the name Aalto currently means a vase you have seen in every Finnish design shop, this is a good chance to look beyond it. The collection is a tour through the way Finland imagined homes, healthcare, work, culture and public life during the twentieth century.</p>
+      <h2>Not simply the work of one famous man</h2>
+      <p>Alvar Aalto is the name most people recognise, but UNESCO's listing credits a much wider creative story. The buildings were designed by Alvar, Aino Marsio-Aalto and Elissa Aalto, together with the Aalto studio, Artek and other collaborators.</p>
+      <p>That matters because the familiar lone-genius version leaves out two formidable architects and designers. Aino helped shape the studio's early modernism, interiors and furniture. Elissa became a partner in the practice, led projects and continued the studio's work after Alvar's death. The UNESCO title gives the whole body of work a more honest frame.</p>
+      <p>The sites were completed between 1928 and 1988. UNESCO highlights their human-centred approach, meaning modern architecture designed around how people actually move, recover, work and live rather than simply how a building looks in a photograph.</p>
+      <h2>Five places to begin in Helsinki</h2>
+      <p>Helsinki has the easiest mini-route through the collection. Finlandia Hall is the obvious landmark beside Töölönlahti, but it is only one part of the story.</p>
+      <ul>
+        <li><strong>The Aalto House in Munkkiniemi</strong> combines the family's home and early studio. It feels personal and surprisingly modest beside Aalto's public reputation.</li>
+        <li><strong>Studio Aalto</strong>, also in Munkkiniemi, shows the working environment built for the growing architectural practice.</li>
+        <li><strong>The House of Culture in Alppila</strong> is a sweeping red-brick concert and meeting building originally commissioned by the Finnish Communist Party.</li>
+        <li><strong>Kela's main office</strong> is a civic building where architecture, furniture and the machinery of Finland's welfare state meet.</li>
+        <li><strong>Finlandia Hall</strong> is the collection's big ceremonial face, designed for concerts, congresses and international occasions.</li>
+      </ul>
+      <p>Do not assume UNESCO status turns every building into a walk-in museum. The Aalto home and studio use guided visits, while other locations remain workplaces, venues or public institutions. Check each official site before crossing town.</p>
+      <h2>The rest make a fine Finnish tour</h2>
+      <p>The other eight locations spread the story across the country: Paimio Sanatorium, Sunila's mill housing in Kotka, Villa Mairea near Pori, Säynätsalo Town Hall, Jyväskylä University's Aalto campus, the Muuratsalo Experimental House, Seinäjoki's civic and cultural centre and the Church of the Three Crosses in Imatra.</p>
+      <p>Together they are a slightly unconventional travel itinerary. You get industrial history, islands, university buildings, churches, family homes and some very Finnish arguments about whether a severe brick wall is beautiful.</p>
+      <h2>What changes now?</h2>
+      <p>UNESCO recognition does not freeze the buildings or automatically renovate them. It brings international attention and a stronger obligation to protect the shared value of the collection. The hard work remains maintenance, careful repairs and keeping buildings useful without sanding away what made them important.</p>
+      <p>For those of us who moved to Finland, the collection also offers a shortcut into understanding the country. The buildings reveal how ideas about equality, nature, wellbeing and public institutions were turned into physical spaces. They are not the whole Finnish story, but they explain a fair bit of the scenery.</p>
+      <p>Start with one place in Helsinki. If you find yourself judging door handles and discussing the emotional quality of brick by the end, congratulations. Finland may have got to you.</p>
+    `,
+    sources: [
+      { name: 'UNESCO World Heritage Centre', url: 'https://whc.unesco.org/en/list/1752/' },
+      { name: 'Finnish Heritage Agency', url: 'https://www.museovirasto.fi/en/articles/aaltojen-arkkitehtuuri-on-suomen-kahdeksas-unescon-maailmanperintokohde' },
+      { name: 'Alvar Aalto Foundation site guide', url: 'https://www.alvaraalto.fi/en/alvar-aalto-foundation/alvar-aalto-and-unesco-world-heritage/aalto-works-sites/' },
+    ],
+  },
+  {
+    slug: 'finland-official-mail-digital-inboxes-2026',
+    title: 'Finland has quietly moved the letterbox into your phone. Check these two inboxes',
+    standfirst: 'Official mail is now primarily digital for many adults using Finnish online services. Suomi.fi Messages and OmaKela are useful, but missing a notification can mean missing a deadline too.',
+    category: 'Life admin',
+    publishedAt: '2026-08-24T12:00:00.000Z',
+    readingMinutes: 7,
+    featured: false,
+    practicalSummary: 'Check both Suomi.fi Messages and OmaKela, make sure their notification email or phone number is current, and do not assume deleting an app restores paper post. Paper remains available, but you need to choose it in the relevant settings or contact the service.',
+    html: `
+      <p>One of Finland's small administrative thrills used to be finding an official brown envelope on the doormat and wondering whether it contained a tax refund, a Kela decision or a polite demand that you explain something by Friday.</p>
+      <p>In 2026, a lot of that mail moved online. This is quicker and generally easier, but it comes with one obvious danger: the important letter is now sitting in an inbox you might not remember exists.</p>
+      <p>There are two places international residents should understand. Suomi.fi Messages is a secure mailbox used by many public authorities. OmaKela is Kela's own service for benefit applications, decisions and messages. They overlap around notifications, but they are not the same inbox.</p>
+      <h2>What changed with Suomi.fi Messages?</h2>
+      <p>Since 14 April 2026, adults who strongly identify themselves in a public authority's online service are generally directed to activate Suomi.fi Messages. Once active, public authorities can deliver official messages there instead of posting the same letter on paper.</p>
+      <p>You read them through the Suomi.fi website or mobile app. The service asks for an email address so it can notify you when something new arrives. The notification is only the nudge. The official message itself remains inside the secure mailbox.</p>
+      <p>People who do not use public digital services continue receiving paper mail. Minors, people under guardianship and certain people acting through continuing powers of attorney are also treated differently.</p>
+      <h2>And what changed at Kela?</h2>
+      <p>Kela made its own digital shift earlier, from 15 January 2026. Customers who use OmaKela and have provided an email address or phone number generally receive decision notices and letters in OmaKela without another paper copy.</p>
+      <p>Kela says it sends a notification through Suomi.fi Messages, email or text when a new item is available. That can feel like mail about mail, but the practical point is simple: open OmaKela and read the actual document.</p>
+      <p>Some Kela communications still arrive on paper, and customers who do not use OmaKela continue receiving paper decisions. Certain pension, disability, estate and social-assistance documents also have specific paper arrangements.</p>
+      <h2>Four minutes of housekeeping</h2>
+      <ol>
+        <li>Log in to Suomi.fi and open Messages. Confirm the email address used for notifications.</li>
+        <li>Log in to OmaKela and check your latest decisions, requests for information and contact details.</li>
+        <li>Turn on notifications in the Suomi.fi app if you use it.</li>
+        <li>Add a recurring reminder to check both services, especially while an application is being processed.</li>
+      </ol>
+      <p>This matters because official deadlines do not become optional when the notification disappears into a crowded email account. A request for supporting documents, decision appeal period or employment-services message may keep moving even if you have not opened it.</p>
+      <h2>Can you keep paper mail?</h2>
+      <p>Yes. Paper remains an option. Suomi.fi allows users to switch back to paper in the Messages settings, currently for one year at a time. If you later return to a public e-service after that period, you may be guided to activate digital messages again.</p>
+      <p>Kela users can also request paper letters through OmaKela settings or customer service. The important bit is that deleting the Suomi.fi mobile app does not deactivate the digital mailbox. Removing the icon from your phone is not the same as changing the delivery choice.</p>
+      <p>If digital services are difficult, help is available by phone and in person. Kela also provides English-language customer service and can arrange interpretation when needed.</p>
+      <p>Finland's administration has not stopped sending letters. It has simply given the letterbox a password. Check it now and save yourself the deeply Finnish experience of learning about an important deadline from a reminder about the deadline.</p>
+    `,
+    sources: [
+      { name: 'Suomi.fi digital official mail guidance', url: 'https://www.suomi.fi/news/public-authorities-to-begin-primarily-sending-digital-mail-to-users-of-digital-services-in-april' },
+      { name: 'Suomi.fi support and paper-mail options', url: 'https://www.suomi.fi/news/transition-to-primarily-electronic-official-mail-information-and-support-for-citizens' },
+      { name: 'Kela decision and letter delivery changes', url: 'https://www.kela.fi/news/kela-to-phase-out-paper-mail-letters-will-be-delivered-only-via-omakela' },
+      { name: 'Kela OmaKela guidance', url: 'https://www.kela.fi/e-services' },
+    ],
+  },
+  {
+    slug: 'helsinki-archipelago-action-plan-2026',
+    title: 'Helsinki wants its islands to feel less like a secret club',
+    standfirst: 'A new four-year plan promises easier island connections, electric water transport, better eastern waterfronts and even the return of city rowing boats. Lovely ideas, but most of the big changes are still ahead.',
+    category: 'Helsinki',
+    publishedAt: '2026-08-24T10:00:00.000Z',
+    readingMinutes: 6,
+    featured: false,
+    practicalSummary: 'The city has approved a 2026 to 2029 direction for better archipelago access, including a circular ferry route and more electric transport. Treat it as a roadmap rather than a timetable, and keep using official route and island information for trips happening now.',
+    html: `
+      <p>Helsinki is surrounded by islands, which sounds wonderfully democratic until you try to visit one and discover the boat runs twice on alternate Thursdays, tickets are sold through a website last updated during Nokia's glory years, and the return journey requires faith.</p>
+      <p>The City of Helsinki has noticed the gap between having a spectacular archipelago and making it easy for ordinary residents to use. Its new Maritime Helsinki action plan covers 2026 to 2029 and aims to bring the sea closer to daily life rather than leaving it as scenery behind the Market Square.</p>
+      <p>The plan includes a circular ferry route from the Market Square to nearby islands, more electric water transport, better waterfront paths and beaches, support for island services and the return of city rowing boats.</p>
+      <h2>What is actually being promised?</h2>
+      <p>The headline idea is to make local water transport behave a little more like public transport. Routes should be easier to understand, connections more useful and the busiest services gradually electrified.</p>
+      <p>The city identifies Suomenlinna and Pihlajasaari connections as flagship projects. Electric transport to Pihlajasaari is scheduled to begin in 2028. A new circular archipelago service would connect the Market Square with islands off the Helsinki coast, giving people without their own boat a more natural way to move between destinations.</p>
+      <p>Waterfront development will focus particularly on eastern Helsinki. The plan talks about clearer routes, more pleasant beaches and new year-round services along the shore.</p>
+      <p>City rowing boats are also due to return as part of the waterfront network. The previous boats were a brilliantly Finnish idea: borrow a shared rowing boat and get onto the water without buying, storing or pretending to understand your own boat.</p>
+      <h2>More access also means more business</h2>
+      <p>If more people can reach the islands, they need places to eat, warm up, rent equipment and occasionally admit they have no idea how to paddle a kayak. Helsinki expects the plan to create opportunities for cafés, saunas, rentals, guided trips and other small maritime services.</p>
+      <p>The city says it wants clearer permits, more predictable operating models and longer contracts so businesses can invest with less uncertainty. That could be good news for the sort of independent operators our directory loves, especially if the opportunities remain open to small companies rather than only large tourism firms.</p>
+      <h2>The environmental balancing act</h2>
+      <p>Easier access is not automatically good for the islands. More boats, visitors and services can put pressure on delicate habitats. The city says routes and signs will steer people away from sensitive areas, while electrification should reduce some local emissions and noise.</p>
+      <p>That balance needs watching. The best version of the plan allows more Helsinki residents to enjoy the archipelago without slowly loving its quietest places to death.</p>
+      <h2>What can you do this summer?</h2>
+      <p>The action plan is a roadmap, not a new timetable that starts tomorrow. Several of the most exciting pieces are still being planned, and the Pihlajasaari electric service has a 2028 target.</p>
+      <p>For trips now, check the current operator, ticket and return information for each island. Suomenlinna has regular public transport, while recreational islands may use seasonal private services with different tickets and last departures.</p>
+      <p>Still, the direction is encouraging. Helsinki's sea should not feel like a premium backdrop available only to boat owners and people who have inherited a mysterious family cottage. If the city delivers, catching a ferry for a swim, sauna or coffee could become a normal part of living here rather than a minor research project.</p>
+    `,
+    sources: [
+      { name: 'City of Helsinki Maritime Helsinki action plan announcement', url: 'https://www.hel.fi/en/news/helsinki-to-bring-the-sea-closer-to-daily-life-new-action-plan-to-improve-water-transport' },
+      { name: 'City of Helsinki archipelago transport information', url: 'https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/islands/waterway-transport-in-the-helsinki-archipelago' },
+    ],
+  },
 ]
