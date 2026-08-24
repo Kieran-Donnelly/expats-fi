@@ -1,6 +1,7 @@
 import config from '@payload-config'
 import { getPayload, type Where } from 'payload'
 
+import { eventAdditions } from '@/data/event-additions'
 import type { CityEvent, EventTransport } from '@/data/events'
 import type { LearningResource, PracticeGroup } from '@/data/finnishLearning'
 import type { Article, Business, Embassy } from '@/payload-types'
@@ -227,7 +228,12 @@ export async function getEvents({ upcoming = false }: { upcoming?: boolean } = {
     where: { status: { equals: 'published' } },
   })
   const mapped = result.docs.map((record) => mapEvent(record as unknown as Record<string, unknown>))
-  if (!upcoming) return mapped
+  const mappedSlugs = new Set(mapped.map((event) => event.slug))
+  const combined = [
+    ...mapped,
+    ...eventAdditions.filter((event) => !mappedSlugs.has(event.slug)),
+  ].sort((a, b) => a.startDate.localeCompare(b.startDate))
+  if (!upcoming) return combined
 
   const today = new Intl.DateTimeFormat('en-CA', {
     timeZone: 'Europe/Helsinki',
@@ -235,7 +241,7 @@ export async function getEvents({ upcoming = false }: { upcoming?: boolean } = {
     month: '2-digit',
     day: '2-digit',
   }).format(new Date())
-  return mapped.filter((event) => event.endDate >= today)
+  return combined.filter((event) => event.endDate >= today)
 }
 
 export async function getEvent(slug: string): Promise<CityEvent | null> {
@@ -248,7 +254,7 @@ export async function getEvent(slug: string): Promise<CityEvent | null> {
     where: { and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }] },
   })
   const record = result.docs[0]
-  return record ? mapEvent(record as unknown as Record<string, unknown>) : null
+  return record ? mapEvent(record as unknown as Record<string, unknown>) : eventAdditions.find((event) => event.slug === slug) || null
 }
 
 function reviewDate(value: unknown): string {
