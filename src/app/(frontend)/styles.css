@@ -1,6 +1,7 @@
 :root {
   --blue: oklch(46% 0.145 250);
   --blue-dark: oklch(36% 0.12 250);
+  --logo-blue: #003580;
   --blue-soft: oklch(96% 0.024 242);
   --blue-pale: oklch(98% 0.012 242);
   --green: oklch(52% 0.12 145);
@@ -32,12 +33,13 @@ svg { display: block; }
 :focus-visible { outline: 3px solid oklch(72% 0.12 245); outline-offset: 3px; }
 
 .logo { display: inline-flex; align-items: center; gap: .65rem; }
-.logo__mark { position: relative; display: block; inline-size: 1.9rem; aspect-ratio: 1; flex: none; overflow: hidden; border-radius: .58rem; background: var(--blue); }
-.logo__mark i, .logo__mark b { position: absolute; display: block; background: var(--snow); }
-.logo__mark i { inset: 44% 0 auto; block-size: 13%; }
-.logo__mark b { inset: 0 auto 0 38%; inline-size: 13%; }
+.logo__mark { position: relative; display: block; inline-size: 1.9rem; aspect-ratio: 1; flex: none; overflow: hidden; border-radius: 50%; background: var(--logo-blue); }
+.logo__mark i { position: absolute; inset: 25% auto auto 16.25%; display: block; inline-size: 67.5%; block-size: 50%; border-radius: .05rem; background: var(--snow); }
+.logo__mark i::before, .logo__mark i::after { position: absolute; display: block; content: ""; background: var(--logo-blue); }
+.logo__mark i::before { inset: 41.25% 0 auto; block-size: 17.5%; }
+.logo__mark i::after { inset: 0 auto 0 28.7%; inline-size: 13%; }
 .logo__word { font-size: 1.2rem; font-weight: 750; letter-spacing: -.035em; }
-.logo__word span { color: var(--blue); }
+.logo__word span { color: var(--logo-blue); }
 
 .site-header { position: sticky; inset-block-start: 0; z-index: 50; border-block-end: 1px solid var(--line); background: oklch(99.5% 0.003 242 / .92); backdrop-filter: blur(12px); }
 .site-header__inner { min-block-size: 4.5rem; display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.75rem); }

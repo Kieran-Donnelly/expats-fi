@@ -7,7 +7,7 @@ import { businessDirectoryHref } from './siteNavigation'
 export function Logo() {
   return (
     <span className="logo" aria-label="expats.fi">
-      <span className="logo__mark" aria-hidden="true"><i /><b /></span>
+      <span className="logo__mark" aria-hidden="true"><i /></span>
       <span className="logo__word">expats<span>.fi</span></span>
     </span>
   )
