@@ -135,6 +135,9 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-grid, .article-grid { display: grid; grid-template-columns: repeat(3, 1fr); }
 .business-card { min-inline-size: 0; min-block-size: 21rem; display: flex; flex-direction: column; padding: 1.7rem; border: 1px solid var(--line); background: var(--snow); }
 .business-card + .business-card { border-inline-start: 0; }
+.business-card__image { display: block; overflow: hidden; aspect-ratio: 16 / 10; margin: -1.7rem -1.7rem 1.7rem; border-block-end: 1px solid var(--line); background: var(--blue-pale); }
+.business-card__image img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 180ms cubic-bezier(.22,1,.36,1); }
+.business-card__image:hover img { transform: scale(1.025); }
 .business-card__mark { inline-size: 3rem; aspect-ratio: 1; display: grid; place-items: center; margin-block-end: 1.7rem; border-radius: .75rem; background: var(--blue-soft); color: var(--blue); font-size: 1.15rem; font-weight: 760; }
 .business-card h3 { margin-block: .8rem; }
 .directory-callout { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-block-start: 1.4rem; padding: 1.5rem 1.7rem; border-radius: .85rem; background: var(--ink); color: var(--snow); }
