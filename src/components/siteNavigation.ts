@@ -41,7 +41,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
     children: [
       { label: 'Housing', href: resourceCategory('Housing') },
       { label: 'Money', href: resourceSearch('money') },
-      { label: 'Family', href: resourceCategory('Family') },
+      { label: 'Family', href: '/family/' },
     ],
   },
   {

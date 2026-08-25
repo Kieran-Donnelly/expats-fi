@@ -10,6 +10,7 @@ import 'flag-icons/css/flag-icons.min.css'
 import 'leaflet/dist/leaflet.css'
 import './styles.css'
 import './sports.css'
+import './family.css'
 
 const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],

@@ -14,7 +14,7 @@ export function SiteFooter() {
           <Link href="/resources/?category=Immigration%20%26%20permits">Immigration</Link>
           <Link href="/resources/?category=Housing">Housing</Link>
           <Link href="/resources/?category=Work%20%26%20money">Work and money</Link>
-          <Link href="/resources/?category=Family">Family</Link>
+          <Link href="/family/">Family</Link>
         </nav>
         <nav aria-label="Community links">
           <strong>Community</strong>
