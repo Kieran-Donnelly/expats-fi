@@ -571,6 +571,7 @@ export const cultureGuides: EditorialGuide[] = [
       { title: 'Free-time activities for newcomers', description: 'City-run sports, libraries, culture, adult education, volunteering and affordable activities around Helsinki.', url: 'https://www.hel.fi/en/culture-and-leisure/free-time-activities-in-helsinki-tips-for-newcomers', source: 'City of Helsinki' },
       { title: 'Helsinki community houses', description: 'Open neighbourhood spaces with free groups, events, digital support and room to simply spend time.', url: 'https://www.hel.fi/en/decision-making/get-involved/support-and-collaboration/helsinkis-community-houses', source: 'City of Helsinki' },
       { title: 'Associations in Finland', description: 'How Finnish associations work and where to find multicultural, cultural and friendship organisations.', url: 'https://infofinland.fi/leisure/associations', source: 'InfoFinland' },
+      { title: 'Meet people in Helsinki', description: 'Practical newcomer programmes, language cafés, hobbies, family groups and safe ways to bring people together.', url: '/community/', source: 'Expats.fi' },
       { title: 'Events and regular gatherings', description: 'Our growing collection of things to do, with filters for interests, cost and location.', url: '/events/', source: 'Expats.fi' },
     ],
   },

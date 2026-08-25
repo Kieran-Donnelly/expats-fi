@@ -103,7 +103,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .popular-links { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin-block-start: .9rem; color: var(--ink-soft); font-size: .82rem; }
 .popular-links > span { margin-inline-end: .2rem; }
 .popular-links a { padding: .22rem .65rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--snow); color: var(--blue); font-weight: 570; text-decoration: none; }
-.quick-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: .7rem; margin-block-start: 2.8rem; }
+.quick-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: .7rem; margin-block-start: 2.8rem; }
 .quick-grid a { min-block-size: 7rem; display: flex; flex-direction: column; justify-content: space-between; gap: .8rem; padding: 1rem; border: 1px solid var(--line-strong); border-radius: .85rem; background: var(--snow); color: var(--ink); font-size: .88rem; font-weight: 680; line-height: 1.25; text-decoration: none; transition: border-color 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
 .quick-grid a:hover { border-color: var(--blue); transform: translateY(-3px); }
 .quick-grid svg { inline-size: 1.65rem; fill: none; stroke: var(--blue); stroke-width: 1.55; stroke-linejoin: round; }

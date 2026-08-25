@@ -60,7 +60,8 @@ export const primaryNavigation: readonly NavigationItem[] = [
       { label: 'Things to do in Helsinki', href: '/explore/' },
       { label: 'Events', href: '/events/' },
       { label: 'Sports & activities', href: '/sports/' },
-      { label: 'Community', href: '/businesses/' },
+      { label: 'Community & meet people', href: '/community/' },
+      { label: 'Expat-owned businesses', href: '/businesses/' },
     ],
   },
 ]

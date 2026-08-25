@@ -4,7 +4,25 @@ import { getPayload, type Where } from 'payload'
 import { eventAdditions } from '@/data/event-additions'
 import type { CityEvent, EventTransport } from '@/data/events'
 import type { LearningResource, PracticeGroup } from '@/data/finnishLearning'
+import { businessDrafts } from '@/data/business-drafts'
+import { businesses as seedBusinesses } from '@/data/businesses'
 import type { Article, Business, Embassy, NewsStory } from '@/payload-types'
+
+const localBusinessTimestamp = '2026-08-25T00:00:00.000Z'
+
+function localBusinesses(): Business[] {
+  const approvedDrafts = businessDrafts.filter((business) => business.status === 'published')
+  return [...seedBusinesses, ...approvedDrafts].map((business, index) => ({
+    ...business,
+    id: -(index + 1),
+    categories: business.categories.map((label) => ({ label })),
+    locations: business.locations.map((label) => ({ label })),
+    status: 'published' as const,
+    image: null,
+    updatedAt: localBusinessTimestamp,
+    createdAt: localBusinessTimestamp,
+  }))
+}
 
 export async function getArticles({
   category,
@@ -107,6 +125,22 @@ export async function getBusinesses({
   location?: string
   query?: string
 } = {}): Promise<Business[]> {
+  if (process.env.NODE_ENV !== 'production' && !process.env.DATABASE_URL) {
+    const normalisedQuery = query?.trim().toLocaleLowerCase()
+    return localBusinesses()
+      .filter((business) => !category || labels(business.categories).includes(category))
+      .filter((business) => !location || labels(business.locations).includes(location))
+      .filter((business) => typeof featured !== 'boolean' || Boolean(business.featured) === featured)
+      .filter((business) => !normalisedQuery || [
+        business.name,
+        business.summary,
+        ...labels(business.categories),
+        ...labels(business.locations),
+      ].some((value) => value.toLocaleLowerCase().includes(normalisedQuery)))
+      .sort((left, right) => left.name.localeCompare(right.name))
+      .slice(0, limit)
+  }
+
   const payload = await getPayload({ config })
   const and: Where[] = []
 
@@ -138,6 +172,10 @@ export async function getBusinesses({
 }
 
 export async function getBusiness(slug: string): Promise<Business | null> {
+  if (process.env.NODE_ENV !== 'production' && !process.env.DATABASE_URL) {
+    return localBusinesses().find((business) => business.slug === slug) || null
+  }
+
   const payload = await getPayload({ config })
   const result = await payload.find({
     collection: 'businesses',
