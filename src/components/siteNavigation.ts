@@ -20,12 +20,13 @@ export type NavigationItem = {
 export const primaryNavigation: readonly NavigationItem[] = [
   {
     label: 'Start Here',
-    href: '/',
+    href: '/start-here/',
   },
   {
     label: 'Moving to Finland',
     children: [
       { label: 'Immigration & permits', href: resourceCategory('Immigration & permits') },
+      { label: 'Your first 90 days', href: '/start-here/first-90-days-in-finland/' },
       { label: 'Embassies', href: '/embassies/' },
       { label: 'Moving & relocation', href: resourceSearch('relocation') },
       { label: 'Residence permits', href: resourceSearch('residence permit') },
@@ -42,6 +43,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
       { label: 'Housing', href: resourceCategory('Housing') },
       { label: 'Money', href: resourceSearch('money') },
       { label: 'Family', href: '/family/' },
+      { label: 'How Finland actually works', href: '/culture/' },
     ],
   },
   {

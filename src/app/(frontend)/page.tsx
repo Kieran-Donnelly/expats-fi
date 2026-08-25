@@ -8,7 +8,7 @@ import { getArticles, getBusinesses, getEvents } from '@/lib/content'
 export const dynamic = 'force-dynamic'
 
 const quickLinks = [
-  ['Find Housing', 'Housing', 'home'],
+  ['New to Finland', 'Immigration & permits', 'home'],
   ['Residence Permit', 'Immigration & permits', 'document'],
   ['Get a Job', 'Work & money', 'case'],
   ['Sort Your Finances', 'Work & money', 'wallet'],
@@ -53,10 +53,10 @@ export default async function HomePage() {
             <input id="home-search" name="q" placeholder="What are you looking for?" />
             <button type="submit">Search</button>
           </form>
-          <div className="popular-links"><span>Popular right now</span><Link href="/resources/?q=residence+permit">residence permit</Link><Link href="/learn-finnish/">learning Finnish</Link><Link href="/explore/">things to do</Link><Link href="/businesses/">expat businesses</Link></div>
+          <div className="popular-links"><span>Popular right now</span><Link href="/start-here/first-90-days-in-finland/">your first 90 days</Link><Link href="/learn-finnish/">learning Finnish</Link><Link href="/culture/">Finnish culture</Link><Link href="/explore/">things to do</Link></div>
           <div className="quick-grid">
             {quickLinks.map(([label, category, icon]) => (
-              <Link key={label} href={label === 'Explore Daily Life' ? '/explore/' : label === 'Family in Finland' ? '/family/' : `/resources/?category=${encodeURIComponent(category)}`}>
+              <Link key={label} href={label === 'New to Finland' ? '/start-here/' : label === 'Explore Daily Life' ? '/explore/' : label === 'Family in Finland' ? '/family/' : `/resources/?category=${encodeURIComponent(category)}`}>
                 <QuickIcon name={icon} /><span>{label}</span>
               </Link>
             ))}
