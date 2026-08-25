@@ -56,7 +56,7 @@ export default async function HomePage() {
           <div className="popular-links"><span>Popular right now</span><Link href="/resources/?q=residence+permit">residence permit</Link><Link href="/learn-finnish/">learning Finnish</Link><Link href="/explore/">things to do</Link><Link href="/businesses/">expat businesses</Link></div>
           <div className="quick-grid">
             {quickLinks.map(([label, category, icon]) => (
-              <Link key={label} href={label === 'Explore Daily Life' ? '/explore/' : `/resources/?category=${encodeURIComponent(category)}`}>
+              <Link key={label} href={label === 'Explore Daily Life' ? '/explore/' : label === 'Family in Finland' ? '/family/' : `/resources/?category=${encodeURIComponent(category)}`}>
                 <QuickIcon name={icon} /><span>{label}</span>
               </Link>
             ))}
@@ -126,4 +126,3 @@ export default async function HomePage() {
     </main>
   )
 }
-
