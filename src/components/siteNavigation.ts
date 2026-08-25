@@ -40,7 +40,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
   {
     label: 'Living in Finland',
     children: [
-      { label: 'Housing', href: resourceCategory('Housing') },
+      { label: 'Housing', href: '/housing/' },
       { label: 'Money', href: resourceSearch('money') },
       { label: 'Family', href: '/family/' },
       { label: 'How Finland actually works', href: '/culture/' },

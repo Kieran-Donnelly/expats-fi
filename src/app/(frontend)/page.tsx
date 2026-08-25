@@ -11,7 +11,7 @@ const quickLinks = [
   ['New to Finland', 'Immigration & permits', 'home'],
   ['Residence Permit', 'Immigration & permits', 'document'],
   ['Get a Job', 'Work & money', 'case'],
-  ['Sort Your Finances', 'Work & money', 'wallet'],
+  ['Find a Home', 'Housing', 'home'],
   ['Family in Finland', 'Family', 'people'],
   ['Explore Daily Life', 'Everyday life', 'map'],
 ] as const
@@ -56,7 +56,7 @@ export default async function HomePage() {
           <div className="popular-links"><span>Popular right now</span><Link href="/start-here/first-90-days-in-finland/">your first 90 days</Link><Link href="/learn-finnish/">learning Finnish</Link><Link href="/culture/">Finnish culture</Link><Link href="/explore/">things to do</Link></div>
           <div className="quick-grid">
             {quickLinks.map(([label, category, icon]) => (
-              <Link key={label} href={label === 'New to Finland' ? '/start-here/' : label === 'Explore Daily Life' ? '/explore/' : label === 'Family in Finland' ? '/family/' : `/resources/?category=${encodeURIComponent(category)}`}>
+              <Link key={label} href={label === 'New to Finland' ? '/start-here/' : label === 'Find a Home' ? '/housing/' : label === 'Explore Daily Life' ? '/explore/' : label === 'Family in Finland' ? '/family/' : `/resources/?category=${encodeURIComponent(category)}`}>
                 <QuickIcon name={icon} /><span>{label}</span>
               </Link>
             ))}
