@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import type { ReactNode } from 'react'
 
 import type { EditorialGuide } from '@/data/editorial-guide'
 
@@ -8,9 +9,10 @@ type EditorialGuideDetailProps = {
   hubHref: string
   hubLabel: string
   relatedHeading: string
+  extraSection?: ReactNode
 }
 
-export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading }: EditorialGuideDetailProps) {
+export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, extraSection }: EditorialGuideDetailProps) {
   const related = guides
     .filter((item) => item.slug !== guide.slug)
     .map((item) => ({
@@ -57,6 +59,8 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
           </aside>
         </div>
       </div>
+
+      {extraSection}
 
       {related.length > 0 && <section className="family-related">
         <div className="shell section"><div className="section-heading"><div><p className="eyebrow">Keep going</p><h2>{relatedHeading}</h2></div><Link className="text-link" href={hubHref}>Open the full hub <span aria-hidden="true">→</span></Link></div><div className="family-related__grid">{related.map((item) => <Link href={`${hubHref}${item.slug}/`} key={item.slug}><span>{item.number} · {item.label}</span><strong>{item.title}</strong><small>{item.summary}</small></Link>)}</div></div>

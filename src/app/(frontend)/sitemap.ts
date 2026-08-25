@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next'
+import { areaGuides } from '@/data/areas'
 import { communityGuides } from '@/data/community'
 import { cultureGuides } from '@/data/culture'
 import { exploreListings } from '@/data/explore'
@@ -23,6 +24,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/family/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/learn-finnish/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/news/', lastModified: now, priority: .9 },
+    { url: 'https://expats.fi/areas/', lastModified: now, priority: .9 },
+    { url: 'https://expats.fi/eats/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/explore/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/events/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/sports/', lastModified: now, priority: .9 },
@@ -31,6 +34,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/submit-business/', lastModified: now, priority: .6 },
     ...articles.map((article) => ({ url: `https://expats.fi/resources/${article.slug}/`, lastModified: new Date(article.updatedAt), priority: .7 })),
     ...newsStories.map((story) => ({ url: `https://expats.fi/news/${story.slug}/`, lastModified: new Date(story.updatedAt), priority: .8 })),
+    ...areaGuides.map((guide) => ({ url: `https://expats.fi/areas/${guide.slug}/`, lastModified: now, priority: .8 })),
     ...events.map((event) => ({ url: `https://expats.fi/events/${event.slug}/`, lastModified: now, priority: .7 })),
     ...exploreListings.map((listing) => ({ url: `https://expats.fi/explore/${listing.slug}/`, lastModified: now, priority: .7 })),
     ...sportsListings.map((listing) => ({ url: `https://expats.fi/sports/${listing.slug}/`, lastModified: now, priority: .7 })),

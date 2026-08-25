@@ -11,6 +11,7 @@ import 'leaflet/dist/leaflet.css'
 import './styles.css'
 import './sports.css'
 import './family.css'
+import './eats.css'
 
 const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],
