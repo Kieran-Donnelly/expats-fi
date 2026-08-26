@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { ArticleCard } from '@/components/ArticleCard'
@@ -57,6 +58,15 @@ export default async function HomePage() {
   return (
     <main id="main">
       <section className="home-hero">
+        <div className="home-hero__media" aria-hidden="true">
+          <Image
+            src="/images/heroes/home-helsinki-cathedral-v2.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+          />
+        </div>
         <div className="shell home-hero__inner">
           <div className="home-hero__layout">
             <div className="home-hero__copy">
