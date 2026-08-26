@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { SectionHero } from '@/components/SectionHero'
 import { communityGuides } from '@/data/community'
 
 export const metadata: Metadata = {
@@ -31,13 +32,14 @@ const usefulDoorways = [
 export default function CommunityPage() {
   return (
     <main id="main" className="family-hub">
-      <header className="page-hero">
-        <div className="shell page-hero__inner">
-          <p className="eyebrow">Community in Helsinki</p>
-          <h1>Find your people in Helsinki.</h1>
-          <p>Real places to start, recurring groups worth returning to and practical ways to turn a familiar face into somebody you actually know.</p>
-        </div>
-      </header>
+      <SectionHero
+        eyebrow="Community in Helsinki"
+        title="Find your people in Helsinki."
+        intro="Real places to start, recurring groups worth returning to and practical ways to turn a familiar face into somebody you actually know."
+        noteLabel="The honest version"
+        noteTitle="Regular beats spectacular."
+        noteBody="One group you return to every week will usually do more than a huge event where nobody remembers your name."
+      />
 
       <section className="shell family-stages" aria-labelledby="community-routes-heading">
         <div className="section-heading">
@@ -45,7 +47,7 @@ export default function CommunityPage() {
           <p>You do not need to attend everything. Pick one route that fits your life, then give people enough time to recognise you.</p>
         </div>
         <div className="family-stage-grid">
-          {communityRoutes.map((route) => <Link href={route.href} key={route.number}><span>{route.number}</span><strong>{route.title}</strong><small>{route.detail}</small><i aria-hidden="true">↗</i></Link>)}
+          {communityRoutes.map((route) => <Link href={route.href} key={route.number}><span>{route.number}</span><strong>{route.title}</strong><small>{route.detail}</small><i aria-hidden="true">→</i></Link>)}
         </div>
       </section>
 

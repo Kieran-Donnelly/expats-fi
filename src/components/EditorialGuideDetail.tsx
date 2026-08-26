@@ -10,9 +10,10 @@ type EditorialGuideDetailProps = {
   hubLabel: string
   relatedHeading: string
   extraSection?: ReactNode
+  tone?: 'blue' | 'warm'
 }
 
-export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, extraSection }: EditorialGuideDetailProps) {
+export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, extraSection, tone = 'blue' }: EditorialGuideDetailProps) {
   const related = guides
     .filter((item) => item.slug !== guide.slug)
     .map((item) => ({
@@ -24,7 +25,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
     .map(({ item }) => item)
 
   return (
-    <main id="main" className="family-detail">
+    <main id="main" className="family-detail" data-guide-tone={tone}>
       <div className="shell family-detail__shell">
         <Link className="back-link" href={hubHref}>← {hubLabel}</Link>
         <header className="family-detail__header">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { SectionHero } from '@/components/SectionHero'
 import { areaGuides } from '@/data/areas'
 
 export const metadata: Metadata = {
@@ -45,13 +46,14 @@ const guideGroups = [
 export default function AreasPage() {
   return (
     <main id="main" className="family-hub">
-      <header className="page-hero">
-        <div className="shell page-hero__inner">
-          <p className="eyebrow">Helsinki neighbourhoods</p>
-          <h1>Good areas, good eats and a reason to get off at a different stop.</h1>
-          <p>Neighbourhood guides for people who live here, have just arrived or want to show somebody around without repeating the same three places in the centre.</p>
-        </div>
-      </header>
+      <SectionHero
+        eyebrow="Helsinki neighbourhoods"
+        title="Good areas, good eats and a reason to get off at a different stop."
+        intro="Neighbourhood guides for people who live here, have just arrived or want to show somebody around without repeating the same three places in the centre."
+        noteLabel="Pick your Helsinki"
+        noteTitle="There is no best neighbourhood."
+        noteBody="Choose for the weather, energy and budget you have today. The guides will help with the rest."
+      />
 
       <section className="family-systems" aria-labelledby="area-mood-heading">
         <div className="shell section">

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { SectionHero } from '@/components/SectionHero'
 import { familyGuides, familySystems } from '@/data/family'
 
 export const metadata: Metadata = {
@@ -18,21 +19,16 @@ const stageLinks = [
 
 export default function FamilyPage() {
   return (
-    <main id="main" className="family-hub">
-      <header className="family-hero">
-        <div className="shell family-hero__inner">
-          <div className="family-hero__copy">
-            <p className="eyebrow">Family life in Finland</p>
-            <h1>Family life, without needing a Finnish relative on standby.</h1>
-            <p>Healthcare, schools, daycare, Kela, support and the little pieces of admin nobody thinks to explain. Helsinki first, plain English throughout.</p>
-          </div>
-          <aside className="family-hero__note">
-            <span>Our promise</span>
-            <strong>Useful before overwhelming.</strong>
-            <p>We have separated the systems, pulled out the common catches and linked to the official place where you can actually get the job done.</p>
-          </aside>
-        </div>
-      </header>
+    <main id="main" className="family-hub" data-hub-tone="warm">
+      <SectionHero
+        eyebrow="Family life in Finland"
+        title="Family life, without needing a Finnish relative on standby."
+        intro="Healthcare, schools, daycare, Kela, support and the little pieces of admin nobody thinks to explain. Helsinki first, plain English throughout."
+        noteLabel="Our promise"
+        noteTitle="Useful before overwhelming."
+        noteBody="We have separated the systems, pulled out the common catches and linked to the official place where you can actually get the job done."
+        tone="warm"
+      />
 
       <section className="family-urgent" aria-label="Urgent family help">
         <div className="shell family-urgent__inner">
@@ -49,7 +45,7 @@ export default function FamilyPage() {
         <div className="family-stage-grid">
           {stageLinks.map((stage, index) => (
             <Link href={stage.href} key={stage.label}>
-              <span>0{index + 1}</span><strong>{stage.label}</strong><small>{stage.detail}</small><i aria-hidden="true">↗</i>
+              <span>0{index + 1}</span><strong>{stage.label}</strong><small>{stage.detail}</small><i aria-hidden="true">→</i>
             </Link>
           ))}
         </div>

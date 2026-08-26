@@ -140,10 +140,11 @@ export function DesktopNavigation() {
                     key={child.label}
                     href={child.href}
                     role="menuitem"
+                    aria-current={isCurrentPath(pathname, child.href) ? 'page' : undefined}
                     onClick={() => setOpenLabel(null)}
                   >
                     <span>{child.label}</span>
-                    <span aria-hidden="true">↗</span>
+                    <span aria-hidden="true">→</span>
                   </Link>
                 ))}
               </div>
@@ -243,7 +244,12 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
                   {expanded && (
                     <div id={sectionId} className="mobile-menu__children">
                       {item.children.map((child) => (
-                        <Link key={child.label} href={child.href} onClick={() => setOpen(false)}>
+                        <Link
+                          key={child.label}
+                          href={child.href}
+                          aria-current={isCurrentPath(pathname, child.href) ? 'page' : undefined}
+                          onClick={() => setOpen(false)}
+                        >
                           {child.label}
                         </Link>
                       ))}

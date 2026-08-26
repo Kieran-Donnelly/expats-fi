@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { SectionHero } from '@/components/SectionHero'
 import { cultureGuides } from '@/data/culture'
 
 export const metadata: Metadata = {
@@ -12,11 +13,18 @@ export const metadata: Metadata = {
 export default function CulturePage() {
   return (
     <main id="main" className="family-hub">
-      <header className="page-hero"><div className="shell page-hero__inner"><p className="eyebrow">How Finland actually works</p><h1>The cultural bits nobody puts on the residence permit.</h1><p>Friendly answers to the everyday questions that can leave you wondering whether you have missed something.</p></div></header>
+      <SectionHero
+        eyebrow="How Finland actually works"
+        title="The cultural bits nobody puts on the residence permit."
+        intro="Friendly answers to the everyday questions that can leave you wondering whether you have missed something."
+        noteLabel="A handy rule"
+        noteTitle="Try the kinder reading first."
+        noteBody="A quiet pause or short message is often just that. Ask when you are unsure, pay attention to the person and keep your boundaries."
+      />
 
       <section className="shell family-stages" aria-labelledby="culture-start-heading">
         <div className="section-heading"><div><p className="eyebrow">Start with the situation</p><h2 id="culture-start-heading">Start with the bit that feels unfamiliar.</h2></div><p>These are common patterns, not a rulebook for every Finn. Use them as helpful context, then pay attention to the person in front of you.</p></div>
-        <div className="family-stage-grid">{cultureGuides.map((guide) => <Link href={`/culture/${guide.slug}/`} key={guide.slug}><span>{guide.number}</span><strong>{guide.label}</strong><small>{guide.title}</small><i aria-hidden="true">↗</i></Link>)}</div>
+        <div className="family-stage-grid">{cultureGuides.map((guide) => <Link href={`/culture/${guide.slug}/`} key={guide.slug}><span>{guide.number}</span><strong>{guide.label}</strong><small>{guide.title}</small><i aria-hidden="true">→</i></Link>)}</div>
       </section>
 
       <section className="shell section family-guides" aria-labelledby="culture-guides-heading">

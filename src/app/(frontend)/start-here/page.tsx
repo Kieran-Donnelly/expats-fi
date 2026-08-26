@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { SectionHero } from '@/components/SectionHero'
 import { settlingGuides } from '@/data/settling'
 
 export const metadata: Metadata = {
@@ -26,13 +27,18 @@ const systems = [
 export default function StartHerePage() {
   return (
     <main id="main" className="family-hub">
-      <header className="page-hero">
-        <div className="shell page-hero__inner"><p className="eyebrow">Start here</p><h1>Your first months in Finland, without doing everything twice.</h1><p>One calm route through the authorities, accounts and ordinary jobs that turn arriving in Finland into actually living here.</p></div>
-      </header>
+      <SectionHero
+        eyebrow="Start here"
+        title="Your first months in Finland, without doing everything twice."
+        intro="One calm route through the authorities, accounts and ordinary jobs that turn arriving in Finland into actually living here."
+        noteLabel="Start here first"
+        noteTitle="One job at a time."
+        noteBody="Open the 90-day route, find the step that applies today and keep a note of what each office still needs."
+      />
 
       <section className="shell family-stages" aria-labelledby="arrival-stages-heading">
         <div className="section-heading"><div><p className="eyebrow">Follow the timeline</p><h2 id="arrival-stages-heading">Do what matters now. Let the rest wait.</h2></div><p>The exact route changes by citizenship and life situation, but the order below will stop six separate systems becoming one giant blur.</p></div>
-        <div className="family-stage-grid">{arrivalStages.map((stage) => <Link href={stage.href} key={stage.number}><span>{stage.number}</span><strong>{stage.title}</strong><small>{stage.detail}</small><i aria-hidden="true">↗</i></Link>)}</div>
+        <div className="family-stage-grid">{arrivalStages.map((stage) => <Link href={stage.href} key={stage.number}><span>{stage.number}</span><strong>{stage.title}</strong><small>{stage.detail}</small><i aria-hidden="true">→</i></Link>)}</div>
       </section>
 
       <section className="family-systems" aria-labelledby="arrival-systems-heading">

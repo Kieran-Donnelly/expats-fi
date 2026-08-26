@@ -1,14 +1,3 @@
-.eats-hero { position: relative; overflow: hidden; background: oklch(32% .09 250); color: var(--snow); }
-.eats-hero::before { content: ""; position: absolute; inline-size: min(30rem, 52vw); aspect-ratio: 1; inset: -12rem -4rem auto auto; border: 1px solid oklch(86% .13 70 / .28); border-radius: 50%; box-shadow: 0 0 0 4rem oklch(86% .13 70 / .06), 0 0 0 8rem oklch(86% .13 70 / .04); }
-.eats-hero__inner { position: relative; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .55fr); gap: clamp(3rem, 8vw, 7rem); align-items: end; padding-block: clamp(4.5rem, 9vw, 7.5rem); }
-.eats-hero h1 { max-inline-size: 12ch; color: var(--snow); }
-.eats-hero__inner > div > p:last-child { max-inline-size: 47rem; margin: 1.2rem 0 0; color: oklch(87% .02 245); font-size: 1.14rem; }
-.eats-hero .eyebrow { color: oklch(85% .13 70); }
-.eats-hero aside { display: grid; gap: .55rem; padding: 1.5rem; border: 1px solid oklch(86% .13 70 / .35); border-radius: 1rem; background: oklch(28% .07 250 / .8); }
-.eats-hero aside span { color: oklch(85% .13 70); font-size: .7rem; font-weight: 760; letter-spacing: .08em; text-transform: uppercase; }
-.eats-hero aside strong { color: var(--snow); font-size: 1.28rem; }
-.eats-hero aside p { margin: 0; color: oklch(84% .02 245); font-size: .84rem; line-height: 1.55; }
-
 .eats-starts { padding-block: clamp(4rem, 7vw, 5.5rem); }
 .eats-start-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .eats-start-grid a { min-block-size: 10.5rem; display: grid; align-content: space-between; padding: 1.3rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: background 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
@@ -67,8 +56,6 @@
 }
 
 @media (max-width: 960px) {
-  .eats-hero__inner { grid-template-columns: 1fr; }
-  .eats-hero aside { max-inline-size: 34rem; }
   .eats-grid { grid-template-columns: repeat(2, 1fr); }
 }
 

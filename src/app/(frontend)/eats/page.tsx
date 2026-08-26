@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { EatsCard } from '@/components/EatsCard'
 import { EatsMap } from '@/components/EatsMap'
+import { SectionHero } from '@/components/SectionHero'
 import { eatAreas, eatKinds, eatMoods, eatSpots } from '@/data/eats'
 
 export const dynamic = 'force-dynamic'
@@ -38,12 +39,15 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
 
   return (
     <main id="main" className="eats-page">
-      <header className="eats-hero">
-        <div className="shell eats-hero__inner">
-          <div><p className="eyebrow">Helsinki Eats</p><h1>Where should we eat?</h1><p>Cute cafés, quick lunches, Finnish classics, lively dinners and neighbourhood places worth getting on a tram for. Pick by craving or see what is close to the bit of Helsinki you are already exploring.</p></div>
-          <aside><span>The honest version</span><strong>Not a ranking. Not a pay-to-play list.</strong><p>These are independent editorial suggestions with a clear reason for each one. If a meal or visit is invited, we will say so plainly.</p></aside>
-        </div>
-      </header>
+      <SectionHero
+        eyebrow="Helsinki Eats"
+        title="Where should we eat?"
+        intro="Cute cafés, quick lunches, Finnish classics, lively dinners and neighbourhood places worth getting on a tram for. Pick by craving or see what is close to the bit of Helsinki you are already exploring."
+        noteLabel="The honest version"
+        noteTitle="Not a ranking. Not a pay-to-play list."
+        noteBody="These are independent editorial suggestions with a clear reason for each one. If a meal or visit is invited, we will say so plainly."
+        tone="dark"
+      />
 
       <section className="shell eats-starts" aria-labelledby="eats-starts-heading">
         <div className="section-heading"><div><p className="eyebrow">Start with the mood</p><h2 id="eats-starts-heading">What sounds good right now?</h2></div><Link className="text-link" href="/areas/">Browse by neighbourhood <span aria-hidden="true">→</span></Link></div>

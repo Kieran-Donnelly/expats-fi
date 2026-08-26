@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { SectionHero } from '@/components/SectionHero'
 import { housingGuides } from '@/data/housing'
 
 export const metadata: Metadata = {
@@ -26,11 +27,18 @@ const monthlyCosts = [
 export default function HousingPage() {
   return (
     <main id="main" className="family-hub">
-      <header className="page-hero"><div className="shell page-hero__inner"><p className="eyebrow">Housing in Finland</p><h1>Find a home, understand the paperwork and know who to call.</h1><p>A practical route from the first rental search to getting your deposit back, including the bits that are easy to miss when everything is in Finnish.</p></div></header>
+      <SectionHero
+        eyebrow="Housing in Finland"
+        title="Find a home, understand the paperwork and know who to call."
+        intro="A practical route from the first rental search to getting your deposit back, including the bits that are easy to miss when everything is in Finnish."
+        noteLabel="Before you apply"
+        noteTitle="Get your paperwork into one folder."
+        noteBody="Keep your ID, income details, references and a short introduction ready. Good rentals can move quickly."
+      />
 
       <section className="shell family-stages" aria-labelledby="housing-stages-heading">
         <div className="section-heading"><div><p className="eyebrow">Start with where you are</p><h2 id="housing-stages-heading">What are you trying to sort out today?</h2></div><p>Finding the flat, signing for it, running it and solving a problem are different jobs. Jump straight to the one in front of you.</p></div>
-        <div className="family-stage-grid">{housingStages.map((stage) => <Link href={stage.href} key={stage.number}><span>{stage.number}</span><strong>{stage.title}</strong><small>{stage.detail}</small><i aria-hidden="true">↗</i></Link>)}</div>
+        <div className="family-stage-grid">{housingStages.map((stage) => <Link href={stage.href} key={stage.number}><span>{stage.number}</span><strong>{stage.title}</strong><small>{stage.detail}</small><i aria-hidden="true">→</i></Link>)}</div>
       </section>
 
       <section className="family-systems" aria-labelledby="housing-costs-heading">

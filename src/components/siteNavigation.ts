@@ -23,39 +23,27 @@ export const primaryNavigation: readonly NavigationItem[] = [
     href: '/start-here/',
   },
   {
-    label: 'Moving to Finland',
+    label: 'Move to Finland',
     children: [
       { label: 'Immigration & permits', href: resourceCategory('Immigration & permits') },
       { label: 'Your first 90 days', href: '/start-here/first-90-days-in-finland/' },
-      { label: 'Embassies', href: '/embassies/' },
       { label: 'Moving & relocation', href: resourceSearch('relocation') },
-      { label: 'Residence permits', href: resourceSearch('residence permit') },
       { label: 'Registration & getting established', href: resourceSearch('registration') },
+      { label: 'Embassies & consulates', href: '/embassies/' },
     ],
   },
   {
-    label: 'Work',
-    href: resourceCategory('Work & money'),
-  },
-  {
-    label: 'Living in Finland',
+    label: 'Live in Finland',
     children: [
       { label: 'Housing', href: '/housing/' },
-      { label: 'Money', href: resourceSearch('money') },
+      { label: 'Work & money', href: resourceCategory('Work & money') },
       { label: 'Family', href: '/family/' },
       { label: 'How Finland actually works', href: '/culture/' },
+      { label: 'Learn Finnish', href: '/learn-finnish/' },
     ],
   },
   {
-    label: 'Learn Finnish',
-    href: '/learn-finnish/',
-  },
-  {
-    label: 'News',
-    href: '/news/',
-  },
-  {
-    label: 'Explore',
+    label: 'Explore Helsinki',
     children: [
       { label: 'Neighbourhood guides', href: '/areas/' },
       { label: 'Helsinki Eats', href: '/eats/' },
@@ -63,8 +51,11 @@ export const primaryNavigation: readonly NavigationItem[] = [
       { label: 'Events', href: '/events/' },
       { label: 'Sports & activities', href: '/sports/' },
       { label: 'Community & meet people', href: '/community/' },
-      { label: 'Expat-owned businesses', href: '/businesses/' },
     ],
+  },
+  {
+    label: 'News',
+    href: '/news/',
   },
 ]
 
