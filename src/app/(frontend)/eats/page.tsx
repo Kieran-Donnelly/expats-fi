@@ -47,6 +47,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
         noteTitle="Not a ranking. Not a pay-to-play list."
         noteBody="These are independent editorial suggestions with a clear reason for each one. If a meal or visit is invited, we will say so plainly."
         tone="dark"
+        image={{ src: '/images/heroes/eats-cafe.webp', position: 'center 42%' }}
       />
 
       <section className="shell eats-starts" aria-labelledby="eats-starts-heading">

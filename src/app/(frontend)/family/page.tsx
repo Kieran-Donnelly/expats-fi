@@ -28,6 +28,7 @@ export default function FamilyPage() {
         noteTitle="Useful before overwhelming."
         noteBody="We have separated the systems, pulled out the common catches and linked to the official place where you can actually get the job done."
         tone="warm"
+        image={{ src: '/images/heroes/family-together.webp', position: 'center 38%' }}
       />
 
       <section className="family-urgent" aria-label="Urgent family help">

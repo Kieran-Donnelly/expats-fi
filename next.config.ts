@@ -15,6 +15,7 @@ const nextConfig: NextConfig = {
     localPatterns: [
       { pathname: '/api/media/file/**' },
       { pathname: '/businesses/**' },
+      { pathname: '/images/**' },
     ],
   },
   async redirects() {
