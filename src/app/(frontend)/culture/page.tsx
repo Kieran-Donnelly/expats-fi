@@ -20,6 +20,7 @@ export default function CulturePage() {
         noteLabel="A handy rule"
         noteTitle="Try the kinder reading first."
         noteBody="A quiet pause or short message is often just that. Ask when you are unsure, pay attention to the person and keep your boundaries."
+        image={{ src: '/images/heroes/culture-coffee-conversation.webp', position: 'center 44%' }}
       />
 
       <section className="shell family-stages" aria-labelledby="culture-start-heading">
