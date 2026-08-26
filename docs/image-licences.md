@@ -49,7 +49,7 @@ Downloaded on August 26, 2026 through the licensed Unlimphotos account connected
 
 ### Family
 
-- Site file: `public/images/heroes/family-together.webp`
+- Site file: `public/images/heroes/family-parents-and-children.webp`
 - Unlimphotos asset ID: `97190376`
 - Title: Happy family running and playing together in park
 - Creator: `Studia72`
