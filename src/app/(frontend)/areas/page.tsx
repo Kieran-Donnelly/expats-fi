@@ -53,6 +53,7 @@ export default function AreasPage() {
         noteLabel="Pick your Helsinki"
         noteTitle="There is no best neighbourhood."
         noteBody="Choose for the weather, energy and budget you have today. The guides will help with the rest."
+        image={{ src: '/images/heroes/areas-helsinki-street.webp', position: 'center 54%' }}
       />
 
       <section className="family-systems" aria-labelledby="area-mood-heading">
