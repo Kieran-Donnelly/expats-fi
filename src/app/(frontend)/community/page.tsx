@@ -39,6 +39,7 @@ export default function CommunityPage() {
         noteLabel="The honest version"
         noteTitle="Regular beats spectacular."
         noteBody="One group you return to every week will usually do more than a huge event where nobody remembers your name."
+        image={{ src: '/images/heroes/community-city-friends.webp', position: 'center 42%' }}
       />
 
       <section className="shell family-stages" aria-labelledby="community-routes-heading">
