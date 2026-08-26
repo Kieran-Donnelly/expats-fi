@@ -34,6 +34,7 @@ export default function HousingPage() {
         noteLabel="Before you apply"
         noteTitle="Get your paperwork into one folder."
         noteBody="Keep your ID, income details, references and a short introduction ready. Good rentals can move quickly."
+        image={{ src: '/images/heroes/housing-helsinki-apartments.webp', position: 'center 52%' }}
       />
 
       <section className="shell family-stages" aria-labelledby="housing-stages-heading">
