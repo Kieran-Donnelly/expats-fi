@@ -34,6 +34,7 @@ export default function StartHerePage() {
         noteLabel="Start here first"
         noteTitle="One job at a time."
         noteBody="Open the 90-day route, find the step that applies today and keep a note of what each office still needs."
+        image={{ src: '/images/heroes/start-here-helsinki-station.webp', position: 'center 58%' }}
       />
 
       <section className="shell family-stages" aria-labelledby="arrival-stages-heading">
