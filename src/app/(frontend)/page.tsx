@@ -84,9 +84,9 @@ export default async function HomePage() {
 
       <section className="home-purpose" aria-label="What Expats.fi is here to do">
         <div className="shell home-purpose__grid">
-          <article><span>01</span><div><strong>Sort the serious stuff.</strong><p>Permits, homes, work, money and family systems in ordinary English.</p></div></article>
-          <article><span>02</span><div><strong>Actually enjoy living here.</strong><p>Good food, local events, neighbourhoods and days worth leaving the apartment for.</p></div></article>
-          <article><span>03</span><div><strong>Find your people.</strong><p>Community groups, sports, language practice and businesses built by fellow expats.</p></div></article>
+          <Link href="/start-here/"><span>01</span><div><strong>Sort the serious stuff.</strong><p>Permits, homes, work, money and family systems in ordinary English.</p></div><i aria-hidden="true">→</i></Link>
+          <Link href="/explore/"><span>02</span><div><strong>Actually enjoy living here.</strong><p>Good food, local events, neighbourhoods and days worth leaving the apartment for.</p></div><i aria-hidden="true">→</i></Link>
+          <Link href="/community/"><span>03</span><div><strong>Find your people.</strong><p>Community groups, sports, language practice and businesses built by fellow expats.</p></div><i aria-hidden="true">→</i></Link>
         </div>
       </section>
 
