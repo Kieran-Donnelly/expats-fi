@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 
 import { ArticleCard } from '@/components/ArticleCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getArticles } from '@/lib/content'
+import { getCurrentMember } from '@/lib/member-auth'
+import { getSavedArticleIds } from '@/lib/saved-articles'
 
 export const dynamic = 'force-dynamic'
 
@@ -66,6 +69,8 @@ function getResourceHero(category: string, query: string) {
 export default async function ResourcesPage({ searchParams }: { searchParams: Promise<{ category?: string; q?: string }> }) {
   const { category = '', q = '' } = await searchParams
   const articles = await getArticles({ category: category || undefined, query: q || undefined })
+  const member = await getCurrentMember(await headers())
+  const savedArticleIds = member ? await getSavedArticleIds(member.id) : new Set<number>()
   const hero = getResourceHero(category, q)
 
   return (
@@ -88,7 +93,7 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Pr
           <button type="submit">Find guides</button>
         </form>
         <p className="results-note">{articles.length} {articles.length === 1 ? 'guide' : 'guides'} found</p>
-        {articles.length ? <div className="article-grid">{articles.map((article) => <ArticleCard article={article} key={article.id} />)}</div> : <div className="empty-state"><h2>No guides match that search</h2><p>Try a broader phrase or choose all topics.</p></div>}
+        {articles.length ? <div className="article-grid">{articles.map((article) => <ArticleCard article={article} key={article.id} showSave saved={savedArticleIds.has(article.id)} />)}</div> : <div className="empty-state"><h2>No guides match that search</h2><p>Try a broader phrase or choose all topics.</p></div>}
       </section>
     </main>
   )

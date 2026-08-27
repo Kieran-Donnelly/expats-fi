@@ -221,6 +221,16 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .article-card h3 a:hover, .business-card h3 a:hover { color: var(--blue); }
 .article-card p, .business-card p { margin: 0 0 1.3rem; color: var(--ink-soft); line-height: 1.6; }
 .article-card .text-link, .business-card .text-link { margin-block-start: auto; font-size: .88rem; }
+.article-card__actions { display: flex; align-items: center; justify-content: space-between; gap: .8rem; margin-block-start: auto; }
+.article-card__actions .text-link { margin-block-start: 0; }
+.save-article { display: inline-flex; flex-direction: column; align-items: flex-end; gap: .25rem; }
+.save-article-button { display: inline-flex; align-items: center; gap: .35rem; min-block-size: 2.35rem; padding: .45rem .7rem; border: 1px solid var(--line-strong); border-radius: .55rem; background: var(--snow); color: var(--ink-soft); font: inherit; font-size: .76rem; font-weight: 700; line-height: 1; cursor: pointer; transition: border-color 160ms ease, background-color 160ms ease, color 160ms ease; }
+.save-article-button:hover { border-color: var(--blue); background: var(--blue-pale); color: var(--blue); }
+.save-article-button[aria-pressed="true"] { border-color: var(--blue); background: var(--blue-soft); color: var(--blue-dark); }
+.save-article-button > span:first-child { font-size: 1.05rem; line-height: .8; }
+.save-article-button:disabled { cursor: wait; opacity: .62; }
+.save-article--compact .save-article-button { min-block-size: 2.1rem; padding-inline: .55rem; font-size: .7rem; }
+.save-article__error { max-inline-size: 15rem; color: oklch(42% .13 28); font-size: .68rem; line-height: 1.3; text-align: right; }
 
 .business-preview { border-block: 1px solid var(--line); background: var(--blue-pale); }
 .business-preview .section-heading h2 { max-inline-size: 18ch; }
@@ -562,6 +572,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .article-page__header h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); }
 .article-page__description { max-inline-size: 48rem; margin: 1.2rem 0 0; color: var(--ink-soft); font-size: 1.18rem; }
 .article-page__meta { display: flex; flex-wrap: wrap; gap: 1rem 1.5rem; margin-block-start: 1.3rem; color: var(--muted); font-size: .82rem; }
+.article-page__actions { margin-block-start: 1.5rem; }
+.article-page__actions .save-article-button { min-block-size: 2.8rem; padding-inline: .9rem; font-size: .82rem; }
 .article-page__layout { display: grid; grid-template-columns: minmax(0, 45rem) 17rem; gap: clamp(3rem, 8vw, 6rem); padding-block-start: 3rem; }
 .prose { max-inline-size: 70ch; color: oklch(36% .025 255); font-size: 1.06rem; line-height: 1.78; }
 .prose > *:first-child { margin-block-start: 0; }
@@ -623,6 +635,13 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .account-avatar { inline-size: 4.5rem; aspect-ratio: 1; display: grid; place-items: center; border-radius: .85rem; background: var(--blue); color: var(--snow); font-size: 1.7rem; font-weight: 750; }
 .text-button { padding: .65rem .8rem; border: 1px solid var(--line-strong); border-radius: .55rem; background: var(--snow); color: var(--ink-soft); font-weight: 650; }
 .text-button:hover { border-color: var(--blue); color: var(--blue); }
+.account-content { display: grid; gap: 4rem; margin-block-start: 3rem; }
+.account-section__heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block-end: 1.2rem; }
+.account-section__heading .eyebrow { margin-block-end: .35rem; }
+.account-section__heading h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); }
+.account-section__count { color: var(--muted); font-size: .8rem; font-weight: 680; }
+.account-section .account-empty { max-inline-size: none; margin-block-start: 0; }
+.account-empty--future { margin-block-start: 0; }
 .account-empty { max-inline-size: 48rem; display: flex; gap: 1.2rem; margin-block-start: 3rem; padding: 1.6rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--snow); }
 .account-empty > span { inline-size: 2.6rem; aspect-ratio: 1; display: grid; place-items: center; flex: none; border-radius: .6rem; background: var(--blue-soft); color: var(--blue); font-size: 1.2rem; }
 .account-empty h2 { font-size: 1.45rem; }
@@ -1064,6 +1083,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .auth-page__intro .back-link { margin-block-end: 2rem; }
   .account-page__header { grid-template-columns: auto minmax(0, 1fr); }
   .account-page__header .text-button { grid-column: 1 / -1; justify-self: start; }
+  .account-section__heading { align-items: start; flex-direction: column; gap: .45rem; }
 }
 
 @media (max-width: 440px) {
