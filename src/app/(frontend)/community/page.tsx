@@ -42,6 +42,11 @@ export default function CommunityPage() {
         image={{ src: '/images/heroes/community-city-friends.webp', position: 'center 42%' }}
       />
 
+      <section className="shell community-board-callout" aria-labelledby="community-board-callout-heading">
+        <div><p className="eyebrow">New: the community board</p><h2 id="community-board-callout-heading">Ask the question that does not belong in a guide.</h2><p>Compare neighbourhood notes, share a small win and get practical answers from people who are also making a life in Finland.</p></div>
+        <Link className="button" href="/community/board/">Open the community board →</Link>
+      </section>
+
       <section className="shell family-stages" aria-labelledby="community-routes-heading">
         <div className="section-heading">
           <div><p className="eyebrow">Start with your situation</p><h2 id="community-routes-heading">What kind of doorway feels manageable?</h2></div>

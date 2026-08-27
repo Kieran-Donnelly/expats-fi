@@ -18,6 +18,7 @@ import * as migration_20260827_153000_seed_news_stories_batch_three from './2026
 import * as migration_20260827_160000_add_saved_articles from './20260827_160000_add_saved_articles';
 import * as migration_20260827_180000_add_member_account_features from './20260827_180000_add_member_account_features';
 import * as migration_20260827_200000_add_business_moderation from './20260827_200000_add_business_moderation';
+import * as migration_20260827_210000_add_community_board from './20260827_210000_add_community_board';
 
 export const migrations = [
   {
@@ -119,5 +120,10 @@ export const migrations = [
     up: migration_20260827_200000_add_business_moderation.up,
     down: migration_20260827_200000_add_business_moderation.down,
     name: '20260827_200000_add_business_moderation',
+  },
+  {
+    up: migration_20260827_210000_add_community_board.up,
+    down: migration_20260827_210000_add_community_board.down,
+    name: '20260827_210000_add_community_board',
   },
 ];

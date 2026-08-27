@@ -20,6 +20,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/start-here/', lastModified: now, priority: 1 },
     { url: 'https://expats.fi/culture/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/community/', lastModified: now, priority: .9 },
+    { url: 'https://expats.fi/community/board/', lastModified: now, priority: .8 },
     { url: 'https://expats.fi/housing/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/resources/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/family/', lastModified: now, priority: .9 },

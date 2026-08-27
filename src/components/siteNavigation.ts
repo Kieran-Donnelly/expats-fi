@@ -157,6 +157,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
         label: 'Community & meet people',
         href: '/community/',
         children: [
+          { label: 'Community board', href: '/community/board/' },
           { label: 'New in town', href: '/community/where-to-start-when-you-know-nobody/' },
           { label: 'Language cafés & communities', href: '/community/language-cafes-and-international-communities/' },
           { label: 'Hobbies, sport & volunteering', href: '/community/hobbies-sport-volunteering-and-work-connections/' },

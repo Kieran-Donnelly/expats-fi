@@ -74,6 +74,9 @@ export interface Config {
     'news-stories': NewsStory;
     businesses: Business;
     'business-submissions': BusinessSubmission;
+    'community-posts': CommunityPost;
+    'community-comments': CommunityComment;
+    'community-reports': CommunityReport;
     embassies: Embassy;
     events: Event;
     'learning-paths': LearningPath;
@@ -95,6 +98,9 @@ export interface Config {
     'news-stories': NewsStoriesSelect<false> | NewsStoriesSelect<true>;
     businesses: BusinessesSelect<false> | BusinessesSelect<true>;
     'business-submissions': BusinessSubmissionsSelect<false> | BusinessSubmissionsSelect<true>;
+    'community-posts': CommunityPostsSelect<false> | CommunityPostsSelect<true>;
+    'community-comments': CommunityCommentsSelect<false> | CommunityCommentsSelect<true>;
+    'community-reports': CommunityReportsSelect<false> | CommunityReportsSelect<true>;
     embassies: EmbassiesSelect<false> | EmbassiesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     'learning-paths': LearningPathsSelect<false> | LearningPathsSelect<true>;
@@ -463,6 +469,62 @@ export interface NewsStory {
   createdAt: string;
 }
 /**
+ * Member conversations. Keep posts useful, kind and grounded in life in Finland.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "community-posts".
+ */
+export interface CommunityPost {
+  id: number;
+  title: string;
+  slug: string;
+  body: string;
+  topic: 'general' | 'housing' | 'work-money' | 'everyday-life' | 'finnish' | 'family' | 'culture-events';
+  author: number | Member;
+  status: 'published' | 'hidden';
+  lastActivityAt?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Flat replies on community posts. Hide a reply when it breaks the community guidelines.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "community-comments".
+ */
+export interface CommunityComment {
+  id: number;
+  post: number | CommunityPost;
+  author: number | Member;
+  body: string;
+  status: 'published' | 'hidden';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Private member reports. Review the target, then hide it or dismiss the report.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "community-reports".
+ */
+export interface CommunityReport {
+  id: number;
+  reporter: number | Member;
+  targetType: 'post' | 'comment';
+  post?: (number | null) | CommunityPost;
+  comment?: (number | null) | CommunityComment;
+  reason: 'spam' | 'harassment' | 'misinformation' | 'other';
+  /**
+   * Optional context for the moderation team. Never shown publicly.
+   */
+  details?: string | null;
+  status: 'pending' | 'resolved' | 'dismissed';
+  reviewedAt?: string | null;
+  reviewedByEmail?: string | null;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "embassies".
  */
@@ -782,6 +844,18 @@ export interface PayloadLockedDocument {
         value: number | BusinessSubmission;
       } | null)
     | ({
+        relationTo: 'community-posts';
+        value: number | CommunityPost;
+      } | null)
+    | ({
+        relationTo: 'community-comments';
+        value: number | CommunityComment;
+      } | null)
+    | ({
+        relationTo: 'community-reports';
+        value: number | CommunityReport;
+      } | null)
+    | ({
         relationTo: 'embassies';
         value: number | Embassy;
       } | null)
@@ -1021,6 +1095,50 @@ export interface BusinessSubmissionsSelect<T extends boolean = true> {
   contactEmail?: T;
   status?: T;
   reviewerNotes?: T;
+  reviewedAt?: T;
+  reviewedByEmail?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "community-posts_select".
+ */
+export interface CommunityPostsSelect<T extends boolean = true> {
+  title?: T;
+  slug?: T;
+  body?: T;
+  topic?: T;
+  author?: T;
+  status?: T;
+  lastActivityAt?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "community-comments_select".
+ */
+export interface CommunityCommentsSelect<T extends boolean = true> {
+  post?: T;
+  author?: T;
+  body?: T;
+  status?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "community-reports_select".
+ */
+export interface CommunityReportsSelect<T extends boolean = true> {
+  reporter?: T;
+  targetType?: T;
+  post?: T;
+  comment?: T;
+  reason?: T;
+  details?: T;
+  status?: T;
   reviewedAt?: T;
   reviewedByEmail?: T;
   updatedAt?: T;

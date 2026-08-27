@@ -2,8 +2,10 @@ import config from '@payload-config'
 import Link from 'next/link'
 import { getPayload, type CollectionSlug, type Where } from 'payload'
 
-import type { BusinessSubmission } from '@/payload-types'
+import type { BusinessSubmission, CommunityReport } from '@/payload-types'
+import { communityReportReasonLabels } from '@/lib/community-options'
 
+import { CommunityReportAction } from './CommunityReportAction'
 import { ModerationAction } from './ModerationAction'
 
 type Metric = {
@@ -21,7 +23,7 @@ async function countCollection(payload: Awaited<ReturnType<typeof getPayload>>, 
 async function getMetrics() {
   try {
     const payload = await getPayload({ config })
-    const [articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissionsResult] = await Promise.all([
+    const [articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissionsResult, communityPosts, communityComments, pendingCommunityReportsCount, pendingCommunityReportsResult] = await Promise.all([
       countCollection(payload, 'articles'),
       countCollection(payload, 'news-stories'),
       countCollection(payload, 'businesses'),
@@ -42,9 +44,21 @@ async function getMetrics() {
         sort: 'createdAt',
         where: { status: { equals: 'pending' } },
       }),
+      countCollection(payload, 'community-posts'),
+      countCollection(payload, 'community-comments'),
+      countCollection(payload, 'community-reports', { status: { equals: 'pending' } }),
+      payload.find({
+        collection: 'community-reports',
+        depth: 1,
+        limit: 8,
+        pagination: false,
+        overrideAccess: true,
+        sort: '-createdAt',
+        where: { status: { equals: 'pending' } },
+      }),
     ])
 
-    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[] }
+    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[] }
   } catch {
     return null
   }
@@ -54,6 +68,14 @@ function formatSubmissionDate(value: string): string {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return 'Date unknown'
   return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric', timeZone: 'UTC' }).format(date)
+}
+
+function reportTargetLabel(report: CommunityReport): string {
+  if (report.targetType === 'post') {
+    return report.post && typeof report.post === 'object' ? report.post.title : `Post #${report.post || 'unknown'}`
+  }
+  if (report.comment && typeof report.comment === 'object') return report.comment.body.slice(0, 110)
+  return `Reply #${report.comment || 'unknown'}`
 }
 
 function MetricCard({ metric }: { metric: Metric }) {
@@ -76,7 +98,10 @@ export default async function ContentOverview() {
     { label: 'Events', value: metrics?.events ?? null, href: '/admin/collections/events' },
     { label: 'Learning resources', value: metrics?.learningResources ?? null, href: '/admin/collections/learning-resources' },
     { label: 'Language groups', value: metrics?.practiceGroups ?? null, href: '/admin/collections/practice-groups' },
+    { label: 'Community posts', value: metrics?.communityPosts ?? null, href: '/admin/collections/community-posts' },
+    { label: 'Community replies', value: metrics?.communityComments ?? null, href: '/admin/collections/community-comments' },
     { label: 'Submissions to review', value: metrics?.pendingSubmissionsCount ?? null, href: '/admin/collections/business-submissions?where%5Bstatus%5D%5Bequals%5D=pending', tone: 'attention' },
+    { label: 'Reports to review', value: metrics?.pendingCommunityReportsCount ?? null, href: '/admin/collections/community-reports?where%5Bstatus%5D%5Bequals%5D=pending', tone: 'attention' },
   ]
 
   return (
@@ -118,6 +143,29 @@ export default async function ContentOverview() {
         </div>
       </section>
 
+      <section className="expats-admin-dashboard__panel expats-admin-dashboard__review-panel" aria-labelledby="expats-admin-community-reports">
+        <div className="expats-admin-dashboard__panel-heading expats-admin-dashboard__review-heading">
+          <div><p className="expats-admin-dashboard__eyebrow">Community safety</p><h3 id="expats-admin-community-reports">Reports to review</h3></div>
+          <Link className="expats-admin-dashboard__panel-link" href="/admin/collections/community-reports?where%5Bstatus%5D%5Bequals%5D=pending">Open full queue →</Link>
+        </div>
+        <div className="expats-admin-dashboard__submission-list">
+          {metrics?.pendingCommunityReports?.length ? metrics.pendingCommunityReports.map((report) => (
+            <div className="expats-admin-dashboard__submission" key={report.id}>
+              <div className="expats-admin-dashboard__submission-info">
+                <strong>{reportTargetLabel(report)}</strong>
+                <span>{communityReportReasonLabels[report.reason]} · {report.targetType === 'post' ? 'Post' : 'Reply'}</span>
+                <time dateTime={report.createdAt}>Reported {formatSubmissionDate(report.createdAt)}</time>
+              </div>
+              <div className="expats-admin-dashboard__submission-actions">
+                <Link className="expats-admin-dashboard__open-review" href={`/admin/collections/community-reports/${report.id}`}>Open report</Link>
+                <CommunityReportAction action="hide" reportId={report.id} confirmMessage="Hide the reported community content from public view?" />
+                <CommunityReportAction action="dismiss" reportId={report.id} />
+              </div>
+            </div>
+          )) : <p className="expats-admin-dashboard__empty-queue">No pending community reports. The board is quiet for now.</p>}
+        </div>
+      </section>
+
       <div className="expats-admin-dashboard__columns">
         <section className="expats-admin-dashboard__panel" aria-labelledby="expats-admin-quick-actions">
           <div className="expats-admin-dashboard__panel-heading"><div><p className="expats-admin-dashboard__eyebrow">Shortcuts</p><h3 id="expats-admin-quick-actions">Common actions</h3></div></div>
@@ -126,6 +174,8 @@ export default async function ContentOverview() {
             <Link href="/admin/collections/news-stories/create"><strong>Write a news story</strong><span>Start with context and checked sources</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/businesses/create"><strong>Add a business</strong><span>Create a directory profile</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/business-submissions?where%5Bstatus%5D%5Bequals%5D=pending"><strong>Review submissions</strong><span>Approve, request changes or decline</span><b aria-hidden="true">→</b></Link>
+            <Link href="/admin/collections/community-posts"><strong>Review community posts</strong><span>Read conversations and hide content when needed</span><b aria-hidden="true">→</b></Link>
+            <Link href="/admin/collections/community-reports?where%5Bstatus%5D%5Bequals%5D=pending"><strong>Review community reports</strong><span>Keep the member board welcoming</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/events/create"><strong>List an event</strong><span>Add a community pick</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/embassies"><strong>Review embassies</strong><span>Check addresses and flags</span><b aria-hidden="true">→</b></Link>
           </div>
@@ -134,6 +184,7 @@ export default async function ContentOverview() {
         <section className="expats-admin-dashboard__panel" aria-labelledby="expats-admin-attention">
           <div className="expats-admin-dashboard__panel-heading"><div><p className="expats-admin-dashboard__eyebrow">Review queue</p><h3 id="expats-admin-attention">Needs attention</h3></div></div>
           <div className="expats-admin-dashboard__attention-list">
+            <Link href="/admin/collections/community-reports?where%5Bstatus%5D%5Bequals%5D=pending"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--red" /> <strong>{metrics?.pendingCommunityReportsCount ?? '—'}</strong><span>community reports waiting for review</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/business-submissions?where%5Bstatus%5D%5Bequals%5D=pending"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--red" /> <strong>{metrics?.pendingSubmissionsCount ?? '—'}</strong><span>business submissions waiting for review</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/businesses?where%5Bstatus%5D%5Bequals%5D=draft"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.draftBusinesses ?? '—'}</strong><span>business drafts waiting for review</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/articles?where%5B_status%5D%5Bequals%5D=draft"><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--blue" /> <strong>{metrics?.draftArticles ?? '—'}</strong><span>guide drafts in progress</span><b aria-hidden="true">→</b></Link>

@@ -1,0 +1,79 @@
+import type { CollectionConfig } from 'payload'
+
+import { canManageContent } from '@/lib/admin-access'
+
+export const CommunityComments: CollectionConfig = {
+  slug: 'community-comments',
+  admin: {
+    group: 'Community',
+    useAsTitle: 'body',
+    defaultColumns: ['post', 'author', 'status', 'createdAt'],
+    description: 'Flat replies on community posts. Hide a reply when it breaks the community guidelines.',
+  },
+  access: {
+    read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },
+    create: ({ req: { user } }) => canManageContent(user) || user?.collection === 'members',
+    update: ({ req: { user } }) => canManageContent(user),
+    delete: ({ req: { user } }) => canManageContent(user),
+  },
+  hooks: {
+    beforeChange: [async ({ data, req }) => {
+      if (req.user?.collection === 'members') {
+        data.author = req.user.id
+        data.status = 'published'
+      }
+      return data
+    }],
+    afterChange: [async ({ doc, req }) => {
+      if (doc.status !== 'published') return doc
+
+      const postId = typeof doc.post === 'object' && doc.post ? doc.post.id : doc.post
+      if (postId) {
+        await req.payload.update({
+          collection: 'community-posts',
+          id: postId,
+          data: { lastActivityAt: new Date().toISOString() },
+          depth: 0,
+          overrideAccess: true,
+        })
+      }
+      return doc
+    }],
+  },
+  fields: [
+    {
+      name: 'post',
+      type: 'relationship',
+      relationTo: 'community-posts',
+      required: true,
+      index: true,
+      admin: { position: 'sidebar' },
+    },
+    {
+      name: 'author',
+      type: 'relationship',
+      relationTo: 'members',
+      required: true,
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'body',
+      type: 'textarea',
+      required: true,
+      maxLength: 3000,
+    },
+    {
+      name: 'status',
+      type: 'select',
+      required: true,
+      defaultValue: 'published',
+      options: [
+        { label: 'Published', value: 'published' },
+        { label: 'Hidden', value: 'hidden' },
+      ],
+      index: true,
+      admin: { position: 'sidebar' },
+    },
+  ],
+}

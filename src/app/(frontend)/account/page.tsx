@@ -10,6 +10,7 @@ import { AccountSecurity } from '@/components/AccountSecurity'
 import { ArticleCard } from '@/components/ArticleCard'
 import { BusinessCard } from '@/components/BusinessCard'
 import { getMemberSubmissions } from '@/lib/business-submissions'
+import { formatCommunityDate, getMemberCommunityPosts, topicLabel } from '@/lib/community'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedArticles } from '@/lib/saved-articles'
 import { getSavedBusinesses } from '@/lib/saved-businesses'
@@ -31,10 +32,11 @@ export default async function AccountPage() {
   const member = await getCurrentMember(await headers())
   if (!member) redirect('/login/')
 
-  const [savedArticles, savedBusinesses, submissions] = await Promise.all([
+  const [savedArticles, savedBusinesses, submissions, communityPosts] = await Promise.all([
     getSavedArticles(member.id),
     getSavedBusinesses(member.id),
     getMemberSubmissions(member.id),
+    getMemberCommunityPosts(member.id),
   ])
 
   return (
@@ -102,6 +104,23 @@ export default async function AccountPage() {
                   <h3 id="submissions-empty-title">Know a business people should find?</h3>
                   <p>Send us the essentials and keep an eye on the review status here.</p>
                   <Link className="text-link" href="/submit-business/">Start a submission <span aria-hidden="true">→</span></Link>
+                </div>
+              </div>
+            )}
+          </section>
+
+          <section className="account-section" aria-labelledby="community-posts-title">
+            <div className="account-section__heading">
+              <div><p className="eyebrow">Your conversations</p><h2 id="community-posts-title">My community posts.</h2></div>
+              <Link className="text-link" href="/community/board/">Open the board <span aria-hidden="true">→</span></Link>
+            </div>
+            {communityPosts.length ? <div className="account-submissions account-community-posts">{communityPosts.map((post) => <article className="account-submission" key={post.id}><div><h3><Link href={`/community/board/${post.slug}/`}>{post.title}</Link></h3><p>{topicLabel(post.topic)} · Started {formatCommunityDate(post.createdAt)}</p></div><div className="account-submission__meta"><span className={`submission-status submission-status--${post.status === 'published' ? 'approved' : 'declined'}`}>{post.status === 'published' ? 'Published' : 'Hidden'}</span></div></article>)}</div> : (
+              <div className="account-empty" aria-labelledby="community-posts-empty-title">
+                <span aria-hidden="true">✦</span>
+                <div>
+                  <h3 id="community-posts-empty-title">Your questions can help the next person.</h3>
+                  <p>Start a conversation when you have a Finland question, a useful discovery or an experience worth sharing.</p>
+                  <Link className="text-link" href="/community/board/">Visit the community board <span aria-hidden="true">→</span></Link>
                 </div>
               </div>
             )}
