@@ -1,9 +1,13 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
+import { headers } from 'next/headers'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { SaveBusinessButton } from '@/components/SaveBusinessButton'
 import { getBusiness, labels } from '@/lib/content'
+import { getCurrentMember } from '@/lib/member-auth'
+import { getSavedBusinessIds } from '@/lib/saved-businesses'
 
 export const dynamic = 'force-dynamic'
 
@@ -18,6 +22,8 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
   const { slug } = await params
   const business = await getBusiness(slug)
   if (!business) notFound()
+  const member = await getCurrentMember(await headers())
+  const saved = member ? (await getSavedBusinessIds(member.id)).has(business.id) : false
   const categories = labels(business.categories)
   const locations = labels(business.locations)
   // This force-dynamic server page checks the request time so short-lived offers disappear automatically.
@@ -32,7 +38,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
     <main id="main"><div className="shell detail-shell business-profile">
       <Link className="back-link" href="/businesses/">← Business directory</Link>
       <header className="business-profile__header">
-        <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p></div>
+        <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p><div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /></div></div>
         <div className={`business-profile__mark${business.logoPath ? ' business-profile__mark--logo' : ''}`} aria-hidden={!business.logoPath}>
           {business.logoPath
             ? <Image src={business.logoPath} alt={business.logoAlt || `${business.name} logo`} width={220} height={220} />

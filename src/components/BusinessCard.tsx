@@ -3,6 +3,8 @@ import Link from 'next/link'
 import type { Business } from '@/payload-types'
 import { labels } from '@/lib/content'
 
+import { SaveBusinessButton } from './SaveBusinessButton'
+
 function businessImage(business: Business): { src: string; alt: string; unoptimized: boolean } | null {
   const media = business.image && typeof business.image === 'object' ? business.image : null
   const src = media?.url || media?.thumbnailURL || business.imagePath || ''
@@ -15,7 +17,7 @@ function businessImage(business: Business): { src: string; alt: string; unoptimi
   }
 }
 
-export function BusinessCard({ business }: { business: Business }) {
+export function BusinessCard({ business, saved = false, showSave = false }: { business: Business; saved?: boolean; showSave?: boolean }) {
   const categories = labels(business.categories)
   const locations = labels(business.locations)
   const image = businessImage(business)
@@ -40,7 +42,10 @@ export function BusinessCard({ business }: { business: Business }) {
       <div className="business-card__meta"><span>{categories[0]}</span><span>{locations.join(' · ')}</span></div>
       <h3><Link href={href}>{business.name}</Link></h3>
       <p>{business.summary}</p>
-      <Link className="text-link" href={href}>View business <span aria-hidden="true">→</span></Link>
+      <div className="business-card__actions">
+        <Link className="text-link" href={href}>View business <span aria-hidden="true">→</span></Link>
+        {showSave && <SaveBusinessButton businessSlug={business.slug} initialSaved={saved} compact />}
+      </div>
     </article>
   )
 }

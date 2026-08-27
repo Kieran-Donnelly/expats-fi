@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
+import { headers } from 'next/headers'
 
 import { BusinessCard } from '@/components/BusinessCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getBusinesses, labels } from '@/lib/content'
+import { getCurrentMember } from '@/lib/member-auth'
+import { getSavedBusinessIds } from '@/lib/saved-businesses'
 
 export const dynamic = 'force-dynamic'
 
@@ -17,6 +20,8 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
     getBusinesses({ category: category || undefined, location: location || undefined, query: q || undefined }),
     getBusinesses(),
   ])
+  const member = await getCurrentMember(await headers())
+  const savedBusinessIds = member ? await getSavedBusinessIds(member.id) : new Set<number>()
   const categories = [...new Set(allBusinesses.flatMap((business) => labels(business.categories)))].sort()
   const locations = [...new Set(allBusinesses.flatMap((business) => labels(business.locations)))].sort()
 
@@ -34,7 +39,7 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
           <button type="submit">Find businesses</button>
         </form>
         <p className="results-note">{businesses.length} {businesses.length === 1 ? 'business' : 'businesses'} found</p>
-        {businesses.length ? <div className="business-grid">{businesses.map((business) => <BusinessCard business={business} key={business.id} />)}</div> : <div className="empty-state"><h2>No businesses match those filters</h2><p>Try removing a filter or searching for a wider area.</p></div>}
+        {businesses.length ? <div className="business-grid">{businesses.map((business) => <BusinessCard business={business} key={business.id} showSave saved={savedBusinessIds.has(business.id)} />)}</div> : <div className="empty-state"><h2>No businesses match those filters</h2><p>Try removing a filter or searching for a wider area.</p></div>}
       </section>
     </main>
   )

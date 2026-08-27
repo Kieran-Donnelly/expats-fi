@@ -73,6 +73,7 @@ export interface Config {
     articles: Article;
     'news-stories': NewsStory;
     businesses: Business;
+    'business-submissions': BusinessSubmission;
     embassies: Embassy;
     events: Event;
     'learning-paths': LearningPath;
@@ -93,6 +94,7 @@ export interface Config {
     articles: ArticlesSelect<false> | ArticlesSelect<true>;
     'news-stories': NewsStoriesSelect<false> | NewsStoriesSelect<true>;
     businesses: BusinessesSelect<false> | BusinessesSelect<true>;
+    'business-submissions': BusinessSubmissionsSelect<false> | BusinessSubmissionsSelect<true>;
     embassies: EmbassiesSelect<false> | EmbassiesSelect<true>;
     events: EventsSelect<false> | EventsSelect<true>;
     'learning-paths': LearningPathsSelect<false> | LearningPathsSelect<true>;
@@ -205,9 +207,45 @@ export interface Member {
   googleSubject?: string | null;
   picture?: string | null;
   /**
+   * Optional city or municipality in Finland.
+   */
+  city?: string | null;
+  /**
+   * Languages the member would like to use on Expats.fi.
+   */
+  languages?: string | null;
+  /**
+   * Optional stage of the move to Finland.
+   */
+  arrivalStage?: ('planning' | 'new-arrival' | 'settling-in' | 'established') | null;
+  /**
+   * Topics selected by the member for future recommendations.
+   */
+  interests?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  /**
+   * Occasional emails about useful new guides and directory updates.
+   */
+  emailUpdates?: boolean | null;
+  /**
+   * The regular Expats.fi newsletter, when available.
+   */
+  newsletter?: boolean | null;
+  /**
    * Guides this member has saved for later.
    */
   savedArticles?: (number | Article)[] | null;
+  /**
+   * Businesses this member has saved for later.
+   */
+  savedBusinesses?: (number | Business)[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -271,60 +309,6 @@ export interface Article {
   _status?: ('draft' | 'published') | null;
 }
 /**
- * Original Expats.fi reporting and explainers. Keep the source list and checked date current.
- *
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "news-stories".
- */
-export interface NewsStory {
-  id: number;
-  title: string;
-  slug: string;
-  /**
-   * A warm, useful summary for the News page and search results.
-   */
-  standfirst: string;
-  category: 'Helsinki' | 'Finland' | 'Work & money' | 'Life admin' | 'Culture & community';
-  publishedAt: string;
-  readingMinutes: number;
-  featured?: boolean | null;
-  /**
-   * The plain-English answer to: what does this mean for somebody living here?
-   */
-  practicalSummary: string;
-  content: {
-    root: {
-      type: string;
-      children: {
-        type: any;
-        version: number;
-        [k: string]: unknown;
-      }[];
-      direction: ('ltr' | 'rtl') | null;
-      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
-      indent: number;
-      version: number;
-    };
-    [k: string]: unknown;
-  };
-  /**
-   * An array of source objects: [{ "name": "City of Helsinki", "url": "https://..." }].
-   */
-  sources:
-    | {
-        [k: string]: unknown;
-      }
-    | unknown[]
-    | string
-    | number
-    | boolean
-    | null;
-  sourceCheckedAt: string;
-  status: 'draft' | 'published';
-  updatedAt: string;
-  createdAt: string;
-}
-/**
  * This interface was referenced by `Config`'s JSON-Schema
  * via the `definition` "businesses".
  */
@@ -386,6 +370,82 @@ export interface Media {
   height?: number | null;
   focalX?: number | null;
   focalY?: number | null;
+}
+/**
+ * Original Expats.fi reporting and explainers. Keep the source list and checked date current.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "news-stories".
+ */
+export interface NewsStory {
+  id: number;
+  title: string;
+  slug: string;
+  /**
+   * A warm, useful summary for the News page and search results.
+   */
+  standfirst: string;
+  category: 'Helsinki' | 'Finland' | 'Work & money' | 'Life admin' | 'Culture & community';
+  publishedAt: string;
+  readingMinutes: number;
+  featured?: boolean | null;
+  /**
+   * The plain-English answer to: what does this mean for somebody living here?
+   */
+  practicalSummary: string;
+  content: {
+    root: {
+      type: string;
+      children: {
+        type: any;
+        version: number;
+        [k: string]: unknown;
+      }[];
+      direction: ('ltr' | 'rtl') | null;
+      format: 'left' | 'start' | 'center' | 'right' | 'end' | 'justify' | '';
+      indent: number;
+      version: number;
+    };
+    [k: string]: unknown;
+  };
+  /**
+   * An array of source objects: [{ "name": "City of Helsinki", "url": "https://..." }].
+   */
+  sources:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  sourceCheckedAt: string;
+  status: 'draft' | 'published';
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-submissions".
+ */
+export interface BusinessSubmission {
+  id: number;
+  submittedBy: number | Member;
+  businessName: string;
+  website: string;
+  location: string;
+  category: string;
+  description: string;
+  contactName: string;
+  contactEmail: string;
+  status: 'pending' | 'approved' | 'needs-changes' | 'declined';
+  /**
+   * Internal notes shown to administrators.
+   */
+  reviewerNotes?: string | null;
+  updatedAt: string;
+  createdAt: string;
 }
 /**
  * This interface was referenced by `Config`'s JSON-Schema
@@ -703,6 +763,10 @@ export interface PayloadLockedDocument {
         value: number | Business;
       } | null)
     | ({
+        relationTo: 'business-submissions';
+        value: number | BusinessSubmission;
+      } | null)
+    | ({
         relationTo: 'embassies';
         value: number | Embassy;
       } | null)
@@ -815,7 +879,14 @@ export interface MembersSelect<T extends boolean = true> {
   provider?: T;
   googleSubject?: T;
   picture?: T;
+  city?: T;
+  languages?: T;
+  arrivalStage?: T;
+  interests?: T;
+  emailUpdates?: T;
+  newsletter?: T;
   savedArticles?: T;
+  savedBusinesses?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;
@@ -912,6 +983,24 @@ export interface BusinessesSelect<T extends boolean = true> {
   featured?: T;
   status?: T;
   image?: T;
+  updatedAt?: T;
+  createdAt?: T;
+}
+/**
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-submissions_select".
+ */
+export interface BusinessSubmissionsSelect<T extends boolean = true> {
+  submittedBy?: T;
+  businessName?: T;
+  website?: T;
+  location?: T;
+  category?: T;
+  description?: T;
+  contactName?: T;
+  contactEmail?: T;
+  status?: T;
+  reviewerNotes?: T;
   updatedAt?: T;
   createdAt?: T;
 }

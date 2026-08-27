@@ -2,6 +2,8 @@ import configPromise from '@payload-config'
 import { jwtVerify, SignJWT } from 'jose'
 import { getPayload, type Payload } from 'payload'
 
+import { isMemberArrivalStage, normaliseMemberInterests, type MemberArrivalStage, type MemberInterest } from '@/lib/account-options'
+
 export const GOOGLE_SESSION_COOKIE = 'expats-google-session'
 export const GOOGLE_OAUTH_COOKIE = 'expats-google-oauth'
 export const ADMIN_GOOGLE_OAUTH_COOKIE = 'expats-admin-google-oauth'
@@ -12,6 +14,12 @@ export type MemberSession = {
   name: string
   picture?: string | null
   provider?: string | null
+  city?: string | null
+  languages?: string | null
+  arrivalStage?: MemberArrivalStage | null
+  interests?: MemberInterest[]
+  emailUpdates?: boolean
+  newsletter?: boolean
 }
 
 function sessionSecret() {
@@ -63,6 +71,12 @@ function toMemberSession(user: Record<string, unknown>): MemberSession | null {
     name: typeof user.name === 'string' ? user.name : user.email.split('@')[0],
     picture: typeof user.picture === 'string' ? user.picture : null,
     provider: typeof user.provider === 'string' ? user.provider : null,
+    city: typeof user.city === 'string' ? user.city : null,
+    languages: typeof user.languages === 'string' ? user.languages : null,
+    arrivalStage: isMemberArrivalStage(user.arrivalStage) ? user.arrivalStage : null,
+    interests: normaliseMemberInterests(user.interests),
+    emailUpdates: user.emailUpdates === true,
+    newsletter: user.newsletter === true,
   }
 }
 

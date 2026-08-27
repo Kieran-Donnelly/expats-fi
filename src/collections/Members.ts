@@ -1,5 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
+import { memberArrivalStages } from '@/lib/account-options'
 import { canManageMembers } from '@/lib/admin-access'
 
 export const Members: CollectionConfig = {
@@ -52,12 +53,56 @@ export const Members: CollectionConfig = {
       admin: { readOnly: true },
     },
     {
+      name: 'city',
+      type: 'text',
+      maxLength: 120,
+      admin: { description: 'Optional city or municipality in Finland.' },
+    },
+    {
+      name: 'languages',
+      type: 'text',
+      maxLength: 240,
+      admin: { description: 'Languages the member would like to use on Expats.fi.' },
+    },
+    {
+      name: 'arrivalStage',
+      type: 'select',
+      options: memberArrivalStages.map(({ label, value }) => ({ label, value })),
+      admin: { description: 'Optional stage of the move to Finland.' },
+    },
+    {
+      name: 'interests',
+      type: 'json',
+      admin: { description: 'Topics selected by the member for future recommendations.' },
+    },
+    {
+      name: 'emailUpdates',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: { description: 'Occasional emails about useful new guides and directory updates.' },
+    },
+    {
+      name: 'newsletter',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: { description: 'The regular Expats.fi newsletter, when available.' },
+    },
+    {
       name: 'savedArticles',
       type: 'relationship',
       relationTo: 'articles',
       hasMany: true,
       admin: {
         description: 'Guides this member has saved for later.',
+      },
+    },
+    {
+      name: 'savedBusinesses',
+      type: 'relationship',
+      relationTo: 'businesses',
+      hasMany: true,
+      admin: {
+        description: 'Businesses this member has saved for later.',
       },
     },
   ],

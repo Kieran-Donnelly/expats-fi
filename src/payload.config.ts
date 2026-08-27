@@ -8,6 +8,7 @@ import sharp from 'sharp'
 
 import { Articles } from './collections/Articles'
 import { Businesses } from './collections/Businesses'
+import { BusinessSubmissions } from './collections/BusinessSubmissions'
 import { Embassies } from './collections/Embassies'
 import { Events } from './collections/Events'
 import { LearningPaths } from './collections/LearningPaths'
@@ -36,7 +37,7 @@ export default buildConfig({
       titleSuffix: ' | Expats.fi',
     },
   },
-  collections: [Users, Members, Articles, NewsStories, Businesses, Embassies, Events, LearningPaths, LearningResources, Media, PracticeGroups, YkiResources],
+  collections: [Users, Members, Articles, NewsStories, Businesses, BusinessSubmissions, Embassies, Events, LearningPaths, LearningResources, Media, PracticeGroups, YkiResources],
   editor: lexicalEditor(),
   secret: process.env.PAYLOAD_SECRET || 'local-development-secret-change-me',
   serverURL,
