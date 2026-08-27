@@ -24,7 +24,7 @@ export function SiteFooter() {
           <Link href="/learn-finnish/">Learn Finnish</Link>
           <Link href="/news/">News</Link>
           <Link href="/areas/">Helsinki neighbourhoods</Link>
-          <Link href="/eats/">Helsinki Eats</Link>
+          <Link href="/eats/">Food & Drink</Link>
           <Link href="/explore/">Things to do in Helsinki</Link>
           <Link href="/events/">Helsinki events</Link>
           <Link href="/sports/">Sports and activities</Link>

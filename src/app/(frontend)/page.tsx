@@ -21,7 +21,7 @@ const practicalHubs = [
 
 const helsinkiHubs = [
   { label: 'Events', detail: 'What is actually happening around Helsinki', href: '/events/', icon: 'calendar' },
-  { label: 'Helsinki Eats', detail: 'Cafés, quick lunches and places worth planning dinner around', href: '/eats/', icon: 'food' },
+  { label: 'Food & Drink', detail: 'Finnish dishes and recipes, plus cafés and places worth planning dinner around', href: '/eats/', icon: 'food' },
   { label: 'Neighbourhoods', detail: 'Eleven local guides with walks, food and honest area notes', href: '/areas/', icon: 'map' },
   { label: 'Things to do', detail: 'Museums, islands, saunas, libraries and family days out', href: '/explore/', icon: 'compass' },
   { label: 'Sports and activities', detail: 'Teams, beginner sessions and places to get moving', href: '/sports/', icon: 'ball' },

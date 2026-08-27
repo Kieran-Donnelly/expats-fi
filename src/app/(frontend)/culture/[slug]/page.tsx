@@ -20,11 +20,11 @@ export default async function CultureGuidePage({ params }: { params: Promise<{ s
   const guide = getCultureGuide(slug)
   if (!guide) notFound()
   const heroImage = slug === 'finland-in-twelve-turning-points'
-    ? { src: '/images/heroes/home-helsinki-cathedral-v2.webp', position: 'center 48%' }
+    ? { src: '/images/heroes/culture-turning-points-senate-square.webp', position: 'center 52%' }
     : slug === 'finnish-names-worth-knowing'
-      ? { src: '/images/heroes/businesses-bookshop-owner.webp', position: 'center 42%' }
+      ? { src: '/images/heroes/culture-names-sibelius.webp', position: 'center 48%' }
       : slug === 'historic-finland-you-can-visit'
-        ? { src: '/images/heroes/explore-suomenlinna.webp', position: 'center 48%' }
+        ? { src: '/images/heroes/culture-historic-olavinlinna.webp', position: 'center 50%' }
         : undefined
   return <EditorialGuideDetail guide={guide} guides={cultureGuides} hubHref="/culture/" hubLabel="How Finland actually works" relatedHeading="More of the cultural bits" heroImage={heroImage} />
 }

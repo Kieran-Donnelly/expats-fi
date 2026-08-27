@@ -10,8 +10,8 @@ import { finlandFoodGuides } from '@/data/finland-food-guides'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Where to eat in Helsinki: cafés, cheap eats and proper dinners',
-  description: 'A warm, useful Helsinki food guide for coffee, breakfast, quick bites, Finnish flavours, family meals, date nights and neighbourhood favourites.',
+  title: 'Food and drink in Finland: local dishes, recipes and Helsinki favourites',
+  description: 'A warm guide to Finnish food, seasonal favourites, practical recipes and places to eat around Helsinki.',
   alternates: { canonical: '/eats/' },
 }
 
@@ -41,14 +41,14 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
   return (
     <main id="main" className="eats-page">
       <SectionHero
-        eyebrow="Helsinki Eats"
+        eyebrow="Food & Drink"
         title="Where should we eat?"
-        intro="Cute cafés, quick lunches, Finnish classics, lively dinners and neighbourhood places worth getting on a tram for. Pick by craving or see what is close to the bit of Helsinki you are already exploring."
+        intro="Finnish classics, seasonal favourites, recipes worth keeping, cute cafés and neighbourhood places worth getting on a tram for. Start with the food itself or find somewhere good around Helsinki."
         noteLabel="The honest version"
         noteTitle="Not a ranking. Not a pay-to-play list."
         noteBody="These are independent editorial suggestions with a clear reason for each one. If a meal or visit is invited, we will say so plainly."
         tone="dark"
-        image={{ src: '/images/heroes/eats-cafe.webp', position: 'center 42%' }}
+        image={{ src: '/images/heroes/food-main-herring.webp', position: 'center 50%' }}
       />
 
       <section className="shell eats-starts" aria-labelledby="eats-starts-heading">
@@ -78,13 +78,13 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
             <button type="submit">Find food</button>
           </form>
           {filtered.length ? <><EatsMap spots={filtered} /><div className="eats-grid">{filtered.map((spot) => <EatsCard key={spot.slug} spot={spot} />)}</div></> : <div className="empty-state"><h2>Nothing matches every filter</h2><p>Try dropping one filter. The guide is growing, but there should still be something good nearby.</p></div>}
-          <div className="eats-source-note"><div><strong>{eatSpots.length} researched places and plenty more to come.</strong><p>Hours, menus and prices change. We link you to the place or the trusted current source we used, so have a quick check before crossing town.</p></div><a href="mailto:listings@expats.fi?subject=Helsinki%20Eats%20suggestion">Suggest a place or correction</a></div>
+          <div className="eats-source-note"><div><strong>{eatSpots.length} researched places and plenty more to come.</strong><p>Hours, menus and prices change. We link you to the place or the trusted current source we used, so have a quick check before crossing town.</p></div><a href="mailto:listings@expats.fi?subject=Food%20and%20Drink%20suggestion">Suggest a place or correction</a></div>
         </div>
       </section>
 
       <section className="shell family-local-note">
-        <div><p className="eyebrow">Eats versus the directory</p><h2>Recommendations and business stories do different jobs.</h2></div>
-        <p>Eats is our independent guide to places we think are useful or interesting. The <Link className="text-link" href="/businesses/">business directory</Link> is the opt-in home for approved profiles, founder stories and expat-owned businesses. A place can belong in either or both.</p>
+        <div><p className="eyebrow">Food & Drink versus the directory</p><h2>Recommendations and business stories do different jobs.</h2></div>
+        <p>Food & Drink is our independent guide to Finnish food and places we think are useful or interesting. The <Link className="text-link" href="/businesses/">business directory</Link> is the opt-in home for approved profiles, founder stories and expat-owned businesses. A place can belong in either or both.</p>
       </section>
     </main>
   )

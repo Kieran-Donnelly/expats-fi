@@ -20,11 +20,11 @@ export default async function FinlandFoodGuidePage({ params }: { params: Promise
   const guide = getFinlandFoodGuide(slug)
   if (!guide) notFound()
   const heroImage = slug === 'finnish-dishes-worth-trying'
-    ? { src: '/images/heroes/eats-cafe.webp', position: 'center 42%' }
+    ? { src: '/images/heroes/food-dishes-lohikeitto.webp', position: 'center 58%' }
     : slug === 'finnish-food-calendar'
-      ? { src: '/images/heroes/areas-helsinki-street.webp', position: 'center 52%' }
+      ? { src: '/images/heroes/food-calendar-foraging.webp', position: 'center 50%' }
       : slug === 'finnish-supermarket-starter-pack'
-        ? { src: '/images/heroes/resources-documents-laptop.webp', position: 'center 48%' }
-        : { src: '/images/heroes/family-together.webp', position: 'center 44%' }
+        ? { src: '/images/heroes/food-supermarket-cart.webp', position: 'center 54%' }
+        : { src: '/images/heroes/food-recipes-berry-pie.webp', position: 'center 48%' }
   return <EditorialGuideDetail guide={guide} guides={finlandFoodGuides} hubHref="/eats/finland-on-a-plate/" hubLabel="Finland on a Plate" relatedHeading="Keep tasting your way around Finland" tone="warm" heroImage={heroImage} />
 }

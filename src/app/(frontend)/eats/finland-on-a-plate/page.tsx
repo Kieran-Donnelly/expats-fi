@@ -21,7 +21,7 @@ export default function FinlandOnAPlatePage() {
         noteTitle="Context first, food snobbery nowhere."
         noteBody="Traditions vary by region and family. We explain the useful starting point, link the source and leave room for the version people actually cook at home."
         tone="dark"
-        image={{ src: '/images/heroes/eats-cafe.webp', position: 'center 42%' }}
+        image={{ src: '/images/heroes/food-hub-nordic-breakfast.webp', position: 'center 52%' }}
       />
 
       <section className="shell family-stages" aria-labelledby="plate-start-heading">
@@ -34,7 +34,7 @@ export default function FinlandOnAPlatePage() {
         <div className="family-guide-grid">{finlandFoodGuides.map((guide) => <article className="family-guide-card" key={guide.slug}><div><span>{guide.number}</span><small>{guide.label}</small></div><h3><Link href={`/eats/finland-on-a-plate/${guide.slug}/`}>{guide.title}</Link></h3><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}<Link className="text-link" href={`/eats/finland-on-a-plate/${guide.slug}/`}>Open the guide <span aria-hidden="true">→</span></Link></article>)}</div>
       </section>
 
-      <section className="shell family-local-note"><div><p className="eyebrow">Ready to eat instead?</p><h2>Find the real thing around Helsinki.</h2></div><p>Use <Link className="text-link" href="/eats/?mood=Finnish%20flavours">Finnish flavours in Helsinki Eats</Link> for market halls, cafés and restaurants where somebody else can handle the washing up.</p></section>
+      <section className="shell family-local-note"><div><p className="eyebrow">Ready to eat instead?</p><h2>Find the real thing around Helsinki.</h2></div><p>Use <Link className="text-link" href="/eats/?mood=Finnish%20flavours">our Helsinki food guide</Link> for market halls, cafés and restaurants where somebody else can handle the washing up.</p></section>
     </main>
   )
 }

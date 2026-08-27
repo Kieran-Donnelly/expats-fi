@@ -72,7 +72,7 @@ export default function AreasPage() {
           <div className="family-maisa-tip">
             <span>How we choose places</span>
             <div><strong>Independent suggestions, never a secret advert.</strong><p>We check that places are still operating and tell you why they may be worth your time. Paid or invited visits will always be labelled.</p></div>
-            <Link href="/eats/">Browse all Helsinki Eats →</Link>
+            <Link href="/eats/">Browse Food & Drink →</Link>
           </div>
         </div>
       </section>
