@@ -46,6 +46,12 @@ export default function FrontendLayout({ children }: { children: ReactNode }) {
     <html lang="en" className={schibsted.variable}>
       <body>
         <Script
+          src="https://analytics.podium.dev/api/script.js"
+          data-site-id="98fd41b83b7e"
+          strategy="beforeInteractive"
+          defer
+        />
+        <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-CB5QYGM914"
           strategy="afterInteractive"
         />
