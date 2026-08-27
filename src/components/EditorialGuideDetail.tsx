@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 
@@ -10,10 +11,14 @@ type EditorialGuideDetailProps = {
   hubLabel: string
   relatedHeading: string
   extraSection?: ReactNode
+  heroImage?: {
+    src: string
+    position?: string
+  }
   tone?: 'blue' | 'warm'
 }
 
-export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, extraSection, tone = 'blue' }: EditorialGuideDetailProps) {
+export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, extraSection, heroImage, tone = 'blue' }: EditorialGuideDetailProps) {
   const related = guides
     .filter((item) => item.slug !== guide.slug)
     .map((item) => ({
@@ -28,7 +33,19 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
     <main id="main" className="family-detail" data-guide-tone={tone}>
       <div className="shell family-detail__shell">
         <Link className="back-link" href={hubHref}>← {hubLabel}</Link>
-        <header className="family-detail__header">
+        <header className="family-detail__header" data-has-image={heroImage ? true : undefined}>
+          {heroImage && (
+            <div className="family-detail__header-media" aria-hidden="true">
+              <Image
+                src={heroImage.src}
+                alt=""
+                fill
+                loading="eager"
+                sizes="(max-width: 960px) 100vw, 1200px"
+                style={{ objectPosition: heroImage.position ?? 'center' }}
+              />
+            </div>
+          )}
           <div><p className="eyebrow">{guide.number} · {guide.label}</p><h1>{guide.title}</h1><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}</div>
           <aside><span>Best for</span><p>{guide.goodFor}</p><small>Information checked 25 August 2026</small></aside>
         </header>
