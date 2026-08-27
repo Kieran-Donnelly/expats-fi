@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { ArticleCard } from '@/components/ArticleCard'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getArticles } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -18,7 +19,10 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Pr
 
   return (
     <main id="main">
-      <header className="page-hero"><div className="shell page-hero__inner"><p className="eyebrow">Life in Finland</p><h1>Practical answers, without the runaround.</h1><p>Use these guides as a clear starting point, then confirm changing rules with the Finnish authority responsible.</p></div></header>
+      <header className="page-hero photo-hero">
+        <HeroBackdrop src="/images/heroes/resources-documents-laptop.webp" position="center 48%" />
+        <div className="shell page-hero__inner"><p className="eyebrow">Life in Finland</p><h1>Practical answers, without the runaround.</h1><p>Use these guides as a clear starting point, then confirm changing rules with the Finnish authority responsible.</p></div>
+      </header>
       <section className="shell listing-section" aria-label="Resource library">
         <form className="filter-form" action="/resources/" method="get" role="search">
           <label>Search<input name="q" defaultValue={q} placeholder="Permits, tax, healthcare…" /></label>

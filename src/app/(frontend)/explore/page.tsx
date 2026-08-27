@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ExploreCard } from '@/components/ExploreCard'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { exploreCategories, exploreFreeDates, exploreListings, exploreMemberships } from '@/data/explore'
 
 export const dynamic = 'force-dynamic'
@@ -35,7 +36,8 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
 
   return (
     <main id="main">
-      <header className="explore-hero">
+      <header className="explore-hero photo-hero">
+        <HeroBackdrop src="/images/heroes/explore-suomenlinna.webp" position="center 48%" />
         <div className="shell explore-hero__inner">
           <div>
             <p className="eyebrow">Helsinki, beyond the paperwork</p>

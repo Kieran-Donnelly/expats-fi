@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { NewsCard } from '@/components/NewsCard'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getNewsStories } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -22,7 +23,8 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
 
   return (
     <main id="main" className="news-page">
-      <header className="news-hero">
+      <header className="news-hero photo-hero photo-hero--dark">
+        <HeroBackdrop src="/images/heroes/news-phone-coffee.webp" position="center 42%" />
         <div className="shell news-hero__inner">
           <div>
             <p className="eyebrow">Expats.fi News</p>
@@ -79,7 +81,7 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
       </section>
 
       <section className="shell news-letter section" aria-label="Newsletter preview">
-        <div><p className="eyebrow">Coming next</p><h2>The Finland catch-up, straight to your inbox.</h2><p>A friendly round-up of the week's useful stories, upcoming happenings and things people new to Finland often discover six months too late.</p></div>
+        <div><p className="eyebrow">Coming next</p><h2>The Finland catch-up, straight to your inbox.</h2><p>A friendly round-up of the week’s useful stories, upcoming happenings and things people new to Finland often discover six months too late.</p></div>
         <div className="news-letter__status"><span>Newsletter</span><strong>We are getting the first edition ready.</strong><p>No spam, no daily shouting and no selling your details. The signup will open here once the mailing list is connected.</p></div>
       </section>
     </main>

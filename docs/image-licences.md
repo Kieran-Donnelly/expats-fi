@@ -87,6 +87,86 @@ Downloaded on August 26, 2026 through the licensed Unlimphotos account connected
 - Licence shown at download: Royalty Free License
 - Treatment: Light deterministic colour correction, web resizing and compression. The Helsinki station and square were not altered.
 
+### Events
+
+- Site file: `public/images/heroes/events-evening-gathering.webp`
+- Unlimphotos asset ID: `103633314`
+- Title: Group of friends at evening garden party under hanging decorative string lights
+- Creator: `molesjuny`
+- Source: `https://unlimphotos.com/103633314/group-of-friends-at-evening-garden-party-under-hanging-decorative-string-lights.html`
+- Licence shown at download: Royalty Free License
+- Treatment: Light deterministic colour correction, web resizing and compression. The people and scene were not altered.
+
+### Explore
+
+- Site file: `public/images/heroes/explore-suomenlinna.webp`
+- Unlimphotos asset ID: `67746188`
+- Title: Suomenlinna
+- Creator: `Jule_Berlin`
+- Source: `https://unlimphotos.com/67746188/suomenlinna.html`
+- Licence shown at download: Royalty Free License
+- Treatment: Light deterministic colour correction, web resizing and compression. The Suomenlinna scene was not altered.
+
+### Sports
+
+- Site file: `public/images/heroes/sports-rugby-scrum.webp`
+- Unlimphotos asset ID: `97589836`
+- Title: Rugby players pushing in a scrum during a match
+- Creator: `Studia72`
+- Source: `https://unlimphotos.com/97589836/rugby-players-pushing-in-a-scrum-during-a-match.html`
+- Licence shown at download: Royalty Free License
+- Treatment: Light deterministic colour correction, web resizing and compression. The players and match were not altered.
+
+### Learn Finnish
+
+- Site file: `public/images/heroes/learn-finnish-class.webp`
+- Unlimphotos asset ID: `62171044`
+- Title: Students learning foreign language in class
+- Creator: `Whatawin`
+- Source: `https://unlimphotos.com/62171044/students-learning-foreign-language-in-class.html`
+- Licence shown at download: Royalty Free License
+- Treatment: Light deterministic colour correction, web resizing and compression. The students and scene were not altered.
+
+### News
+
+- Site file: `public/images/heroes/news-phone-coffee.webp`
+- Unlimphotos asset ID: `52572604`
+- Title: Young professional woman uses her smartphone to stay connected while enjoying her coffee
+- Creator: `Sorapop`
+- Source: `https://unlimphotos.com/52572604/young-professional-woman-uses-her-smartphone-to-stay-connected-while-enjoying-her-coffee.html`
+- Licence shown at download: Royalty Free License, model released
+- Treatment: Light deterministic colour correction, web resizing and compression. The model and scene were not altered.
+
+### Businesses
+
+- Site file: `public/images/heroes/businesses-bookshop-owner.webp`
+- Unlimphotos asset ID: `32228902`
+- Title: Portrait Of Female Bookshop Owner Outside Store
+- Creator: `HWS`
+- Source: `https://unlimphotos.com/32228902/portrait-of-female-bookshop-owner-outside-store.html`
+- Licence shown at download: Royalty Free License, model released, property released
+- Treatment: Light deterministic colour correction, web resizing and compression. The model and shop were not altered.
+
+### Embassies
+
+- Site file: `public/images/heroes/embassies-international-flags.webp`
+- Unlimphotos asset ID: `100714146`
+- Title: International flags flying together representing sovereignty, unity, and global relations
+- Creator: `Studia72`
+- Source: `https://unlimphotos.com/100714146/international-flags-flying-together-representing-sovereignty-unity-and-global-relations.html`
+- Licence shown at download: Royalty Free License
+- Treatment: Light deterministic colour correction, web resizing and compression. The flags and scene were not altered.
+
+### Resources
+
+- Site file: `public/images/heroes/resources-documents-laptop.webp`
+- Unlimphotos asset ID: `101810594`
+- Title: Person works on laptop while using smartphone at a desk with paperwork in a well-lit space
+- Creator: `Prostock-studio`
+- Source: `https://unlimphotos.com/101810594/person-works-on-laptop-while-using-smartphone-at-a-desk-with-paperwork-in-a-well-lit-space.html`
+- Licence shown at download: Royalty Free License, model released
+- Treatment: Light deterministic colour correction, web resizing and compression. The model and scene were not altered.
+
 ## Working rule
 
 Do not use an asset marked Editorial License as a decorative or promotional site image. Do not commit the untouched high-resolution source files. Keep only the web-ready derivative required by the site and retain this record for provenance.
