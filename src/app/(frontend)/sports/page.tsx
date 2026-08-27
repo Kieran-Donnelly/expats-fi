@@ -41,7 +41,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
   return (
     <main id="main">
       <header className="sports-hero photo-hero photo-hero--dark">
-        <HeroBackdrop src="/images/heroes/sports-rugby-scrum.webp" position="center 48%" />
+        <HeroBackdrop src="/images/heroes/sports-rugby-team-v2.webp" position="center 48%" />
         <div className="shell sports-hero__inner">
           <div>
             <p className="eyebrow">Sports & activities</p>
