@@ -19,5 +19,12 @@ export default async function FinlandFoodGuidePage({ params }: { params: Promise
   const { slug } = await params
   const guide = getFinlandFoodGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={finlandFoodGuides} hubHref="/eats/finland-on-a-plate/" hubLabel="Finland on a Plate" relatedHeading="Keep tasting your way around Finland" tone="warm" />
+  const heroImage = slug === 'finnish-dishes-worth-trying'
+    ? { src: '/images/heroes/eats-cafe.webp', position: 'center 42%' }
+    : slug === 'finnish-food-calendar'
+      ? { src: '/images/heroes/areas-helsinki-street.webp', position: 'center 52%' }
+      : slug === 'finnish-supermarket-starter-pack'
+        ? { src: '/images/heroes/resources-documents-laptop.webp', position: 'center 48%' }
+        : { src: '/images/heroes/family-together.webp', position: 'center 44%' }
+  return <EditorialGuideDetail guide={guide} guides={finlandFoodGuides} hubHref="/eats/finland-on-a-plate/" hubLabel="Finland on a Plate" relatedHeading="Keep tasting your way around Finland" tone="warm" heroImage={heroImage} />
 }

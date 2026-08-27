@@ -19,5 +19,12 @@ export default async function CultureGuidePage({ params }: { params: Promise<{ s
   const { slug } = await params
   const guide = getCultureGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={cultureGuides} hubHref="/culture/" hubLabel="How Finland actually works" relatedHeading="More of the cultural bits" />
+  const heroImage = slug === 'finland-in-twelve-turning-points'
+    ? { src: '/images/heroes/home-helsinki-cathedral-v2.webp', position: 'center 48%' }
+    : slug === 'finnish-names-worth-knowing'
+      ? { src: '/images/heroes/businesses-bookshop-owner.webp', position: 'center 42%' }
+      : slug === 'historic-finland-you-can-visit'
+        ? { src: '/images/heroes/explore-suomenlinna.webp', position: 'center 48%' }
+        : undefined
+  return <EditorialGuideDetail guide={guide} guides={cultureGuides} hubHref="/culture/" hubLabel="How Finland actually works" relatedHeading="More of the cultural bits" heroImage={heroImage} />
 }
