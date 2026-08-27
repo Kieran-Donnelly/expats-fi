@@ -13,6 +13,106 @@ export type SeedNewsStory = {
 
 export const seedNewsStories: SeedNewsStory[] = [
   {
+    slug: 'helsinki-tram-routes-change-31-august-2026',
+    title: 'Helsinki’s trams are changing again. Check your route before Monday',
+    standfirst: 'Runeberginkatu loses its tram service, tram 5 stretches to Jätkäsaari and tram 8 becomes much shorter from 31 August. Some of these changes will be with us until the end of 2027.',
+    category: 'Helsinki',
+    publishedAt: '2026-08-27T12:30:00.000Z',
+    readingMinutes: 6,
+    featured: true,
+    practicalSummary: 'Search your usual trip in the HSL Journey Planner using 31 August or a later date. Trams 1, 2, 5, 8, 10 and 13 change, and regular journeys through Töölö, Kamppi, Jätkäsaari and the city centre may need a different stop or an extra transfer.',
+    html: `
+      <p>If you regularly catch a tram through Töölö, Kamppi or the city centre, give the HSL app a quick look before heading out on Monday morning.</p>
+      <p>Several Helsinki tram routes will change from 31 August, and this is not simply a timetable adjustment. Runeberginkatu will lose its tram service while construction of the West Helsinki Light Rail continues, tram 5 will take on a much larger role and tram 8 will become considerably shorter.</p>
+      <p>Some of these arrangements are expected to remain in place until the end of 2027, so this is one worth learning rather than hoping it disappears after a couple of weeks.</p>
+      <h2>What is actually changing?</h2>
+      <p>The biggest disruption is in Töölö, where trams will no longer run along Runeberginkatu.</p>
+      <p>Trams 1 and 2 will instead travel along Mannerheimintie between Ylioppilastalo and Ooppera. Tram 2 will also stop travelling past the Central Railway Station and Mikonkatu. Its new city-centre route will run along Aleksanterinkatu.</p>
+      <p>That may catch people out. If you normally use tram 2 to reach the railway station, do not assume your usual stop will still work on Monday.</p>
+      <p>Trams 4 and 10 will run every ten minutes rather than every seven or eight minutes. HSL says the slightly lower frequency is intended to keep traffic moving along Mannerheimintie, which will now be carrying more tram routes.</p>
+      <h2>Tram 5 is getting a much bigger job</h2>
+      <p>Tram 5 will be extended from Katajanokka through the city centre, Kamppi and Ruoholahti to Tahitinkatu in Jätkäsaari.</p>
+      <p>It will run roughly every ten minutes each day. At weekends, tram 5T will travel to West Harbour instead of Tahitinkatu.</p>
+      <p>This extended route replaces part of tram 8's current journey and should be particularly useful for people travelling between the city centre, Ruoholahti, Jätkäsaari and the ferry terminal.</p>
+      <p>Tram 8, meanwhile, will run only between Arabia and Ooppera. Its new terminus will be on Ruusulankatu, just west of the Opera junction.</p>
+      <p>If you currently use tram 8 between Töölö and Jätkäsaari, your journey will probably involve a change at Kamppi. HSL estimates that the transfer will add around five minutes to most journeys.</p>
+      <h2>Some services are returning</h2>
+      <p>There is a bit of good news for Käpylä and Mäkelänkatu.</p>
+      <p>Trams 1 and 7 will return to Mäkelänkatu after the summer construction disruption. Tram 1 will once again run to Käpylä and serve Eira at the other end of its regular weekday route. Tram 1T will continue to serve West Harbour at weekends.</p>
+      <p>Tram 7 will also return to Mäkelänkatu and will no longer use its temporary route through Helsinginkatu and Aleksis Kiven katu.</p>
+      <h2>Smaller changes to trams 10 and 13</h2>
+      <p>Water supply work in Ullanlinna means tram 10 will temporarily operate as tram 10B and terminate at Kolmikulma. HSL expects this arrangement to last around four weeks.</p>
+      <p>Tram 13 will temporarily terminate at Ilmala because its usual Maistraatintori terminus in West Pasila is affected by building work. That change is expected to last approximately two months.</p>
+      <p>In other words, even if you never travel through Töölö, it is still worth checking your route.</p>
+      <h2>What about buses?</h2>
+      <p>Buses running along Runeberginkatu will continue operating. People travelling between Töölö and Jätkäsaari can change between the bus and tram 5 at Kamppi.</p>
+      <p>HSL is also moving the Fredrikinkatu stops used by buses 20 and 30 closer to the tram stops, which should make those transfers less painful.</p>
+      <p>Still, give yourself an extra few minutes during the first week. A technically possible connection and a comfortable connection are not always the same thing, especially when half the city is standing at a stop trying to work out where tram 8 has gone.</p>
+      <h2>What should you do now?</h2>
+      <p>Search for your journey in the HSL Journey Planner using 31 August or a later date. Searching with an earlier date may still show the old routes.</p>
+      <p>If you use the same tram regularly, save the route in the HSL app and turn on disruption notifications. That is particularly sensible here because smaller stop changes and temporary diversions may continue as construction progresses.</p>
+      <p>The Runeberginkatu disruption is part of the wider West Helsinki Light Rail project. The eventual result should be a larger tram network and fewer buses travelling through Runeberginkatu, but reaching that point is going to involve a fair bit of shuffling around first.</p>
+      <p>For now, the simple version is this: tram 5 becomes much more useful, tram 8 becomes much shorter and your familiar trip through Töölö may no longer work the way it did last week.</p>
+    `,
+    sources: [
+      { name: 'HSL route changes from 31 August', url: 'https://www.hsl.fi/en/hsl/news/service-updates/2026/08/changes-to-tram-routes-from-31-august' },
+      { name: 'HSL Runeberginkatu disruption guide', url: 'https://www.hsl.fi/en/hsl/news/service-updates/2026/06/tram-services-to-be-suspended-on-runeberginkatu-at-the-end-of-august' },
+      { name: 'HSL Journey Planner', url: 'https://reittiopas.hsl.fi/' },
+    ],
+  },
+  {
+    slug: 'finland-economy-wages-jobs-august-2026',
+    title: 'Finland’s economic mood is lifting, but the job market is still doing it tough',
+    standfirst: 'Real earnings are growing again and consumer confidence has improved. The harder truth is that unemployment remains high and finding work is still genuinely difficult.',
+    category: 'Work & money',
+    publishedAt: '2026-08-27T11:45:00.000Z',
+    readingMinutes: 7,
+    featured: false,
+    practicalSummary: 'The latest figures offer cautious encouragement, not a victory lap. People in steady employment have regained a little purchasing power, while jobseekers are still navigating a difficult market with 20,000 more unemployed people than a year ago.',
+    html: `
+      <p>There is finally a little more optimism appearing in Finland's economic figures, although anyone currently searching for work would be forgiven for wondering where it has been hiding.</p>
+      <p>Fresh figures from Statistics Finland show that consumer confidence improved noticeably in August. Wages are also growing faster than prices, giving people in full-time employment a modest increase in real purchasing power.</p>
+      <p>The harder part of the story is the labour market. Finland had 20,000 more unemployed people in July than it did a year earlier, and many employed people still feel that their own job may be at risk.</p>
+      <p>So, are things getting better? A little. Is Finland suddenly out of the woods? Not quite.</p>
+      <h2>People are feeling less gloomy</h2>
+      <p>Finland's consumer confidence indicator rose from -5.3 in July to -3.0 in August. Its long-term average is -2.9, which means confidence has essentially returned to its usual level.</p>
+      <p>Greater Helsinki was the most optimistic part of the country, recording a positive score of 0.8.</p>
+      <p>That does not mean everyone is suddenly feeling flush. Nearly a quarter of respondents said their personal finances were worse than a year earlier, while 26 percent said they were better.</p>
+      <p>People also remained cautious about expensive purchases. Only 14 percent thought August was a good time to buy durable goods such as furniture, appliances or electronics.</p>
+      <p>That distinction matters. Confidence improving does not necessarily mean households have loads of spare cash. It can simply mean that fewer people believe things are about to get worse.</p>
+      <h2>Wages are finally beating inflation</h2>
+      <p>The average level of nominal earnings for full-time wage and salary earners rose by 3.4 percent between April and June compared with the same period in 2025.</p>
+      <p>Once price increases are taken into account, real earnings rose by 1.6 percent. In plain English, wages grew faster than the cost of living during that period. For someone whose pay followed the wider trend, their salary bought slightly more than it did a year earlier.</p>
+      <p>Statistics Finland estimated average monthly earnings for full-time employees at €4,300. That number needs some context. It is an average across different industries, professions and seniority levels. It is not a promise of what a typical newcomer, junior worker or job applicant should expect to earn.</p>
+      <p>Higher earners can also pull an average upwards. When comparing a job offer, industry salary data and collective agreements are normally more useful than one national average.</p>
+      <p>The strongest annual earnings growth was recorded in wellbeing services county administration, where pay increased by 4.8 percent. Growth in negotiated wages for central government employees was lower at 2.4 percent.</p>
+      <h2>The job market remains the difficult bit</h2>
+      <p>Finland had approximately 2.64 million employed people in July, roughly unchanged from a year earlier.</p>
+      <p>The number of unemployed people reached 289,000, which was 20,000 higher than in July 2025. The trend unemployment rate stood at 10.5 percent.</p>
+      <p>The increase was uneven. Statistics Finland recorded 24,000 more unemployed women than a year earlier, while the number of unemployed men fell by 4,000.</p>
+      <p>These are national figures and individual experiences vary enormously by profession, location, qualifications and language skills. Still, they confirm what plenty of jobseekers have been saying for months: finding work in Finland remains genuinely difficult.</p>
+      <p>That can be particularly rough for international residents who are also dealing with unfamiliar recruitment habits, Finnish-language requirements and professional networks that take time to build.</p>
+      <p>If your search has dragged on, the figures offer some important perspective. It is not automatically evidence that you have failed to understand Finland or that your experience is uniquely hopeless. You are looking for work in a genuinely tight market.</p>
+      <h2>People are still worried about losing their jobs</h2>
+      <p>Although views about Finland's overall unemployment situation improved in August, employed respondents remained concerned about their own security.</p>
+      <p>Twenty-nine percent thought their risk of unemployment or temporary lay-off had increased. Only seven percent believed that risk had decreased.</p>
+      <p>That helps explain why improved confidence has not immediately turned into enthusiastic spending. People may feel that the national economy is stabilising while still being careful with their own money.</p>
+      <p>Consumers also estimated inflation to be considerably higher than the measured rate. Statistics Finland reported annual inflation of 2.1 percent in July, while survey respondents felt prices had risen by around 5 percent.</p>
+      <p>That gap may sound strange, but lived experience does not always resemble the national shopping basket used to calculate inflation. If your rent, groceries or other regular expenses have risen sharply, a relatively calm headline rate may not feel especially convincing.</p>
+      <h2>What does this mean for expats?</h2>
+      <p>For people already in steady employment, the figures are cautiously positive. Real earnings are growing again, confidence has improved and Greater Helsinki appears less pessimistic than the rest of the country.</p>
+      <p>For jobseekers, the message is more mixed. The economy may be moving in a better direction, but employers are not yet hiring strongly enough to make the search easy.</p>
+      <p>It remains worth widening your approach beyond standard job adverts. Check municipal employment services, industry groups, professional events, direct applications and personal contacts. If Finnish is frequently blocking you from roles you could otherwise do, even a modest improvement can help demonstrate that you are actively building towards workplace proficiency.</p>
+      <p>Most importantly, do not read improving economic headlines as proof that you should already have found something. National confidence can recover before recruitment does.</p>
+      <p>There are encouraging signs here, but Finland's employment recovery still has a fair distance to travel.</p>
+    `,
+    sources: [
+      { name: 'Statistics Finland consumer confidence, August 2026', url: 'https://stat.fi/en/publication/cmf5h6ytr3p1207urrweuysgw' },
+      { name: 'Statistics Finland earnings, April to June 2026', url: 'https://stat.fi/en/publication/cmfpfbsco1lax08vxtw0gweiq' },
+      { name: 'Statistics Finland Labour Force Survey, July 2026', url: 'https://stat.fi/en/publication/cmfp92ulja76508urnykex72w' },
+    ],
+  },
+  {
     slug: 'job-applicant-profile-mandatory-september-2026',
     title: 'Job hunting in Finland? One more profile becomes compulsory in September',
     standfirst: 'Most unemployed jobseekers will need to publish a Job Market Finland profile within 15 business days. Here is who it covers, what employers can see and what to sort before September arrives.',
