@@ -6,6 +6,19 @@
 .eats-start-grid strong { margin-block-start: 1.4rem; font-size: 1.18rem; }
 .eats-start-grid small { color: var(--muted); font-size: .78rem; line-height: 1.45; }
 
+.finland-plate, .culture-explained { border-block: 1px solid var(--line); background: oklch(97% .035 70); }
+.finland-plate .section-heading > div:last-child { max-inline-size: 34rem; }
+.finland-plate .section-heading > div:last-child p { margin: 0 0 .75rem; color: var(--ink-soft); line-height: 1.6; }
+.plate-guide-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+.plate-guide-card { min-block-size: 24rem; display: flex; flex-direction: column; padding: 1.4rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
+.plate-guide-card > div { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .68rem; font-weight: 730; letter-spacing: .055em; text-transform: uppercase; }
+.plate-guide-card > div span { color: var(--coral); }
+.plate-guide-card h3 { margin-block-start: 2.7rem; font-size: 1.42rem; line-height: 1.08; }
+.plate-guide-card h3 a { color: inherit; text-decoration: none; }
+.plate-guide-card > p { margin: .8rem 0 1.5rem; color: var(--ink-soft); font-size: .86rem; line-height: 1.62; }
+.plate-guide-card > .text-link { margin-block-start: auto; }
+.finland-plate-hub .family-stages { padding-block-end: 2rem; }
+
 .eats-directory { border-block: 1px solid var(--line); background: var(--blue-pale); }
 .eats-directory__heading > p { margin: 0; color: var(--muted); font-size: .86rem; }
 .eats-filter { grid-template-columns: minmax(13rem, 1.35fr) repeat(4, minmax(8rem, .7fr)) auto; }
@@ -53,6 +66,7 @@
   .eats-filter { grid-template-columns: repeat(3, minmax(0, 1fr)); }
   .eats-filter button { min-block-size: 3rem; }
   .area-eats__grid { grid-template-columns: repeat(2, 1fr); }
+  .plate-guide-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 960px) {
@@ -69,6 +83,7 @@
 }
 
 @media (max-width: 520px) {
-  .eats-start-grid, .area-eats__grid { grid-template-columns: 1fr; }
+  .eats-start-grid, .area-eats__grid, .plate-guide-grid { grid-template-columns: 1fr; }
   .eats-card[data-compact] { min-block-size: auto; }
+  .plate-guide-card { min-block-size: auto; }
 }

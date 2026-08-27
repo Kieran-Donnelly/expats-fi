@@ -1,4 +1,5 @@
 import type { EditorialGuide } from './editorial-guide'
+import { finlandExplainedGuides } from './finland-explained'
 
 export const cultureGuides: EditorialGuide[] = [
   {
@@ -575,6 +576,7 @@ export const cultureGuides: EditorialGuide[] = [
       { title: 'Events and regular gatherings', description: 'Our growing collection of things to do, with filters for interests, cost and location.', url: '/events/', source: 'Expats.fi' },
     ],
   },
+  ...finlandExplainedGuides,
 ]
 
 export function getCultureGuide(slug: string) {

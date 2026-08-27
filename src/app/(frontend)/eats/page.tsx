@@ -5,6 +5,7 @@ import { EatsCard } from '@/components/EatsCard'
 import { EatsMap } from '@/components/EatsMap'
 import { SectionHero } from '@/components/SectionHero'
 import { eatAreas, eatKinds, eatMoods, eatSpots } from '@/data/eats'
+import { finlandFoodGuides } from '@/data/finland-food-guides'
 
 export const dynamic = 'force-dynamic'
 
@@ -53,6 +54,13 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
       <section className="shell eats-starts" aria-labelledby="eats-starts-heading">
         <div className="section-heading"><div><p className="eyebrow">Start with the mood</p><h2 id="eats-starts-heading">What sounds good right now?</h2></div><Link className="text-link" href="/areas/">Browse by neighbourhood <span aria-hidden="true">→</span></Link></div>
         <div className="eats-start-grid">{starts.map((item, index) => <Link href={item.href} key={item.label}><span>0{index + 1}</span><strong>{item.label}</strong><small>{item.note}</small></Link>)}</div>
+      </section>
+
+      <section className="finland-plate" aria-labelledby="finland-plate-heading">
+        <div className="shell section">
+          <div className="section-heading"><div><p className="eyebrow">Finland on a Plate</p><h2 id="finland-plate-heading">The food makes more sense when you know the story.</h2></div><div><p>Classics, seasonal favourites, supermarket survival and recipes you can actually make.</p><Link className="text-link" href="/eats/finland-on-a-plate/">Open the full collection <span aria-hidden="true">→</span></Link></div></div>
+          <div className="plate-guide-grid">{finlandFoodGuides.map((guide) => <article className="plate-guide-card" key={guide.slug}><div><span>{guide.number}</span><small>{guide.label}</small></div><h3><Link href={`/eats/finland-on-a-plate/${guide.slug}/`}>{guide.title}</Link></h3><p>{guide.summary}</p><Link className="text-link" href={`/eats/finland-on-a-plate/${guide.slug}/`}>Read the guide <span aria-hidden="true">→</span></Link></article>)}</div>
+        </div>
       </section>
 
       <section className="eats-directory" aria-label="Helsinki places to eat">

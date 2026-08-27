@@ -4,6 +4,7 @@ import { communityGuides } from '@/data/community'
 import { cultureGuides } from '@/data/culture'
 import { exploreListings } from '@/data/explore'
 import { familyGuides } from '@/data/family'
+import { finlandFoodGuides } from '@/data/finland-food-guides'
 import { housingGuides } from '@/data/housing'
 import { settlingGuides } from '@/data/settling'
 import { sportsListings } from '@/data/sports'
@@ -42,6 +43,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...housingGuides.map((guide) => ({ url: `https://expats.fi/housing/${guide.slug}/`, lastModified: now, priority: .8 })),
     ...settlingGuides.map((guide) => ({ url: `https://expats.fi/start-here/${guide.slug}/`, lastModified: now, priority: .9 })),
     ...cultureGuides.map((guide) => ({ url: `https://expats.fi/culture/${guide.slug}/`, lastModified: now, priority: .8 })),
+    { url: 'https://expats.fi/eats/finland-on-a-plate/', lastModified: now, priority: .85 },
+    ...finlandFoodGuides.map((guide) => ({ url: `https://expats.fi/eats/finland-on-a-plate/${guide.slug}/`, lastModified: now, priority: .8 })),
     ...communityGuides.map((guide) => ({ url: `https://expats.fi/community/${guide.slug}/`, lastModified: now, priority: .8 })),
     ...businesses.map((business) => ({ url: `https://expats.fi/businesses/${business.slug}/`, lastModified: new Date(business.updatedAt), priority: .7 })),
     ...embassies.map((embassy) => ({ url: `https://expats.fi/embassies/${embassy.slug}/`, lastModified: new Date(embassy.updatedAt), priority: .65 })),
