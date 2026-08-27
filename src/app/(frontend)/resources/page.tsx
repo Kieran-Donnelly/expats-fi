@@ -13,24 +13,72 @@ export const metadata: Metadata = {
 
 const categories = ['Immigration & permits', 'Work & money', 'Housing', 'Health & wellbeing', 'Getting around', 'Family', 'Everyday life']
 
+function getResourceHero(category: string, query: string) {
+  if (category === 'Work & money') {
+    return {
+      src: '/images/heroes/work-money-financial-planning.jpg',
+      position: 'center 54%',
+      eyebrow: 'Work and money',
+      title: 'Work, tax and money without the mystery.',
+      description: 'Practical help with finding work, understanding pay, banking, tax cards, benefits and the bits that only seem obvious after somebody explains them.',
+    }
+  }
+
+  if (category === 'Immigration & permits') {
+    return {
+      src: '/images/heroes/immigration-permits.jpg',
+      position: 'center 42%',
+      eyebrow: 'Immigration and permits',
+      title: 'Find the route that actually fits your move.',
+      description: 'Residence permits, EU registration, citizenship and the documents to check before dates, jobs or family plans become expensive.',
+    }
+  }
+
+  if (query.trim().toLowerCase() === 'relocation') {
+    return {
+      src: '/images/heroes/moving-relocation.jpg',
+      position: 'center 46%',
+      eyebrow: 'Moving to Finland',
+      title: 'Pack the move in the right order.',
+      description: 'Clear help with relocation services, belongings, storage, customs and the practical choices between deciding to move and getting the keys.',
+    }
+  }
+
+  if (query.trim().toLowerCase() === 'registration') {
+    return {
+      src: '/images/heroes/registration-established.jpg',
+      position: 'center 42%',
+      eyebrow: 'Getting established',
+      title: 'Get your Finnish details connected.',
+      description: 'Personal identity codes, addresses, municipality of residence and the registrations that unlock everyday services after you arrive.',
+    }
+  }
+
+  return {
+    src: '/images/heroes/resources-documents-laptop.webp',
+    position: 'center 48%',
+    eyebrow: 'Life in Finland',
+    title: 'Practical answers, without the runaround.',
+    description: 'Use these guides as a clear starting point, then confirm changing rules with the Finnish authority responsible.',
+  }
+}
+
 export default async function ResourcesPage({ searchParams }: { searchParams: Promise<{ category?: string; q?: string }> }) {
   const { category = '', q = '' } = await searchParams
   const articles = await getArticles({ category: category || undefined, query: q || undefined })
-  const isWorkAndMoney = category === 'Work & money'
+  const hero = getResourceHero(category, q)
 
   return (
     <main id="main">
       <header className="page-hero photo-hero">
         <HeroBackdrop
-          src={isWorkAndMoney ? '/images/heroes/work-money-financial-planning.jpg' : '/images/heroes/resources-documents-laptop.webp'}
-          position={isWorkAndMoney ? 'center 54%' : 'center 48%'}
+          src={hero.src}
+          position={hero.position}
         />
         <div className="shell page-hero__inner">
-          <p className="eyebrow">{isWorkAndMoney ? 'Work and money' : 'Life in Finland'}</p>
-          <h1>{isWorkAndMoney ? 'Work, tax and money without the mystery.' : 'Practical answers, without the runaround.'}</h1>
-          <p>{isWorkAndMoney
-            ? 'Practical help with finding work, understanding pay, banking, tax cards, benefits and the bits that only seem obvious after somebody explains them.'
-            : 'Use these guides as a clear starting point, then confirm changing rules with the Finnish authority responsible.'}</p>
+          <p className="eyebrow">{hero.eyebrow}</p>
+          <h1>{hero.title}</h1>
+          <p>{hero.description}</p>
         </div>
       </header>
       <section className="shell listing-section" aria-label="Resource library">
