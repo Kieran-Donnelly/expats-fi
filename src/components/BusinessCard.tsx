@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import type { Business } from '@/payload-types'
+import { businessVerificationLabel, isPubliclyVerifiedBusiness } from '@/lib/business-verification'
 import { labels } from '@/lib/content'
 
 import { SaveBusinessButton } from './SaveBusinessButton'
@@ -22,6 +23,8 @@ export function BusinessCard({ business, saved = false, showSave = false }: { bu
   const locations = labels(business.locations)
   const image = businessImage(business)
   const href = `/businesses/${business.slug}/`
+  const publiclyVerified = isPubliclyVerifiedBusiness(business.verificationStatus)
+  const verificationLabel = businessVerificationLabel(business.verificationStatus)
 
   return (
     <article className="business-card">
@@ -39,7 +42,7 @@ export function BusinessCard({ business, saved = false, showSave = false }: { bu
       ) : (
         <div className="business-card__mark" aria-hidden="true">{business.name.slice(0, 1)}</div>
       )}
-      <div className="business-card__meta"><span>{categories[0]}</span><span>{locations.join(' · ')}</span></div>
+      <div className="business-card__meta"><span>{categories[0]}</span><span>{locations.join(' · ')}</span>{publiclyVerified && <span className="business-card__verified" title="Expats.fi has checked the listing details"><span aria-hidden="true">✓</span> {verificationLabel}</span>}</div>
       <h3><Link href={href}>{business.name}</Link></h3>
       <p>{business.summary}</p>
       <div className="business-card__actions">

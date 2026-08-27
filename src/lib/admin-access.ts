@@ -5,7 +5,7 @@ export const superAdminEmails = ['kieran@podium.dev', 'uriah@podium.dev'] as con
 
 export type UserRole = (typeof userRoles)[number]
 
-type AuthenticatedUser = Pick<User, 'collection' | 'email'> & {
+type AuthenticatedUser = Pick<User, 'id' | 'collection' | 'email'> & {
   role?: UserRole | null
 }
 

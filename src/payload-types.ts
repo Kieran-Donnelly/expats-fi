@@ -348,7 +348,44 @@ export interface Business {
   logoAlt?: string | null;
   featured?: boolean | null;
   status: 'draft' | 'published';
+  /**
+   * Public trust signal. Reviewed means the Expats.fi team checked the submitted details; owner verified means the business confirmed ownership.
+   */
+  verificationStatus?: ('unverified' | 'reviewed' | 'owner-verified') | null;
+  verifiedAt?: string | null;
+  verifiedBy?: (number | null) | User;
+  sourceSubmission?: (number | null) | BusinessSubmission;
+  /**
+   * Internal moderation notes. These are never shown on the public directory.
+   */
+  verificationNotes?: string | null;
   image?: (number | null) | Media;
+  updatedAt: string;
+  createdAt: string;
+}
+/**
+ * Member submissions are reviewed here. Approving a submission creates or links a published directory profile after a duplicate website check.
+ *
+ * This interface was referenced by `Config`'s JSON-Schema
+ * via the `definition` "business-submissions".
+ */
+export interface BusinessSubmission {
+  id: number;
+  submittedBy: number | Member;
+  businessName: string;
+  website: string;
+  location: string;
+  category: string;
+  description: string;
+  contactName: string;
+  contactEmail: string;
+  status: 'pending' | 'approved' | 'needs-changes' | 'declined';
+  /**
+   * Internal notes shown to administrators.
+   */
+  reviewerNotes?: string | null;
+  reviewedAt?: string | null;
+  reviewedByEmail?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -422,28 +459,6 @@ export interface NewsStory {
     | null;
   sourceCheckedAt: string;
   status: 'draft' | 'published';
-  updatedAt: string;
-  createdAt: string;
-}
-/**
- * This interface was referenced by `Config`'s JSON-Schema
- * via the `definition` "business-submissions".
- */
-export interface BusinessSubmission {
-  id: number;
-  submittedBy: number | Member;
-  businessName: string;
-  website: string;
-  location: string;
-  category: string;
-  description: string;
-  contactName: string;
-  contactEmail: string;
-  status: 'pending' | 'approved' | 'needs-changes' | 'declined';
-  /**
-   * Internal notes shown to administrators.
-   */
-  reviewerNotes?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -982,6 +997,11 @@ export interface BusinessesSelect<T extends boolean = true> {
   logoAlt?: T;
   featured?: T;
   status?: T;
+  verificationStatus?: T;
+  verifiedAt?: T;
+  verifiedBy?: T;
+  sourceSubmission?: T;
+  verificationNotes?: T;
   image?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1001,6 +1021,8 @@ export interface BusinessSubmissionsSelect<T extends boolean = true> {
   contactEmail?: T;
   status?: T;
   reviewerNotes?: T;
+  reviewedAt?: T;
+  reviewedByEmail?: T;
   updatedAt?: T;
   createdAt?: T;
 }

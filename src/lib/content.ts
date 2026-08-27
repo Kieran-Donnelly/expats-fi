@@ -18,6 +18,8 @@ function localBusinesses(): Business[] {
     categories: business.categories.map((label) => ({ label })),
     locations: business.locations.map((label) => ({ label })),
     status: 'published' as const,
+    verificationStatus: 'reviewed' as const,
+    verifiedAt: localBusinessTimestamp,
     image: null,
     updatedAt: localBusinessTimestamp,
     createdAt: localBusinessTimestamp,

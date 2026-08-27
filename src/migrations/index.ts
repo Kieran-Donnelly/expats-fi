@@ -17,6 +17,7 @@ import * as migration_20260827_140000_seed_approved_businesses from './20260827_
 import * as migration_20260827_153000_seed_news_stories_batch_three from './20260827_153000_seed_news_stories_batch_three';
 import * as migration_20260827_160000_add_saved_articles from './20260827_160000_add_saved_articles';
 import * as migration_20260827_180000_add_member_account_features from './20260827_180000_add_member_account_features';
+import * as migration_20260827_200000_add_business_moderation from './20260827_200000_add_business_moderation';
 
 export const migrations = [
   {
@@ -113,5 +114,10 @@ export const migrations = [
     up: migration_20260827_180000_add_member_account_features.up,
     down: migration_20260827_180000_add_member_account_features.down,
     name: '20260827_180000_add_member_account_features',
+  },
+  {
+    up: migration_20260827_200000_add_business_moderation.up,
+    down: migration_20260827_200000_add_business_moderation.down,
+    name: '20260827_200000_add_business_moderation',
   },
 ];

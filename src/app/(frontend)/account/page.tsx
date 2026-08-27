@@ -95,7 +95,7 @@ export default async function AccountPage() {
               <div><p className="eyebrow">Community contributions</p><h2 id="submissions-title">My submissions.</h2></div>
               <Link className="text-link" href="/submit-business/">Submit a business <span aria-hidden="true">→</span></Link>
             </div>
-            {submissions.length ? <div className="account-submissions">{submissions.map((submission) => <article className="account-submission" key={submission.id}><div><h3>{submission.businessName}</h3><p>{submission.location} · {submission.category}</p></div><div className="account-submission__meta"><span className={`submission-status submission-status--${submission.status}`}>{submissionStatusLabels[submission.status]}</span><time dateTime={submission.createdAt}>{submissionDate(submission.createdAt)}</time></div></article>)}</div> : (
+            {submissions.length ? <div className="account-submissions">{submissions.map((submission) => <article className="account-submission" key={submission.id}><div><h3>{submission.businessName}</h3><p>{submission.location} · {submission.category}</p></div><div className="account-submission__meta"><span className={`submission-status submission-status--${submission.status}`}>{submissionStatusLabels[submission.status]}</span><time dateTime={submission.createdAt}>Submitted {submissionDate(submission.createdAt)}</time>{submission.reviewedAt && <time dateTime={submission.reviewedAt}>Reviewed {submissionDate(submission.reviewedAt)}</time>}</div></article>)}</div> : (
               <div className="account-empty" aria-labelledby="submissions-empty-title">
                 <span aria-hidden="true">＋</span>
                 <div>
