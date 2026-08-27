@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { BusinessCard } from '@/components/BusinessCard'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getBusinesses, labels } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -21,7 +22,10 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
 
   return (
     <main id="main">
-      <header className="page-hero"><div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div></header>
+      <header className="page-hero photo-hero">
+        <HeroBackdrop src="/images/heroes/businesses-bookshop-owner.webp" position="center 45%" />
+        <div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div>
+      </header>
       <section className="shell listing-section" aria-label="Business directory">
         <form className="filter-form" action="/businesses/" method="get" role="search">
           <label>Search<input name="q" defaultValue={q} placeholder="Pizza, barber, Helsinki…" /></label>

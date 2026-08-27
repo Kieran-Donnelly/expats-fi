@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
 import { EventsMap } from '@/components/EventsMap'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { eventCategories } from '@/data/events'
 import { getEvents } from '@/lib/content'
 
@@ -40,7 +41,8 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
 
   return (
     <main id="main">
-      <header className="events-hero">
+      <header className="events-hero photo-hero photo-hero--dark">
+        <HeroBackdrop src="/images/heroes/events-evening-gathering.webp" position="center 48%" />
         <div className="shell events-hero__inner">
           <div><p className="eyebrow">Helsinki, right now</p><h1>Go somewhere. Meet someone. Find your Helsinki.</h1><p>Fresh picks for festivals, gatherings, markets and memorable nights—with the practical details you need before leaving home.</p></div>
           {featured && <div className="events-hero__spotlight"><span>Coming up</span><strong>{featured.title}</strong><p>{featured.dateLabel} · {featured.location}</p><Link href={`/events/${featured.slug}/`}>See the plan →</Link></div>}

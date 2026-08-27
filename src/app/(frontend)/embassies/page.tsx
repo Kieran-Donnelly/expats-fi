@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import { EmbassyDirectoryView } from '@/components/EmbassyDirectoryView'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { representationLabels } from '@/lib/embassies'
 import { getEmbassies } from '@/lib/content'
 import type { Embassy } from '@/payload-types'
@@ -27,7 +28,8 @@ export default async function EmbassiesPage({ searchParams }: { searchParams: Pr
 
   return (
     <main id="main">
-      <header className="page-hero embassy-hero">
+      <header className="page-hero embassy-hero photo-hero">
+        <HeroBackdrop src="/images/heroes/embassies-international-flags.webp" position="center 50%" />
         <div className="shell page-hero__inner">
           <p className="eyebrow">Diplomatic directory</p>
           <h1>Find your country’s representation in Finland.</h1>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import type { LearningResource } from '@/data/finnishLearning'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getLearningPageData } from '@/lib/content'
 
 export const metadata: Metadata = {
@@ -66,7 +67,8 @@ export default async function LearnFinnishPage() {
 
   return (
     <main id="main">
-      <header className="learning-hero">
+      <header className="learning-hero photo-hero photo-hero--dark">
+        <HeroBackdrop src="/images/heroes/learn-finnish-class.webp" position="center 45%" />
         <div className="shell learning-hero__inner">
           <div>
             <p className="eyebrow">Learn Finnish without losing the plot</p>

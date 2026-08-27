@@ -12,10 +12,10 @@
 .sports-home__routes a:hover strong { color: oklch(80% .12 145); }
 
 .sports-hero { position: relative; overflow: hidden; background: var(--blue-dark); color: var(--snow); }
-.sports-hero::before, .sports-hero::after { content: ""; position: absolute; border: 2px solid oklch(80% .12 145 / .42); border-radius: 50%; }
-.sports-hero::before { inline-size: min(34rem, 55vw); aspect-ratio: 1; inset: -9rem -5rem auto auto; }
-.sports-hero::after { inline-size: min(17rem, 28vw); aspect-ratio: 1; inset: auto 6rem -8rem auto; }
-.sports-hero__inner { position: relative; z-index: 1; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .55fr); gap: clamp(3rem, 8vw, 7rem); align-items: end; padding-block: clamp(4.5rem, 9vw, 7.5rem); }
+.sports-hero::before, .sports-hero::after { content: ""; position: absolute; z-index: 1; border: 2px solid oklch(80% .12 145 / .42); border-radius: 50%; pointer-events: none; }
+.sports-hero::before { inline-size: min(34rem, 55vw); aspect-ratio: 1; inset: -9rem clamp(9rem, 21vw, 18rem) auto auto; }
+.sports-hero::after { inline-size: min(17rem, 28vw); aspect-ratio: 1; inset: auto clamp(17rem, 30vw, 27rem) -8rem auto; }
+.sports-hero__inner { position: relative; z-index: 2; display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(18rem, .55fr); gap: clamp(3rem, 8vw, 7rem); align-items: end; padding-block: clamp(4.5rem, 9vw, 7.5rem); }
 .sports-hero h1 { max-inline-size: 15ch; color: var(--snow); }
 .sports-hero__inner > div > p:last-child { max-inline-size: 46rem; margin: 1.2rem 0 0; color: oklch(87% .02 245); font-size: 1.14rem; }
 .sports-hero .eyebrow { color: oklch(82% .12 145); }
@@ -110,4 +110,3 @@
   .sports-branch-grid { grid-template-columns: 1fr; }
   .sports-card__footer { align-items: start; flex-direction: column; }
 }
-

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
+import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { SportsCard } from '@/components/SportsCard'
 import { SportsMap } from '@/components/SportsMap'
 import { getUpcomingEvents } from '@/data/events'
@@ -39,7 +40,8 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
 
   return (
     <main id="main">
-      <header className="sports-hero">
+      <header className="sports-hero photo-hero photo-hero--dark">
+        <HeroBackdrop src="/images/heroes/sports-rugby-scrum.webp" position="center 48%" />
         <div className="shell sports-hero__inner">
           <div>
             <p className="eyebrow">Sports & activities</p>
