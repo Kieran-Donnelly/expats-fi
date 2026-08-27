@@ -19,5 +19,14 @@ export default async function SettlingGuidePage({ params }: { params: Promise<{ 
   const { slug } = await params
   const guide = getSettlingGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={settlingGuides} hubHref="/start-here/" hubLabel="The Start Here hub" relatedHeading="Keep getting settled" />
+  return (
+    <EditorialGuideDetail
+      guide={guide}
+      guides={settlingGuides}
+      hubHref="/start-here/"
+      hubLabel="The Start Here hub"
+      relatedHeading="Keep getting settled"
+      heroImage={guide.slug === 'first-90-days-in-finland' ? { src: '/images/heroes/start-here-helsinki-station.webp', position: 'center 58%' } : undefined}
+    />
+  )
 }
