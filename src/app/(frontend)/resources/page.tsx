@@ -16,12 +16,22 @@ const categories = ['Immigration & permits', 'Work & money', 'Housing', 'Health 
 export default async function ResourcesPage({ searchParams }: { searchParams: Promise<{ category?: string; q?: string }> }) {
   const { category = '', q = '' } = await searchParams
   const articles = await getArticles({ category: category || undefined, query: q || undefined })
+  const isWorkAndMoney = category === 'Work & money'
 
   return (
     <main id="main">
       <header className="page-hero photo-hero">
-        <HeroBackdrop src="/images/heroes/resources-documents-laptop.webp" position="center 48%" />
-        <div className="shell page-hero__inner"><p className="eyebrow">Life in Finland</p><h1>Practical answers, without the runaround.</h1><p>Use these guides as a clear starting point, then confirm changing rules with the Finnish authority responsible.</p></div>
+        <HeroBackdrop
+          src={isWorkAndMoney ? '/images/heroes/work-money-financial-planning.jpg' : '/images/heroes/resources-documents-laptop.webp'}
+          position={isWorkAndMoney ? 'center 54%' : 'center 48%'}
+        />
+        <div className="shell page-hero__inner">
+          <p className="eyebrow">{isWorkAndMoney ? 'Work and money' : 'Life in Finland'}</p>
+          <h1>{isWorkAndMoney ? 'Work, tax and money without the mystery.' : 'Practical answers, without the runaround.'}</h1>
+          <p>{isWorkAndMoney
+            ? 'Practical help with finding work, understanding pay, banking, tax cards, benefits and the bits that only seem obvious after somebody explains them.'
+            : 'Use these guides as a clear starting point, then confirm changing rules with the Finnish authority responsible.'}</p>
+        </div>
       </header>
       <section className="shell listing-section" aria-label="Resource library">
         <form className="filter-form" action="/resources/" method="get" role="search">
