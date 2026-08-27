@@ -42,7 +42,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
     <main id="main" className="eats-page">
       <SectionHero
         eyebrow="Food & Drink"
-        title="Where should we eat?"
+        title="Taste Finland. Find your next favourite."
         intro="Finnish classics, seasonal favourites, recipes worth keeping, cute cafés and neighbourhood places worth getting on a tram for. Start with the food itself or find somewhere good around Helsinki."
         noteLabel="The honest version"
         noteTitle="Not a ranking. Not a pay-to-play list."
@@ -63,7 +63,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
         </div>
       </section>
 
-      <section className="eats-directory" aria-label="Helsinki places to eat">
+      <section className="eats-directory" id="helsinki-food" aria-label="Helsinki places to eat">
         <div className="shell section">
           <div className="section-heading eats-directory__heading">
             <div><p className="eyebrow">The first collection</p><h2>Find a place that fits the day.</h2></div>

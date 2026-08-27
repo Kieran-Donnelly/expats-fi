@@ -22,7 +22,15 @@ function isCurrentPath(pathname: string, href: string): boolean {
 
 function isCurrentItem(pathname: string, item: NavigationItem): boolean {
   if (item.href) return isCurrentPath(pathname, item.href)
-  return item.children?.some((child) => isCurrentPath(pathname, child.href)) ?? false
+  return item.children?.some((child) => isCurrentPath(pathname, child.href) || child.children?.some((leaf) => isCurrentPath(pathname, leaf.href))) ?? false
+}
+
+function isCurrentChild(pathname: string, child: NonNullable<NavigationItem['children']>[number]): boolean {
+  return isCurrentPath(pathname, child.href) || child.children?.some((leaf) => isCurrentPath(pathname, leaf.href)) || false
+}
+
+function leafIsCurrent(pathname: string, href: string): boolean {
+  return !href.includes('?') && !href.includes('#') && isCurrentPath(pathname, href)
 }
 
 function Chevron({ open = false }: { open?: boolean }) {
@@ -135,18 +143,52 @@ export function DesktopNavigation() {
                 className="desktop-nav__menu"
                 role="menu"
               >
-                {item.children.map((child) => (
-                  <Link
-                    key={child.label}
-                    href={child.href}
-                    role="menuitem"
-                    aria-current={isCurrentPath(pathname, child.href) ? 'page' : undefined}
-                    onClick={() => setOpenLabel(null)}
-                  >
-                    <span>{child.label}</span>
-                    <span aria-hidden="true">→</span>
-                  </Link>
-                ))}
+                {item.children.map((child) => {
+                  const childCurrent = isCurrentChild(pathname, child)
+
+                  if (!child.children) {
+                    return (
+                      <Link
+                        key={child.label}
+                        href={child.href}
+                        role="menuitem"
+                        aria-current={childCurrent ? 'page' : undefined}
+                        onClick={() => setOpenLabel(null)}
+                      >
+                        <span>{child.label}</span>
+                        <span aria-hidden="true">→</span>
+                      </Link>
+                    )
+                  }
+
+                  return (
+                    <div className="desktop-nav__submenu-item" data-current={childCurrent || undefined} role="none" key={child.label}>
+                      <Link
+                        href={child.href}
+                        role="menuitem"
+                        aria-haspopup="menu"
+                        aria-current={childCurrent ? 'page' : undefined}
+                        onClick={() => setOpenLabel(null)}
+                      >
+                        <span>{child.label}</span>
+                        <span className="desktop-nav__submenu-arrow" aria-hidden="true">›</span>
+                      </Link>
+                      <div className="desktop-nav__submenu" role="menu" aria-label={child.label}>
+                        {child.children.map((leaf) => (
+                          <Link
+                            href={leaf.href}
+                            role="menuitem"
+                            aria-current={leafIsCurrent(pathname, leaf.href) ? 'page' : undefined}
+                            onClick={() => setOpenLabel(null)}
+                            key={leaf.label}
+                          >
+                            {leaf.label}
+                          </Link>
+                        ))}
+                      </div>
+                    </div>
+                  )
+                })}
               </div>
             )}
           </div>
@@ -243,16 +285,59 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
                   </button>
                   {expanded && (
                     <div id={sectionId} className="mobile-menu__children">
-                      {item.children.map((child) => (
-                        <Link
-                          key={child.label}
-                          href={child.href}
-                          aria-current={isCurrentPath(pathname, child.href) ? 'page' : undefined}
-                          onClick={() => setOpen(false)}
-                        >
-                          {child.label}
-                        </Link>
-                      ))}
+                      {item.children.map((child) => {
+                        const childCurrent = isCurrentChild(pathname, child)
+
+                        if (!child.children) {
+                          return (
+                            <Link
+                              key={child.label}
+                              href={child.href}
+                              aria-current={childCurrent ? 'page' : undefined}
+                              onClick={() => setOpen(false)}
+                            >
+                              {child.label}
+                            </Link>
+                          )
+                        }
+
+                        const childKey = `${item.label}:${child.label}`
+                        const childExpanded = expandedLabels.has(childKey)
+                        const childId = `${sectionId}-${slugFor(child.label)}`
+
+                        return (
+                          <div className="mobile-menu__nested-section" data-current={childCurrent || undefined} key={child.label}>
+                            <div className="mobile-menu__nested-row">
+                              <Link href={child.href} aria-current={childCurrent ? 'page' : undefined} onClick={() => setOpen(false)}>
+                                {child.label}
+                              </Link>
+                              <button
+                                type="button"
+                                aria-label={`${childExpanded ? 'Close' : 'Open'} ${child.label} links`}
+                                aria-controls={childId}
+                                aria-expanded={childExpanded}
+                                onClick={() => toggleExpanded(childKey)}
+                              >
+                                <Chevron open={childExpanded} />
+                              </button>
+                            </div>
+                            {childExpanded && (
+                              <div className="mobile-menu__grandchildren" id={childId}>
+                                {child.children.map((leaf) => (
+                                  <Link
+                                    href={leaf.href}
+                                    aria-current={leafIsCurrent(pathname, leaf.href) ? 'page' : undefined}
+                                    onClick={() => setOpen(false)}
+                                    key={leaf.label}
+                                  >
+                                    {leaf.label}
+                                  </Link>
+                                ))}
+                              </div>
+                            )}
+                          </div>
+                        )
+                      })}
                     </div>
                   )}
                 </div>

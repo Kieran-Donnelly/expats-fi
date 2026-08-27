@@ -26,7 +26,7 @@ export default function CulturePage() {
         image={{ src: '/images/heroes/culture-coffee-conversation.webp', position: 'center 44%' }}
       />
 
-      <section className="shell family-stages" aria-labelledby="culture-start-heading">
+      <section className="shell family-stages" id="everyday-culture" aria-labelledby="culture-start-heading">
         <div className="section-heading"><div><p className="eyebrow">Start with the situation</p><h2 id="culture-start-heading">Start with the bit that feels unfamiliar.</h2></div><p>These are common patterns, not a rulebook for every Finn. Use them as helpful context, then pay attention to the person in front of you.</p></div>
         <div className="family-stage-grid">{everydayCultureGuides.map((guide) => <Link href={`/culture/${guide.slug}/`} key={guide.slug}><span>{guide.number}</span><strong>{guide.label}</strong><small>{guide.title}</small><i aria-hidden="true">→</i></Link>)}</div>
       </section>
@@ -36,7 +36,7 @@ export default function CulturePage() {
         <div className="family-guide-grid">{everydayCultureGuides.map((guide) => <article className="family-guide-card" key={guide.slug}><div><span>{guide.number}</span><small>{guide.label}</small></div><h3><Link href={`/culture/${guide.slug}/`}>{guide.title}</Link></h3><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}<Link className="text-link" href={`/culture/${guide.slug}/`}>Open the guide <span aria-hidden="true">→</span></Link></article>)}</div>
       </section>
 
-      <section className="culture-explained" aria-labelledby="finland-explained-heading">
+      <section className="culture-explained" id="finland-explained" aria-labelledby="finland-explained-heading">
         <div className="shell section">
           <div className="section-heading"><div><p className="eyebrow">Finland, Explained</p><h2 id="finland-explained-heading">The backstory behind the place you now call home.</h2></div><p>Important turning points, familiar names and historic places without turning the whole thing into a school textbook.</p></div>
           <div className="family-guide-grid">{finlandExplainedGuides.map((guide) => <article className="family-guide-card" key={guide.slug}><div><span>{guide.number}</span><small>{guide.label}</small></div><h3><Link href={`/culture/${guide.slug}/`}>{guide.title}</Link></h3><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}<Link className="text-link" href={`/culture/${guide.slug}/`}>Open the guide <span aria-hidden="true">→</span></Link></article>)}</div>
