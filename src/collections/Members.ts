@@ -51,5 +51,14 @@ export const Members: CollectionConfig = {
       type: 'text',
       admin: { readOnly: true },
     },
+    {
+      name: 'savedArticles',
+      type: 'relationship',
+      relationTo: 'articles',
+      hasMany: true,
+      admin: {
+        description: 'Guides this member has saved for later.',
+      },
+    },
   ],
 }

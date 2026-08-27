@@ -33,7 +33,7 @@ The site is available at `http://localhost:3000` and Payload at `http://localhos
 
 ## Content and migrations
 
-Articles, businesses, media, and users are managed through Payload. Database migrations live in `src/migrations`; the seed migration preserves the initial 11 articles and 3 business listings from the previous site.
+Articles, businesses, media, and users are managed through Payload. Members can save published articles to their account; database migrations live in `src/migrations`. The seed migration preserves the initial 11 articles and 3 business listings from the previous site.
 
 Useful commands:
 

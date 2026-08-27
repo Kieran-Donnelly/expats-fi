@@ -204,6 +204,10 @@ export interface Member {
   provider: 'password' | 'google' | 'both';
   googleSubject?: string | null;
   picture?: string | null;
+  /**
+   * Guides this member has saved for later.
+   */
+  savedArticles?: (number | Article)[] | null;
   updatedAt: string;
   createdAt: string;
   email: string;
@@ -811,6 +815,7 @@ export interface MembersSelect<T extends boolean = true> {
   provider?: T;
   googleSubject?: T;
   picture?: T;
+  savedArticles?: T;
   updatedAt?: T;
   createdAt?: T;
   email?: T;

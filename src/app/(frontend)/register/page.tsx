@@ -12,7 +12,7 @@ export default function RegisterPage() {
         <section className="auth-page__intro">
           <Link className="back-link" href="/">← Back to Expats.fi</Link>
           <h1>Make Finland feel more familiar.</h1>
-          <p>Create your free account. For now it gives you a home on Expats.fi; saved resources and community features will follow.</p>
+          <p>Create your free account to save useful Finland guides and keep a personal shortlist as you find your way around.</p>
           <div className="auth-promise"><strong>Free to join</strong><span>No subscription and no clutter.</span></div>
         </section>
         <section aria-labelledby="create-account-title">
