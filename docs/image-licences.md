@@ -109,13 +109,14 @@ Downloaded on August 26, 2026 through the licensed Unlimphotos account connected
 
 ### Sports
 
-- Site file: `public/images/heroes/sports-rugby-scrum.webp`
-- Unlimphotos asset ID: `97589836`
-- Title: Rugby players pushing in a scrum during a match
-- Creator: `Studia72`
-- Source: `https://unlimphotos.com/97589836/rugby-players-pushing-in-a-scrum-during-a-match.html`
-- Licence shown at download: Royalty Free License
-- Treatment: Light deterministic colour correction, web resizing and compression. The players and match were not altered.
+- Site file: `public/images/heroes/sports-rugby-team-v2.webp`
+- Unlimphotos asset ID: `19923980`
+- Title: Rugby players discussing their tactics
+- Creator: `Wavebreakmedia`
+- Source: `https://unlimphotos.com/19923980/rugby-players-discussing-their-tactics.html`
+- Licence shown at download: Royalty Free License, model released
+- Treatment: Light deterministic colour correction, web resizing and compression. The players and scene were not altered.
+- Replaced source: asset `97589836` was removed after its wide hero crop placed too much emphasis on the players’ backs rather than the team and the sport.
 
 ### Learn Finnish
 
