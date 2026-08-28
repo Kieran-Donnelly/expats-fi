@@ -86,8 +86,8 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Pr
           <p>{hero.description}</p>
         </div>
       </header>
-      <section className="shell listing-section" aria-label="Resource library">
-        <form className="filter-form" action="/resources/" method="get" role="search">
+      <section className="shell listing-section filter-target" id="resource-library" aria-label="Resource library">
+        <form className="filter-form" action="/resources/#resource-library" method="get" role="search">
           <label>Search<input name="q" defaultValue={q} placeholder="Permits, tax, healthcare…" /></label>
           <label>Topic<select name="category" defaultValue={category}><option value="">All topics</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
           <button type="submit">Find guides</button>

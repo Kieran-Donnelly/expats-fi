@@ -25,6 +25,21 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
     const searchable = `${listing.name} ${listing.category} ${listing.area} ${listing.tags.join(' ')} ${listing.blurb}`.toLocaleLowerCase('en')
     return !query || searchable.includes(query)
   })
+  const activeBranch = branchesForCopy(category)
+  const resultCopy = category
+    ? { eyebrow: category, title: `${category} around Helsinki`, intro: activeBranch?.note || 'Useful places, checked details and a clear reason to go.' }
+    : cost === 'free'
+      ? { eyebrow: 'Free things to do', title: 'A good Helsinki day without the admission fee', intro: 'Always-free places and attractions with a genuine free option.' }
+      : fit === 'family'
+        ? { eyebrow: 'Family favourites', title: 'Days out that work with the kids', intro: 'Places where younger visitors are expected and the practical bits are easier.' }
+        : setting === 'indoor'
+          ? { eyebrow: 'Indoors', title: 'Good plans for less-than-perfect weather', intro: 'Museums, libraries, culture and places where the forecast cannot ruin the day.' }
+          : setting === 'outdoor'
+            ? { eyebrow: 'Outdoors', title: 'Get outside and see more of Helsinki', intro: 'Islands, beaches, nature and open-air places worth leaving the sofa for.' }
+            : q
+              ? { eyebrow: 'Search results', title: `Matches for “${q}”`, intro: 'The closest matches from our growing Helsinki guide.' }
+              : { eyebrow: 'Checked against official sources', title: 'Find somewhere worth going', intro: 'Browse the full collection or narrow it down by mood, price and setting.' }
+  const hasFilters = Boolean(category || cost || fit || setting || q)
   const branches = [
     { label: 'Museums & art', note: 'Free days, classics and big ideas' },
     { label: 'Family favourites', note: 'Zoos, rides and places to play' },
@@ -48,7 +63,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
             <span>Best free first day</span>
             <strong>City Museum → Senate Square → Oodi</strong>
             <p>Three central stops, no admission cost and enough indoor shelter to survive a very Helsinki weather forecast.</p>
-            <Link href="/explore/?cost=free">Show all free options →</Link>
+            <Link href="/explore/?cost=free#browse">Show all free options →</Link>
           </aside>
         </div>
       </header>
@@ -60,14 +75,14 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       <section className="shell explore-branches" aria-labelledby="explore-branches-heading">
         <div className="section-heading"><div><p className="eyebrow">Choose a direction</p><h2 id="explore-branches-heading">What kind of day are we having?</h2></div><p>Start with a mood. The filters below handle the practical details.</p></div>
         <div className="explore-branch-grid">
-          {branches.map((branch, index) => <Link key={branch.label} href={`/explore/?category=${encodeURIComponent(branch.label)}`}><span>0{index + 1}</span><strong>{branch.label}</strong><small>{branch.note}</small></Link>)}
+          {branches.map((branch, index) => <Link key={branch.label} href={`/explore/?category=${encodeURIComponent(branch.label)}#browse`} aria-current={category === branch.label ? 'page' : undefined}><span>0{index + 1}</span><strong>{branch.label}</strong><small>{branch.note}</small></Link>)}
         </div>
       </section>
 
       <section className="explore-directory" id="browse" aria-label="Helsinki attractions directory">
         <div className="shell section">
-          <div className="section-heading"><div><p className="eyebrow">Checked against official sources</p><h2>Find somewhere worth going</h2></div><p className="explore-count">{filtered.length} {filtered.length === 1 ? 'place' : 'places'} found</p></div>
-          <form className="filter-form explore-filter" action="/explore/" method="get" role="search">
+          <div className="section-heading"><div className="filter-results-copy"><p className="eyebrow">{resultCopy.eyebrow}</p><h2>{resultCopy.title}</h2><p>{resultCopy.intro}</p></div><div className="filter-results-status"><p className="explore-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'place' : 'places'} found</p>{hasFilters && <Link href="/explore/#browse">Show everything</Link>}</div></div>
+          <form className="filter-form explore-filter" action="/explore/#browse" method="get" role="search">
             <label>Search<input name="q" defaultValue={q} placeholder="Sauna, island, museum…" /></label>
             <label>Category<select name="category" defaultValue={category}><option value="">Everything</option>{exploreCategories.map((item) => <option key={item}>{item}</option>)}</select></label>
             <label>Cost<select name="cost" defaultValue={cost}><option value="">Any price</option><option value="free">Free or has a free option</option></select></label>
@@ -93,4 +108,16 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       </section>
     </main>
   )
+}
+
+function branchesForCopy(category: string) {
+  const notes: Record<string, string> = {
+    'Museums & art': 'Free days, Helsinki classics and big ideas, all with the practical details attached.',
+    'Family favourites': 'Zoos, rides, play spaces and days out that work with younger visitors.',
+    'Islands & nature': 'Boats, lakes, proper forest and easy ways to get beyond the city streets.',
+    'Public saunas': 'From free DIY löyly to design saunas with everything laid on.',
+    'Beaches & swimming': 'Sea, sand, freshwater dips and places to swim through the seasons.',
+    'Libraries & culture': 'Free public spaces that do much more than lend books.',
+  }
+  return category ? { note: notes[category] } : undefined
 }

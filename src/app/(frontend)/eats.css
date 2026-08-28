@@ -2,6 +2,7 @@
 .eats-start-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .eats-start-grid a { min-block-size: 10.5rem; display: grid; align-content: space-between; padding: 1.3rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: background 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
 .eats-start-grid a:hover { position: relative; z-index: 1; background: oklch(97% .035 70); transform: translateY(-3px); }
+.eats-start-grid a[aria-current="page"] { position: relative; z-index: 1; background: oklch(97% .035 70); box-shadow: inset 0 0 0 2px var(--coral); }
 .eats-start-grid span { color: var(--coral); font-size: .72rem; font-weight: 780; }
 .eats-start-grid strong { margin-block-start: 1.4rem; font-size: 1.18rem; }
 .eats-start-grid small { color: var(--muted); font-size: .78rem; line-height: 1.45; }
