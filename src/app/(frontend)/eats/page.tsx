@@ -89,7 +89,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
             <button type="submit">Find food</button>
           </form>
           {filtered.length ? <><EatsMap spots={filtered} /><div className="eats-grid">{filtered.map((spot) => <EatsCard key={spot.slug} spot={spot} />)}</div></> : <div className="empty-state"><h2>Nothing matches every filter</h2><p>Try dropping one filter. The guide is growing, but there should still be something good nearby.</p></div>}
-          <div className="eats-source-note"><div><strong>{eatSpots.length} researched places and plenty more to come.</strong><p>Hours, menus and prices change. We link you to the place or the trusted current source we used, so have a quick check before crossing town.</p></div><a href="mailto:listings@expats.fi?subject=Food%20and%20Drink%20suggestion">Suggest a place or correction</a></div>
+          <div className="eats-source-note"><div><strong>{eatSpots.length} researched places and plenty more to come.</strong><p>Hours, menus and prices change. We link you to the place or the trusted current source we used, so have a quick check before crossing town.</p></div><a href="mailto:hello@expats.fi?subject=Food%20and%20Drink%20suggestion">Suggest a place or correction</a></div>
         </div>
       </section>
 

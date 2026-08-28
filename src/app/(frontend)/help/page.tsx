@@ -176,7 +176,7 @@ export default function HelpPage() {
 
       <section className="shell family-local-note">
         <div><p className="eyebrow">A useful habit</p><h2>Save this page before you need it.</h2></div>
-        <p>Official numbers and opening arrangements can change. We check this hub, but the linked authority is always the final word. If you spot something that has moved, email <a className="text-link" href="mailto:listings@expats.fi">listings@expats.fi</a> and we will sort it.</p>
+        <p>Official numbers and opening arrangements can change. We check this hub, but the linked authority is always the final word. If you spot something that has moved, email <a className="text-link" href="mailto:hello@expats.fi">hello@expats.fi</a> and we will sort it.</p>
       </section>
     </main>
   )

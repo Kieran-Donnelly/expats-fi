@@ -59,7 +59,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
           <aside className="news-story__aside">
             <div><span>Source check</span><strong>Checked {checked}</strong><p>Details can change after publication. We link the material used so you can confirm anything important.</p></div>
             <div><span>Sources</span><ul>{sources.map((source) => <li key={source.url}><a href={source.url} target="_blank" rel="noreferrer">{source.name} <span aria-hidden="true">↗</span></a></li>)}</ul></div>
-            <div><span>Something changed?</span><p>Spotted an update or a detail we missed?</p><a href="mailto:listings@expats.fi?subject=News%20story%20update">Give us a heads-up</a></div>
+            <div><span>Something changed?</span><p>Spotted an update or a detail we missed?</p><a href="mailto:hello@expats.fi?subject=News%20story%20update">Give us a heads-up</a></div>
           </aside>
         </div>
       </article>

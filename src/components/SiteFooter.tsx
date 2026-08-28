@@ -39,7 +39,7 @@ export function SiteFooter() {
         <nav aria-label="About links">
           <strong>Expats.fi</strong>
           <Link href="/admin">Editor login</Link>
-          <a href="mailto:listings@expats.fi">Contact</a>
+          <a href="mailto:hello@expats.fi">Contact</a>
           <Link href="/sitemap.xml">Sitemap</Link>
         </nav>
       </div>

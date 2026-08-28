@@ -106,7 +106,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
           {filteredListings.length ? <div className="sports-grid">{filteredListings.map((listing) => <SportsCard key={listing.slug} listing={listing} />)}</div> : <div className="empty-state"><h2>No exact match yet</h2><p>Try removing one filter. We are starting in Helsinki and will keep adding more sports, clubs and areas.</p></div>}
           <div className="sports-source-note">
             <div><strong>{sportsListings.length} ways to get moving, and growing.</strong><p>Official facilities and public events are checked against their organisers. Club details come from each club’s current information, with clear notes where English support should be confirmed before joining.</p></div>
-            <a href="mailto:listings@expats.fi?subject=Sports%20listing%20for%20Expats.fi">Suggest a club or correction</a>
+            <a href="mailto:hello@expats.fi?subject=Sports%20listing%20for%20Expats.fi">Suggest a club or correction</a>
           </div>
         </div>
       </section>
