@@ -55,7 +55,7 @@ export function AccountPreferencesForm({
     <form className="account-form" onSubmit={savePreferences}>
       <div className="account-form__heading"><p className="eyebrow">Preferences</p><h2>Choose what follows you.</h2><p>Pick topics now; we will use them for recommendations and occasional updates.</p></div>
       <fieldset className="account-check-list"><legend>Topics you care about</legend>{memberInterestOptions.map((interest) => <label key={interest}><input type="checkbox" checked={interests.includes(interest)} onChange={() => toggleInterest(interest)} />{interest}</label>)}</fieldset>
-      <fieldset className="account-check-list"><legend>Email</legend><label><input type="checkbox" checked={emailUpdates} onChange={(event) => setEmailUpdates(event.target.checked)} />Useful guide and directory updates</label><label><input type="checkbox" checked={newsletter} onChange={(event) => setNewsletter(event.target.checked)} />Expats.fi newsletter</label></fieldset>
+      <fieldset className="account-check-list"><legend>Email</legend><label><input type="checkbox" checked={emailUpdates} onChange={(event) => setEmailUpdates(event.target.checked)} />Useful guide and directory updates</label><label><input type="checkbox" checked={newsletter} onChange={(event) => setNewsletter(event.target.checked)} />Monthly Expats.fi newsletter</label></fieldset>
       {error && <p className="account-form__message account-form__message--error" role="alert">{error}</p>}
       {status && <p className="account-form__message" role="status">{status}</p>}
       <button className="button" type="submit" disabled={pending}>{pending ? 'Saving…' : 'Save preferences'}</button>

@@ -241,7 +241,7 @@ export interface Member {
    */
   emailUpdates?: boolean | null;
   /**
-   * The regular Expats.fi newsletter, when available.
+   * The monthly Expats.fi newsletter, when available.
    */
   newsletter?: boolean | null;
   /**

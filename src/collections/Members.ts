@@ -85,7 +85,7 @@ export const Members: CollectionConfig = {
       name: 'newsletter',
       type: 'checkbox',
       defaultValue: false,
-      admin: { description: 'The regular Expats.fi newsletter, when available.' },
+      admin: { description: 'The monthly Expats.fi newsletter, when available.' },
     },
     {
       name: 'savedArticles',

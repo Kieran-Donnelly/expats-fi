@@ -27,6 +27,10 @@
 .family-system-grid strong { margin-block-start: 2rem; color: var(--blue-dark); font-size: 1.75rem; letter-spacing: -.04em; }
 .family-system-grid p { margin: .7rem 0 1.2rem; color: var(--ink-soft); font-size: .84rem; line-height: 1.55; }
 .family-system-grid span { margin-block-start: auto; color: var(--blue); font-size: .75rem; font-weight: 700; }
+.help-step { min-block-size: 18rem; display: flex; flex-direction: column; padding: 1.4rem; border: 1px solid var(--line); border-radius: .85rem; background: var(--snow); }
+.help-step small { color: var(--muted); font-size: .68rem; font-weight: 720; letter-spacing: .06em; text-transform: uppercase; }
+.help-step strong { margin-block-start: 2rem; color: var(--blue-dark); font-size: 1.75rem; letter-spacing: -.04em; }
+.help-step p { margin: .7rem 0 0; color: var(--ink-soft); font-size: .84rem; line-height: 1.55; }
 .family-maisa-tip { display: grid; grid-template-columns: 8rem minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; margin-block-start: .85rem; padding: 1.35rem 1.5rem; border-radius: .85rem; background: var(--blue-dark); color: var(--snow); }
 .family-maisa-tip > span { color: oklch(85% .11 70); font-size: .68rem; font-weight: 760; letter-spacing: .08em; text-transform: uppercase; }
 .family-maisa-tip strong { color: var(--snow); }
@@ -43,6 +47,9 @@
 .family-guide-card h3 a:hover { color: var(--blue); }
 .family-guide-card > p { margin: 0 0 1.4rem; color: var(--ink-soft); font-size: .87rem; line-height: 1.6; }
 .family-guide-card .text-link { margin-block-start: auto; font-size: .8rem; }
+.help-guide-card { scroll-margin-top: 7rem; }
+.help-guide-card .help-link-list { display: grid; justify-content: stretch; gap: .65rem; margin-block-start: auto; padding-block-start: .2rem; color: inherit; font-size: inherit; font-weight: inherit; letter-spacing: normal; text-transform: none; }
+.help-guide-card .help-link-list .text-link { margin-block-start: 0; padding-block-start: .65rem; border-block-start: 1px solid var(--line); }
 
 .family-real-life { background: var(--ink); color: var(--snow); }
 .family-real-life__inner { display: grid; grid-template-columns: minmax(17rem, .7fr) minmax(0, 1.3fr); gap: clamp(3rem, 8vw, 7rem); padding-block: clamp(4.5rem, 8vw, 6.5rem); }
@@ -133,7 +140,7 @@
 
 @media (max-width: 520px) {
   .family-stage-grid, .family-system-grid, .family-detail__aside, .family-key-facts ul { grid-template-columns: 1fr; }
-  .family-system-grid a { min-block-size: 15rem; }
+  .family-system-grid a, .help-step { min-block-size: 15rem; }
   .family-guide-card { min-block-size: 19rem; }
   .family-editor-note { grid-column: auto; }
 }

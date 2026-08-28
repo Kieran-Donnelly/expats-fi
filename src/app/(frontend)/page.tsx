@@ -18,6 +18,7 @@ const practicalHubs = [
   { number: '05', label: 'Study in Finland', detail: 'Degrees, vocational routes, integration training and flexible ways to learn', href: '/study/', icon: 'book' },
   { number: '06', label: 'Work and money', detail: 'Jobs, tax, banking, benefits and getting your footing', href: '/resources/?category=Work%20%26%20money', icon: 'case' },
   { number: '07', label: 'How Finland works', detail: 'Directness, punctuality, friendship and the cultural bits between the rules', href: '/culture/', icon: 'spark' },
+  { number: '08', label: 'When things go wrong', detail: 'Urgent health, housing trouble, scams, work problems and the right place to ask for help', href: '/help/', icon: 'lifebuoy' },
 ] as const
 
 const helsinkiHubs = [
@@ -38,6 +39,7 @@ function QuickIcon({ name }: { name: string }) {
     book: <><path d="M4 4h6c2 0 3 1 3 3v13c0-2-1-3-3-3H4Z" /><path d="M20 4h-6c-1 0-1 .3-1 1v15c0-2 1-3 3-3h4Z" /></>,
     case: <><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V4h8v3M3 12h18" /></>,
     spark: <><path d="M12 2c0 6-3 9-9 10 6 1 9 4 9 10 0-6 3-9 9-10-6-1-9-4-9-10Z" /></>,
+    lifebuoy: <><circle cx="12" cy="12" r="9" /><circle cx="12" cy="12" r="3" /><path d="m5.6 5.6 4.3 4.3M14.1 14.1l4.3 4.3M18.4 5.6l-4.3 4.3M9.9 14.1l-4.3 4.3" /></>,
     calendar: <><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M7 3v4M17 3v4M3 10h18" /></>,
     food: <><path d="M6 3v7M3 3v5c0 2 1 3 3 3s3-1 3-3V3M6 11v10M16 3v18M16 3c3 2 5 5 5 9h-5" /></>,
     map: <><path d="m3 6 6-3 6 3 6-3v15l-6 3-6-3-6 3Z" /><path d="M9 3v15M15 6v15" /></>,

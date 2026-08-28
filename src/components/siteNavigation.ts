@@ -57,6 +57,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
         ],
       },
       { label: 'Work & money', href: resourceCategory('Work & money') },
+      { label: 'When things go wrong', href: '/help/' },
       {
         label: 'Study in Finland',
         href: '/study/',

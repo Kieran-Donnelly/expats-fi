@@ -18,6 +18,7 @@ export function SiteFooter() {
           <Link href="/study/">Study in Finland</Link>
           <Link href="/family/">Family</Link>
           <Link href="/culture/">How Finland actually works</Link>
+          <Link href="/help/">When things go wrong</Link>
         </nav>
         <nav aria-label="Community links">
           <strong>Community</strong>
