@@ -19,5 +19,5 @@ export default async function StudyGuidePage({ params }: { params: Promise<{ slu
   const { slug } = await params
   const guide = getStudyGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={studyGuides} hubHref="/study/" hubLabel="The Study in Finland hub" relatedHeading="More ways into Finnish education" />
+  return <EditorialGuideDetail guide={guide} guides={studyGuides} hubHref="/study/" hubLabel="The Study in Finland hub" relatedHeading="More ways into Finnish education" reviewedAt="28 August 2026" />
 }

@@ -26,5 +26,5 @@ export default async function FinlandFoodGuidePage({ params }: { params: Promise
       : slug === 'finnish-supermarket-starter-pack'
         ? { src: '/images/heroes/food-supermarket-cart.webp', position: 'center 54%' }
         : { src: '/images/heroes/food-recipes-berry-pie.webp', position: 'center 48%' }
-  return <EditorialGuideDetail guide={guide} guides={finlandFoodGuides} hubHref="/eats/finland-on-a-plate/" hubLabel="Finland on a Plate" relatedHeading="Keep tasting your way around Finland" tone="warm" heroImage={heroImage} />
+  return <EditorialGuideDetail guide={guide} guides={finlandFoodGuides} hubHref="/eats/finland-on-a-plate/" hubLabel="Finland on a Plate" relatedHeading="Keep tasting your way around Finland" reviewedAt="27 August 2026" tone="warm" heroImage={heroImage} />
 }

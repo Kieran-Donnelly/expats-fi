@@ -19,5 +19,5 @@ export default async function CommunityGuidePage({ params }: { params: Promise<{
   const { slug } = await params
   const guide = getCommunityGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={communityGuides} hubHref="/community/" hubLabel="The Meet People hub" relatedHeading="More ways to find your people" />
+  return <EditorialGuideDetail guide={guide} guides={communityGuides} hubHref="/community/" hubLabel="The Meet People hub" relatedHeading="More ways to find your people" reviewedAt="25 August 2026" />
 }

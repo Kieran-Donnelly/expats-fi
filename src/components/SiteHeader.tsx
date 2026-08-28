@@ -20,7 +20,7 @@ export function SiteHeader() {
         <Link href="/" className="site-header__brand" aria-label="Expats.fi home"><Logo /></Link>
         <DesktopNavigation />
         <div className="site-header__actions">
-          <Link className="icon-button site-header__search" href="/resources/" aria-label="Search"><SearchIcon /></Link>
+          <Link className="icon-button site-header__search" href="/resources/#resource-library" aria-label="Search guides"><SearchIcon /></Link>
           <AccountNav />
           <Link className="button button--small site-header__directory" href={businessDirectoryHref}>Business directory</Link>
           <MobileNavigation account={<AccountNav mobile />} />

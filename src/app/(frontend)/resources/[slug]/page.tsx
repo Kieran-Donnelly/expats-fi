@@ -30,15 +30,18 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (!article) notFound()
   const member = await getCurrentMember(await headers())
   const saved = member ? (await getSavedArticleIds(member.id)).has(article.id) : false
-  const date = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric' }).format(new Date(article.publishedAt))
+  const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Helsinki' })
+  const publishedDate = dateFormatter.format(new Date(article.publishedAt))
+  const updatedDate = dateFormatter.format(new Date(article.updatedAt))
+  const wasUpdated = publishedDate !== updatedDate
 
   return (
     <main id="main"><div className="shell detail-shell article-page">
       <Link className="back-link" href="/resources/">← All Finland guides</Link>
-      <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1><p className="article-page__description">{article.description}</p><div className="article-page__meta"><span>{date}</span><span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /></div></header>
+      <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1><p className="article-page__description">{article.description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /></div></header>
       <div className="article-page__layout">
         <article className="prose"><RichText data={article.content as SerializedEditorState} /></article>
-        <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This guide was migrated from the existing Expats.fi library and can now be reviewed and updated in Payload.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div><div><strong>Check before acting</strong><p>Immigration, tax and benefit rules can change. Confirm decisions with the relevant Finnish authority.</p></div></aside>
+        <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This is part of the original Expats.fi guide library, kept here and updated as the practical details change.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div><div><strong>Check before acting</strong><p>Immigration, tax and benefit rules can change. Confirm decisions with the relevant Finnish authority.</p></div></aside>
       </div>
     </div></main>
   )

@@ -19,5 +19,5 @@ export default async function FamilyGuidePage({ params }: { params: Promise<{ sl
   const { slug } = await params
   const guide = getFamilyGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={familyGuides} hubHref="/family/" hubLabel="The Family hub" relatedHeading="More family life, made clearer" tone="warm" />
+  return <EditorialGuideDetail guide={guide} guides={familyGuides} hubHref="/family/" hubLabel="The Family hub" relatedHeading="More family life, made clearer" reviewedAt="25 August 2026" tone="warm" />
 }

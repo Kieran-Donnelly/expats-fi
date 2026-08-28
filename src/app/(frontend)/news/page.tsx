@@ -81,8 +81,8 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
       </section>
 
       <section className="shell news-letter section" aria-label="Newsletter preview">
-        <div><p className="eyebrow">Coming next</p><h2>The Finland catch-up, straight to your inbox.</h2><p>A friendly round-up of the week’s useful stories, upcoming happenings and things people new to Finland often discover six months too late.</p></div>
-        <div className="news-letter__status"><span>Newsletter</span><strong>We are getting the first edition ready.</strong><p>No spam, no daily shouting and no selling your details. The signup will open here once the mailing list is connected.</p></div>
+        <div><p className="eyebrow">Newsletter in the works</p><h2>The Finland catch-up, straight to your inbox.</h2><p>A friendly round-up of the week’s useful stories, upcoming happenings and things people new to Finland often discover six months too late.</p></div>
+        <div className="news-letter__status"><span>Get on the list</span><strong>Switch it on in your Expats.fi account.</strong><p>We are still connecting the delivery side. Create a free account, choose the newsletter in your preferences and you will be ready when the first edition goes out.</p><div className="news-letter__actions"><Link href="/register/">Create an account</Link><Link href="/account/">Newsletter preferences</Link></div></div>
       </section>
     </main>
   )

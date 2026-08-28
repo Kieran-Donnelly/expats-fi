@@ -19,5 +19,5 @@ export default async function HousingGuidePage({ params }: { params: Promise<{ s
   const { slug } = await params
   const guide = getHousingGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={housingGuides} hubHref="/housing/" hubLabel="The Housing hub" relatedHeading="More help with your home" />
+  return <EditorialGuideDetail guide={guide} guides={housingGuides} hubHref="/housing/" hubLabel="The Housing hub" relatedHeading="More help with your home" reviewedAt="25 August 2026" />
 }

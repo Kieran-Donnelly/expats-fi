@@ -20,5 +20,5 @@ export default async function AreaGuidePage({ params }: { params: Promise<{ slug
   const { slug } = await params
   const guide = getAreaGuide(slug)
   if (!guide) notFound()
-  return <EditorialGuideDetail guide={guide} guides={areaGuides} hubHref="/areas/" hubLabel="Helsinki neighbourhoods" relatedHeading="Try another part of Helsinki" extraSection={<AreaEatsSection area={guide.label} />} />
+  return <EditorialGuideDetail guide={guide} guides={areaGuides} hubHref="/areas/" hubLabel="Helsinki neighbourhoods" relatedHeading="Try another part of Helsinki" reviewedAt="25 August 2026" extraSection={<AreaEatsSection area={guide.label} />} />
 }

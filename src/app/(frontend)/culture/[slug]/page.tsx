@@ -26,5 +26,5 @@ export default async function CultureGuidePage({ params }: { params: Promise<{ s
       : slug === 'historic-finland-you-can-visit'
         ? { src: '/images/heroes/culture-historic-olavinlinna.webp', position: 'center 50%' }
         : undefined
-  return <EditorialGuideDetail guide={guide} guides={cultureGuides} hubHref="/culture/" hubLabel="How Finland actually works" relatedHeading="More of the cultural bits" heroImage={heroImage} />
+  return <EditorialGuideDetail guide={guide} guides={cultureGuides} hubHref="/culture/" hubLabel="How Finland actually works" relatedHeading="More of the cultural bits" reviewedAt="27 August 2026" heroImage={heroImage} />
 }

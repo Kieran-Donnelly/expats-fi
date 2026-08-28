@@ -492,6 +492,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .filter-form input, .filter-form select, .form-card input, .form-card textarea { inline-size: 100%; min-block-size: 2.8rem; padding-inline: .75rem; border: 1px solid var(--line-strong); border-radius: .55rem; background: var(--snow); color: var(--ink); }
 .filter-form button { min-block-size: 2.8rem; padding-inline: 1.2rem; border: 0; border-radius: .55rem; background: var(--blue); color: var(--snow); font-weight: 680; }
 .results-note { margin: 0 0 1rem; color: var(--muted); font-size: .86rem; }
+.resource-listing__heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block: 0 1.5rem; }
 .empty-state { padding-block: 4rem; text-align: center; }
 .empty-state p { color: var(--ink-soft); }
 
@@ -1048,6 +1049,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .news-letter__status span { color: var(--blue); font-size: .7rem; font-weight: 760; letter-spacing: .07em; text-transform: uppercase; }
 .news-letter__status strong { display: block; margin: .5rem 0; font-size: 1.1rem; }
 .news-letter__status p { margin: 0; color: var(--ink-soft); font-size: .8rem; }
+.news-letter__actions { display: flex; flex-wrap: wrap; gap: .5rem 1rem; margin-block-start: 1rem; }
+.news-letter__actions a { color: var(--blue); font-size: .78rem; font-weight: 720; }
 .news-story { padding-block: clamp(2rem, 5vw, 4rem) clamp(5rem, 9vw, 8rem); }
 .news-story__header { max-inline-size: 66rem; padding-block: 2.5rem 3.5rem; }
 .news-story__header h1 { max-inline-size: 18ch; font-size: clamp(3rem, 6.5vw, 5.6rem); }
@@ -1171,7 +1174,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .event-branch-grid { grid-template-columns: repeat(2, 1fr); }
   .sports-branch-grid { grid-template-columns: repeat(2, 1fr); }
   .sports-source-note { align-items: start; flex-direction: column; }
-  .events-listing__heading, .event-source-note { align-items: start; flex-direction: column; }
+  .events-listing__heading, .resource-listing__heading, .event-source-note { align-items: start; flex-direction: column; }
   .events-map__intro { align-items: start; flex-direction: column; gap: .4rem; }
   .events-map__layout { grid-template-columns: 1fr; }
   .event-map__canvas { min-block-size: 25rem; }

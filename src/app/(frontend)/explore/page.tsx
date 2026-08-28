@@ -96,7 +96,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       </section>
 
       <section className="shell explore-free section" id="free-days" aria-labelledby="free-days-heading">
-        <div className="explore-free__intro"><p className="eyebrow">Save the dates</p><h2 id="free-days-heading">Upcoming free days in 2026</h2><p>These are the useful ones still ahead from 24 August. Regular always-free places are in the main directory.</p></div>
+        <div className="explore-free__intro"><p className="eyebrow">Save the dates</p><h2 id="free-days-heading">Upcoming free days in 2026</h2><p>These are the useful dates still ahead this year. Regular always-free places are in the main directory.</p></div>
         <div className="explore-free__list">{exploreFreeDates.map((item) => <article key={`${item.date}-${item.place}`}><time>{item.date}</time><div><strong>{item.place}</strong><p>{item.detail}</p></div></article>)}</div>
       </section>
 

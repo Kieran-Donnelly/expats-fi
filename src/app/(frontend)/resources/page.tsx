@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
+import Link from 'next/link'
 
 import { ArticleCard } from '@/components/ArticleCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
@@ -72,6 +73,12 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Pr
   const member = await getCurrentMember(await headers())
   const savedArticleIds = member ? await getSavedArticleIds(member.id) : new Set<number>()
   const hero = getResourceHero(category, q)
+  const hasFilters = Boolean(category || q.trim())
+  const resultTitle = q.trim()
+    ? `Guides matching “${q.trim()}”`
+    : category
+      ? `${category} guides`
+      : 'All practical guides'
 
   return (
     <main id="main">
@@ -92,7 +99,10 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Pr
           <label>Topic<select name="category" defaultValue={category}><option value="">All topics</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
           <button type="submit">Find guides</button>
         </form>
-        <p className="results-note">{articles.length} {articles.length === 1 ? 'guide' : 'guides'} found</p>
+        <div className="resource-listing__heading">
+          <div className="filter-results-copy"><p className="eyebrow">Guide library</p><h2>{resultTitle}</h2><p>{hasFilters ? 'The results below match your current search. Clear the filters whenever you want the full library back.' : 'Browse the full collection or use the search and topic filters to narrow things down.'}</p></div>
+          <div className="filter-results-status"><p aria-live="polite">{articles.length} {articles.length === 1 ? 'guide' : 'guides'} found</p>{hasFilters && <Link href="/resources/#resource-library">Show everything</Link>}</div>
+        </div>
         {articles.length ? <div className="article-grid">{articles.map((article) => <ArticleCard article={article} key={article.id} showSave saved={savedArticleIds.has(article.id)} />)}</div> : <div className="empty-state"><h2>No guides match that search</h2><p>Try a broader phrase or choose all topics.</p></div>}
       </section>
     </main>

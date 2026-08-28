@@ -10,6 +10,7 @@ type EditorialGuideDetailProps = {
   hubHref: string
   hubLabel: string
   relatedHeading: string
+  reviewedAt: string
   extraSection?: ReactNode
   heroImage?: {
     src: string
@@ -18,7 +19,7 @@ type EditorialGuideDetailProps = {
   tone?: 'blue' | 'warm'
 }
 
-export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, extraSection, heroImage, tone = 'blue' }: EditorialGuideDetailProps) {
+export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, relatedHeading, reviewedAt, extraSection, heroImage, tone = 'blue' }: EditorialGuideDetailProps) {
   const related = guides
     .filter((item) => item.slug !== guide.slug)
     .map((item) => ({
@@ -47,7 +48,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
             </div>
           )}
           <div><p className="eyebrow">{guide.number} · {guide.label}</p><h1>{guide.title}</h1><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}</div>
-          <aside><span>Best for</span><p>{guide.goodFor}</p><small>Information checked 25 August 2026</small></aside>
+          <aside><span>Best for</span><p>{guide.goodFor}</p><small>Last reviewed {reviewedAt}</small></aside>
         </header>
 
         <div className="family-detail__layout">

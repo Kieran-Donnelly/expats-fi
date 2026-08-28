@@ -1,5 +1,5 @@
-const resourceCategory = (category: string) => `/resources/?category=${encodeURIComponent(category)}`
-const resourceSearch = (query: string) => `/resources/?q=${encodeURIComponent(query)}`
+const resourceCategory = (category: string) => `/resources/?category=${encodeURIComponent(category)}#resource-library`
+const resourceSearch = (query: string) => `/resources/?q=${encodeURIComponent(query)}#resource-library`
 
 export type NavigationLeaf = {
   label: string
@@ -133,10 +133,10 @@ export const primaryNavigation: readonly NavigationItem[] = [
         label: 'Things to do in Helsinki',
         href: '/explore/',
         children: [
-          { label: 'Museums & art', href: '/explore/?category=Museums%20%26%20art' },
-          { label: 'Family favourites', href: '/explore/?category=Family%20favourites' },
-          { label: 'Islands & nature', href: '/explore/?category=Islands%20%26%20nature' },
-          { label: 'Public saunas', href: '/explore/?category=Public%20saunas' },
+          { label: 'Museums & art', href: '/explore/?category=Museums%20%26%20art#browse' },
+          { label: 'Family favourites', href: '/explore/?category=Family%20favourites#browse' },
+          { label: 'Islands & nature', href: '/explore/?category=Islands%20%26%20nature#browse' },
+          { label: 'Public saunas', href: '/explore/?category=Public%20saunas#browse' },
           { label: 'Free days', href: '/explore/#free-days' },
           { label: 'Cards & joining', href: '/explore/#join' },
         ],
@@ -145,24 +145,24 @@ export const primaryNavigation: readonly NavigationItem[] = [
         label: 'Events',
         href: '/events/',
         children: [
-          { label: 'Music & nightlife', href: '/events/?category=Music%20%26%20nightlife' },
-          { label: 'Arts & culture', href: '/events/?category=Arts%20%26%20culture' },
-          { label: 'Food & markets', href: '/events/?category=Food%20%26%20markets' },
-          { label: 'Community & free', href: '/events/?category=Community%20%26%20free' },
-          { label: 'Sports & outdoors', href: '/events/?category=Sports%20%26%20outdoors' },
-          { label: 'Family-friendly', href: '/events/?cost=family' },
+          { label: 'Music & nightlife', href: '/events/?category=Music%20%26%20nightlife#events-listing' },
+          { label: 'Arts & culture', href: '/events/?category=Arts%20%26%20culture#events-listing' },
+          { label: 'Food & markets', href: '/events/?category=Food%20%26%20markets#events-listing' },
+          { label: 'Community & free', href: '/events/?category=Community%20%26%20free#events-listing' },
+          { label: 'Sports & outdoors', href: '/events/?category=Sports%20%26%20outdoors#events-listing' },
+          { label: 'Family-friendly', href: '/events/?cost=family#events-listing' },
         ],
       },
       {
         label: 'Sports & activities',
         href: '/sports/',
         children: [
-          { label: 'Clubs & teams', href: '/sports/?type=Club%20%26%20team' },
-          { label: 'Social sessions', href: '/sports/?type=Social%20session' },
-          { label: 'Classes & training', href: '/sports/?type=Course%20%26%20training' },
-          { label: 'Places to play', href: '/sports/?type=Venue%20%26%20facility' },
-          { label: 'Family & children', href: '/sports/?fit=family' },
-          { label: 'Sports events', href: '/events/?category=Sports%20%26%20outdoors' },
+          { label: 'Clubs & teams', href: '/sports/?type=Club%20%26%20team#sports-directory' },
+          { label: 'Social sessions', href: '/sports/?type=Social%20session#sports-directory' },
+          { label: 'Classes & training', href: '/sports/?type=Course%20%26%20training#sports-directory' },
+          { label: 'Places to play', href: '/sports/?type=Venue%20%26%20facility#sports-directory' },
+          { label: 'Family & children', href: '/sports/?fit=family#sports-directory' },
+          { label: 'Sports events', href: '/events/?category=Sports%20%26%20outdoors#events-listing' },
         ],
       },
       {
