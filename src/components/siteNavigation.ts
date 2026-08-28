@@ -58,6 +58,18 @@ export const primaryNavigation: readonly NavigationItem[] = [
       },
       { label: 'Work & money', href: resourceCategory('Work & money') },
       {
+        label: 'Study in Finland',
+        href: '/study/',
+        children: [
+          { label: 'Choose the right route', href: '/study/choosing-the-right-study-route/' },
+          { label: 'Universities & UAS', href: '/study/universities-and-universities-of-applied-sciences/' },
+          { label: 'Vocational & apprenticeships', href: '/study/vocational-study-and-apprenticeships/' },
+          { label: 'Integration training', href: '/study/integration-training-and-finnish-for-working-life/' },
+          { label: 'Open & online study', href: '/study/open-university-online-and-flexible-study/' },
+          { label: 'Fees, permits & funding', href: '/study/tuition-fees-permits-and-paying-for-study/' },
+        ],
+      },
+      {
         label: 'Family',
         href: '/family/',
         children: [

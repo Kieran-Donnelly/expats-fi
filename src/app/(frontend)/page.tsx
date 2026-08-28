@@ -15,8 +15,9 @@ const practicalHubs = [
   { number: '02', label: 'Housing', detail: 'Finding a home, reading the lease and sorting problems early', href: '/housing/', icon: 'home' },
   { number: '03', label: 'Family', detail: 'Healthcare, daycare, schools, support and the admin nobody explains', href: '/family/', icon: 'people' },
   { number: '04', label: 'Learn Finnish', detail: 'Free resources, courses, apps, podcasts and places to practise', href: '/learn-finnish/', icon: 'speech' },
-  { number: '05', label: 'Work and money', detail: 'Jobs, tax, banking, benefits and getting your footing', href: '/resources/?category=Work%20%26%20money', icon: 'case' },
-  { number: '06', label: 'How Finland works', detail: 'Directness, punctuality, friendship and the cultural bits between the rules', href: '/culture/', icon: 'spark' },
+  { number: '05', label: 'Study in Finland', detail: 'Degrees, vocational routes, integration training and flexible ways to learn', href: '/study/', icon: 'book' },
+  { number: '06', label: 'Work and money', detail: 'Jobs, tax, banking, benefits and getting your footing', href: '/resources/?category=Work%20%26%20money', icon: 'case' },
+  { number: '07', label: 'How Finland works', detail: 'Directness, punctuality, friendship and the cultural bits between the rules', href: '/culture/', icon: 'spark' },
 ] as const
 
 const helsinkiHubs = [
@@ -34,6 +35,7 @@ function QuickIcon({ name }: { name: string }) {
     home: <><path d="m3 11 9-7 9 7v9H3Z" /><path d="M9 20v-6h6v6" /></>,
     people: <><circle cx="9" cy="8" r="3" /><circle cx="17" cy="10" r="2" /><path d="M3 20c0-4 2-6 6-6s6 2 6 6M15 15c4 0 6 2 6 5" /></>,
     speech: <><path d="M4 5h16v11H9l-5 4Z" /><path d="M8 9h8M8 12h5" /></>,
+    book: <><path d="M4 4h6c2 0 3 1 3 3v13c0-2-1-3-3-3H4Z" /><path d="M20 4h-6c-1 0-1 .3-1 1v15c0-2 1-3 3-3h4Z" /></>,
     case: <><rect x="3" y="7" width="18" height="13" rx="2" /><path d="M8 7V4h8v3M3 12h18" /></>,
     spark: <><path d="M12 2c0 6-3 9-9 10 6 1 9 4 9 10 0-6 3-9 9-10-6-1-9-4-9-10Z" /></>,
     calendar: <><rect x="3" y="5" width="18" height="16" rx="2" /><path d="M7 3v4M17 3v4M3 10h18" /></>,
@@ -88,7 +90,7 @@ export default async function HomePage() {
             <input id="home-search" name="q" placeholder="What are you trying to sort out?" />
             <button type="submit">Search</button>
           </form>
-          <div className="popular-links"><span>Good places to begin</span><Link href="/start-here/first-90-days-in-finland/">your first 90 days</Link><Link href="/community/">meet people</Link><Link href="/learn-finnish/">learn Finnish</Link><Link href="/events/">what’s on</Link><Link href="/areas/">explore an area</Link></div>
+          <div className="popular-links"><span>Good places to begin</span><Link href="/start-here/first-90-days-in-finland/">your first 90 days</Link><Link href="/community/">meet people</Link><Link href="/learn-finnish/">learn Finnish</Link><Link href="/study/">study in Finland</Link><Link href="/events/">what’s on</Link><Link href="/areas/">explore an area</Link></div>
         </div>
       </section>
 

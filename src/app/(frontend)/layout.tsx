@@ -12,6 +12,7 @@ import './styles.css'
 import './sports.css'
 import './family.css'
 import './eats.css'
+import './study.css'
 
 const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],

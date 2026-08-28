@@ -113,6 +113,60 @@ export const seedNewsStories: SeedNewsStory[] = [
     ],
   },
   {
+    slug: 'helsinki-design-week-2026-useful-guide',
+    title: 'Helsinki Design Week is here, and plenty of the good stuff is free',
+    standfirst: 'The city centre becomes a ten-day design festival from 28 August to 6 September. Here is what is worth knowing, what needs booking and where to begin if design is not normally your thing.',
+    category: 'Culture & community',
+    publishedAt: '2026-08-28T10:15:00.000Z',
+    readingMinutes: 7,
+    featured: true,
+    practicalSummary: 'Helsinki Design Week runs from 28 August to 6 September. Several headline installations and public events are free, but the Futuro House and Aalto 90 Pavilion require advance registration. Check the official programme before travelling because events are spread across the city.',
+    html: `
+      <p>Helsinki Design Week begins today, which is good news even if the phrase design festival makes you picture an expensive chair in a silent white room.</p>
+      <p>From 28 August to 6 September, events, installations, studios and conversations will spread across central Helsinki. Some are aimed squarely at design professionals, but plenty are simply interesting ways to see the city, poke your head into places that are not normally open and learn why Finland can turn a vase into a national conversation.</p>
+      <p>A fair amount of the programme is free. The small catch is that free does not always mean you can wander in whenever you fancy. Several of the most popular events require advance registration, so a little planning will save you arriving at a lovely pavilion with nothing but optimism.</p>
+      <h2>What is Helsinki Design Week actually about?</h2>
+      <p>This year's theme is The Oncoming Other. In less festival-like language, it is about encounters, unfamiliar perspectives and how people share a city.</p>
+      <p>There is no single main venue. Instead, the festival uses a network of meeting points, exhibitions and partner spaces across Helsinki. That makes it feel more like a city trail than an event you enter through one gate.</p>
+      <p>The programme covers architecture, fashion, interiors, materials, graphic design and city planning. You do not need to understand any of those professionally. Pick one thing that sounds fun, then let the nearby events do the rest.</p>
+      <h2>The big free installations</h2>
+      <p>One of the headline attractions is the Futuro House in Kaisaniemi Botanic Garden. Finnish architect Matti Suuronen designed the flying-saucer-shaped house in 1968, when the future apparently involved a lot more fibreglass and much rounder windows.</p>
+      <p>For Design Week, its interior has been reimagined by Marimekko. Entry is free, but you need to register in advance through the official Helsinki Design Week site.</p>
+      <p>At the South Harbour, the Aalto 90 Pavilion celebrates the ninetieth anniversary of Alvar Aalto's famous vase. The seven-metre structure follows the vase's wavy outline and contains a photography exhibition by Arno Rafael Minkkinen.</p>
+      <p>That is also free with advance registration. Both attractions are likely to be popular, so book before building an afternoon around them.</p>
+      <h2>A new place to watch the city change</h2>
+      <p>The Museum of Finnish Architecture and Design is opening a new event and gathering space at Eteläranta 6.</p>
+      <p>On 31 August from 16.00 to 18.00, the space will host a public programme about how architecture and design shape Helsinki. The wider idea is especially interesting because visitors will be able to follow the area as work progresses on the new architecture and design museum.</p>
+      <p>If you have ever walked past a Finnish development site and wondered what is being built, why it takes years and who decided on that particular shade of grey, this is a more welcoming route into the conversation.</p>
+      <h2>Design Market and the family option</h2>
+      <p>Design Market takes over Cable Factory on 29 and 30 August. It brings Finnish furniture, clothing, homeware and smaller design brands together under one roof.</p>
+      <p>You can browse without pretending you are planning to replace every object in your flat. It is also a useful place to discover local makers beyond the names found in every airport shop.</p>
+      <p>Children's Design Week runs at Cable Factory over the same weekend. For families, that makes this one of the easiest festival stops because the grown-ups can look around without selling the day as an educational architecture outing.</p>
+      <h2>Fancy seeing where the work happens?</h2>
+      <p>Open Studios takes place on 28 August and 4 September. Designers and creative teams open their working spaces, giving visitors a look behind the finished products and polished shop windows.</p>
+      <p>These events can also be genuinely handy for international residents working in creative industries. Helsinki's professional circles can feel small and slightly hidden until you are standing in the same room as the people who make the work. Go because you are curious, but take your professional confidence with you.</p>
+      <h2>City-centre ideas, mushrooms and an English-language talk</h2>
+      <p>HDW Lab will use a two-storey space at the corner of Kluuvikatu and Aleksanterinkatu to test ideas for a livelier city centre. From 2 to 4 September, residents can visit and discuss how empty shops and public spaces might be used differently.</p>
+      <p>There is also an open workshop on 4 September from 12.00 to 14.00. Registration is required.</p>
+      <p>Outside the lab, Finland's first wild mushroom bar will serve seasonal produce from 1 to 4 September. That may be the most Finnish sentence published on this website all week.</p>
+      <p>An English-language seminar called Towards a More Vibrant City Centre takes place outside Helsinki City Hall on 1 September from 14.00 to 16.00. It brings together people working in planning, business and culture to discuss how quieter city centres can find new life. Registration information is available through the festival programme.</p>
+      <h2>How to avoid turning it into homework</h2>
+      <p>The full programme is large. Do not try to understand all of it before leaving home.</p>
+      <ol>
+        <li>Choose one headline event or neighbourhood.</li>
+        <li>Check whether your first choice requires registration.</li>
+        <li>Open the official programme map and add one nearby event.</li>
+        <li>Leave enough space for a coffee, a wander and something you had not planned.</li>
+      </ol>
+      <p>Dates, capacity and ticket arrangements vary across partner events, so use the official programme as the final word. A free public installation, a paid talk and a limited studio visit can all sit beside one another on the same page.</p>
+      <p>If design is already your world, you probably have a colour-coded programme ready. If it is not, this is still a fine excuse to see familiar Helsinki streets behaving a little differently for ten days.</p>
+    `,
+    sources: [
+      { name: 'City of Helsinki Design Week guide', url: 'https://www.hel.fi/en/news/helsinki-design-week-brings-events-and-installations-to-the-city-centre' },
+      { name: 'Helsinki Design Week official programme', url: 'https://helsinkidesignweek.com/?lang=en' },
+    ],
+  },
+  {
     slug: 'job-applicant-profile-mandatory-september-2026',
     title: 'Job hunting in Finland? One more profile becomes compulsory in September',
     standfirst: 'Most unemployed jobseekers will need to publish a Job Market Finland profile within 15 business days. Here is who it covers, what employers can see and what to sort before September arrives.',
