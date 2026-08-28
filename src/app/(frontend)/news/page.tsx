@@ -41,12 +41,12 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
 
       <nav className="news-topics" aria-label="News topics">
         <div className="shell">
-          <Link href="/news/" aria-current={!category ? 'page' : undefined}>All news</Link>
-          {categories.map((item) => <Link key={item} href={`/news/?category=${encodeURIComponent(item)}`} aria-current={category === item ? 'page' : undefined}>{item}</Link>)}
+          <Link href="/news/#news-results" aria-current={!category ? 'page' : undefined}>All news</Link>
+          {categories.map((item) => <Link key={item} href={`/news/?category=${encodeURIComponent(item)}#news-results`} aria-current={category === item ? 'page' : undefined}>{item}</Link>)}
         </div>
       </nav>
 
-      <section className="shell news-lead-section" aria-label="Leading story">
+      <section className="shell news-lead-section filter-target" id="news-results" aria-label={category ? `${category} news` : 'Leading story'}>
         {featured ? (
           <article className="news-lead">
             <div className="news-lead__stamp" aria-hidden="true"><span>FI</span><b>News</b></div>

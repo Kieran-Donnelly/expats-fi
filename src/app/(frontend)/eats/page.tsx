@@ -29,13 +29,24 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
     return !query || searchable.includes(query)
   })
 
+  const resultCopy = mood
+    ? { eyebrow: mood, title: `${mood} around Helsinki`, intro: 'A focused shortlist with the address, price and honest reason each place made the guide.' }
+    : area
+      ? { eyebrow: area, title: `Good food around ${area}`, intro: 'Places worth knowing when you are already in the neighbourhood.' }
+      : kind
+        ? { eyebrow: kind, title: `${kind} spots worth a look`, intro: 'A useful shortlist from our growing food and drink guide.' }
+        : q
+          ? { eyebrow: 'Search results', title: `Matches for “${q}”`, intro: 'The closest matches from our current Helsinki collection.' }
+          : { eyebrow: 'The first collection', title: 'Find a place that fits the day.', intro: 'Browse everything or narrow the list by area, mood, kind and budget.' }
+  const hasFilters = Boolean(area || kind || mood || price || q)
+
   const starts = [
-    { label: 'Cute café', note: 'Coffee, cake and somewhere worth staying', href: '/eats/?mood=Coffee%20%26%20something%20sweet' },
-    { label: 'Brunch', note: 'For slow starts and breakfast becoming lunch', href: '/eats/?mood=Breakfast%20%26%20brunch' },
-    { label: 'Cheap-ish and quick', note: 'Good food without turning it into an occasion', href: '/eats/?mood=Quick%20bite&price=%E2%82%AC' },
-    { label: 'Proper dinner', note: 'A meal you plan the evening around', href: '/eats/?mood=Proper%20dinner' },
-    { label: 'Finnish flavours', note: 'A better answer than sending everyone for salmon soup', href: '/eats/?mood=Finnish%20flavours' },
-    { label: 'With the kids', note: 'Places where the whole operation feels manageable', href: '/eats/?mood=Family%20friendly' },
+    { label: 'Cute café', note: 'Coffee, cake and somewhere worth staying', href: '/eats/?mood=Coffee%20%26%20something%20sweet#helsinki-food', active: mood === 'Coffee & something sweet' },
+    { label: 'Brunch', note: 'For slow starts and breakfast becoming lunch', href: '/eats/?mood=Breakfast%20%26%20brunch#helsinki-food', active: mood === 'Breakfast & brunch' },
+    { label: 'Cheap-ish and quick', note: 'Good food without turning it into an occasion', href: '/eats/?mood=Quick%20bite&price=%E2%82%AC#helsinki-food', active: mood === 'Quick bite' && price === '€' },
+    { label: 'Proper dinner', note: 'A meal you plan the evening around', href: '/eats/?mood=Proper%20dinner#helsinki-food', active: mood === 'Proper dinner' },
+    { label: 'Finnish flavours', note: 'A better answer than sending everyone for salmon soup', href: '/eats/?mood=Finnish%20flavours#helsinki-food', active: mood === 'Finnish flavours' },
+    { label: 'With the kids', note: 'Places where the whole operation feels manageable', href: '/eats/?mood=Family%20friendly#helsinki-food', active: mood === 'Family friendly' },
   ] as const
 
   return (
@@ -53,7 +64,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
 
       <section className="shell eats-starts" aria-labelledby="eats-starts-heading">
         <div className="section-heading"><div><p className="eyebrow">Start with the mood</p><h2 id="eats-starts-heading">What sounds good right now?</h2></div><Link className="text-link" href="/areas/">Browse by neighbourhood <span aria-hidden="true">→</span></Link></div>
-        <div className="eats-start-grid">{starts.map((item, index) => <Link href={item.href} key={item.label}><span>0{index + 1}</span><strong>{item.label}</strong><small>{item.note}</small></Link>)}</div>
+        <div className="eats-start-grid">{starts.map((item, index) => <Link href={item.href} key={item.label} aria-current={item.active ? 'page' : undefined}><span>0{index + 1}</span><strong>{item.label}</strong><small>{item.note}</small></Link>)}</div>
       </section>
 
       <section className="finland-plate" aria-labelledby="finland-plate-heading">
@@ -66,10 +77,10 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
       <section className="eats-directory" id="helsinki-food" aria-label="Helsinki places to eat">
         <div className="shell section">
           <div className="section-heading eats-directory__heading">
-            <div><p className="eyebrow">The first collection</p><h2>Find a place that fits the day.</h2></div>
-            <p>{filtered.length} {filtered.length === 1 ? 'place' : 'places'} found</p>
+            <div className="filter-results-copy"><p className="eyebrow">{resultCopy.eyebrow}</p><h2>{resultCopy.title}</h2><p>{resultCopy.intro}</p></div>
+            <div className="filter-results-status"><p aria-live="polite">{filtered.length} {filtered.length === 1 ? 'place' : 'places'} found</p>{hasFilters && <Link href="/eats/#helsinki-food">Show everything</Link>}</div>
           </div>
-          <form className="filter-form eats-filter" action="/eats/" method="get" role="search">
+          <form className="filter-form eats-filter" action="/eats/#helsinki-food" method="get" role="search">
             <label>Search<input name="q" defaultValue={q} placeholder="Coffee, pizza, date night…" /></label>
             <label>Area<select name="area" defaultValue={area}><option value="">All areas</option>{eatAreas.map((item) => <option key={item}>{item}</option>)}</select></label>
             <label>Kind<select name="kind" defaultValue={kind}><option value="">Everything</option>{eatKinds.map((item) => <option key={item}>{item}</option>)}</select></label>
