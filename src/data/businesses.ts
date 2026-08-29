@@ -36,6 +36,8 @@ export const businesses: Business[] = [
     address: 'Serving the Helsinki capital region and events across Finland',
     website: 'https://homechefmark.com',
     phone: '+358 40 0208994',
+    instagramHandle: '@homechefmark',
+    instagram: 'https://www.instagram.com/homechefmark/',
     featured: true,
   },
   {
@@ -64,6 +66,7 @@ export const businesses: Business[] = [
     address: 'Vanha Talvitie 29, 00580 Helsinki',
     website: 'https://alstudio.fi',
     phone: '+358 41 328 8028',
+    bookingUrl: 'https://varaa.timma.fi/reservation/alstudiobarbershop',
   },
 ];
 
