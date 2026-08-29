@@ -914,6 +914,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .explore-directory { scroll-margin-top: 8rem; border-block: 1px solid var(--line); background: var(--blue-pale); }
 .explore-count { margin: 0; color: var(--ink-soft); }
 .filter-target, #browse, #helsinki-food { scroll-margin-top: 6rem; }
+.family-guide-card[id], .area-guide-group[id] { scroll-margin-top: 6rem; }
 .filter-results-copy { max-inline-size: 44rem; }
 .filter-results-copy > p:last-child { max-inline-size: 42rem; margin: .55rem 0 0; color: var(--ink-soft); font-size: .92rem; line-height: 1.6; }
 .filter-results-status { flex: none; display: grid; justify-items: end; gap: .35rem; text-align: end; }

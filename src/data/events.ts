@@ -57,7 +57,7 @@ export const events: CityEvent[] = [
     address: 'Hietalahdentori, 00180 Helsinki',
     district: 'Hietalahti',
     coordinates: { latitude: 60.1621, longitude: 24.9298 },
-    blurb: 'A cheerful weekend rummage through vintage clothes, Finnish design, old books and gloriously unpredictable finds—best paired with lunch in the market hall next door.',
+    blurb: 'A cheerful weekend rummage through vintage clothes, Finnish design, old books and gloriously unpredictable finds. Best paired with lunch in the market hall next door.',
     description: [
       'Up to 80 stalls fill one of Helsinki’s best-loved market squares on summer weekends. It is an easy, low-pressure way to meet locals, practise a little Finnish and take home something with more character than a souvenir-shop magnet.',
       'Go early for the widest choice, or arrive closer to lunch and combine the market with the cafés and restaurants inside Hietalahti Market Hall.',
@@ -133,7 +133,7 @@ export const events: CityEvent[] = [
     featured: true,
     transport: [
       { mode: 'Metro', advice: 'Kalasatama and Sörnäinen are the practical stations; allow time for the walk and crowds.' },
-      { mode: 'Tram or bus', advice: 'Several services reach the Sörnäinen and Kalasatama area—check live changes before leaving.' },
+      { mode: 'Tram or bus', advice: 'Several services reach the Sörnäinen and Kalasatama area, so check live changes before leaving.' },
       { mode: 'Bike', advice: 'Suvilahti is easy to reach by bike, but festival-week traffic arrangements affect nearby routes.' },
     ],
   },
@@ -149,7 +149,7 @@ export const events: CityEvent[] = [
     address: 'Ala-Malmin tori 1, 00700 Helsinki',
     district: 'Malmi',
     coordinates: { latitude: 60.251, longitude: 25.0125 },
-    blurb: 'A free neighbourhood programme that makes a persuasive case for looking beyond the city centre—music, workshops and easy-going square-side culture included.',
+    blurb: 'A free neighbourhood programme that makes a persuasive case for looking beyond the city centre, with music, workshops and easy-going square-side culture included.',
     description: [
       'The City of Helsinki’s suburban summer programme brings free events to Ala-Malmi Square for residents of all ages. It is especially useful for newcomers who want to see everyday Helsinki rather than only its postcard centre.',
       'Individual programme times vary, so use the city listing to choose a date before travelling.',
@@ -388,7 +388,7 @@ export const events: CityEvent[] = [
     district: 'City centre',
     blurb: 'Eleven days of bold international cinema, sold-out discoveries and post-screening debates that continue all the way to the next tram stop.',
     description: [
-      'Helsinki International Film Festival—better known locally as Rakkautta & Anarkiaa—brings new, adventurous and conversation-starting films to cinemas around the centre.',
+      'Helsinki International Film Festival, better known locally as Rakkautta & Anarkiaa, brings new, adventurous and conversation-starting films to cinemas around the centre.',
       'Popular screenings move quickly, but the broad programme rewards curiosity. Double-check the screening language and subtitle information when booking.',
     ],
     price: 'Ticketed screenings and passes',
@@ -402,7 +402,7 @@ export const events: CityEvent[] = [
     transport: [
       { mode: 'Train', advice: 'Most festival cinemas are within walking distance of Helsinki Central Station.' },
       { mode: 'Metro', advice: 'The metro is useful for quick connections to central screening clusters.' },
-      { mode: 'Tram or bus', advice: 'Check the cinema on your ticket—venues change from screening to screening.' },
+      { mode: 'Tram or bus', advice: 'Check the cinema on your ticket because venues change from screening to screening.' },
     ],
   },
   {

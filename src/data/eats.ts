@@ -509,7 +509,7 @@ export const eatSpots: EatSpot[] = [
     moods: ['Quick bite', 'Family friendly', 'Vegetarian friendly'],
     blurb: 'Neapolitan pizza just off Senate Square, which is very useful when sightseeing has emptied everybody out. Central, lively and far less complicated than choosing a formal dinner nearby.',
     orderTip: 'Good for families and hungry visitors between sights.',
-    url: 'https://www.myhelsinki.fi/visit/things-to-do/walking-routes-in-helsinki/',
+    url: 'https://www.myhelsinki.fi/visit-helsinki/plan-your-trip/getting-around/',
     source: 'MyHelsinki walking routes',
   },
   {
@@ -539,7 +539,7 @@ export const eatSpots: EatSpot[] = [
     moods: ['Proper dinner', 'Date night'],
     blurb: 'An intimate neighbourhood restaurant tucked among Katajanokka’s beautiful old buildings. Choose it for a slower dinner after the day-trippers have started heading back to the centre.',
     orderTip: 'A quiet date-night pick worth reserving.',
-    url: 'https://www.myhelsinki.fi/visit/things-to-do/walking-routes-in-helsinki/',
+    url: 'https://www.myhelsinki.fi/visit-helsinki/plan-your-trip/getting-around/',
     source: 'MyHelsinki walking routes',
   },
 

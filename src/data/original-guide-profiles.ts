@@ -52,7 +52,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Registration is the point where your move becomes visible in Finland’s public systems. A personal identity code, municipality of residence and registered address can affect tax, healthcare, banking, education and benefits.',
     'Check whether you need an EU right-of-residence registration, a residence permit registration or a DVV population-information appointment.|Bring the identity, residence, family and address evidence requested for your situation.|Ask which details were recorded and save the decision or certificate with its date.',
     'A Finnish personal identity code is not the same thing as a residence permit.|Registration does not remove the need to report later changes of address, family status or name.|Never email identity documents to an unverified intermediary.',
-    'https://dvv.fi/en/foreigners-registration'
+    'https://dvv.fi/en/foreigner-registration'
   ),
   'moving_to_finland-citizenship': topic(
     'Finnish citizenship is a later-stage decision built on residence, identity, language, conduct and other statutory conditions. Dual or multiple nationality questions also involve the law of your existing country.',
@@ -64,19 +64,19 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Household goods, vehicles, pets, alcohol, tobacco and online purchases can fall under different customs, tax and animal-health rules. Moving from an EU country is not identical to moving from outside the EU.',
     'Make separate lists for personal effects, vehicle, pets and restricted goods before packing.|Check Tulli and the Finnish Food Authority for the documents, declarations and deadlines that apply.|Keep purchase evidence, registration papers, vaccination records and a packing inventory accessible during transit.',
     'Do not assume personal belongings, a new vehicle or pet travel are automatically tax-free.|A carrier’s advice is not a customs decision.|Rules for excise goods and animal movements can change quickly, so verify just before departure.',
-    'https://tulli.fi/en/moving'
+    'https://infofinland.fi/en/moving-to-finland/moving-to-finland-checklist'
   ),
   'moving_to_finland-international_movers': topic(
     'An international move is a logistics project with three risk points: what is packed, how it crosses borders and what happens if a delivery is delayed or damaged. A clear inventory and written quote are more valuable than a low headline price.',
     'Get comparable quotes that state volume, packing, transport mode, customs handling, delivery floor and insurance.|Photograph valuable items, label boxes by room and keep passports, medicines and documents out of the shipment.|Confirm the move date, contact person, claims process and what happens if access to either home changes.',
     'Check whether the quote includes VAT, storage, stairs, parking, customs and unpacking.|Do not ship irreplaceable documents or medicines in the main consignment.|Read the mover’s liability limits and declared-value requirements before signing.',
-    'https://www.suomi.fi/citizen/moving'
+    'https://www.infofinland.fi/en/moving-to-finland'
   ),
   'moving_to_finland-storage_warehousing': topic(
     'Storage is useful when your arrival dates do not line up, a home is being renovated or you are between countries. The right facility depends on access, temperature, insurance, contract length and who will move the items.',
     'Measure the volume and separate items that need climate control, ventilation or special handling.|Compare the full monthly cost, access hours, lock arrangements, collection service and notice period.|Create a numbered inventory and photograph the condition of valuable or fragile items.',
     'Ask what the facility’s insurance actually covers and whether your household policy applies.|Avoid storing passports, medication, irreplaceable papers or anything you may need urgently.|Set a review date so an inexpensive short-term store does not become an unnoticed long-term bill.',
-    'https://www.suomi.fi/citizen/moving'
+    'https://www.infofinland.fi/en/moving-to-finland'
   ),
   'moving_to_finland-relocation_services': topic(
     'Relocation advisers can save time by coordinating housing, registrations, schools and cultural orientation, but their scope varies. Use them to organise decisions, not to replace an authority or an employment lawyer.',
@@ -88,20 +88,20 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Leaving Finland involves more than handing back keys. Your move notification, tax position, Kela coverage, bank arrangements, insurance, business records and deposits can all need a final check.',
     'Choose the official moving date and submit the notification within the required timeframe.|Contact Kela, the Tax Administration, employer or pension provider, bank, insurer and utilities with that date.|Record final readings, balances, refunds, forwarding details and any open claims before departure.',
     'Ask how tax returns, prepayments, benefits and pension records continue after you leave.|Do not close the only Finnish account before salary, deposit or tax refunds have cleared.|Keep access to Suomi.fi and official mail long enough to receive decisions.',
-    'https://www.suomi.fi/citizen/moving'
+    'https://www.suomi.fi/citizen/moving-and-traveling/migration/guide/notification-of-move'
   ),
 
   'housing-index': topic(
     'Finnish housing decisions combine the apartment itself with the building, housing company, utilities, transport and your right to occupy it. Search broadly, understand the vocabulary and check the contract before money changes hands.',
     'Set a realistic monthly ceiling that includes rent or loan, utilities, insurance, transport and maintenance.|Search both municipal and private channels, then compare the building and neighbourhood as well as the floor plan.|Prepare identity, income, references and deposit funds so you can act when a suitable home appears.',
     'Helsinki-area prices and availability can differ sharply from other cities.|A housing-company apartment is usually bought through shares, not by buying the land directly.|Register your new address and arrange electricity, internet and insurance as part of moving in.',
-    'https://www.suomi.fi/housing-and-everyday-life'
+    'https://infofinland.fi/en/housing/housing-in-finland'
   ),
   'housing-housing_and_utilities': topic(
     'Finnish homes may use district heating, electric heating, geothermal systems or other arrangements, and many apartments sit inside a housing company. The person responsible for each bill depends on the lease and the building.',
     'Ask the landlord or seller who pays water, electricity, heating, internet, sauna and parking.|Read the building’s house rules and learn how maintenance requests, keys, laundry rooms and recycling work.|Take meter readings and photograph the condition when you receive the keys.',
     'Check whether an electricity contract is required before moving in and whether the home has a fixed or variable connection.|A housing-company fee can include services but does not necessarily cover every utility.|Use Finnish and Swedish building terms carefully when comparing documents.',
-    'https://www.suomi.fi/housing-and-everyday-life'
+    'https://infofinland.fi/en/housing/housing-in-finland'
   ),
   'housing-real_estate_terms': topic(
     'Finnish property adverts compress a lot of information into short codes: rooms, kitchen, bathroom, floor, tenure, energy and housing-company fees. Learning the vocabulary prevents an expensive misunderstanding.',
@@ -113,13 +113,13 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Finding a home works best as a repeatable search routine. Use several portals, learn the Finnish keywords, prepare a short introduction and respond quickly without sending sensitive information to an unverified advertiser.',
     'Define city, commute, size, furnished status, pets, accessibility and maximum total monthly cost.|Set alerts on major portals and municipal or student-housing providers, using Finnish search terms as well as English.|Prepare a viewing checklist and a ready-to-send application with only the documents genuinely requested.',
     'Never pay a deposit before you have verified the landlord, property and contract.|Check transport, grocery access, noise, storage, laundry and the building’s condition at the viewing.|A low rent can hide high utilities, a long commute or a housing-company renovation.',
-    'https://www.infofinland.fi/en/living-in-finland/housing'
+    'https://infofinland.fi/en/housing/housing-in-finland'
   ),
   'housing-furnished_apartments_in_finland': topic(
     'Furnished and serviced apartments bridge the gap between a hotel and a long lease. They are useful for a first landing, a temporary project or a family that needs time to inspect permanent housing.',
     'Decide whether you need a short stay, a registered address, a full kitchen, cleaning or workspace.|Compare the all-in price with a normal lease, including electricity, internet, linen, cleaning and VAT.|Confirm inventory, check-in, deposit, cancellation, pets and what happens if the stay extends.',
     '“Furnished” can mean anything from a complete kitchen to a few essential items.|Ask whether the address can be used for official registration or only for mail.|Photograph the inventory and defects on arrival so the deposit is protected.',
-    'https://www.suomi.fi/housing-and-everyday-life'
+    'https://infofinland.fi/en/housing/housing-in-finland'
   ),
   'housing-corporate_accommodation_in_finland': topic(
     'Corporate accommodation is a housing and employment benefit as much as a booking. The employer, employee and provider should all understand the term, tax treatment, length and responsibility for damage.',
@@ -161,74 +161,74 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'An investment property needs a different test from a family home: tenant demand, vacancy, maintenance, financing, taxes, regulation and the time you can actually spend managing it.',
     'Choose a city and tenant profile before comparing individual apartments or commercial space.|Model rent, vacancy, loan interest, housing-company charges, repairs, tax and management rather than using gross yield alone.|Check ownership restrictions, permits, insurance and the exit plan before committing capital.',
     'Market reports are not forecasts and a high yield can signal higher vacancy or repair risk.|Outside-EU/EEA real-estate purchases may require Ministry of Defence permission.|Get current tax and financing advice; do not copy a calculation from a different year.',
-    'https://www.defmin.fi/en/administrative_branch/real_estate_purchases'
+    'https://www.defmin.fi/en/licences_and_services/authorisation_to_non-eu_and_non-eea_buyers_to_buy_real_estate'
   ),
   'housing-home_loans_in_finland': topic(
     'A Finnish home-loan decision is about repayment capacity, collateral, stress tolerance and the property itself. Banks will look at income, commitments and documents, while a newcomer may need to explain their residence and employment history.',
     'Ask several banks for an indicative assessment and compare margin, reference rate, fees, amortisation and insurance requirements.|Prepare payslips, tax information, employment contract, residence details, debts and savings evidence.|Stress-test the payment if interest, energy, maintenance or income changes.',
     'A loan promise is not the same as a final approval for a specific home.|Guarantees, pledges and state guarantees have conditions and costs.|Never borrow the maximum simply because a calculator allows it.',
-    'https://www.finanssiala.fi/en/topics/housing-loans/'
+    'https://infofinland.fi/en/housing/buying-a-home'
   ),
   'housing-tax_advantages_for_housing': topic(
     'Housing tax treatment changes with the transaction, the home’s use, the type of work and the year. A deduction or exemption usually has a narrow definition and requires the right receipts or declaration.',
     'Identify whether the issue is transfer tax, loan interest, capital gains, renovation work or household expenses.|Read the current Tax Administration guidance for your exact situation and note the tax year.|Keep invoices, dates, ownership shares, payment evidence and any decision that supports the claim.',
     'First-home rules, rates and deductions can change; old articles are not a safe basis for a purchase.|A home used as your own residence can be treated differently from an investment property.|Ask a tax professional before relying on a large deduction or exemption.',
-    'https://www.vero.fi/en/individuals/housing/'
+    'https://www.vero.fi/en/individuals/property/'
   ),
   'housing-financial_support_for_housing': topic(
     'Housing support can involve Kela benefits, municipal or state-subsidised homes and the household’s income, rent and composition. Eligibility is personal and can change when work, family or address changes.',
     'Check Kela’s current housing-benefit rules and the local provider’s application process separately.|Prepare the lease, rent breakdown, household details, income evidence and bank information.|Report changes promptly and save the decision so you understand the next review date.',
     'Support is not automatic because a home is expensive or a household is new to Finland.|A benefit decision can change when income or household membership changes.|Emergency housing and ordinary housing support are different routes.',
-    'https://www.kela.fi/housing-benefits'
+    'https://www.kela.fi/housing-allowance'
   ),
   'housing-student_housing_in_finland': topic(
     'Student housing is often cheaper and close to campus, but demand follows the academic calendar. Exchange students, degree students, families and short programmes may need different providers or a private-market backup.',
     'Apply as soon as your offer or exchange place is confirmed and list acceptable neighbourhoods, room types and dates.|Read the student provider’s rules on queueing, deposit, furnishings, internet and termination.|Keep a private-room or short-term option ready for the arrival gap.',
     'A shared room can have different kitchen, bathroom and contract arrangements from a studio.|Your housing contract may not cover furniture, insurance or electricity.|Do not miss an offer deadline while waiting for a preferred neighbourhood.',
-    'https://www.studyinfinland.fi/life-in-finland/housing'
+    'https://infofinland.fi/en/housing/student-housing'
   ),
   'housing-emergency_accommodation_in_finland': topic(
     'Emergency accommodation is about immediate safety and a stable next step, not finding the ideal long-term home. The right contact depends on homelessness, domestic violence, family safety, age and medical need.',
     'If someone is in immediate danger call 112; otherwise contact the local social emergency service or crisis organisation.|Say clearly whether you need a bed tonight, protection from violence, children’s support, language help or a longer housing plan.|Ask what documents, benefits, transport and follow-up appointment are needed next.',
     'Do not delay a safety decision while searching online for a perfect service.|Shelters and municipal services have different eligibility and confidentiality rules.|Keep a trusted person informed and use an interpreter if you cannot explain the risk safely.',
-    'https://www.suomi.fi/citizen/social-security-and-health-care/social-services'
+    'https://infofinland.fi/en/housing/homelessness'
   ),
 
   'living_in_finland-index': topic(
     'Settling into Finland is mostly about building small, reliable routines: transport, school or daycare, healthcare, tax, language, news and local services. You do not need to master the culture before you start living here.',
     'List the recurring tasks in your household and assign each one a Finnish or English service doorway.|Choose one language-learning habit, one local information source and one social activity.|Save the municipality’s service pages, emergency number and library or community contacts.',
     'Municipalities organise many everyday services differently.|English may be available for the headline information but not every form or appointment.|Rules, fees and opening hours change, so bookmark the owner of each service rather than an old directory.',
-    'https://www.infofinland.fi/en/living-in-finland'
+    'https://infofinland.fi/en/home'
   ),
   'living_in_finland-driving': topic(
     'Driving in Finland combines licence recognition, road rules, vehicle registration, inspection, winter tyres and insurance. The correct answer can depend on where your licence was issued and how long you are resident.',
     'Check Traficom before driving on a foreign licence and find out whether an exchange, translation or test is required.|Budget for registration tax, inspection, insurance, tyres, parking and maintenance when comparing a car.|Learn the local signs, right-of-way rules, darkness and winter-driving expectations before a long trip.',
     'A valid licence does not remove the need for a registered, inspected and insured vehicle.|Studded-tyre periods and road conditions are seasonal; follow current rules and signs.|Do not buy a used car without checking its history, inspection and outstanding costs.',
-    'https://www.traficom.fi/en/transport/road/drivers-and-vehicles'
+    'https://www.traficom.fi/en/drivers-and-vehicles'
   ),
   'living_in_finland-preschools_kindergartens': topic(
     'Early education is organised locally and can include municipal daycare, private providers, language-immersion groups, preschools and playgroups. The right application depends on the child’s age, language, schedule and municipality.',
     'Contact your municipality early and compare opening hours, location, languages, fees and meals.|Ask how the place supports a child who is new to Finnish or Swedish and what information the family must provide.|Visit or request an orientation conversation before the first day.',
     'A foreign-language group may still have Finnish routines and forms.|A place is not guaranteed simply because you have found a provider online.|Tell the centre about allergies, additional support, custody arrangements and emergency contacts.',
-    'https://www.oph.fi/en/education-and-qualifications/early-childhood-education-and-care'
+    'https://www.oph.fi/en/education-system'
   ),
   'living_in_finland-international_schools': topic(
     'International, bilingual, private and IB schools can be helpful for a mobile family, but admission, fees, transport and language support vary widely. Start with the municipality and the school’s published admissions rules.',
     'Make a shortlist based on the child’s year, curriculum, language, location and likely length of stay.|Ask about application windows, assessment, waiting lists, tuition, meals, transport and special educational support.|Keep the previous school’s records and vaccination or health information ready for transfer.',
     '“International” does not always mean every year or subject is taught in English.|A private or international school may not follow the same timetable or progression as your home country.|Have a local comprehensive-school option in view while applications are pending.',
-    'https://www.oph.fi/en/education-and-qualifications/basic-education'
+    'https://www.oph.fi/en/education-system/basic-education'
   ),
   'living_in_finland-education': topic(
     'Finland’s education system includes early education, comprehensive school, general upper secondary, vocational education, higher education and adult learning. The route in depends on the learner’s age, previous studies and municipality.',
     'Identify the level and language support the learner needs before contacting the local education authority.|Gather certificates, translations, learning-support information and proof of address where requested.|Ask about preparatory education, vocational pathways, student welfare and the calendar for applications.',
     'Compulsory education and admission rules can differ by age and residence status.|A translated certificate may need an official statement rather than a literal translation.|Schools, families and health professionals may need consent to share support information.',
-    'https://www.oph.fi/en/education-and-qualifications'
+    'https://www.oph.fi/en/education-system'
   ),
   'living_in_finland-public_healthcare': topic(
     'Public healthcare is organised through wellbeing services counties, with health centres, hospitals, pharmacies, dental care and mental-health services. Your route depends on residence, entitlement, urgency and the type of care needed.',
     'For an emergency call 112; for urgent but non-life-threatening care use the local health advice or emergency service.|Find your health station, pharmacy, maternity or dental route and learn how appointments are booked.|Keep your identity, medicines, allergies, previous records and language needs ready for the clinician.',
     'A Kela card is not the only test of healthcare entitlement, and visitors may need travel insurance or private care.|Patient fees and waiting times vary by service and region.|Never delay urgent care because you are unsure which card or form you have.',
-    'https://www.suomi.fi/health'
+    'https://infofinland.fi/en/health/health-services-in-finland'
   ),
   'living_in_finland-private_healthcare': topic(
     'Private care can offer a faster appointment, a specific specialist or a practical route for visitors and people using travel insurance. The price, reimbursement and language service need checking before booking.',
@@ -238,9 +238,9 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
   ),
   'living_in_finland-social_security': topic(
     'Finnish social security combines residence-based Kela benefits with earnings-related insurance and pensions. Entitlement is assessed against your circumstances, not simply your nationality or the fact that you have a Finnish address.',
-    'Check Kela’s coverage assessment when you move, start work, study, bring family or leave Finland.|List the benefits that may matter—health, family, unemployment, housing, study, disability or pension—and read each condition separately.|Report changes in income, residence, family and work promptly.',
+    'Check Kela’s coverage assessment when you move, start work, study, bring family or leave Finland.|List the benefits that may matter: health, family, unemployment, housing, study, disability or pension. Read each condition separately.|Report changes in income, residence, family and work promptly.',
     'A decision for one benefit does not guarantee another.|Benefits may involve waiting periods, taxation, employment insurance or recovery of overpayments.|Use the official calculator and appeal instructions if a decision seems wrong.',
-    'https://www.kela.fi/in-english'
+    'https://www.kela.fi/english'
   ),
   'living_in_finland-tax': topic(
     'Tax in Finland is administered by Verohallinto and usually begins with a tax card for earned income. The relevant answer depends on residence, income source, employer, foreign ties and the tax year.',
@@ -250,18 +250,18 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
   ),
   'living_in_finland-language_training': topic(
     'Finnish language study is easier when it is connected to the life you are already building. Courses range from municipal integration and adult education to universities, summer universities, workplace training and online practice.',
-    'Choose a goal—survival phrases, work, an exam, parenting, study or social life—before choosing a course.|Combine structured lessons with short daily listening, reading and speaking tasks.|Use the course calendar and a Finnish-English dictionary to turn new words into real errands.',
+    'Choose a goal, such as survival phrases, work, an exam, parenting, study or social life, before choosing a course.|Combine structured lessons with short daily listening, reading and speaking tasks.|Use the course calendar and a Finnish-English dictionary to turn new words into real errands.',
     'Course dates, fees and eligibility change by municipality and provider.|Swedish is also an official language and may be the better route in some regions.|Do not wait for perfect grammar before using simple Finnish in shops, transport or appointments.',
-    'https://www.infofinland.fi/en/living-in-finland/finnish-and-swedish'
+    'https://infofinland.fi/en/finnish-and-swedish'
   ),
   'living_in_finland-language_clubs_summer_camps': topic(
     'Language clubs and camps give children and adults a low-pressure way to practise with activities, sport and other families. The best fit depends on age, language mix, supervision, accessibility and dates.',
     'Search municipal, university, association and provider calendars for the season and your child’s age.|Ask what language is used, how much outdoor time there is, what meals or equipment are included and who to contact in an emergency.|Treat a club as a weekly routine rather than a one-off language lesson.',
     'Camps may fill early and some are seasonal or only advertised in Finnish.|Confirm safeguarding, pick-up permissions, allergies and cancellation terms.|Check whether the group is recreational, instructional or intended for a particular level.',
-    'https://www.oph.fi/en/education-and-qualifications/leisure-activities'
+    'https://www.oph.fi/en/education-system'
   ),
   'living_in_finland-culture': topic(
-    'Finnish culture is not a single personality type. It is easier to understand through ordinary places—libraries, saunas, schools, nature, food, music, design, festivals and the way people manage personal space and time.',
+    'Finnish culture is not a single personality type. It is easier to understand through ordinary places: libraries, saunas, schools, nature, food, music, design, festivals and the way people manage personal space and time.',
     'Choose a cultural doorway that fits you: a library card, museum, local event, choir, class, nature trail or community centre.|Notice the expectations around punctuality, queues, quietness, direct speech and shared facilities.|Ask a Finnish friend what is local custom, what is regional and what is simply their preference.',
     'Avoid turning stereotypes into rules about every Finnish person.|Cultural confidence grows through repeated contact, not one “Finnish culture” lecture.|Your own traditions can sit alongside local participation; integration is not erasure.',
     'https://finland.fi/life-society/'
@@ -270,7 +270,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Finnish has a reputation for complexity, but its regular sounds and spelling make small progress visible. Start with useful phrases and patterns rather than trying to memorise an entire grammar book.',
     'Learn pronunciation, greetings, numbers, dates, directions and the words that appear in your own work or family life.|Use one course or app consistently and practise short conversations with patient people.|Keep a notebook of words you actually hear in signs, messages, appointments and shops.',
     'Finnish endings change a word’s role, so learn short phrases as whole units at first.|Swedish and English are useful in many settings, but language expectations vary by employer and municipality.|Humour about Finnish can be fun without treating the language or its speakers as a joke.',
-    'https://www.infofinland.fi/en/living-in-finland/finnish-and-swedish'
+    'https://infofinland.fi/en/finnish-and-swedish'
   ),
   'living_in_finland-news': topic(
     'Following Finnish news helps you understand decisions that affect transport, work, schools, weather and local life. English, Swedish, Russian and Sámi sources can be useful while you build Finnish reading confidence.',
@@ -282,7 +282,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Finland protects freedom of religion and belief, and communities include Lutheran, Orthodox, Catholic, Islamic, Jewish, other faith and non-religious organisations. Finding a congregation is usually a matter of language, location and practice.',
     'Search for a community that describes its services, language, accessibility and family activities clearly.|Contact the group before attending if you need a translation, dietary accommodation, children’s programme or a quiet space.|Learn how school religious education and community membership are handled in your municipality.',
     'Nominal church membership does not describe every person’s beliefs or practice.|A place of worship may have different pastoral, cultural and legal roles.|Respect privacy and safety when discussing belief, conversion or family expectations.',
-    'https://www.infofinland.fi/en/living-in-finland/religion-in-finland'
+    'https://infofinland.fi/en/information-about-finland'
   ),
   'living_in_finland-driving_tips': topic(
     'A short Finnish driving checklist should cover the essentials: 112, valid documents, speed and alcohol rules, lights, winter conditions, parking and what to do after a collision.',
@@ -303,7 +303,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'https://finland.fi/life-society/'
   ),
   'living_in_finland-fingerpori': topic(
-    'Fingerpori depends on Finnish wordplay, double meanings and cultural references. It is a good reminder that humour and language grow together—and that a translation may need an explanation rather than a direct replacement.',
+    'Fingerpori depends on Finnish wordplay, double meanings and cultural references. It is a good reminder that humour and language grow together, and that a translation may need an explanation rather than a direct replacement.',
     'Read a strip first for the situation, then look up the key word or expression.|Keep a small list of puns, idioms and place references you want to ask about.|Use comics as a supplement to structured language study, not as a test of whether you “understand Finns”.',
     'Copyright belongs to the creator and publisher; use official licensed editions or links.|A translated joke may be an adaptation rather than a literal translation.|Do not repost strips or build a commercial collection without permission.',
     'https://www.hs.fi/fingerpori/'
@@ -323,7 +323,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
   ),
   'employment-foreign_qualifications': topic(
     'A foreign qualification can be comparable, recognised for a particular job or insufficient for a regulated profession. The responsible authority depends on the field, so “recognition” is not one universal certificate.',
-    'Decide whether you need an employer’s assessment, an official statement, a higher-education decision or a professional licence.|Collect the final diploma, transcript, syllabus, identity documents and authorised translations requested.|Ask the competent authority what the decision allows—and what it does not allow—before applying for jobs.',
+    'Decide whether you need an employer’s assessment, an official statement, a higher-education decision or a professional licence.|Collect the final diploma, transcript, syllabus, identity documents and authorised translations requested.|Ask the competent authority what the decision allows and what it does not allow before applying for jobs.',
     'An advisory statement does not automatically grant a right to practise.|Healthcare, teaching and other regulated work can have language, registration and aptitude requirements.|Do not pay an intermediary who promises recognition without naming the statutory authority.',
     'https://www.oph.fi/en/services/recognition-and-international-comparability-qualifications'
   ),
@@ -331,7 +331,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'The Finnish job search rewards clarity and persistence. Show what you can do, explain your right to work and demonstrate a realistic plan for learning the language or working in an international team.',
     'Create a short CV and cover letter for one target role, using the employer’s terminology and measurable examples.|Build a list of companies, recruiters, alumni, events and professional communities rather than relying only on job boards.|Practise a direct interview answer about your skills, availability, permit and language level.',
     'A translated CV with no Finnish keywords can disappear from search results.|Never pay for a job or send bank details during recruitment.|Follow up once, then keep applying and improving the evidence in your portfolio.',
-    'https://www.workinfinland.com/en/find-a-job/'
+    'https://www.workinfinland.com/en/wif/open-jobs/'
   ),
   'employment-finnish_labour_market': topic(
     'Labour-market headlines are broad averages. Your real prospects depend on region, occupation, language, qualification, employer size and whether the vacancy is permanent, project-based or seasonal.',
@@ -410,7 +410,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Finnish financial administration is designed around digital invoices, bank feeds, approvals, payroll and tax reporting. The best system is the one your team will use consistently and that leaves a clear audit trail.',
     'Map how a sale, purchase, invoice, payment, reimbursement and approval should move through the business.|Compare software on Finnish VAT, e-invoice, payroll, permissions, exports, support and accountant integration.|Create rules for backups, user access, receipts and the monthly close.',
     'Automation magnifies a bad chart of accounts or incorrect VAT setting.|Keep human approval for unusual payments, new suppliers and payroll changes.|Make sure you can export the records if you change software or accountant.',
-    'https://www.vero.fi/en/businesses-and-corporations/business-operations/electronic-invoicing/'
+    'https://www.vero.fi/en/businesses-and-corporations/taxes-and-charges/payments/corporate-taxpayer--use-the-web-invoice/'
   ),
   'entrepreneurship-accountancy': topic(
     'Every business in Finland needs records that show what came in, what went out, what tax was collected and what the business owes. Bookkeeping and notifications are recurring work, not a task to postpone until year end.',
@@ -428,13 +428,13 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Hiring the first employee changes a business into an employer with payroll, pension, accident insurance, safety, working-time and equality responsibilities. Foreign employers may also need a Finnish representative or reporting route.',
     'Choose payroll and insurance providers before the first salary and identify the applicable collective agreement.|Give the employee a written contract, safe work, payslip and clear contact for questions.|Set a monthly checklist for withholding, employer contributions, pension, accident cover and records.',
     'The owner cannot outsource responsibility by forwarding a payroll email.|A contractor may legally be an employee depending on the real relationship.|Get advice before hiring across borders, posting a worker or using a pay subsidy.',
-    'https://www.suomi.fi/company/employing-people'
+    'https://www.suomi.fi/company/being-an-employer/employers-responsibilities'
   ),
   'entrepreneurship-development_and_finance': topic(
     'Business finance is a sequence of proof: a useful product, credible customers, sensible numbers and a plan for risk. Public advice, ELY services, Finnvera and Business Finland may support different stages and sectors.',
     'Separate survival cash flow from growth investment and build a 12-month scenario with a downside case.|Ask an adviser which public grant, loan, guarantee or development service actually fits your company.|Prepare a concise plan, forecasts, ownership information and evidence of customer demand.',
     'Funding is rarely free money and may require eligible costs, reporting or co-financing.|Do not take a loan before you understand personal guarantees, security and repayment.|A business adviser’s optimism is not a substitute for a signed customer or a cash forecast.',
-    'https://www.businessfinland.fi/en/for-finnish-customers/services'
+    'https://www.businessfinland.fi/en/services'
   ),
   'entrepreneurship-lawyers': topic(
     'A Finnish lawyer is most useful before a problem becomes expensive: company formation, shareholder arrangements, employment, lease, intellectual property, debt, privacy and cross-border contracts all reward early review.',
@@ -474,7 +474,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'https://www.kyberturvallisuuskeskus.fi/en'
   ),
   'finance-loans': topic(
-    'A loan is a long contract about cost, risk and repayment—not a solution to an unclear monthly budget. Banks will look at income, expenses, existing credit, security and sometimes your residence history.',
+    'A loan is a long contract about cost, risk and repayment, not a solution to an unclear monthly budget. Banks will look at income, expenses, existing credit, security and sometimes your residence history.',
     'Write the purpose, amount, term and affordable payment before comparing lenders.|Compare annual percentage rate, reference rate, fees, insurance, early repayment and default consequences.|If payments become difficult, contact the lender and debt-advice service before missing several bills.',
     'A credit-card limit is not income and a “quick” loan can be very expensive.|A mortgage, student loan and consumer credit have different security and interest structures.|Do not sign a guarantee for someone else without independent advice.',
     'https://www.takuusaatio.fi/en/'
@@ -488,15 +488,15 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
 
   'connections-index': topic(
     'A useful support network in Finland can include official services, local friends, international groups, cultural societies and your own embassy. Start with one low-pressure connection and build from there.',
-    'Choose the help you need—practical information, friendship, language, professional contacts or consular support.|Check who runs each group, how current its information is and whether membership or fees apply.|Keep official decisions and personal data out of public forums.',
+    'Choose the help you need: practical information, friendship, language, professional contacts or consular support.|Check who runs each group, how current its information is and whether membership or fees apply.|Keep official decisions and personal data out of public forums.',
     'Online communities are valuable local knowledge, not an authority.|A group may be Helsinki-focused even when its name says Finland.|If someone is in danger or a document deadline is near, go directly to the responsible service.',
-    'https://www.infofinland.fi/en/living-in-finland/participation-and-influence'
+    'https://infofinland.fi/en/information-about-finland'
   ),
   'connections-forums': topic(
     'Forums can answer the question that a national web page never anticipated: which office picks up a form, how a neighbourhood feels or what a school actually asks for. Use them as lived experience, then verify the conclusion.',
     'Search old threads before posting and include your city, date, legal status and the exact decision you face.|Compare at least two answers and ask for the official link behind a claim.|Remove passport numbers, bank details, children’s data and private medical information from public posts.',
     'A confident answer may be outdated, sponsored or based on a different nationality.|Moderation and privacy differ between forums and social platforms.|Do not let a forum replace a permit, tax, health or legal professional.',
-    'https://www.infofinland.fi/en/living-in-finland/participation-and-influence'
+    'https://infofinland.fi/en/information-about-finland'
   ),
   'connections-groups': topic(
     'Clubs and interest groups are often the fastest route to a real social life because the activity gives people something to talk about. Look beyond “expat” groups to sport, music, parents, volunteering, language and neighbourhood organisations.',
@@ -546,49 +546,49 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'A connected home usually needs a mobile plan, broadband decision, television or streaming choice and a way to follow Finnish news. Compare coverage, building technology, language and the true monthly cost.',
     'Check what the building already provides before ordering a separate connection.|Choose one mobile route for arrivals and work, then add home broadband or streaming only when you know the use case.|Save contract, device, cancellation and support details in your household file.',
     'Advertised speed is not the same as indoor coverage or evening performance.|A landlord or housing company may control the cable or fibre route.|Contracts, public-broadcasting obligations and content rights can differ from your previous country.',
-    'https://www.traficom.fi/en/communications'
+    'https://www.traficom.fi/en/telephone-and-broadband'
   ),
   'telecommunications_and_media-telephone': topic(
     'Finnish mobile service is usually contract-based or prepaid, with data, roaming, identification and coverage as the main choices. Keep a local number practical for banks, landlords, schools and appointments.',
     'Decide whether you need a short-term prepaid SIM, a monthly plan, an eSIM or a family/business account.|Compare data, calls, EU roaming, activation, device financing, cancellation and international-call pricing.|Secure voicemail, account recovery and a second contact method before changing number.',
     'A plan that is cheap in Helsinki may have poor rural or indoor coverage.|Roaming within the EU has conditions and fair-use limits.|Never read a verification code to an unexpected caller claiming to be the operator.',
-    'https://www.traficom.fi/en/communications/phone-and-broadband-services'
+    'https://www.traficom.fi/en/telephone-and-broadband/telephone-and-broadband-users'
   ),
   'telecommunications_and_media-isp': topic(
     'Finnish broadband is generally reliable, but the correct service depends on the building’s fibre or cable connection, the area, the contract and whether you need a mobile backup.',
     'Ask the landlord or housing company which providers and connection types reach the address.|Compare installation, router, speed, data limits, support, fixed term and cancellation rather than only the first-month price.|Test the service before relying on it for work, study or a move.',
     'A building connection can be included in the housing charge but still need activation.|Coverage maps do not describe every room or winter outage.|Keep mobile data available for emergency communication and service interruptions.',
-    'https://www.traficom.fi/en/communications/broadband-and-telephone'
+    'https://www.traficom.fi/en/telephone-and-broadband'
   ),
   'telecommunications_and_media-television': topic(
-    'Finnish television depends on the signal available in the building—cable, terrestrial or satellite—and the equipment that can decode it. Streaming has added choice but not removed local broadcasting and licence questions.',
+    'Finnish television depends on the signal available in the building, whether cable, terrestrial or satellite, and the equipment that can decode it. Streaming has added choice but not removed local broadcasting and licence questions.',
     'Ask the building manager whether the home uses DVB-C, DVB-T2 or another signal before buying equipment.|Choose free, public-service, pay-TV or streaming content based on language, sport, news and budget.|Check accessibility, subtitles, recording, device compatibility and internet use.',
     'A television bought abroad may not support the local tuner or power plug safely.|The public broadcasting tax is a household tax question, not a premium-channel subscription.|Programme availability and rights vary by country and service.',
-    'https://www.traficom.fi/en/communications/tv-and-radio'
+    'https://www.traficom.fi/en/tv-and-radio/tv-and-radio-consumers'
   ),
   'telecommunications_and_media-pay_tv': topic(
     'Pay-TV usually combines a package subscription with access hardware or a viewing card. The practical questions are signal type, compatible module, contract term, cancellation, sports rights and the total monthly price.',
     'Confirm the building signal and television or set-top-box compatibility before ordering.|Compare package contents, introductory price, equipment, installation, recording and cancellation.|Keep the card, contract and provider support details together so a move is easy.',
     'A smart card cannot be inserted directly into every television.|A channel listed in a package can still be unavailable during a rights change or technical fault.|Do not accept a long fixed term without understanding the exit conditions.',
-    'https://www.traficom.fi/en/communications/tv-and-radio'
+    'https://www.traficom.fi/en/tv-and-radio/tv-and-radio-consumers'
   ),
   'telecommunications_and_media-net_tv': topic(
     'Streaming and IPTV deliver live, catch-up and on-demand content through the internet. They are convenient for international households, but location rights, subtitles, device limits and broadband reliability still matter.',
     'List the channels and languages the household actually watches before subscribing.|Check Finnish availability, simultaneous streams, offline viewing, subtitles, cancellation and child controls.|Use a wired or well-placed Wi-Fi connection and keep billing alerts active.',
     'A VPN may breach a service’s terms and does not make every programme legally available.|A subscription can renew after an introductory price ends.|Avoid unofficial IPTV boxes and streams that expose the household to fraud or malware.',
-    'https://www.traficom.fi/en/communications/tv-and-radio'
+    'https://www.traficom.fi/en/tv-and-radio/tv-and-radio-consumers'
   ),
   'telecommunications_and_media-satellite_tv': topic(
     'Satellite television can help with international channels where internet options are limited, but the dish needs a clear view, permission, installer and compatible service. Finnish buildings often have rules about external equipment.',
     'Check the building’s permission, façade rules and landlord or housing-company contact before buying a dish.|Confirm the satellite position, signal in your location, installation cost and weather resilience.|Compare the full subscription and equipment cost with legal streaming or cable options.',
     'A dish that works in one direction or flat may not work from your balcony.|Northern weather, trees and snow can reduce reliability.|Some broadcasters restrict reception by country, so confirm rights before signing.',
-    'https://www.traficom.fi/en/communications/tv-and-radio'
+    'https://www.traficom.fi/en/tv-and-radio/tv-and-radio-consumers'
   ),
   'telecommunications_and_media-radio': topic(
     'Radio is a low-bandwidth way to hear Finnish news, weather, music and languages while you learn the country. National public-service stations, local commercial stations and online streams serve different audiences.',
     'Choose a national source for public-service news and a local station for traffic, events and regional information.|Use the RadioMedia directory or the station’s own app to check frequency and streaming options.|Keep a battery-powered or car option available for serious weather or power disruption.',
     'A station’s language and schedule can change by region.|Online streams may be geo-restricted or use more data than expected.|For emergencies, follow official warnings rather than a casual presenter or social post.',
-    'https://www.traficom.fi/en/communications/tv-and-radio/radio'
+    'https://www.traficom.fi/en/tv-and-radio/tv-and-radio-consumers'
   ),
 
   'travel_finland-index': topic(
@@ -599,9 +599,9 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
   ),
   'travel_finland-accommodation': topic(
     'Finland has hotels, hostels, cottages, holiday homes, campsites, serviced apartments and cabins. Price and availability depend heavily on season, city, festival, ski conditions and how far in advance you book.',
-    'Choose the stay around the trip: kitchen and laundry for a longer visit, reception for a late arrival, or a cottage for nature and space.|Compare cleaning, linen, breakfast, sauna, parking, cancellation, taxes and transport—not only the nightly rate.|Save check-in instructions and a plan for groceries and keys.',
+    'Choose the stay around the trip: kitchen and laundry for a longer visit, reception for a late arrival, or a cottage for nature and space.|Compare cleaning, linen, breakfast, sauna, parking, cancellation, taxes and transport, not only the nightly rate.|Save check-in instructions and a plan for groceries and keys.',
     'A summer cottage may be remote and a winter resort may have very limited off-season services.|Short-term rental rules and deposits differ from a normal tenancy.|Check accessibility, fire safety, water, heating and mobile coverage before booking.',
-    'https://www.visitfinland.com/en/where-to-go/'
+    'https://www.visitfinland.com/en/places-to-go/'
   ),
   'travel_finland-finnish_travel_guides': topic(
     'Finland rewards planning by region and activity: national parks, lakes, archipelago, cycling, hiking, boating, heritage and winter trails all need different kit and transport.',
@@ -649,7 +649,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Car hire is useful for cottages, national parks and routes with little public transport, but the contract decides the real cost. Licence, age, payment card, insurance, fuel, mileage and winter equipment all matter.',
     'Compare the total price including excess, deposit, additional driver, child seats, one-way fee, fuel and cleaning.|Photograph the vehicle, wheels, glass and fuel level at collection and return.|Check the route, parking, charging or fuel stations and winter driving conditions before leaving.',
     'A foreign licence may need a translation or permit; confirm with the rental company and Traficom.|The renter can be liable for damage even when a basic insurance package exists.|Do not drive on roads or ice you are not equipped and authorised to use.',
-    'https://www.traficom.fi/en/transport/road/drivers-and-vehicles'
+    'https://www.traficom.fi/en/drivers-and-vehicles'
   ),
 
   'shopping_in_finland-index': topic(

@@ -70,10 +70,10 @@ const titleOverrides: Record<string, string> = {
 const officialUrls: Record<OriginalGuide['category'], string> = {
   'Immigration & permits': 'https://migri.fi/en/home',
   'Work & money': 'https://www.suomi.fi/frontpage',
-  Housing: 'https://www.suomi.fi/housing-and-everyday-life',
-  'Health & wellbeing': 'https://www.suomi.fi/health',
+  Housing: 'https://infofinland.fi/en/housing',
+  'Health & wellbeing': 'https://infofinland.fi/en/health',
   'Getting around': 'https://www.traficom.fi/en',
-  Family: 'https://www.suomi.fi/families',
+  Family: 'https://infofinland.fi/en/family',
   'Everyday life': 'https://www.suomi.fi/frontpage',
 }
 

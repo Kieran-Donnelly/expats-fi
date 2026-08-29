@@ -236,7 +236,7 @@ export const finlandFoodGuides: EditorialGuide[] = [
       'Ask an actual Finnish household which everyday products they buy. Tourist lists rarely tell you the useful brand of rye bread or mustard.',
     ],
     resources: [
-      { title: 'Food information and labelling', description: 'Official guidance on ingredient lists, allergens, date marking and food information for consumers.', url: 'https://www.ruokavirasto.fi/en/foodstuffs/food-sector/product-and-industry-specific-requirements/food-information/', source: 'Finnish Food Authority' },
+      { title: 'Food information and labelling', description: 'Official guidance on ingredient lists, allergens, date marking and food information for consumers.', url: 'https://www.ruokavirasto.fi/en/foodstuffs/food-sector/food-information/labelling/labelling/', source: 'Finnish Food Authority' },
       { title: 'Hyv\u00e4\u00e4 Suomesta label', description: 'The origin label\u2019s criteria and what the Finnish swan mark means on food packaging.', url: 'https://ruokatieto.fi/en/home/', source: 'Ruokatieto' },
       { title: 'Deposit return system', description: 'How Finland\u2019s deposit cans and bottles are marked, returned and recycled.', url: 'https://www.palpa.fi/beverage-container-recycling/deposit-refund-system/', source: 'Palpa' },
       { title: 'Food shopping and prices', description: 'Practical household and money guidance for daily life in Finland.', url: '/resources/', source: 'Expats.fi' },

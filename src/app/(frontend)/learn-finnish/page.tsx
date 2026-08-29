@@ -5,7 +5,7 @@ import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getLearningPageData } from '@/lib/content'
 
 export const metadata: Metadata = {
-  title: 'Finnish, finally — learn Finnish in Finland',
+  title: 'Finnish, finally: learn Finnish in Finland',
   description: 'A carefully checked guide to Finnish courses, free resources, apps, podcasts, YouTube channels, YKI preparation and Helsinki language cafés.',
 }
 
@@ -27,7 +27,7 @@ const sections: Array<{ category: LearningResource['category']; id: string; titl
   {
     category: 'Apps & tools',
     id: 'apps',
-    title: 'Useful tools—not tiny teachers in your pocket',
+    title: 'Useful tools, not tiny teachers in your pocket',
     eyebrow: 'Apps and study tools',
     intro: 'Apps are strongest at repetition, vocabulary and habit-building. Combine one with explanations, listening and actual human conversation.',
   },
@@ -100,7 +100,7 @@ export default async function LearnFinnishPage() {
       </section>
 
       <aside className="shell learning-reality-check">
-        <div><p className="eyebrow">The honest version</p><h2>Written Finnish and spoken Finnish are close relatives—not identical twins.</h2></div>
+        <div><p className="eyebrow">The honest version</p><h2>Written Finnish and spoken Finnish are close relatives, not identical twins.</h2></div>
         <p>Courses usually begin with <em>kirjakieli</em>, the standard written language. Helsinki conversations quickly introduce <em>puhekieli</em>: <strong>minä olen</strong> becomes <strong>mä oon</strong>. Learn the standard foundation, but start listening to everyday speech early so the bus stop does not sound like an entirely different course.</p>
       </aside>
 
@@ -138,7 +138,7 @@ export default async function LearnFinnishPage() {
 
       <section className="shell learning-routine" aria-labelledby="routine-heading">
         <div><p className="eyebrow">A routine that can survive real life</p><h2 id="routine-heading">The 20–20–1 plan</h2></div>
-        <ol><li><strong>20 minutes of structure</strong><span>A course, textbook or one carefully chosen app.</span></li><li><strong>20 minutes of Finnish input</strong><span>Easy news, a podcast, video or something you genuinely care about.</span></li><li><strong>1 conversation each week</strong><span>A café, colleague, neighbour or teacher—with a polite request not to switch immediately to English.</span></li></ol>
+        <ol><li><strong>20 minutes of structure</strong><span>A course, textbook or one carefully chosen app.</span></li><li><strong>20 minutes of Finnish input</strong><span>Easy news, a podcast, video or something you genuinely care about.</span></li><li><strong>1 conversation each week</strong><span>A café, colleague, neighbour or teacher, with a polite request not to switch immediately to English.</span></li></ol>
       </section>
 
       <div className="shell learning-review-note"><strong>Curated, not scraped.</strong><p>We checked these resources on {lastLearningReview}. Courses, prices and meetup schedules change; follow the provider link before enrolling or travelling.</p></div>

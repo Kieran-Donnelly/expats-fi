@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'What’s on in Helsinki',
-  description: 'Discover upcoming events, festivals, markets and gatherings in Helsinki—with clear practical details and transport tips.',
+  description: 'Discover upcoming events, festivals, markets and gatherings in Helsinki, with clear practical details and transport tips.',
 }
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; q?: string }> }) {
@@ -56,7 +56,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
       <header className="events-hero photo-hero photo-hero--dark">
         <HeroBackdrop src="/images/heroes/events-evening-gathering.webp" position="center 48%" />
         <div className="shell events-hero__inner">
-          <div><p className="eyebrow">Helsinki, right now</p><h1>Go somewhere. Meet someone. Find your Helsinki.</h1><p>Fresh picks for festivals, gatherings, markets and memorable nights—with the practical details you need before leaving home.</p></div>
+          <div><p className="eyebrow">Helsinki, right now</p><h1>Go somewhere. Meet someone. Find your Helsinki.</h1><p>Fresh picks for festivals, gatherings, markets and memorable nights, with the practical details you need before leaving home.</p></div>
           {featured && <div className="events-hero__spotlight"><span>Coming up</span><strong>{featured.title}</strong><p>{featured.dateLabel} · {featured.location}</p><Link href={`/events/${featured.slug}/`}>See the plan →</Link></div>}
         </div>
       </header>

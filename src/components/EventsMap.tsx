@@ -141,7 +141,7 @@ export function EventsMap({ events }: { events: CityEvent[] }) {
           ))}
         </ol>
       </div>
-      {citywideCount > 0 && <p className="events-map__note">Events with several changing venues stay in the listings below—check their detail page before setting off.</p>}
+      {citywideCount > 0 && <p className="events-map__note">Events with several changing venues stay in the listings below. Check their detail page before setting off.</p>}
     </section>
   )
 }

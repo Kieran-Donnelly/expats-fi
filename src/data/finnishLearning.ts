@@ -43,7 +43,7 @@ export const learningPaths = [
   {
     title: 'I am preparing for YKI',
     level: 'Goal-led · usually B1',
-    recipe: 'Train all four skills—speaking, listening, reading and writing—and use official task examples before paying for mock tests or coaching.',
+    recipe: 'Train all four skills: speaking, listening, reading and writing. Use official task examples before paying for mock tests or coaching.',
     links: ['Official YKI guidance', 'Yle YKI practice', 'Finnishcourses.fi'],
   },
 ] as const
@@ -170,7 +170,7 @@ export const learningResources: LearningResource[] = [
     url: 'https://www.duolingo.com/course/fi/en/Learn-Finnish',
     description: 'A playful, low-friction introduction to basic Finnish words and sentence patterns. The Finnish course is relatively short.',
     bestFor: 'Creating a daily habit and testing whether you enjoy the language.',
-    note: 'Treat the streak as a warm-up—not evidence that you are ready for a real conversation.',
+    note: 'Treat the streak as a warm-up, not evidence that you are ready for a real conversation.',
   },
   {
     name: 'Kieli.net',
@@ -211,7 +211,7 @@ export const learningResources: LearningResource[] = [
     url: 'https://www.finnishpod101.com/',
     description: 'A large library of short audio and video lessons, with a free YouTube channel and a paid structured platform.',
     bestFor: 'Learners who prefer English-supported explanations and bite-sized audio.',
-    note: 'The volume of material can be distracting—choose one series and finish it before browsing again.',
+    note: 'The volume of material can be distracting. Choose one series and finish it before browsing again.',
   },
 ]
 
@@ -249,7 +249,7 @@ export const practiceGroups: PracticeGroup[] = [
     schedule: 'Search current groups',
     cost: 'Free finder',
     url: 'https://kielikahvilat.fi/',
-    description: 'A dedicated directory for Finnish conversation groups in libraries, cafés and online—useful when the familiar city-centre options do not fit your schedule.',
+    description: 'A dedicated directory for Finnish conversation groups in libraries, cafés and online. Useful when the familiar city-centre options do not fit your schedule.',
     checkFirst: 'Always confirm the organiser’s latest details, particularly during holiday periods.',
   },
 ]

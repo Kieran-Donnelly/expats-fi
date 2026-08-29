@@ -68,7 +68,7 @@ const helpSections = [
     summary: 'Save the contract, payslips, work schedules, hours, messages and any photos that safely document the problem. Ask the employer for a written explanation. Finland’s Occupational Safety and Health Administration gives guidance on employment terms and working conditions. Victim Support Finland can also assist if you suspect labour exploitation or another crime.',
     tip: 'Do not sign a document you do not understand. Ask for time, a translation or independent advice first.',
     links: [
-      { label: 'Occupational Safety and Health Administration', href: 'https://tyosuojelu.fi/en/frontpage' },
+      { label: 'Occupational Safety and Health Administration', href: 'https://tyosuojelu.fi/en' },
       { label: 'Victim Support Finland', href: 'https://www.riku.fi/en/service-brochure-english/' },
       { label: 'Work and money resources', href: '/resources/?category=Work%20%26%20money#resource-library' },
     ],

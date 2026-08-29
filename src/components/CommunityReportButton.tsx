@@ -16,7 +16,7 @@ export function CommunityReportButton({ targetType, targetId, isAuthenticated, n
   const [state, setState] = useState<'idle' | 'busy' | 'sent' | 'error'>('idle')
 
   if (!isAuthenticated) return <Link className="community-report-button" href={`/login/?next=${encodeURIComponent(nextPath)}`}>Sign in to report</Link>
-  if (state === 'sent') return <span className="community-report-button community-report-button--sent" role="status">Thanks — reported</span>
+  if (state === 'sent') return <span className="community-report-button community-report-button--sent" role="status">Thanks, reported</span>
 
   async function report() {
     if (!window.confirm(`Report this ${targetType} to the Expats.fi team?`)) return

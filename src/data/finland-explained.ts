@@ -228,7 +228,7 @@ export const finlandExplainedGuides: EditorialGuide[] = [
     resources: [
       { title: 'World Heritage in Finland', description: 'The official list and background for Finland\u2019s eight UNESCO World Heritage properties.', url: 'https://www.museovirasto.fi/en/about-us/international-activities/world-heritage-in-finland', source: 'Finnish Heritage Agency' },
       { title: 'Suomenlinna visitor information', description: 'Ferries, museums, services, accessibility and responsible visiting on the fortress islands.', url: 'https://www.suomenlinna.fi/en/', source: 'Governing Body of Suomenlinna' },
-      { title: 'Turku Castle', description: 'Current exhibitions, tickets, accessibility and opening information for the medieval castle.', url: 'https://www.turku.fi/en/turku-castle', source: 'City of Turku' },
+      { title: 'Turku Castle', description: 'Current museum information and routes into Turku’s medieval history.', url: 'https://www.turku.fi/en/city-museum', source: 'City of Turku' },
       { title: 'S\u00e1mi Museum Siida', description: 'Visitor information and exhibitions produced by the national museum of the S\u00e1mi in Finland.', url: 'https://siida.fi/en/', source: 'S\u00e1mi Museum Siida' },
       { title: 'Responsible visitor guidance for S\u00e1mi culture', description: 'Practical guidance for visiting S\u00e1pmi without misusing or misrepresenting living S\u00e1mi culture.', url: 'https://matkailu.samediggi.fi/en/', source: 'S\u00e1mi Parliament of Finland' },
     ],

@@ -178,7 +178,7 @@ function EmbassyMap({
           markerButton.type = 'button'
           markerButton.className = `embassy-map-marker${location.precision === 'city' ? ' embassy-map-marker--approximate' : ''}`
           markerButton.setAttribute('aria-label', `Open ${embassy.country} representation details`)
-          markerButton.title = `${embassy.country} — ${embassy.city}, ${embassy.hostCountry}`
+          markerButton.title = `${embassy.country}, ${embassy.city}, ${embassy.hostCountry}`
 
           const flag = document.createElement('span')
           flag.className = `fi fi-${embassy.countryCode.toLowerCase()}`
@@ -204,7 +204,7 @@ function EmbassyMap({
 
           if (location.precision === 'city') {
             const accuracy = document.createElement('small')
-            accuracy.textContent = 'Approximate location — the published address could not be placed precisely.'
+            accuracy.textContent = 'Approximate location. The published address could not be placed precisely.'
             popupContent.append(accuracy)
           }
 

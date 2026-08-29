@@ -247,7 +247,7 @@ export const studyGuides: EditorialGuide[] = [
       'Keep copies of the plan and decisions. They make later conversations much easier.',
     ],
     resources: [
-      { title: 'Integration and employment services in Helsinki', description: 'The city route for assessment, planning, work and integration support.', url: 'https://www.hel.fi/en/business-and-work/jobseekers/integration-services-for-immigrants', source: 'City of Helsinki' },
+      { title: 'Integration and employment services in Helsinki', description: 'The city route for assessment, planning, work and integration support.', url: 'https://www.hel.fi/en/business-and-work/when-you-have-moved-to-finland', source: 'City of Helsinki' },
       { title: 'Studying Finnish', description: 'Integration training, independent study and other language-course routes.', url: 'https://www.infofinland.fi/en/finnish-and-swedish/studying-finnish', source: 'InfoFinland' },
       { title: 'Finnishcourses.fi', description: 'Current Finnish and Swedish courses across the Helsinki region and online.', url: 'https://finnishcourses.fi/', source: 'Helsinki region municipalities' },
       { title: 'Learn Finnish with Expats.fi', description: 'Free resources, courses, apps, listening and language cafés.', url: 'https://expats.fi/learn-finnish/', source: 'Expats.fi' },
