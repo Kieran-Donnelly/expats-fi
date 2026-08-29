@@ -50,7 +50,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
       <Link className="back-link" href="/businesses/">← Business directory</Link>
       <header className="business-profile__header">
         <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p>{publiclyVerified && <p className="business-profile__verification"><span aria-hidden="true">✓</span> {verificationLabel}{verificationDate && <span> · Last checked {verificationDate}</span>}</p>}<div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /></div></div>
-        <div className={`business-profile__mark${business.logoPath ? ' business-profile__mark--logo' : ''}`} aria-hidden={!business.logoPath}>
+        <div className={`business-profile__mark${business.logoPath ? ' business-profile__mark--logo' : ''}`} data-business={business.slug} aria-hidden={!business.logoPath}>
           {business.logoPath
             ? <Image src={business.logoPath} alt={business.logoAlt || `${business.name} logo`} width={220} height={220} />
             : business.name.slice(0, 1)}

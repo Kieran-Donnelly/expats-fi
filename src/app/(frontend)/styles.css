@@ -573,6 +573,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-profile__mark { inline-size: clamp(7rem, 16vw, 11rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 1rem; background: var(--blue); color: var(--snow); font-size: clamp(3rem, 8vw, 6rem); font-weight: 750; }
 .business-profile__mark--logo { padding: 1rem; overflow: hidden; background: var(--snow); border: 1px solid var(--line); }
 .business-profile__mark--logo img { inline-size: 100%; block-size: 100%; object-fit: contain; }
+.business-profile__mark--logo[data-business="aussie-bar"] { inline-size: clamp(12rem, 22vw, 17rem); aspect-ratio: 532 / 180; padding: 1.25rem 1.4rem; border-color: oklch(35% .045 255); background: oklch(24% .055 255); box-shadow: 0 1.2rem 2.6rem oklch(20% .04 255 / .16); }
 .business-profile__body { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: clamp(3rem, 8vw, 6rem); padding-block-start: 3rem; }
 .business-profile__body h2 { margin-block-end: 1rem; font-size: 1.8rem; }
 .business-profile__body p { color: var(--ink-soft); }
