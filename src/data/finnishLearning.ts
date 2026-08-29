@@ -218,8 +218,8 @@ export const learningResources: LearningResource[] = [
 export const practiceGroups: PracticeGroup[] = [
   {
     name: 'Helmet library language cafés',
-    location: 'Libraries around Helsinki',
-    schedule: 'Multiple days and locations',
+    location: 'Helmet libraries across the capital region',
+    schedule: 'Dates vary by library',
     cost: 'Usually free',
     url: 'https://helmet.finna.fi/Content/monikieliset-palvelut?lng=en-gb',
     description: 'Helmet libraries around the capital region regularly host Finnish language cafés where learners can practise in a calm, public and beginner-friendly setting.',
