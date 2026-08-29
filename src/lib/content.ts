@@ -26,12 +26,19 @@ function localBusinesses(): Business[] {
   }))
 }
 
-const refreshedBusinessSlugs = new Set(['home-chef-mark', 'aussie-bar', 'alstudio-barbershop'])
+const refreshedBusinessSlugs = new Set([
+  'home-chef-mark',
+  'aussie-bar',
+  'alstudio-barbershop',
+  'mimosa-galleria',
+  'purna-yoga-helsinki',
+  'himalayan-beauty-spa',
+])
 
 function withRefreshedBusinessProfile(business: Business): Business {
   if (!refreshedBusinessSlugs.has(business.slug)) return business
 
-  const refreshed = seedBusinesses.find(({ slug }) => slug === business.slug)
+  const refreshed = [...seedBusinesses, ...businessDrafts].find(({ slug }) => slug === business.slug)
   if (!refreshed) return business
 
   return {
@@ -39,7 +46,7 @@ function withRefreshedBusinessProfile(business: Business): Business {
     address: refreshed.address,
     categories: refreshed.categories.map((label) => ({ label })),
     description: refreshed.description,
-    featured: Boolean(refreshed.featured),
+    featured: 'featured' in refreshed ? Boolean(refreshed.featured) : Boolean(business.featured),
     imageAlt: refreshed.imageAlt,
     imagePath: refreshed.imagePath,
     locations: refreshed.locations.map((label) => ({ label })),
