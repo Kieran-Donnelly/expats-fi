@@ -16,7 +16,7 @@ export const dynamic = 'force-dynamic'
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [articles, businesses, embassies, events, newsStories] = await Promise.all([getArticles(), getBusinesses(), getEmbassies(), getEvents(), getNewsStories()])
   const now = new Date()
-  return [
+  const entries: MetadataRoute.Sitemap = [
     { url: 'https://expats.fi/', lastModified: now, priority: 1 },
     { url: 'https://expats.fi/start-here/', lastModified: now, priority: 1 },
     { url: 'https://expats.fi/culture/', lastModified: now, priority: .9 },
@@ -55,4 +55,9 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...businesses.map((business) => ({ url: `https://expats.fi/businesses/${business.slug}/`, lastModified: new Date(business.updatedAt), priority: .7 })),
     ...embassies.map((embassy) => ({ url: `https://expats.fi/embassies/${embassy.slug}/`, lastModified: new Date(embassy.updatedAt), priority: .65 })),
   ]
+
+  return entries.map((entry) => ({
+    ...entry,
+    url: entry.url === 'https://expats.fi/' ? entry.url : entry.url.replace(/\/$/, ''),
+  }))
 }
