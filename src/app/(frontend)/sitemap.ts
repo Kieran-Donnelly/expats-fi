@@ -32,6 +32,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/areas/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/eats/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/explore/', lastModified: now, priority: .9 },
+    { url: 'https://expats.fi/explore/day-trips/', lastModified: now, priority: .85 },
     { url: 'https://expats.fi/events/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/sports/', lastModified: now, priority: .9 },
     { url: 'https://expats.fi/businesses/', lastModified: now, priority: .9 },

@@ -69,8 +69,17 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       </header>
 
       <nav className="explore-jump" aria-label="Explore page sections">
-        <div className="shell"><strong>Jump to</strong><a href="#browse">Browse places</a><a href="#free-days">Free days</a><a href="#join">Cards & joining</a></div>
+        <div className="shell"><strong>Jump to</strong><a href="#day-trips">Day trips</a><a href="#browse">Browse places</a><a href="#free-days">Free days</a><a href="#join">Cards & joining</a></div>
       </nav>
+
+      <section className="shell explore-day-trip-callout" id="day-trips" aria-labelledby="day-trip-callout-heading">
+        <div>
+          <p className="eyebrow">Need a change of scene?</p>
+          <h2 id="day-trip-callout-heading">Leave Helsinki for a few hours.</h2>
+          <p>Car-free routes to forest, islands, old towns and the coast, with the realistic travel time and the awkward bits explained first.</p>
+        </div>
+        <Link href="/explore/day-trips/">Open the day-trip guide →</Link>
+      </section>
 
       <section className="shell explore-branches" aria-labelledby="explore-branches-heading">
         <div className="section-heading"><div><p className="eyebrow">Choose a direction</p><h2 id="explore-branches-heading">What kind of day are we having?</h2></div><p>Start with a mood. The filters below handle the practical details.</p></div>
