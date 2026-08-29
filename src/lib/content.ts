@@ -26,6 +26,32 @@ function localBusinesses(): Business[] {
   }))
 }
 
+const refreshedBusinessSlugs = new Set(['home-chef-mark', 'aussie-bar', 'alstudio-barbershop'])
+
+function withRefreshedBusinessProfile(business: Business): Business {
+  if (!refreshedBusinessSlugs.has(business.slug)) return business
+
+  const refreshed = seedBusinesses.find(({ slug }) => slug === business.slug)
+  if (!refreshed) return business
+
+  return {
+    ...business,
+    address: refreshed.address,
+    categories: refreshed.categories.map((label) => ({ label })),
+    description: refreshed.description,
+    featured: Boolean(refreshed.featured),
+    imageAlt: refreshed.imageAlt,
+    imagePath: refreshed.imagePath,
+    locations: refreshed.locations.map((label) => ({ label })),
+    logoAlt: refreshed.logoAlt,
+    logoPath: refreshed.logoPath,
+    name: refreshed.name,
+    phone: refreshed.phone,
+    summary: refreshed.summary,
+    website: refreshed.website,
+  }
+}
+
 export async function getArticles({
   category,
   featured,
@@ -170,7 +196,7 @@ export async function getBusinesses({
     where: and.length ? { and } : undefined,
   })
 
-  return result.docs
+  return result.docs.map(withRefreshedBusinessProfile)
 }
 
 export async function getBusiness(slug: string): Promise<Business | null> {
@@ -186,7 +212,7 @@ export async function getBusiness(slug: string): Promise<Business | null> {
     overrideAccess: false,
     where: { slug: { equals: slug } },
   })
-  return result.docs[0] || null
+  return result.docs[0] ? withRefreshedBusinessProfile(result.docs[0]) : null
 }
 
 export async function getEmbassies({
