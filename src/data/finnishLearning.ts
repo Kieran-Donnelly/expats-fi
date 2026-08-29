@@ -221,9 +221,9 @@ export const practiceGroups: PracticeGroup[] = [
     location: 'Libraries around Helsinki',
     schedule: 'Multiple days and locations',
     cost: 'Usually free',
-    url: 'https://www.hel.fi/en/culture-and-leisure/library-events-for-adults',
-    description: 'Helsinki libraries regularly host Finnish language cafés where learners can practise in a calm, public and beginner-friendly setting.',
-    checkFirst: 'Use the Helmet event calendar to confirm the language, branch, date and whether registration is needed.',
+    url: 'https://helmet.finna.fi/Content/monikieliset-palvelut?lng=en-gb',
+    description: 'Helmet libraries around the capital region regularly host Finnish language cafés where learners can practise in a calm, public and beginner-friendly setting.',
+    checkFirst: 'Use Helmet’s multilingual services page to see the current language cafés, locations and dates before travelling.',
   },
   {
     name: 'Finnish Language Café',
