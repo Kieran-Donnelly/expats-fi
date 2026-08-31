@@ -12,9 +12,9 @@ export function SiteFooter() {
         <nav aria-label="Guide categories">
           <strong>Guides</strong>
           <Link href="/start-here/">Start here</Link>
-          <Link href="/resources/?category=Immigration%20%26%20permits">Immigration</Link>
+          <Link href="/resources/?category=Immigration%20%26%20permits#resource-library">Immigration</Link>
           <Link href="/housing/">Housing</Link>
-          <Link href="/resources/?category=Work%20%26%20money">Work and money</Link>
+          <Link href="/resources/?category=Work%20%26%20money#resource-library">Work and money</Link>
           <Link href="/study/">Study in Finland</Link>
           <Link href="/family/">Family</Link>
           <Link href="/culture/">How Finland actually works</Link>
@@ -31,7 +31,7 @@ export function SiteFooter() {
           <Link href="/explore/">Things to do in Helsinki</Link>
           <Link href="/events/">Helsinki events</Link>
           <Link href="/sports/">Sports and activities</Link>
-          <Link href="/businesses/">Business directory</Link>
+          <Link href="/businesses/#business-directory">Business directory</Link>
           <Link href="/embassies/">Embassies and consulates</Link>
           <Link href="/submit-business/">List a business</Link>
           <Link href="/resources/">Latest guides</Link>

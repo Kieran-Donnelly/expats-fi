@@ -177,7 +177,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
           { label: 'Hobbies, sport & volunteering', href: '/community/hobbies-sport-volunteering-and-work-connections/' },
           { label: 'Parents & families', href: '/community/parents-families-and-meeting-locally/' },
           { label: 'Host a small meetup', href: '/community/how-to-host-a-small-meetup-safely/' },
-          { label: 'Expat-owned businesses', href: '/businesses/' },
+          { label: 'Expat-owned businesses', href: '/businesses/#business-directory' },
         ],
       },
     ],
@@ -188,4 +188,4 @@ export const primaryNavigation: readonly NavigationItem[] = [
   },
 ]
 
-export const businessDirectoryHref = '/businesses/'
+export const businessDirectoryHref = '/businesses/#business-directory'

@@ -95,7 +95,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
 
       <section className="shell family-local-note">
         <div><p className="eyebrow">Food & Drink versus the directory</p><h2>Recommendations and business stories do different jobs.</h2></div>
-        <p>Food & Drink is our independent guide to Finnish food and places we think are useful or interesting. The <Link className="text-link" href="/businesses/">business directory</Link> is the opt-in home for approved profiles, founder stories and expat-owned businesses. A place can belong in either or both.</p>
+        <p>Food & Drink is our independent guide to Finnish food and places we think are useful or interesting. The <Link className="text-link" href="/businesses/#business-directory">business directory</Link> is the opt-in home for approved profiles, founder stories and expat-owned businesses. A place can belong in either or both.</p>
       </section>
     </main>
   )

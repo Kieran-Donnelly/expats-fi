@@ -16,7 +16,7 @@ const practicalHubs = [
   { number: '03', label: 'Family', detail: 'Healthcare, daycare, schools, support and the admin nobody explains', href: '/family/', icon: 'people' },
   { number: '04', label: 'Learn Finnish', detail: 'Free resources, courses, apps, podcasts and places to practise', href: '/learn-finnish/', icon: 'speech' },
   { number: '05', label: 'Study in Finland', detail: 'Degrees, vocational routes, integration training and flexible ways to learn', href: '/study/', icon: 'book' },
-  { number: '06', label: 'Work and money', detail: 'Jobs, tax, banking, benefits and getting your footing', href: '/resources/?category=Work%20%26%20money', icon: 'case' },
+  { number: '06', label: 'Work and money', detail: 'Jobs, tax, banking, benefits and getting your footing', href: '/resources/?category=Work%20%26%20money#resource-library', icon: 'case' },
   { number: '07', label: 'How Finland works', detail: 'Directness, punctuality, friendship and the cultural bits between the rules', href: '/culture/', icon: 'spark' },
   { number: '08', label: 'When things go wrong', detail: 'Urgent health, housing trouble, scams, work problems and the right place to ask for help', href: '/help/', icon: 'lifebuoy' },
 ] as const
@@ -86,7 +86,7 @@ export default async function HomePage() {
             <HelsinkiNow initialNow={new Date().toISOString()} weather={weather} />
           </div>
 
-          <form className="search-box" action="/resources/" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="home">
+          <form className="search-box" action="/resources/#resource-library" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="home">
             <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
             <label className="sr-only" htmlFor="home-search">Search Expats.fi</label>
             <input id="home-search" name="q" placeholder="What are you trying to sort out?" />
@@ -154,7 +154,7 @@ export default async function HomePage() {
         <div className="shell section">
           <div className="section-heading">
             <div><p className="eyebrow">Expat-owned in Finland</p><h2>Spend local. Meet the people building here.</h2></div>
-            <Link className="text-link" href="/businesses/">Open the directory <span aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/businesses/#business-directory">Open the directory <span aria-hidden="true">→</span></Link>
           </div>
           <div className="business-grid">{businesses.map((business) => <BusinessCard business={business} key={business.id} />)}</div>
           <div className="directory-callout"><div><strong>Know a business we should include?</strong><p>Help us grow the directory beyond the capital region.</p></div><Link className="button" href="/submit-business/" data-analytics-event="business_submission_started" data-analytics-section="home">List a business for free</Link></div>

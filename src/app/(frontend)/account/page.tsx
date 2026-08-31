@@ -86,7 +86,7 @@ export default async function AccountPage() {
                 <div>
                   <h3 id="saved-businesses-empty-title">Keep good local finds handy.</h3>
                   <p>Save an expat-owned business from its directory card or profile and it will appear here.</p>
-                  <Link className="text-link" href="/businesses/">Browse the business directory <span aria-hidden="true">→</span></Link>
+                  <Link className="text-link" href="/businesses/#business-directory">Browse the business directory <span aria-hidden="true">→</span></Link>
                 </div>
               </div>
             )}

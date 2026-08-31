@@ -73,7 +73,7 @@ export default function CommunityPage() {
           <div className="family-maisa-tip">
             <span>Built by expats here</span>
             <div><strong>Find and support expat-owned businesses.</strong><p>Meet the people building cafés, studios, services and useful local businesses around Finland.</p></div>
-            <Link href="/businesses/">Open the business directory →</Link>
+            <Link href="/businesses/#business-directory">Open the business directory →</Link>
           </div>
         </div>
       </section>
