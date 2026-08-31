@@ -91,7 +91,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       <section className="explore-directory" id="browse" aria-label="Helsinki attractions directory">
         <div className="shell section">
           <div className="section-heading"><div className="filter-results-copy"><p className="eyebrow">{resultCopy.eyebrow}</p><h2>{resultCopy.title}</h2><p>{resultCopy.intro}</p></div><div className="filter-results-status"><p className="explore-count" aria-live="polite">{filtered.length} {filtered.length === 1 ? 'place' : 'places'} found</p>{hasFilters && <Link href="/explore/#browse">Show everything</Link>}</div></div>
-          <form className="filter-form explore-filter" action="/explore/#browse" method="get" role="search">
+          <form className="filter-form explore-filter" action="/explore/#browse" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="explore">
             <label>Search<input name="q" defaultValue={q} placeholder="Sauna, island, museum…" /></label>
             <label>Category<select name="category" defaultValue={category}><option value="">Everything</option>{exploreCategories.map((item) => <option key={item}>{item}</option>)}</select></label>
             <label>Cost<select name="cost" defaultValue={cost}><option value="">Any price</option><option value="free">Free or has a free option</option></select></label>

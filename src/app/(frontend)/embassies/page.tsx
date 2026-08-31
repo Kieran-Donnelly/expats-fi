@@ -42,7 +42,7 @@ export default async function EmbassiesPage({ searchParams }: { searchParams: Pr
       </header>
       <section className="shell listing-section" aria-label="Embassy directory">
         <div className="source-notice"><strong>Official starting point</strong><p>Representation details can change. Records were checked against the Finnish Ministry for Foreign Affairs’ Helsinki Diplomatic List on 3 August 2026.</p><a href="https://um.fi/the-helsinki-diplomatic-list" target="_blank" rel="noreferrer">Open the official diplomatic list ↗</a></div>
-        <form className="filter-form embassy-filter" action="/embassies/" method="get" role="search">
+        <form className="filter-form embassy-filter" action="/embassies/" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="embassies">
           {view === 'map' ? <input type="hidden" name="view" value="map" /> : null}
           <label>Country or city<input name="q" defaultValue={q} placeholder="India, Helsinki, Stockholm…" /></label>
           <label>Region<select name="region" defaultValue={region}><option value="">All regions</option>{regions.map((item) => <option key={item}>{item}</option>)}</select></label>

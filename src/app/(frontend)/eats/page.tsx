@@ -80,7 +80,7 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
             <div className="filter-results-copy"><p className="eyebrow">{resultCopy.eyebrow}</p><h2>{resultCopy.title}</h2><p>{resultCopy.intro}</p></div>
             <div className="filter-results-status"><p aria-live="polite">{filtered.length} {filtered.length === 1 ? 'place' : 'places'} found</p>{hasFilters && <Link href="/eats/#helsinki-food">Show everything</Link>}</div>
           </div>
-          <form className="filter-form eats-filter" action="/eats/#helsinki-food" method="get" role="search">
+          <form className="filter-form eats-filter" action="/eats/#helsinki-food" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="eats">
             <label>Search<input name="q" defaultValue={q} placeholder="Coffee, pizza, date night…" /></label>
             <label>Area<select name="area" defaultValue={area}><option value="">All areas</option>{eatAreas.map((item) => <option key={item}>{item}</option>)}</select></label>
             <label>Kind<select name="kind" defaultValue={kind}><option value="">Everything</option>{eatKinds.map((item) => <option key={item}>{item}</option>)}</select></label>

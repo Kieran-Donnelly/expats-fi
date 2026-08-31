@@ -66,11 +66,11 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
           {hasCurrentOffer && <div className="facts__offer"><strong>Current offer</strong><span>{business.currentOffer}</span></div>}
           <div><strong>Locations</strong><span>{locations.join(', ')}</span></div>
           <div><strong>Address or service area</strong><span>{business.address}</span></div>
-          {business.phone && <div><strong>Phone</strong><a href={`tel:${business.phone.replace(/\s/g, '')}`}>{business.phone}</a></div>}
-          <div><strong>Website</strong><a href={business.website} target="_blank" rel="noreferrer">Visit {business.name} ↗</a></div>
-          {business.newsletterUrl && <div><strong>Newsletter</strong><a href={business.newsletterUrl} target="_blank" rel="noreferrer">Keep up with events ↗</a></div>}
-          {business.bookingUrl && <div><strong>Booking</strong><a href={business.bookingUrl} target="_blank" rel="noreferrer">Book an appointment ↗</a></div>}
-          {business.whatsapp && <div><strong>WhatsApp</strong><a href={business.whatsapp} target="_blank" rel="noreferrer">Send a message ↗</a></div>}
+          {business.phone && <div><strong>Phone</strong><a href={`tel:${business.phone.replace(/\s/g, '')}`} data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="phone">{business.phone}</a></div>}
+          <div><strong>Website</strong><a href={business.website} target="_blank" rel="noreferrer" data-analytics-event="business_website_clicked" data-analytics-label={business.slug}>Visit {business.name} ↗</a></div>
+          {business.newsletterUrl && <div><strong>Newsletter</strong><a href={business.newsletterUrl} target="_blank" rel="noreferrer" data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="newsletter">Keep up with events ↗</a></div>}
+          {business.bookingUrl && <div><strong>Booking</strong><a href={business.bookingUrl} target="_blank" rel="noreferrer" data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="booking">Book an appointment ↗</a></div>}
+          {business.whatsapp && <div><strong>WhatsApp</strong><a href={business.whatsapp} target="_blank" rel="noreferrer" data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="whatsapp">Send a message ↗</a></div>}
           {business.instagram && <div><strong>Instagram</strong><a href={business.instagram} target="_blank" rel="noreferrer">{business.instagramHandle || 'Instagram'} ↗</a></div>}
           {business.facebook && <div><strong>Facebook</strong><a href={business.facebook} target="_blank" rel="noreferrer">Facebook ↗</a></div>}
           {business.tiktok && <div><strong>TikTok</strong><a href={business.tiktok} target="_blank" rel="noreferrer">TikTok ↗</a></div>}

@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { trackAnalyticsEvent } from '@/lib/analytics'
+
 export function SaveBusinessButton({
   businessSlug,
   compact = false,
@@ -34,7 +36,9 @@ export function SaveBusinessButton({
 
       const body = await response.json().catch(() => null) as { saved?: boolean; message?: string } | null
       if (!response.ok) throw new Error(body?.message || 'We could not update your saved businesses.')
-      setSaved(Boolean(body?.saved))
+      const isNowSaved = Boolean(body?.saved)
+      setSaved(isNowSaved)
+      trackAnalyticsEvent(isNowSaved ? 'business_saved' : 'business_unsaved', { item_label: businessSlug })
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'We could not update your saved businesses.')
     } finally {
