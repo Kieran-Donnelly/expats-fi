@@ -107,7 +107,10 @@ function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
     const event = events.find((item) => item.slug === selectedSlug)
     const marker = markersRef.current.get(selectedSlug)
     if (!event || !marker || !mapRef.current) return
-    mapRef.current.flyTo([event.coordinates.latitude, event.coordinates.longitude], Math.max(mapRef.current.getZoom(), 13), { duration: 0.65 })
+    const position: [number, number] = [event.coordinates.latitude, event.coordinates.longitude]
+    const zoom = Math.max(mapRef.current.getZoom(), 13)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) mapRef.current.setView(position, zoom, { animate: false })
+    else mapRef.current.flyTo(position, zoom, { duration: 0.65 })
     marker.openPopup()
   }, [events, selectedSlug])
 

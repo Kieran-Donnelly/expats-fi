@@ -49,7 +49,7 @@ export default function DayTripsPage() {
         noteTitle="Start with the connection home."
         noteBody="Find the final sensible return before you leave. Then build the nice part of the day around it."
         tone="blue"
-        image={{ src: '/images/heroes/day-trips-porvoo.jpg', position: 'center 52%' }}
+        image={{ src: '/images/heroes/day-trips-porvoo.webp', position: 'center 52%' }}
       />
 
       <nav className="explore-jump" aria-label="Day-trip page sections">

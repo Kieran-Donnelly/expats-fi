@@ -435,7 +435,7 @@ export const cultureGuides: EditorialGuide[] = [
     resources: [
       { title: 'Finnish public holidays', description: 'A clear overview of Finland’s major celebrations, dates and familiar traditions.', url: 'https://infofinland.fi/en/information-about-finland/finnish-holidays', source: 'InfoFinland' },
       { title: 'Why Vappu matters', description: 'Background on May Day, student traditions and how the spring celebration has developed.', url: 'https://finland.fi/life-society/for-finnish-university-students-may-day-is-the-greatest-time-of-year-heres-why/', source: 'ThisisFINLAND' },
-      { title: 'Events in Helsinki', description: 'Current public events and celebrations across the city. Always check the event date and organiser details.', url: 'https://events.hel.fi/en', source: 'City of Helsinki' },
+      { title: 'Events in Helsinki', description: 'Current public events and celebrations across the city. Always check the event date and organiser details.', url: 'https://tapahtumat.hel.fi/en', source: 'City of Helsinki' },
     ],
   },
   {
