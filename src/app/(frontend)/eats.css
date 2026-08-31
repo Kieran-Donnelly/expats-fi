@@ -11,7 +11,7 @@
 .finland-plate .section-heading > div:last-child { max-inline-size: 34rem; }
 .finland-plate .section-heading > div:last-child p { margin: 0 0 .75rem; color: var(--ink-soft); line-height: 1.6; }
 .plate-guide-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
-.plate-guide-card { min-block-size: 24rem; display: flex; flex-direction: column; padding: 1.4rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
+.plate-guide-card { min-block-size: 24rem; display: flex; flex-direction: column; padding: 1.4rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease, transform var(--motion-fast) var(--ease-out); }
 .plate-guide-card > div { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .68rem; font-weight: 730; letter-spacing: .055em; text-transform: uppercase; }
 .plate-guide-card > div span { color: var(--coral); }
 .plate-guide-card h3 { margin-block-start: 2.7rem; font-size: 1.42rem; line-height: 1.08; }

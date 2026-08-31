@@ -38,7 +38,7 @@
 .family-maisa-tip a { color: var(--snow); font-size: .82rem; font-weight: 700; white-space: nowrap; text-decoration: none; }
 
 .family-guide-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
-.family-guide-card { min-inline-size: 0; min-block-size: 21rem; display: flex; flex-direction: column; padding: 1.55rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
+.family-guide-card { min-inline-size: 0; min-block-size: 21rem; display: flex; flex-direction: column; padding: 1.55rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); transition: border-color var(--motion-fast) ease, box-shadow var(--motion-fast) ease, transform var(--motion-fast) var(--ease-out); }
 .family-guide-card[data-urgent] { background: var(--coral-soft); }
 .family-guide-card > div { display: flex; justify-content: space-between; gap: 1rem; color: var(--muted); font-size: .68rem; font-weight: 720; letter-spacing: .06em; text-transform: uppercase; }
 .family-guide-card > div span { color: var(--hub-accent); }
