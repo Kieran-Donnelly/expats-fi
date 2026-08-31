@@ -15,7 +15,7 @@ import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedArticles } from '@/lib/saved-articles'
 import { getSavedBusinesses } from '@/lib/saved-businesses'
 
-export const metadata: Metadata = { title: 'My account' }
+export const metadata: Metadata = { title: 'My account', robots: { index: false, follow: false } }
 
 const submissionStatusLabels = {
   pending: 'Pending review',

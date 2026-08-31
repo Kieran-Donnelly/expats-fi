@@ -5,8 +5,8 @@ import { EventCard } from '@/components/EventCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { SportsCard } from '@/components/SportsCard'
 import { SportsMap } from '@/components/SportsMap'
-import { getUpcomingEvents } from '@/data/events'
 import { sportsCategories, sportsListings, sportsListingTypes } from '@/data/sports'
+import { getEvents } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
 
@@ -17,7 +17,10 @@ export const metadata: Metadata = {
 }
 
 export default async function SportsPage({ searchParams }: { searchParams: Promise<{ type?: string; sport?: string; fit?: string; q?: string }> }) {
-  const { type = '', sport = '', fit = '', q = '' } = await searchParams
+  const [{ type = '', sport = '', fit = '', q = '' }, upcomingEvents] = await Promise.all([
+    searchParams,
+    getEvents({ upcoming: true }),
+  ])
   const query = q.trim().toLocaleLowerCase('en')
   const filteredListings = sportsListings.filter((listing) => {
     if (type && listing.type !== type) return false
@@ -28,7 +31,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
     if (query && !searchable.includes(query)) return false
     return true
   })
-  const sportsEvents = getUpcomingEvents().filter((event) => event.category === 'Sports & outdoors').slice(0, 6)
+  const sportsEvents = upcomingEvents.filter((event) => event.category === 'Sports & outdoors').slice(0, 6)
   const resultCopy = type === 'Club & team'
     ? { eyebrow: 'Clubs & teams', title: 'Find a team to train with', intro: 'Regular training, familiar faces and a proper reason to get out of the house each week.' }
     : type === 'Social session'

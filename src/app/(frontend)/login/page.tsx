@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 import { AuthForm } from '@/components/AuthForm'
 
-export const metadata: Metadata = { title: 'Sign in' }
+export const metadata: Metadata = { title: 'Sign in', robots: { index: false, follow: false } }
 
 export default function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
   return <AuthPage searchParams={searchParams} />
