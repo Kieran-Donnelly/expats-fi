@@ -54,6 +54,21 @@ function itemIsOpen(item: NavigationItem, openLabel: string | null): boolean {
   return Boolean(item.children && item.label === openLabel)
 }
 
+function currentMobileSections(pathname: string): Set<string> {
+  const labels = new Set<string>()
+
+  for (const item of primaryNavigation) {
+    if (!item.children || !isCurrentItem(pathname, item)) continue
+    labels.add(item.label)
+
+    for (const child of item.children) {
+      if (child.children && isCurrentChild(pathname, child)) labels.add(`${item.label}:${child.label}`)
+    }
+  }
+
+  return labels
+}
+
 export function DesktopNavigation() {
   const pathname = usePathname() || ''
   const [openLabel, setOpenLabel] = useState<string | null>(null)
@@ -204,9 +219,15 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
   const [expandedLabels, setExpandedLabels] = useState<Set<string>>(new Set())
   const navigationRef = useRef<HTMLDivElement>(null)
   const toggleRef = useRef<HTMLButtonElement>(null)
+  const panelRef = useRef<HTMLDivElement>(null)
+  const closeRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
     if (!open) return
+
+    const previousOverflow = document.documentElement.style.overflow
+    document.documentElement.style.overflow = 'hidden'
+    closeRef.current?.focus()
 
     function closeOnPointerDown(event: PointerEvent) {
       if (!navigationRef.current?.contains(event.target as Node)) setOpen(false)
@@ -219,11 +240,40 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
       }
     }
 
+    function keepFocusInMenu(event: globalThis.KeyboardEvent) {
+      if (event.key !== 'Tab' || !panelRef.current) return
+      const focusable = Array.from(
+        panelRef.current.querySelectorAll<HTMLElement>('a[href], button:not([disabled])'),
+      )
+      if (!focusable.length) return
+
+      const first = focusable[0]
+      const last = focusable[focusable.length - 1]
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault()
+        last.focus()
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault()
+        first.focus()
+      }
+    }
+
+    function closeAtDesktopWidth(event: MediaQueryListEvent) {
+      if (event.matches) setOpen(false)
+    }
+
+    const desktopQuery = window.matchMedia('(min-width: 1101px)')
+
     document.addEventListener('pointerdown', closeOnPointerDown)
     document.addEventListener('keydown', closeOnKeyDown)
+    document.addEventListener('keydown', keepFocusInMenu)
+    desktopQuery.addEventListener('change', closeAtDesktopWidth)
     return () => {
+      document.documentElement.style.overflow = previousOverflow
       document.removeEventListener('pointerdown', closeOnPointerDown)
       document.removeEventListener('keydown', closeOnKeyDown)
+      document.removeEventListener('keydown', keepFocusInMenu)
+      desktopQuery.removeEventListener('change', closeAtDesktopWidth)
     }
   }, [open])
 
@@ -236,6 +286,13 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
     })
   }
 
+  function toggleMenu() {
+    if (!open) {
+      setExpandedLabels((expanded) => new Set([...expanded, ...currentMobileSections(pathname)]))
+    }
+    setOpen(!open)
+  }
+
   return (
     <div ref={navigationRef} className="mobile-menu">
       <button
@@ -245,14 +302,46 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
         aria-controls="mobile-navigation"
         aria-expanded={open}
         aria-label={open ? 'Close navigation' : 'Open navigation'}
-        onClick={() => setOpen((current) => !current)}
+        onClick={toggleMenu}
       >
         <span className="mobile-menu__toggle-icon" aria-hidden="true"><i /><i /><i /></span>
       </button>
       {open && (
-        <div id="mobile-navigation" className="mobile-menu__panel">
-          <nav aria-label="Mobile navigation">
-            {primaryNavigation.map((item) => {
+        <>
+          <button
+            className="mobile-menu__backdrop"
+            type="button"
+            aria-label="Close navigation"
+            tabIndex={-1}
+            onClick={() => {
+              setOpen(false)
+              toggleRef.current?.focus()
+            }}
+          />
+          <div
+            ref={panelRef}
+            id="mobile-navigation"
+            className="mobile-menu__panel"
+            role="dialog"
+            aria-modal="true"
+            aria-label="Navigation menu"
+          >
+            <div className="mobile-menu__panel-header">
+              <span>Menu</span>
+              <button
+                ref={closeRef}
+                type="button"
+                aria-label="Close navigation"
+                onClick={() => {
+                  setOpen(false)
+                  toggleRef.current?.focus()
+                }}
+              >
+                <span aria-hidden="true">×</span>
+              </button>
+            </div>
+            <nav aria-label="Mobile navigation">
+              {primaryNavigation.map((item) => {
               const current = isCurrentItem(pathname, item)
               const expanded = expandedLabels.has(item.label)
               const sectionId = `mobile-nav-${slugFor(item.label)}`
@@ -342,14 +431,15 @@ export function MobileNavigation({ account }: { account?: ReactNode }) {
                   )}
                 </div>
               )
-            })}
-            <div className="mobile-menu__divider" />
-            <div className="mobile-menu__account">{account}</div>
-            <Link className="button mobile-menu__cta" href={businessDirectoryHref} onClick={() => setOpen(false)}>
-              Business directory
-            </Link>
-          </nav>
-        </div>
+              })}
+              <div className="mobile-menu__divider" />
+              <div className="mobile-menu__account">{account}</div>
+              <Link className="button mobile-menu__cta" href={businessDirectoryHref} onClick={() => setOpen(false)}>
+                Business directory
+              </Link>
+            </nav>
+          </div>
+        </>
       )}
     </div>
   )
