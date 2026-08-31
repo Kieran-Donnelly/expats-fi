@@ -20,7 +20,7 @@ const categories = ['Immigration & permits', 'Work & money', 'Housing', 'Health 
 function getResourceHero(category: string, query: string) {
   if (category === 'Work & money') {
     return {
-      src: '/images/heroes/work-money-financial-planning.jpg',
+      src: '/images/heroes/work-money-financial-planning.webp',
       position: 'center 54%',
       eyebrow: 'Work and money',
       title: 'Work, tax and money without the mystery.',
@@ -30,7 +30,7 @@ function getResourceHero(category: string, query: string) {
 
   if (category === 'Immigration & permits') {
     return {
-      src: '/images/heroes/immigration-permits.jpg',
+      src: '/images/heroes/immigration-permits.webp',
       position: 'center 42%',
       eyebrow: 'Immigration and permits',
       title: 'Find the route that actually fits your move.',
@@ -40,7 +40,7 @@ function getResourceHero(category: string, query: string) {
 
   if (query.trim().toLowerCase() === 'relocation') {
     return {
-      src: '/images/heroes/moving-relocation.jpg',
+      src: '/images/heroes/moving-relocation.webp',
       position: 'center 46%',
       eyebrow: 'Moving to Finland',
       title: 'Pack the move in the right order.',
@@ -50,7 +50,7 @@ function getResourceHero(category: string, query: string) {
 
   if (query.trim().toLowerCase() === 'registration') {
     return {
-      src: '/images/heroes/registration-established.jpg',
+      src: '/images/heroes/registration-established.webp',
       position: 'center 42%',
       eyebrow: 'Getting established',
       title: 'Get your Finnish details connected.',

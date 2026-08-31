@@ -92,11 +92,10 @@ function EatsMapCanvas({ spots, selectedSlug, onSelect, compact }: {
     const spot = spots.find((item) => item.slug === selectedSlug)
     const marker = markersRef.current.get(selectedSlug)
     if (!spot || !marker || !mapRef.current) return
-    mapRef.current.flyTo(
-      [spot.coordinates.latitude, spot.coordinates.longitude],
-      Math.max(mapRef.current.getZoom(), 14),
-      { duration: 0.65 },
-    )
+    const position: [number, number] = [spot.coordinates.latitude, spot.coordinates.longitude]
+    const zoom = Math.max(mapRef.current.getZoom(), 14)
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) mapRef.current.setView(position, zoom, { animate: false })
+    else mapRef.current.flyTo(position, zoom, { duration: 0.65 })
     marker.openPopup()
   }, [selectedSlug, spots])
 

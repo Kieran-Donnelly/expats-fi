@@ -113,7 +113,7 @@ export default function HelpPage() {
         noteTitle="Is anybody in immediate danger?"
         noteBody="Call 112 for an accident, fire, crime in progress or an immediate threat to life or health. You can call without a SIM card."
         tone="dark"
-        image={{ src: '/images/heroes/when-things-go-wrong-help.jpg', position: 'center 48%' }}
+        image={{ src: '/images/heroes/when-things-go-wrong-help.webp', position: 'center 48%' }}
       />
 
       <section className="family-urgent" aria-label="Emergency numbers">
