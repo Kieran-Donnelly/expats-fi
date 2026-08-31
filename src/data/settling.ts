@@ -107,7 +107,7 @@ export const settlingGuides: EditorialGuide[] = [
       'Do not measure your move against somebody whose citizenship, employer, family and bank were different. Their three-day success story may be a completely different route.',
     ],
     resources: [
-      { title: 'Moving to Finland checklist', description: 'The broad official-style checklist covering permits, registration, tax, banking, housing and social security.', url: 'https://infofinland.fi/en/moving-to-finland/moving-to-finland-checklist', source: 'InfoFinland' },
+      { title: 'Moving to Finland checklist', description: 'The broad official-style checklist covering permits, registration, tax, banking, housing and social security.', url: 'https://www.infofinland.fi/en/moving-to-finland/moving-to-finland-checklist', source: 'InfoFinland' },
       { title: 'Residence permits and EU registration', description: 'Choose the correct immigration route and confirm the current requirements.', url: 'https://migri.fi/en/permits-and-citizenship', source: 'Finnish Immigration Service' },
       { title: 'Registering as a foreign citizen', description: 'Personal data, identity code, address and municipality-of-residence instructions.', url: 'https://dvv.fi/en/foreigner-registration', source: 'Digital and Population Data Services Agency' },
       { title: 'Arriving in Finland from overseas', description: 'The Tax Administration starting point for work, tax cards and tax residency.', url: 'https://www.vero.fi/en/individuals/tax-cards-and-tax-returns/arriving_in_finland/', source: 'Finnish Tax Administration' },

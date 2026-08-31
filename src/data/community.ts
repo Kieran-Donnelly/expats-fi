@@ -133,7 +133,7 @@ export const communityGuides: EditorialGuide[] = [
     ],
     resources: [
       { title: 'Finnish language cafés in Helsinki', description: 'Our checked list of public and recurring conversation groups, with schedules and organiser links.', url: '/learn-finnish/#practice', source: 'Expats.fi' },
-      { title: 'Associations in Finland', description: 'How associations work and where to find immigrant, cultural and friendship organisations.', url: 'https://infofinland.fi/leisure/associations', source: 'InfoFinland' },
+      { title: 'Associations in Finland', description: 'How associations work and where to find immigrant, cultural and friendship organisations.', url: 'https://www.infofinland.fi/leisure/associations', source: 'InfoFinland' },
       { title: 'Moniheli', description: 'A network supporting multicultural associations, cooperation, events and participation.', url: 'https://moniheli.fi/en/', source: 'Moniheli' },
     ],
   },

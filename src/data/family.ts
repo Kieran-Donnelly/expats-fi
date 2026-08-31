@@ -444,7 +444,7 @@ export const familyGuides: FamilyGuide[] = [
       { title: 'Support for children and families', description: 'The City’s overview of early support, family life, development and difficult situations.', url: 'https://www.hel.fi/en/health-and-social-services/child-and-family-services/support-for-children-young-people-and-families', source: 'City of Helsinki' },
       { title: 'Family social work', description: 'Who it is for and the kinds of practical support available.', url: 'https://www.hel.fi/en/health-and-social-services/child-and-family-services/support-for-children-young-people-and-families/support-for-parenting-and-daily-life-in-a-family/family-social-work', source: 'City of Helsinki' },
       { title: 'Family counselling clinic', description: 'Help with parenting, behaviour, relationships and family changes.', url: 'https://www.hel.fi/en/health-and-social-services/child-and-family-services/support-for-children-young-people-and-families/early-support-social-services/family-counselling-clinic', source: 'City of Helsinki' },
-      { title: 'Child welfare explained', description: 'A calm English explanation of its purpose and how families can ask for help.', url: 'https://infofinland.fi/en/family/children/child-welfare', source: 'InfoFinland' },
+      { title: 'Child welfare explained', description: 'A calm English explanation of its purpose and how families can ask for help.', url: 'https://www.infofinland.fi/en/family/children/child-welfare', source: 'InfoFinland' },
     ],
   },
   {

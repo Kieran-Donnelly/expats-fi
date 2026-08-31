@@ -64,7 +64,7 @@ export const housingGuides: EditorialGuide[] = [
       'Do not reject every outer neighbourhood before visiting. Helsinki’s transport map and its social reputation are not the same thing.',
     ],
     resources: [
-      { title: 'Rental homes in Finland', description: 'Current multilingual guidance on finding a rental, typical requirements, equipment, pets and listing vocabulary.', url: 'https://infofinland.fi/en/housing/rental-home', source: 'InfoFinland' },
+      { title: 'Rental homes in Finland', description: 'Current multilingual guidance on finding a rental, typical requirements, equipment, pets and listing vocabulary.', url: 'https://www.infofinland.fi/en/housing/rental-home', source: 'InfoFinland' },
       { title: 'Apply for a Heka home', description: 'Eligibility, application steps, identification options and how Helsinki selects tenants.', url: 'https://www.hel.fi/en/housing/heka-rental-apartments/apply-for-a-heka-rental-apartment', source: 'City of Helsinki' },
       { title: 'Housing counselling', description: 'English-language help for Helsinki residents with applications, rental agreements, rent arrears and housing difficulties.', url: 'https://www.hel.fi/en/health-and-social-services/social-support-and-financial-assistance/guidance-and-advice/housing-counselling', source: 'City of Helsinki' },
     ],
@@ -132,9 +132,9 @@ export const housingGuides: EditorialGuide[] = [
       'If a clause involves a large penalty or you genuinely do not understand it, get tenant or consumer advice before signing.',
     ],
     resources: [
-      { title: 'Tenancy agreements', description: 'Multilingual guidance on lease types, deposits, extra charges, notice periods and moving out.', url: 'https://infofinland.fi/housing/rental-home/tenancy-agreement', source: 'InfoFinland' },
+      { title: 'Tenancy agreements', description: 'Multilingual guidance on lease types, deposits, extra charges, notice periods and moving out.', url: 'https://www.infofinland.fi/housing/rental-home/tenancy-agreement', source: 'InfoFinland' },
       { title: 'Rental apartment rights', description: 'Official consumer guidance on deposits, rent increases, defects, liability and ending a lease.', url: 'https://www.kkv.fi/en/consumer-affairs/housing/rental-apartments/', source: 'Finnish Competition and Consumer Authority' },
-      { title: 'Rights and obligations at home', description: 'Practical guidance for tenants and owners, including repairs, alterations, entry and building rules.', url: 'https://infofinland.fi/en/housing/rights-and-obligations-of-occupants', source: 'InfoFinland' },
+      { title: 'Rights and obligations at home', description: 'Practical guidance for tenants and owners, including repairs, alterations, entry and building rules.', url: 'https://www.infofinland.fi/en/housing/rights-and-obligations-of-occupants', source: 'InfoFinland' },
     ],
   },
   {
@@ -200,9 +200,9 @@ export const housingGuides: EditorialGuide[] = [
       'Do not use an apartment sauna as storage or dry laundry above the heater, even when you never plan to switch it on.',
     ],
     resources: [
-      { title: 'Moving-house checklist', description: 'Officially maintained guidance on address notification, electricity, internet, insurance, cleaning and keys.', url: 'https://infofinland.fi/en/housing/moving-house', source: 'InfoFinland' },
+      { title: 'Moving-house checklist', description: 'Officially maintained guidance on address notification, electricity, internet, insurance, cleaning and keys.', url: 'https://www.infofinland.fi/en/housing/moving-house', source: 'InfoFinland' },
       { title: 'Electricity consumer guidance', description: 'Current information on electricity contracts, supply problems, sales and consumer rights.', url: 'https://www.kkv.fi/en/consumer-affairs/housing/electricity/', source: 'Finnish Competition and Consumer Authority' },
-      { title: 'Safety at home', description: 'Fire, water, electrical and household preparedness guidance for homes in Finland.', url: 'https://infofinland.fi/en/housing/safety-at-home', source: 'InfoFinland' },
+      { title: 'Safety at home', description: 'Fire, water, electrical and household preparedness guidance for homes in Finland.', url: 'https://www.infofinland.fi/en/housing/safety-at-home', source: 'InfoFinland' },
     ],
   },
   {

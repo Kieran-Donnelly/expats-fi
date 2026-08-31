@@ -56,7 +56,7 @@ const helpSections = [
     links: [
       { label: 'Police advice and online crime report', href: 'https://poliisi.fi/en/offences' },
       { label: 'Report a scam to KKV', href: 'https://www.kkv.fi/en/consumer-affairs/scams/report-a-scam/' },
-      { label: 'Migri residence permit card guidance', href: 'https://migri.fi/faq-residence-permit-card' },
+      { label: 'Migri residence permit card guidance', href: 'https://migri.fi/en/faq-residence-permit-card' },
       { label: 'Find your embassy or consulate', href: '/embassies/' },
     ],
   },

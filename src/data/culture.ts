@@ -433,7 +433,7 @@ export const cultureGuides: EditorialGuide[] = [
       'Look at the City of Helsinki events calendar for public celebrations if you do not already have a private invitation.',
     ],
     resources: [
-      { title: 'Finnish public holidays', description: 'A clear overview of Finland’s major celebrations, dates and familiar traditions.', url: 'https://infofinland.fi/en/information-about-finland/finnish-holidays', source: 'InfoFinland' },
+      { title: 'Finnish public holidays', description: 'A clear overview of Finland’s major celebrations, dates and familiar traditions.', url: 'https://www.infofinland.fi/en/information-about-finland/finnish-holidays', source: 'InfoFinland' },
       { title: 'Why Vappu matters', description: 'Background on May Day, student traditions and how the spring celebration has developed.', url: 'https://finland.fi/life-society/for-finnish-university-students-may-day-is-the-greatest-time-of-year-heres-why/', source: 'ThisisFINLAND' },
       { title: 'Events in Helsinki', description: 'Current public events and celebrations across the city. Always check the event date and organiser details.', url: 'https://tapahtumat.hel.fi/en', source: 'City of Helsinki' },
     ],
@@ -571,7 +571,7 @@ export const cultureGuides: EditorialGuide[] = [
     resources: [
       { title: 'Free-time activities for newcomers', description: 'City-run sports, libraries, culture, adult education, volunteering and affordable activities around Helsinki.', url: 'https://www.hel.fi/en/culture-and-leisure/free-time-activities-in-helsinki-tips-for-newcomers', source: 'City of Helsinki' },
       { title: 'Helsinki community houses', description: 'Open neighbourhood spaces with free groups, events, digital support and room to simply spend time.', url: 'https://www.hel.fi/en/decision-making/get-involved/support-and-collaboration/helsinkis-community-houses', source: 'City of Helsinki' },
-      { title: 'Associations in Finland', description: 'How Finnish associations work and where to find multicultural, cultural and friendship organisations.', url: 'https://infofinland.fi/leisure/associations', source: 'InfoFinland' },
+      { title: 'Associations in Finland', description: 'How Finnish associations work and where to find multicultural, cultural and friendship organisations.', url: 'https://www.infofinland.fi/leisure/associations', source: 'InfoFinland' },
       { title: 'Meet people in Helsinki', description: 'Practical newcomer programmes, language cafés, hobbies, family groups and safe ways to bring people together.', url: '/community/', source: 'Expats.fi' },
       { title: 'Events and regular gatherings', description: 'Our growing collection of things to do, with filters for interests, cost and location.', url: '/events/', source: 'Expats.fi' },
     ],

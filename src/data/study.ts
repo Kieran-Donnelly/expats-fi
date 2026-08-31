@@ -369,7 +369,7 @@ export const studyGuides: EditorialGuide[] = [
       'Use Migri and Kela calculators and decisions, not social-media certainty.',
     ],
     resources: [
-      { title: 'Fees and cost of living', description: 'Current tuition ranges, living-cost guidance, scholarships and student fees.', url: 'https://www.studyinfinland.fi/admissions/fees-and-costs', source: 'Study in Finland' },
+      { title: 'Fees and cost of living', description: 'Current tuition ranges, living-cost guidance, scholarships and student fees.', url: 'https://www.studyinfinland.fi/funding-your-studies/fees-and-cost-living', source: 'Study in Finland' },
       { title: 'Studying in Finland', description: 'Residence permit, funds, tuition, insurance and working during study.', url: 'https://migri.fi/en/studying-in-finland', source: 'Finnish Immigration Service' },
       { title: 'Financing your studies', description: 'Who may receive Kela aid, housing supplement, meal support and scholarships.', url: 'https://www.infofinland.fi/en/education/financing-your-studies', source: 'InfoFinland' },
       { title: 'Kela benefits for students', description: 'Current eligibility, amounts, income limits and applications.', url: 'https://www.kela.fi/students', source: 'Kela' },
