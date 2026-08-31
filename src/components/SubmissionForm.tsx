@@ -4,6 +4,8 @@ import Link from 'next/link'
 import type { FormEvent } from 'react'
 import { useState } from 'react'
 
+import { trackAnalyticsEvent } from '@/lib/analytics'
+
 export function SubmissionForm({
   initialContactEmail = '',
   initialContactName = '',
@@ -49,6 +51,7 @@ export function SubmissionForm({
       setCategory('')
       setDescription('')
       setStatus('Submission sent. We will review it and show the status in My Account.')
+      trackAnalyticsEvent('business_submission_completed')
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'We could not save this submission.')
     } finally {

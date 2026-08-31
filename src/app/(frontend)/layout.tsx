@@ -3,6 +3,7 @@ import { Schibsted_Grotesk } from 'next/font/google'
 import Script from 'next/script'
 import type { ReactNode } from 'react'
 
+import { AnalyticsEvents } from '@/components/AnalyticsEvents'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 
@@ -65,6 +66,7 @@ export default function FrontendLayout({ children }: { children: ReactNode }) {
             gtag('config', 'G-CB5QYGM914');
           `}
         </Script>
+        <AnalyticsEvents />
         <a className="skip-link" href="#main">Skip to content</a>
         <SiteHeader />
         {children}

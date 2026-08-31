@@ -32,7 +32,7 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
         <div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div>
       </header>
       <section className="shell listing-section filter-target" id="business-directory" aria-label="Business directory">
-        <form className="filter-form" action="/businesses/#business-directory" method="get" role="search">
+        <form className="filter-form" action="/businesses/#business-directory" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="businesses">
           <label>Search<input name="q" defaultValue={q} placeholder="Pizza, barber, Helsinki…" /></label>
           <label>Category<select name="category" defaultValue={category}><option value="">All categories</option>{categories.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label>Location<select name="location" defaultValue={location}><option value="">All locations</option>{locations.map((item) => <option key={item}>{item}</option>)}</select></label>

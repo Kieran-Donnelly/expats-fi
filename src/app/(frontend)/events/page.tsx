@@ -70,7 +70,7 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
 
       <section className="shell events-listing filter-target" id="events-listing" aria-label="Upcoming Helsinki events">
         <div className="events-listing__heading"><div className="filter-results-copy"><p className="eyebrow">{resultCopy.eyebrow}</p><h2>{resultCopy.title}</h2><p>{resultCopy.intro}</p></div><div className="filter-results-status"><p aria-live="polite">{filteredEvents.length} {filteredEvents.length === 1 ? 'event' : 'events'} found</p>{hasFilters && <Link href="/events/#events-listing">Show everything</Link>}</div></div>
-        <form className="filter-form events-filter" action="/events/#events-listing" method="get" role="search">
+        <form className="filter-form events-filter" action="/events/#events-listing" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="events">
           <label>Search<input name="q" defaultValue={q} placeholder="Music, market, Malmi…" /></label>
           <label>Category<select name="category" defaultValue={category}><option value="">All categories</option>{eventCategories.map((item) => <option key={item}>{item}</option>)}</select></label>
           <label>Good for<select name="cost" defaultValue={cost}><option value="">Everyone</option><option value="free">Free entry</option><option value="family">Families</option></select></label>

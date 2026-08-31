@@ -86,7 +86,7 @@ export default async function HomePage() {
             <HelsinkiNow initialNow={new Date().toISOString()} weather={weather} />
           </div>
 
-          <form className="search-box" action="/resources/" method="get" role="search">
+          <form className="search-box" action="/resources/" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="home">
             <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
             <label className="sr-only" htmlFor="home-search">Search Expats.fi</label>
             <input id="home-search" name="q" placeholder="What are you trying to sort out?" />
@@ -157,7 +157,7 @@ export default async function HomePage() {
             <Link className="text-link" href="/businesses/">Open the directory <span aria-hidden="true">→</span></Link>
           </div>
           <div className="business-grid">{businesses.map((business) => <BusinessCard business={business} key={business.id} />)}</div>
-          <div className="directory-callout"><div><strong>Know a business we should include?</strong><p>Help us grow the directory beyond the capital region.</p></div><Link className="button" href="/submit-business/">List a business for free</Link></div>
+          <div className="directory-callout"><div><strong>Know a business we should include?</strong><p>Help us grow the directory beyond the capital region.</p></div><Link className="button" href="/submit-business/" data-analytics-event="business_submission_started" data-analytics-section="home">List a business for free</Link></div>
         </div>
       </section>
 

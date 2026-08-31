@@ -95,7 +95,7 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
             <div className="filter-results-copy"><p className="eyebrow">{resultCopy.eyebrow}</p><h2>{resultCopy.title}</h2><p>{resultCopy.intro}</p></div>
             <div className="filter-results-status"><p aria-live="polite">{filteredListings.length} {filteredListings.length === 1 ? 'option' : 'options'} found</p>{hasFilters && <Link href="/sports/#sports-directory">Show everything</Link>}</div>
           </div>
-          <form className="filter-form sports-filter" action="/sports/#sports-directory" method="get" role="search">
+          <form className="filter-form sports-filter" action="/sports/#sports-directory" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="sports">
             <label>Search<input name="q" defaultValue={q} placeholder="Rugby, running, swimming…" /></label>
             <label>Kind<select name="type" defaultValue={type}><option value="">Everything</option>{sportsListingTypes.map((item) => <option key={item}>{item}</option>)}</select></label>
             <label>Sport<select name="sport" defaultValue={sport}><option value="">All sports</option>{sportsCategories.map((item) => <option key={item}>{item}</option>)}</select></label>

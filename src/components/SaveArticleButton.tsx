@@ -3,6 +3,8 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 
+import { trackAnalyticsEvent } from '@/lib/analytics'
+
 export function SaveArticleButton({
   articleSlug,
   compact = false,
@@ -34,7 +36,9 @@ export function SaveArticleButton({
 
       const body = await response.json().catch(() => null) as { saved?: boolean; message?: string } | null
       if (!response.ok) throw new Error(body?.message || 'We could not update your saved guides.')
-      setSaved(Boolean(body?.saved))
+      const isNowSaved = Boolean(body?.saved)
+      setSaved(isNowSaved)
+      trackAnalyticsEvent(isNowSaved ? 'guide_saved' : 'guide_unsaved', { item_label: articleSlug })
     } catch (caught) {
       setError(caught instanceof Error ? caught.message : 'We could not update your saved guides.')
     } finally {

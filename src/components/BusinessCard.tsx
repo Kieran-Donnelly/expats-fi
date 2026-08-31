@@ -29,7 +29,7 @@ export function BusinessCard({ business, saved = false, showSave = false }: { bu
   return (
     <article className="business-card">
       {image ? (
-        <Link className="business-card__image" href={href} aria-label={`View ${business.name}`}>
+        <Link className="business-card__image" href={href} aria-label={`View ${business.name}`} data-analytics-event="business_profile_opened" data-analytics-label={business.slug} data-analytics-position="image">
           <Image
             src={image.src}
             alt={image.alt}
@@ -43,10 +43,10 @@ export function BusinessCard({ business, saved = false, showSave = false }: { bu
         <div className="business-card__mark" aria-hidden="true">{business.name.slice(0, 1)}</div>
       )}
       <div className="business-card__meta"><span>{categories[0]}</span><span>{locations.join(' · ')}</span>{publiclyVerified && <span className="business-card__verified" title="Expats.fi has checked the listing details"><span aria-hidden="true">✓</span> {verificationLabel}</span>}</div>
-      <h3><Link href={href}>{business.name}</Link></h3>
+      <h3><Link href={href} data-analytics-event="business_profile_opened" data-analytics-label={business.slug} data-analytics-position="title">{business.name}</Link></h3>
       <p>{business.summary}</p>
       <div className="business-card__actions">
-        <Link className="text-link" href={href}>View business <span aria-hidden="true">→</span></Link>
+        <Link className="text-link" href={href} data-analytics-event="business_profile_opened" data-analytics-label={business.slug} data-analytics-position="card_cta">View business <span aria-hidden="true">→</span></Link>
         {showSave && <SaveBusinessButton businessSlug={business.slug} initialSaved={saved} compact />}
       </div>
     </article>
