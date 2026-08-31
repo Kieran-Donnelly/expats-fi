@@ -13,6 +13,71 @@ export type SeedNewsStory = {
 
 export const seedNewsStories: SeedNewsStory[] = [
   {
+    slug: 'english-language-upper-secondary-finland-2026',
+    title: 'Finland’s first English-language lukio classes are now underway',
+    standfirst: 'A new route has opened for internationally mobile families: the regular Finnish upper secondary curriculum, taught in English. It is a welcome change, but the eligibility and fee rules need a careful read.',
+    category: 'Finland',
+    publishedAt: '2026-08-30T12:00:00.000Z',
+    readingMinutes: 8,
+    featured: true,
+    practicalSummary: 'Seven schools have started teaching the Finnish upper secondary curriculum in English. The route is mainly for young people already living in Finland whose Finnish or Swedish is not yet strong enough for lukio, rather than students moving here solely to study.',
+    html: `
+      <p>For years, internationally mobile families looking at upper secondary education in Finland have usually been pointed towards one familiar option: the International Baccalaureate.</p>
+      <p>That remains a solid route, but it is no longer the only way to complete upper secondary school fully in English.</p>
+      <p>From August 2026, a small group of Finnish schools began teaching the regular Finnish general upper secondary curriculum in English. That means students can work towards the Finnish matriculation examination without first becoming academically fluent in Finnish or Swedish.</p>
+      <p>It is a proper change, and a potentially important one for families who have built a life here but arrived too late for their children to comfortably catch up with every subject in Finnish.</p>
+      <p>There are, however, a few catches worth understanding before anyone starts mentally packing a school bag.</p>
+      <h2>What has actually changed?</h2>
+      <p>English-language general upper secondary education can now be offered under the Finnish national curriculum.</p>
+      <p>This is different from an international school creating its own programme. Students study the same broad curriculum used in Finnish-language and Swedish-language lukio education, only in English. English versions of the Finnish matriculation examinations are expected to become available from autumn 2028.</p>
+      <p>The first intake began in August 2026. According to the Finnish National Agency for Education, seven schools were involved:</p>
+      <ul>
+        <li>Aviapolis Upper Secondary School in Vantaa</li>
+        <li>The English School in Helsinki</li>
+        <li>Helsinki Upper Secondary School of Languages</li>
+        <li>Jyväskylä Lyseo Upper Secondary School</li>
+        <li>Oulu Lyseo Upper Secondary School</li>
+        <li>Pori Upper Secondary School</li>
+        <li>Pyynikki Upper Secondary School in Tampere</li>
+      </ul>
+      <p>Across the seven schools, 132 students were selected for 170 available places.</p>
+      <p>For Helsinki families, the fully English track at Helsinki Upper Secondary School of Languages is the clearest municipal option. The City of Helsinki says applicants without Finnish or Swedish may be eligible, and admission includes an entrance examination rather than relying only on a Finnish comprehensive-school grade average.</p>
+      <h2>How is this different from the IB?</h2>
+      <p>The short answer is breadth.</p>
+      <p>After its preparatory year, the IB Diploma Programme focuses on six selected subjects. The Finnish general upper secondary curriculum offers a wider range of subjects throughout the student's studies.</p>
+      <p>Neither option is automatically better. Some students love the structure and international recognition of the IB. Others may prefer the flexibility of the Finnish curriculum, particularly if they expect to continue into higher education in Finland.</p>
+      <p>Both routes can lead to Finnish and international universities. The right choice depends on the student, the subjects they enjoy and where the family expects to be living in a few years.</p>
+      <h2>Who is the new English route actually for?</h2>
+      <p>This is the part families need to read carefully.</p>
+      <p>The programme is aimed at students living in Finland whose Finnish or Swedish is not yet strong enough for upper secondary studies in those languages. It was designed particularly with internationally mobile families and Finnish returnees in mind.</p>
+      <p>It is not intended as a general English-language route for students moving to Finland solely to attend school.</p>
+      <p>Eligibility is tightly defined. The Finnish National Agency for Education says younger applicants will generally need to have studied in a Finnish comprehensive school for no more than three years. Adult applicants are generally limited to those who have lived in Finland for no more than three years.</p>
+      <p>Students from outside the EU and EEA also need to pay close attention to their residence-permit basis. The English-language programme is not intended for third-country nationals whose reason for coming to Finland is simply to study at upper secondary level.</p>
+      <p>In other words, this is mainly a route for families who are already here for work, family or another established reason, not a new international student-recruitment scheme.</p>
+      <h2>What about fees?</h2>
+      <p>Finland's reputation for free education can make this bit surprising.</p>
+      <p>The City of Helsinki has introduced tuition fees for certain students from outside the EU, EEA and Switzerland who begin upper secondary education from 1 August 2026 and came to Finland, or received their residence permit, for study purposes.</p>
+      <p>Helsinki currently lists the annual fee as €10,600 for the national upper secondary programme and €14,000 for the IB Diploma Programme.</p>
+      <p>There are exemptions. These include students permanently living in the European Economic Area, certain exchange students, people receiving temporary protection and some apprenticeship students.</p>
+      <p>Do not guess your position from a Facebook thread. Check the school's current admissions information and, if residence permits are involved, confirm the rules directly with the school and Migri.</p>
+      <h2>What should families do now?</h2>
+      <p>If your child is already living in Helsinki and needs an upper secondary place, start with the City of Helsinki's application page and the school itself.</p>
+      <p>The normal joint application takes place in spring through Studyinfo. Helsinki also runs rolling admission rounds when places are available. These are especially relevant for families who arrive in the middle of the school year.</p>
+      <p>If a young person moves to Helsinki without a study place after the school year has begun, the city recommends contacting Ohjaamo Helsinki. They can help work through the available routes instead of leaving families to bounce between school websites.</p>
+      <p>This first intake is small, so it will not solve every family's situation overnight. Still, it closes a very real gap. A teenager should not have to abandon the Finnish education path simply because their family moved here when they were fourteen or fifteen and academic Finnish has not caught up yet.</p>
+      <p>For international families planning to stay, that is a genuinely welcome step.</p>
+      <h2>What happens next?</h2>
+      <p>The first English-language Finnish matriculation examinations are planned for autumn 2028. Until then, the schools, students and education authorities will be learning what works in practice.</p>
+      <p>We will keep an eye on application dates, eligibility guidance and any additional schools joining the programme.</p>
+    `,
+    sources: [
+      { name: 'Finnish National Agency for Education: English-language upper secondary education', url: 'https://www.oph.fi/en/news/2025/finnish-general-upper-secondary-school-can-be-completed-english-autumn-2026' },
+      { name: 'Finnish National Agency for Education: 2026 school-year changes', url: 'https://www.oph.fi/fi/uutiset/2026/uusi-lukuvuosi-alkaa-oppimisen-tuki-uudistui-seuraavaksi-vuorossa-arviointi' },
+      { name: 'City of Helsinki: Applying to upper secondary school', url: 'https://www.hel.fi/en/childhood-and-education/general-upper-secondary-education/apply-to-general-upper-secondary-school' },
+      { name: 'City of Helsinki: Education in different languages', url: 'https://www.hel.fi/en/childhood-and-education/general-upper-secondary-education/studies-in-general-upper-secondary-school/general-upper-secondary-education-in-different-languages' },
+    ],
+  },
+  {
     slug: 'helsinki-tram-routes-change-31-august-2026',
     title: 'Helsinki’s trams are changing again. Check your route before Monday',
     standfirst: 'Runeberginkatu loses its tram service, tram 5 stretches to Jätkäsaari and tram 8 becomes much shorter from 31 August. Some of these changes will be with us until the end of 2027.',
@@ -62,18 +127,28 @@ export const seedNewsStories: SeedNewsStory[] = [
   },
   {
     slug: 'finland-economy-wages-jobs-august-2026',
-    title: 'Finland’s economic mood is lifting, but the job market is still doing it tough',
-    standfirst: 'Real earnings are growing again and consumer confidence has improved. The harder truth is that unemployment remains high and finding work is still genuinely difficult.',
+    title: 'Finland’s economy is growing again. So why does everything still feel tight?',
+    standfirst: 'GDP, exports and confidence have improved, but unemployment is still high and households remain cautious. The recovery is real, although plenty of people are still waiting to feel it.',
     category: 'Work & money',
     publishedAt: '2026-08-27T11:45:00.000Z',
-    readingMinutes: 7,
+    readingMinutes: 9,
     featured: false,
-    practicalSummary: 'The latest figures offer cautious encouragement, not a victory lap. People in steady employment have regained a little purchasing power, while jobseekers are still navigating a difficult market with 20,000 more unemployed people than a year ago.',
+    practicalSummary: 'Finland’s economy grew by 0.4 percent during the second quarter, but the labour market remains difficult and home prices are still falling. This is progress before a victory lap, and daily life may take longer to catch up with the national numbers.',
     html: `
-      <p>There is finally a little more optimism appearing in Finland's economic figures, although anyone currently searching for work would be forgiven for wondering where it has been hiding.</p>
-      <p>Fresh figures from Statistics Finland show that consumer confidence improved noticeably in August. Wages are also growing faster than prices, giving people in full-time employment a modest increase in real purchasing power.</p>
-      <p>The harder part of the story is the labour market. Finland had 20,000 more unemployed people in July than it did a year earlier, and many employed people still feel that their own job may be at risk.</p>
-      <p>So, are things getting better? A little. Is Finland suddenly out of the woods? Not quite.</p>
+      <p>Finland's economy grew again during spring and early summer, which is obviously better news than another quarter spent sliding backwards.</p>
+      <p>Statistics Finland says gross domestic product increased by 0.4 percent between April and June compared with the first three months of 2026. Exports jumped, private investment edged upwards and manufacturing grew across several industries.</p>
+      <p>That sounds encouraging. It is encouraging.</p>
+      <p>It also does not mean the job search has suddenly become easy, grocery bills feel painless or everyone should start browsing for a new sofa.</p>
+      <p>The latest numbers show an economy making progress while plenty of households are still waiting to feel the benefit.</p>
+      <h2>What moved in the right direction?</h2>
+      <p>Exports did much of the heavy lifting. Their volume rose by 5.7 percent from the previous quarter. A significant ship delivery helped that figure, although Statistics Finland says export growth was visible more widely too.</p>
+      <p>Manufacturing grew across the forest, metal, electrical and electronics industries. Professional, scientific and technical services also improved slightly.</p>
+      <p>Private investment rose by 0.5 percent, while private consumption increased by just 0.1 percent.</p>
+      <p>That last figure is worth pausing on. People are spending a little more, but hardly throwing caution to the wind. Services did better, while spending on non-durable, semi-durable and durable goods fell.</p>
+      <h2>Why did public investment fall so dramatically?</h2>
+      <p>One number looks particularly alarming: public investment fell by 35.3 percent during the quarter.</p>
+      <p>That does not mean Finland suddenly cancelled a third of its schools, roads and public projects. Statistics Finland says the comparison was heavily affected by the timing of fighter aircraft deliveries. None were recorded during the second quarter. Real-estate investment by employment pension schemes also remained lower, particularly in residential construction.</p>
+      <p>It is a useful reminder that quarterly figures can swing because one very large item lands in one period and not another.</p>
       <h2>People are feeling less gloomy</h2>
       <p>Finland's consumer confidence indicator rose from -5.3 in July to -3.0 in August. Its long-term average is -2.9, which means confidence has essentially returned to its usual level.</p>
       <p>Greater Helsinki was the most optimistic part of the country, recording a positive score of 0.8.</p>
@@ -104,12 +179,22 @@ export const seedNewsStories: SeedNewsStory[] = [
       <p>For jobseekers, the message is more mixed. The economy may be moving in a better direction, but employers are not yet hiring strongly enough to make the search easy.</p>
       <p>It remains worth widening your approach beyond standard job adverts. Check municipal employment services, industry groups, professional events, direct applications and personal contacts. If Finnish is frequently blocking you from roles you could otherwise do, even a modest improvement can help demonstrate that you are actively building towards workplace proficiency.</p>
       <p>Most importantly, do not read improving economic headlines as proof that you should already have found something. National confidence can recover before recruitment does.</p>
-      <p>There are encouraging signs here, but Finland's employment recovery still has a fair distance to travel.</p>
+      <h2>And what is happening with housing?</h2>
+      <p>Home prices are still falling. Preliminary figures show prices for older homes in housing companies dropped by 3.4 percent nationally in July compared with a year earlier. In Greater Helsinki, the fall was 3.6 percent. Vantaa recorded a 6.2 percent decline.</p>
+      <p>Sales through estate agents were also down 9.5 percent from a year earlier.</p>
+      <p>For buyers, falling prices may create room to negotiate. It does not necessarily make buying affordable. Interest costs, bank requirements, renovations and housing-company loans can quickly change the calculation.</p>
+      <p>For owners trying to sell, the market may require patience and realistic pricing. For renters, lower sale prices do not automatically produce lower rents.</p>
+      <h2>What happens next?</h2>
+      <p>Statistics Finland will publish updated second-quarter figures and sector accounts on 18 September. A preliminary estimate for the third quarter is expected on 30 October, followed by fuller national accounts on 27 November.</p>
+      <p>Those releases should tell us whether the growth is becoming broader and steadier or whether the spring improvement relied too heavily on a handful of large export and investment movements.</p>
+      <p>For now, the fairest summary is simple: Finland is moving in the right direction, but it is far too early for a victory lap.</p>
     `,
     sources: [
+      { name: 'Statistics Finland national accounts, April to June 2026', url: 'https://stat.fi/en/publication/cmfql1cwv04mw0evy5vav0lbs' },
       { name: 'Statistics Finland consumer confidence, August 2026', url: 'https://stat.fi/en/publication/cmf5h6ytr3p1207urrweuysgw' },
       { name: 'Statistics Finland earnings, April to June 2026', url: 'https://stat.fi/en/publication/cmfpfbsco1lax08vxtw0gweiq' },
       { name: 'Statistics Finland Labour Force Survey, July 2026', url: 'https://stat.fi/en/publication/cmfp92ulja76508urnykex72w' },
+      { name: 'Statistics Finland housing prices, July 2026', url: 'https://stat.fi/en/publication/cmetlovofknpr07uew29d0ntw' },
     ],
   },
   {
