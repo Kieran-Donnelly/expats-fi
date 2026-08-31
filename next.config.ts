@@ -8,6 +8,9 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const businessSlugs = ['home-chef-mark', 'aussie-bar', 'alstudio-barbershop']
 
 const nextConfig: NextConfig = {
+  experimental: {
+    globalNotFound: true,
+  },
   turbopack: {
     root: projectRoot,
   },
