@@ -1,4 +1,5 @@
 import type { MigrateDownArgs, MigrateUpArgs } from '@payloadcms/db-postgres'
+import { sql } from '@payloadcms/db-postgres'
 import { convertHTMLToLexical, editorConfigFactory } from '@payloadcms/richtext-lexical'
 import { JSDOM } from 'jsdom'
 
@@ -7,7 +8,19 @@ import { seedNewsStories } from '../data/news-stories'
 const newStorySlug = 'english-language-upper-secondary-finland-2026'
 const storySlugs = [newStorySlug, 'finland-economy-wages-jobs-august-2026']
 
-export async function up({ payload, req }: MigrateUpArgs): Promise<void> {
+export async function up({ payload, req, db }: MigrateUpArgs): Promise<void> {
+  // The community-board migration created dashed relation columns in one
+  // production database. Payload expects the underscore form when checking
+  // document locks, so repair those columns before touching any documents.
+  await db.execute(sql`
+    ALTER TABLE "payload_locked_documents_rels"
+      ADD COLUMN IF NOT EXISTS "community_posts_id" integer;
+    ALTER TABLE "payload_locked_documents_rels"
+      ADD COLUMN IF NOT EXISTS "community_comments_id" integer;
+    ALTER TABLE "payload_locked_documents_rels"
+      ADD COLUMN IF NOT EXISTS "community_reports_id" integer;
+  `)
+
   const editorConfig = await editorConfigFactory.default({ config: payload.config })
 
   for (const story of seedNewsStories.filter(({ slug }) => storySlugs.includes(slug))) {
