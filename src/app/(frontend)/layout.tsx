@@ -1,9 +1,8 @@
 import type { Metadata } from 'next'
 import { Schibsted_Grotesk } from 'next/font/google'
-import Script from 'next/script'
 import type { ReactNode } from 'react'
 
-import { AnalyticsEvents } from '@/components/AnalyticsEvents'
+import { PrivacyConsent } from '@/components/PrivacyConsent'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 
@@ -46,27 +45,8 @@ export const metadata: Metadata = {
 export default function FrontendLayout({ children }: { children: ReactNode }) {
   return (
     <html lang="en" className={schibsted.variable}>
-      <head>
-        <script
-          src="https://analytics.podium.dev/api/script.js"
-          data-site-id="98fd41b83b7e"
-          defer
-        />
-      </head>
       <body>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-CB5QYGM914"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){window.dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-CB5QYGM914');
-          `}
-        </Script>
-        <AnalyticsEvents />
+        <PrivacyConsent />
         <a className="skip-link" href="#main">Skip to content</a>
         <SiteHeader />
         {children}

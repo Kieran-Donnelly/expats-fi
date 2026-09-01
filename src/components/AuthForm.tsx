@@ -83,6 +83,8 @@ export function AuthForm({ mode, googleEnabled, returnTo = '/account/' }: { mode
         </button>
       </form>
 
+      {isRegister && <p className="auth-panel__privacy">Before joining, read how we handle account and community data in the <Link href="/privacy/">privacy details</Link>.</p>}
+
       <p className="auth-panel__switch">
         {isRegister ? 'Already have an account?' : 'New to Expats.fi?'}{' '}
         <Link href={`${isRegister ? '/login/' : '/register/'}?next=${encodeURIComponent(returnTo)}`}>{isRegister ? 'Sign in' : 'Create an account'}</Link>

@@ -867,6 +867,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .auth-form .auth-error { margin: 0; }
 .auth-panel__switch { margin: 1.3rem 0 0; color: var(--ink-soft); font-size: .85rem; text-align: center; }
 .auth-panel__switch a { color: var(--blue); font-weight: 680; }
+.auth-panel__privacy { margin: 1rem 0 0; padding-block-start: 1rem; border-block-start: 1px solid var(--line); color: var(--muted); font-size: .72rem; line-height: 1.5; text-align: center; }
+.auth-panel__privacy a { color: var(--blue); font-weight: 680; }
 
 .account-page { background: var(--blue-pale); }
 .account-page__layout { padding-block: clamp(3rem, 8vw, 6rem) 7rem; }
@@ -915,6 +917,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .account-security__facts dt { color: var(--muted); font-size: .7rem; font-weight: 750; letter-spacing: .06em; text-transform: uppercase; }
 .account-security__facts dd { margin: 0; color: var(--ink); font-size: .86rem; font-weight: 680; }
 .account-security .text-link { white-space: nowrap; }
+.account-security__links { display: grid; gap: .55rem; justify-items: start; }
 .account-empty { max-inline-size: 48rem; display: flex; gap: 1.2rem; margin-block-start: 3rem; padding: 1.6rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--snow); }
 .account-empty > span { inline-size: 2.6rem; aspect-ratio: 1; display: grid; place-items: center; flex: none; border-radius: .6rem; background: var(--blue-soft); color: var(--blue); font-size: 1.2rem; }
 .account-empty h2 { font-size: 1.45rem; }
@@ -1277,6 +1280,38 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   }
 }
 
+.privacy-banner { position: fixed; z-index: 180; inset: auto 1rem 1rem; display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 1.5rem; align-items: center; inline-size: min(62rem, calc(100% - 2rem)); margin-inline: auto; padding: 1.15rem 1.25rem; border: 1px solid var(--line-strong); border-radius: .85rem; background: var(--snow); box-shadow: 0 1rem 3rem rgb(18 42 65 / .2); }
+.privacy-banner strong { display: block; margin-block-end: .25rem; color: var(--blue-dark); font-size: .92rem; }
+.privacy-banner p { max-inline-size: 48rem; margin: 0; color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
+.privacy-banner a { display: inline-block; margin-block-start: .3rem; color: var(--blue); font-size: .72rem; font-weight: 680; }
+.privacy-banner__actions { display: flex; gap: .55rem; }
+.privacy-banner button, .privacy-choice-panel button { min-block-size: 2.7rem; padding: .55rem .75rem; border: 1px solid var(--blue); border-radius: .5rem; background: var(--snow); color: var(--blue); font: inherit; font-size: .76rem; font-weight: 700; cursor: pointer; }
+.privacy-banner button:hover, .privacy-banner button:focus-visible, .privacy-choice-panel button:hover, .privacy-choice-panel button:focus-visible { background: var(--blue-pale); }
+.privacy-banner .privacy-banner__accept, .privacy-choice-panel button.is-selected { background: var(--blue); color: var(--snow); }
+.privacy-hero { border-block-end: 1px solid var(--line); background: var(--blue-soft); }
+.privacy-hero .shell { padding-block: clamp(3.5rem, 8vw, 6.5rem); }
+.privacy-hero h1 { max-inline-size: 13ch; margin-block: .7rem 1rem; font-size: clamp(3rem, 7vw, 5.8rem); }
+.privacy-hero p:not(.eyebrow) { max-inline-size: 48rem; margin: 0; color: var(--ink-soft); font-size: 1.05rem; line-height: 1.7; }
+.privacy-hero small { display: block; margin-block-start: 1.2rem; color: var(--muted); font-size: .72rem; }
+.privacy-layout { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: clamp(3rem, 8vw, 7rem); align-items: start; padding-block: clamp(3.5rem, 7vw, 6.5rem); }
+.privacy-content { max-inline-size: 49rem; }
+.privacy-content section + section { margin-block-start: 2.6rem; padding-block-start: 2.6rem; border-block-start: 1px solid var(--line); }
+.privacy-content h2 { margin-block-end: .8rem; font-size: clamp(1.7rem, 3.2vw, 2.35rem); }
+.privacy-content p, .privacy-content li { color: var(--ink-soft); line-height: 1.72; }
+.privacy-content p { margin-block: 0 .8rem; }
+.privacy-content ul { display: grid; gap: .65rem; margin: 0; padding-inline-start: 1.2rem; }
+.privacy-content strong { color: var(--ink); }
+.privacy-content a { color: var(--blue); font-weight: 650; }
+.privacy-aside { position: sticky; inset-block-start: 6.5rem; display: grid; gap: 1rem; }
+.privacy-aside > div { padding: 1.2rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--blue-pale); }
+.privacy-aside > div > strong { font-size: .86rem; }
+.privacy-aside > div > p { margin: .45rem 0 .75rem; color: var(--ink-soft); font-size: .78rem; line-height: 1.55; }
+.privacy-aside > div > a { color: var(--blue); font-size: .76rem; font-weight: 700; }
+.privacy-choice-panel { scroll-margin-top: 6.5rem; }
+.privacy-choice-panel > strong { display: block; margin-block: .4rem; color: var(--blue-dark); font-size: 1rem; }
+.privacy-choice-panel > div { display: grid; gap: .45rem; }
+.privacy-choice-panel button { inline-size: 100%; }
+
 .site-footer { border-block-start: 1px solid var(--line); background: var(--blue-pale); }
 .site-footer__grid { display: grid; grid-template-columns: 1.5fr repeat(3, 1fr); gap: 3rem; padding-block: 4rem 3rem; }
 .site-footer__intro > a { text-decoration: none; }
@@ -1294,6 +1329,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 }
 
 @media (max-width: 960px) {
+  .privacy-layout { grid-template-columns: 1fr; }
+  .privacy-aside { position: static; grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .status-page__grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .status-page__grid a:nth-child(3) { border-inline-start: 1px solid var(--line); }
   .status-page__grid a:nth-child(n + 3) { border-block-start: 1px solid var(--line); }
@@ -1357,6 +1394,10 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 }
 
 @media (max-width: 720px) {
+  .privacy-banner { grid-template-columns: 1fr; gap: .9rem; }
+  .privacy-banner__actions { display: grid; grid-template-columns: 1fr 1fr; }
+  .privacy-banner button { inline-size: 100%; }
+  .privacy-aside { grid-template-columns: 1fr; }
   :root { --shell: min(100% - 1.25rem, 75rem); }
   .status-page__hero { grid-template-columns: 1fr; }
   .status-page__code { inline-size: min(12rem, 50vw); min-block-size: auto; aspect-ratio: 1; }
