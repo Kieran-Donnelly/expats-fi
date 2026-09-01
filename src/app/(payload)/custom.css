@@ -1,5 +1,4 @@
 :root {
-  --theme-elevation-100: #eef6fc;
   --theme-success-500: #2e7d32;
 }
 
@@ -212,6 +211,45 @@
 .expats-admin-google-login__button:hover { border-color: #327eb5; background: #f8fbfd; }
 .expats-admin-google-login__button > span { color: #2f73b8; font-size: 1.05rem; font-weight: 800; }
 .expats-admin-google-login__note { margin: 0; color: #667789; font-size: .72rem; line-height: 1.45; }
+
+[data-theme='dark'] .expats-admin-dashboard__panel,
+[data-theme='dark'] .expats-admin-dashboard__metric {
+  border-color: #354554;
+  background: #17222c;
+}
+
+[data-theme='dark'] .expats-admin-dashboard__metric { color: #bcc9d3; }
+[data-theme='dark'] .expats-admin-dashboard__metric > strong,
+[data-theme='dark'] .expats-admin-dashboard__panel-heading h3,
+[data-theme='dark'] .expats-admin-dashboard__submission-info strong,
+[data-theme='dark'] .expats-admin-dashboard__actions a,
+[data-theme='dark'] .expats-admin-dashboard__attention-list a { color: #f2f6f8; }
+
+[data-theme='dark'] .expats-admin-dashboard__eyebrow,
+[data-theme='dark'] .expats-admin-dashboard__metric > small,
+[data-theme='dark'] .expats-admin-dashboard__panel-link,
+[data-theme='dark'] .expats-admin-dashboard__actions b,
+[data-theme='dark'] .expats-admin-dashboard__attention-list b { color: #79bce9; }
+
+[data-theme='dark'] .expats-admin-dashboard__actions span,
+[data-theme='dark'] .expats-admin-dashboard__attention-list span:not(.expats-admin-dashboard__status-dot),
+[data-theme='dark'] .expats-admin-dashboard__submission-info span,
+[data-theme='dark'] .expats-admin-dashboard__submission-info time,
+[data-theme='dark'] .expats-admin-dashboard__editorial-note,
+[data-theme='dark'] .expats-admin-community-runner p,
+[data-theme='dark'] .expats-admin-dashboard__empty-queue { color: #afbdc8; }
+
+[data-theme='dark'] .expats-admin-dashboard__actions a:hover,
+[data-theme='dark'] .expats-admin-dashboard__attention-list a:hover { background: #20303d; }
+
+[data-theme='dark'] .expats-admin-dashboard__metric--attention {
+  border-color: #8f6d31;
+  background: #2d2518;
+  color: #e4d2ad;
+}
+
+[data-theme='dark'] .expats-admin-dashboard__metric--attention > strong,
+[data-theme='dark'] .expats-admin-dashboard__metric--attention > small { color: #f0bd62; }
 
 @media (max-width: 1050px) {
   .expats-admin-dashboard__metrics { grid-template-columns: repeat(3, minmax(0, 1fr)); }
