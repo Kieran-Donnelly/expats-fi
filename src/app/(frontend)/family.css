@@ -77,7 +77,8 @@
 .family-detail__header-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--guide-accent-soft) 0%, var(--guide-accent-soft) 28%, color-mix(in oklch, var(--guide-accent-soft) 78%, transparent) 40%, color-mix(in oklch, var(--guide-accent-soft) 28%, transparent) 60%, color-mix(in oklch, var(--guide-accent-soft) 12%, transparent) 100%), linear-gradient(180deg, color-mix(in oklch, var(--blue) 7%, transparent), color-mix(in oklch, var(--guide-accent-soft) 14%, transparent)); }
 .family-detail__header > div:not(.family-detail__header-media), .family-detail__header > aside { position: relative; z-index: 2; }
 .family-detail__header h1 { max-inline-size: 18ch; }
-.family-detail__header > div > p:last-child { max-inline-size: 48rem; margin: 1.1rem 0 0; color: var(--ink-soft); font-size: 1.12rem; }
+.family-detail__header > div:not(.family-detail__header-media) > h1 + p { max-inline-size: 48rem; margin: 1.1rem 0 0; color: var(--ink-soft); font-size: 1.12rem; }
+.family-detail__actions { display: flex; justify-content: flex-end; margin-block-start: 1rem; }
 .family-detail__header > aside { display: grid; gap: .55rem; padding: 1.25rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--guide-accent-soft); }
 .family-detail__header aside > span { color: var(--guide-accent); font-size: .68rem; font-weight: 760; letter-spacing: .07em; text-transform: uppercase; }
 .family-detail__header aside p { margin: 0; color: var(--ink-soft); font-size: .83rem; line-height: 1.5; }

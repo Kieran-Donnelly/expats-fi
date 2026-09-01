@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getNewsStory } from '@/lib/content'
+import { ShareButton } from '@/components/ShareButton'
 
 export const dynamic = 'force-dynamic'
 
@@ -49,6 +50,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
           <h1>{story.title}</h1>
           <p className="news-story__standfirst">{story.standfirst}</p>
           <div className="news-story__meta"><span>{date}</span><span>{story.readingMinutes} min read</span><span>By Expats.fi</span></div>
+          <div className="news-story__actions"><ShareButton contentType="news" path={`/news/${story.slug}/`} title={story.title} text={story.standfirst} /></div>
         </header>
 
         <div className="news-story__layout">

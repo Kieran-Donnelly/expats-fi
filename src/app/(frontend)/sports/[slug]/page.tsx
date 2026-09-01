@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getSportsListing, sportsListings } from '@/data/sports'
+import { ShareButton } from '@/components/ShareButton'
 
 export function generateStaticParams() {
   return sportsListings.map((listing) => ({ slug: listing.slug }))
@@ -29,6 +30,7 @@ export default async function SportsListingPage({ params }: { params: Promise<{ 
             <div className="event-detail__kicker"><span>{listing.type}</span><span>{listing.category}</span>{listing.beginnerFriendly && <span>Beginner-friendly</span>}{listing.familyFriendly && <span>Family-friendly</span>}</div>
             <h1>{listing.name}</h1>
             <p>{listing.blurb}</p>
+            <div className="detail-share"><ShareButton contentType="sport" path={`/sports/${listing.slug}/`} title={listing.name} text={listing.blurb} /></div>
           </div>
           <div className="sports-profile__sport-list"><small>What’s here</small>{listing.sports.map((sport) => <strong key={sport}>{sport}</strong>)}</div>
         </header>

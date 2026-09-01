@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { exploreListings, getExploreListing } from '@/data/explore'
+import { ShareButton } from '@/components/ShareButton'
 
 export function generateStaticParams() {
   return exploreListings.map((listing) => ({ slug: listing.slug }))
@@ -25,7 +26,7 @@ export default async function ExploreListingPage({ params }: { params: Promise<{
       <div className="shell detail-shell explore-profile">
         <Link className="back-link" href="/explore/">← All things to do</Link>
         <header className="explore-profile__header">
-          <div><div className="event-detail__kicker"><span>{listing.category}</span><span>{listing.area}</span>{listing.familyFriendly && <span>Family-friendly</span>}</div><h1>{listing.name}</h1><p>{listing.blurb}</p></div>
+          <div><div className="event-detail__kicker"><span>{listing.category}</span><span>{listing.area}</span>{listing.familyFriendly && <span>Family-friendly</span>}</div><h1>{listing.name}</h1><p>{listing.blurb}</p><div className="detail-share"><ShareButton contentType="place" path={`/explore/${listing.slug}/`} title={listing.name} text={listing.blurb} /></div></div>
           <aside><span>{listing.access}</span><strong>{listing.priceNote}</strong>{listing.freeTip && <p><b>Free tip:</b> {listing.freeTip}</p>}</aside>
         </header>
 

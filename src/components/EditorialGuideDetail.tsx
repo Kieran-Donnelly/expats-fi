@@ -3,6 +3,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 
 import type { EditorialGuide } from '@/data/editorial-guide'
+import { ShareButton } from '@/components/ShareButton'
 
 type EditorialGuideDetailProps = {
   guide: EditorialGuide
@@ -50,6 +51,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
           <div><p className="eyebrow">{guide.number} · {guide.label}</p><h1>{guide.title}</h1><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}</div>
           <aside><span>Best for</span><p>{guide.goodFor}</p><small>Last reviewed {reviewedAt}</small></aside>
         </header>
+        <div className="family-detail__actions"><ShareButton contentType="guide" path={`${hubHref}${guide.slug}/`} title={guide.title} text={guide.summary} /></div>
 
         <div className="family-detail__layout">
           <article className="family-detail__story">

@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { SaveBusinessButton } from '@/components/SaveBusinessButton'
+import { ShareButton } from '@/components/ShareButton'
 import { businessVerificationLabel, isPubliclyVerifiedBusiness } from '@/lib/business-verification'
 import { getBusiness, labels } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
@@ -49,7 +50,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
     <main id="main"><div className="shell detail-shell business-profile">
       <Link className="back-link" href="/businesses/">← Business directory</Link>
       <header className="business-profile__header">
-        <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p>{publiclyVerified && <p className="business-profile__verification"><span aria-hidden="true">✓</span> {verificationLabel}{verificationDate && <span> · Last checked {verificationDate}</span>}</p>}<div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /></div></div>
+        <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p>{publiclyVerified && <p className="business-profile__verification"><span aria-hidden="true">✓</span> {verificationLabel}{verificationDate && <span> · Last checked {verificationDate}</span>}</p>}<div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /><ShareButton contentType="business" path={`/businesses/${business.slug}/`} title={business.name} text={business.summary} /></div></div>
         <div className={`business-profile__mark${business.logoPath ? ' business-profile__mark--logo' : ''}`} data-business={business.slug} aria-hidden={!business.logoPath}>
           {business.logoPath
             ? <Image src={business.logoPath} alt={business.logoAlt || `${business.name} logo`} width={220} height={220} />

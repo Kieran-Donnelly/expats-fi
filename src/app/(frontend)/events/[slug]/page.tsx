@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { EventLocationMap } from '@/components/EventsMap'
+import { ShareButton } from '@/components/ShareButton'
 import { getEvent } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -23,7 +24,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
     <main id="main"><div className="shell detail-shell event-detail">
       <Link className="back-link" href="/events/">← All Helsinki events</Link>
       <header className="event-detail__header">
-        <div><div className="event-detail__kicker"><span>{event.category}</span>{event.free && <span>Free</span>}{event.familyFriendly && <span>Family-friendly</span>}</div><h1>{event.title}</h1><p>{event.blurb}</p></div>
+        <div><div className="event-detail__kicker"><span>{event.category}</span>{event.free && <span>Free</span>}{event.familyFriendly && <span>Family-friendly</span>}</div><h1>{event.title}</h1><p>{event.blurb}</p><div className="detail-share"><ShareButton contentType="event" path={`/events/${event.slug}/`} title={event.title} text={event.blurb} /></div></div>
         <div className="event-detail__when"><strong>{event.dateLabel}</strong><span>{event.timeLabel}</span></div>
       </header>
       <div className="event-detail__layout">
