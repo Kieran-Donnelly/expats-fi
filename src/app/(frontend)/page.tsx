@@ -86,7 +86,7 @@ export default async function HomePage() {
             <HelsinkiNow initialNow={new Date().toISOString()} weather={weather} />
           </div>
 
-          <form className="search-box" action="/resources/#resource-library" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="home">
+          <form className="search-box" action="/search/" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="home">
             <svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="8.5" cy="8.5" r="5.5" /><path d="m13 13 4 4" /></svg>
             <label className="sr-only" htmlFor="home-search">Search Expats.fi</label>
             <input id="home-search" name="q" placeholder="What are you trying to sort out?" />

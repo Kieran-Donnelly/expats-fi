@@ -16,7 +16,7 @@ export function NotFoundPage() {
           <p className="eyebrow">Well, this is awkward</p>
           <h1 id="not-found-heading">That page has wandered off.</h1>
           <p>The link may be old, the page may have moved, or Finland has quietly filed it somewhere sensible without telling either of us.</p>
-          <form className="status-page__search" action="/resources/#resource-library" method="get" role="search">
+          <form className="status-page__search" action="/search/" method="get" role="search">
             <label htmlFor="missing-page-search">What were you trying to find?</label>
             <div><input id="missing-page-search" name="q" placeholder="Housing, Kela, events, Finnish…" /><button type="submit">Search the site</button></div>
           </form>
