@@ -49,7 +49,7 @@ export function CommunityPostForm({ isAuthenticated }: { isAuthenticated: boolea
   }
 
   return (
-    <form className="community-form" onSubmit={submit}>
+    <form className="community-form" onSubmit={submit} aria-busy={busy}>
       <div className="community-form__heading"><div><p className="eyebrow">Start a conversation</p><h2>What would you like to ask?</h2></div><span>Be specific, kind and useful.</span></div>
       {error && <p className="community-form__message community-form__message--error" role="alert">{error}</p>}
       {message && <p className="community-form__message" role="status">{message}</p>}

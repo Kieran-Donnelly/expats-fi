@@ -6,6 +6,7 @@ import { isMemberArrivalStage, normaliseMemberInterests, type MemberArrivalStage
 
 export const GOOGLE_SESSION_COOKIE = 'expats-google-session'
 export const GOOGLE_OAUTH_COOKIE = 'expats-google-oauth'
+export const GOOGLE_OAUTH_RETURN_COOKIE = 'expats-google-return'
 export const ADMIN_GOOGLE_OAUTH_COOKIE = 'expats-admin-google-oauth'
 
 export type MemberSession = {

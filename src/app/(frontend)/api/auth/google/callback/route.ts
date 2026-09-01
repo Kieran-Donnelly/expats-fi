@@ -4,14 +4,27 @@ import { createHash, randomBytes } from 'node:crypto'
 import { generatePayloadCookie, getPayload } from 'payload'
 import { NextRequest, NextResponse } from 'next/server'
 
-import { ADMIN_GOOGLE_OAUTH_COOKIE, createGoogleSessionToken, GOOGLE_OAUTH_COOKIE, GOOGLE_SESSION_COOKIE, secureCookieOptions } from '@/lib/member-auth'
+import { ADMIN_GOOGLE_OAUTH_COOKIE, createGoogleSessionToken, GOOGLE_OAUTH_COOKIE, GOOGLE_OAUTH_RETURN_COOKIE, GOOGLE_SESSION_COOKIE, secureCookieOptions } from '@/lib/member-auth'
 import { superAdminEmails } from '@/lib/admin-access'
+import { safeReturnPath } from '@/lib/return-path'
 
 const googleKeys = createRemoteJWKSet(new URL('https://www.googleapis.com/oauth2/v3/certs'))
 
 export async function GET(request: NextRequest) {
   const appURL = process.env.NEXT_PUBLIC_SERVER_URL || request.url
-  const fail = (admin = false) => NextResponse.redirect(new URL(admin ? '/admin/login?error=google' : '/login/?error=google', appURL))
+  const returnTo = safeReturnPath(request.cookies.get(GOOGLE_OAUTH_RETURN_COOKIE)?.value)
+  const fail = (admin = false) => {
+    const destination = new URL(admin ? '/admin/login?error=google' : '/login/', appURL)
+    if (!admin) {
+      destination.searchParams.set('error', 'google')
+      destination.searchParams.set('next', returnTo)
+    }
+    const response = NextResponse.redirect(destination)
+    response.cookies.set(ADMIN_GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+    response.cookies.set(GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+    response.cookies.set(GOOGLE_OAUTH_RETURN_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+    return response
+  }
   const clientId = process.env.GOOGLE_CLIENT_ID
   const clientSecret = process.env.GOOGLE_CLIENT_SECRET
   const code = request.nextUrl.searchParams.get('code')
@@ -29,16 +42,16 @@ export async function GET(request: NextRequest) {
       body: new URLSearchParams({ code, client_id: clientId, client_secret: clientSecret, redirect_uri: redirectUri, grant_type: 'authorization_code' }),
       cache: 'no-store',
     })
-    if (!tokenResponse.ok) return fail()
+    if (!tokenResponse.ok) return fail(isAdminFlow)
     const tokens = await tokenResponse.json() as { id_token?: string }
-    if (!tokens.id_token) return fail()
+    if (!tokens.id_token) return fail(isAdminFlow)
 
     const verified = await jwtVerify(tokens.id_token, googleKeys, {
       issuer: ['https://accounts.google.com', 'accounts.google.com'],
       audience: clientId,
     })
     const claims = verified.payload
-    if (!claims.sub || typeof claims.email !== 'string' || claims.email_verified !== true || claims.nonce !== state) return fail()
+    if (!claims.sub || typeof claims.email !== 'string' || claims.email_verified !== true || claims.nonce !== state) return fail(isAdminFlow)
 
     const payload = await getPayload({ config: configPromise })
     if (isAdminFlow) {
@@ -127,11 +140,12 @@ export async function GET(request: NextRequest) {
     }
 
     const session = await createGoogleSessionToken({ id: member.id, email: member.email, name: member.name, picture: member.picture, provider: member.provider })
-    const response = NextResponse.redirect(new URL('/account/', appURL))
+    const response = NextResponse.redirect(new URL(returnTo, appURL))
     response.cookies.set(GOOGLE_SESSION_COOKIE, session, { ...secureCookieOptions(), maxAge: 60 * 60 * 24 * 30 })
     response.cookies.set(GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+    response.cookies.set(GOOGLE_OAUTH_RETURN_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     return response
   } catch {
-    return fail()
+    return fail(isAdminFlow)
   }
 }

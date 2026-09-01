@@ -1,6 +1,6 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 import { useState } from 'react'
 
 import { trackAnalyticsEvent } from '@/lib/analytics'
@@ -15,6 +15,7 @@ export function SaveArticleButton({
   initialSaved?: boolean
 }) {
   const router = useRouter()
+  const pathname = usePathname()
   const [saved, setSaved] = useState(initialSaved)
   const [pending, setPending] = useState(false)
   const [error, setError] = useState('')
@@ -30,7 +31,7 @@ export function SaveArticleButton({
       })
 
       if (response.status === 401) {
-        router.push('/login/')
+        router.push(`/login/?next=${encodeURIComponent(pathname || '/')}`)
         return
       }
 
@@ -59,7 +60,7 @@ export function SaveArticleButton({
         <span aria-hidden="true">{saved ? '✓' : '♡'}</span>
         {pending ? (saved ? 'Removing…' : 'Saving…') : (saved ? 'Saved' : 'Save guide')}
       </button>
-      {error && <span className="save-article__error" role="status">{error}</span>}
+      {error && <span className="save-article__error" role="alert">{error}</span>}
     </span>
   )
 }

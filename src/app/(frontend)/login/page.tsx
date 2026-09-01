@@ -2,15 +2,17 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { AuthForm } from '@/components/AuthForm'
+import { safeReturnPath } from '@/lib/return-path'
 
 export const metadata: Metadata = { title: 'Sign in', robots: { index: false, follow: false } }
 
-export default function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
+export default function LoginPage({ searchParams }: { searchParams: Promise<{ error?: string; next?: string }> }) {
   return <AuthPage searchParams={searchParams} />
 }
 
-async function AuthPage({ searchParams }: { searchParams: Promise<{ error?: string }> }) {
-  const { error } = await searchParams
+async function AuthPage({ searchParams }: { searchParams: Promise<{ error?: string; next?: string }> }) {
+  const { error, next } = await searchParams
+  const returnTo = safeReturnPath(next)
   return (
     <main id="main" className="auth-page">
       <div className="shell auth-page__layout">
@@ -23,7 +25,7 @@ async function AuthPage({ searchParams }: { searchParams: Promise<{ error?: stri
         <section aria-labelledby="sign-in-title">
           <h2 id="sign-in-title" className="auth-page__form-title">Sign in</h2>
           {error === 'google' && <p className="auth-error" role="alert">Google sign-in could not be completed. Please try again.</p>}
-          <AuthForm mode="login" googleEnabled={Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET)} />
+          <AuthForm mode="login" googleEnabled={Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET)} returnTo={returnTo} />
         </section>
       </div>
     </main>

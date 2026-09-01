@@ -680,6 +680,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .form-card label { display: grid; gap: .35rem; font-weight: 650; }
 .form-card textarea { min-block-size: 8rem; padding-block: .7rem; resize: vertical; }
 .form-card .button { justify-self: start; }
+.form-card .button-row { display: flex; flex-wrap: wrap; gap: .75rem; }
 .form-note { color: var(--muted); font-size: .8rem; }
 .form-note--notice { margin: 0; padding: .7rem .8rem; border-radius: .55rem; background: var(--snow); color: var(--ink-soft); }
 .form-note--notice a { color: var(--blue); font-weight: 680; }

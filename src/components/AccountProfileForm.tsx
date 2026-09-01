@@ -52,7 +52,7 @@ export function AccountProfileForm({
   }
 
   return (
-    <form className="account-form" onSubmit={saveProfile}>
+    <form className="account-form" onSubmit={saveProfile} aria-busy={pending}>
       <div className="account-form__heading"><p className="eyebrow">Your profile</p><h2>Make it useful to you.</h2><p>These details help us tailor future guides without making your profile public.</p></div>
       <label>Name<input name="name" value={name} onChange={(event) => setName(event.target.value)} autoComplete="name" required maxLength={120} /></label>
       <label>City or municipality<input name="city" value={city} onChange={(event) => setCity(event.target.value)} autoComplete="address-level2" maxLength={120} placeholder="Helsinki, Tampere, Turku…" /></label>

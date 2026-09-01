@@ -26,15 +26,25 @@ export function SubmissionForm({
   const [status, setStatus] = useState('')
   const [error, setError] = useState('')
 
+  if (!isAuthenticated) {
+    return (
+      <div className="form-card" aria-labelledby="submission-sign-in-title">
+        <p className="eyebrow">One quick step</p>
+        <h2 id="submission-sign-in-title">Sign in before sending your listing.</h2>
+        <p>That gives you a place to follow the review and means we can come back to you if anything needs checking.</p>
+        <div className="button-row">
+          <Link className="button" href="/login/?next=%2Fsubmit-business%2F">Sign in to continue</Link>
+          <Link className="button button--quiet" href="/register/?next=%2Fsubmit-business%2F">Create an account</Link>
+        </div>
+        <p className="form-note">Once you are signed in, we will bring you straight back here.</p>
+      </div>
+    )
+  }
+
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
     setStatus('')
     setError('')
-    if (!isAuthenticated) {
-      setError('Sign in before submitting so you can track the review here.')
-      return
-    }
-
     setPending(true)
     try {
       const response = await fetch('/api/account/submissions', {
@@ -60,8 +70,7 @@ export function SubmissionForm({
   }
 
   return (
-    <form className="form-card" onSubmit={submit}>
-      {!isAuthenticated && <p className="form-note form-note--notice">Want to track this listing? <Link href="/login/">Sign in first</Link>; your details will stay in this form.</p>}
+    <form className="form-card" onSubmit={submit} aria-busy={pending}>
       <label>Business name<input name="name" value={businessName} onChange={(event) => setBusinessName(event.target.value)} required /></label>
       <label>Website<input name="website" type="url" value={website} onChange={(event) => setWebsite(event.target.value)} required placeholder="https://" /></label>
       <label>City or service area<input name="location" value={location} onChange={(event) => setLocation(event.target.value)} required /></label>

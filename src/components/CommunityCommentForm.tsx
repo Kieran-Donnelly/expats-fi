@@ -40,7 +40,7 @@ export function CommunityCommentForm({ postSlug, isAuthenticated }: { postSlug: 
   }
 
   return (
-    <form className="community-form community-form--reply" onSubmit={submit}>
+    <form className="community-form community-form--reply" onSubmit={submit} aria-busy={busy}>
       <div className="community-form__heading"><div><p className="eyebrow">Keep it going</p><h2>Add your perspective.</h2></div></div>
       {error && <p className="community-form__message community-form__message--error" role="alert">{error}</p>}
       {message && <p className="community-form__message" role="status">{message}</p>}

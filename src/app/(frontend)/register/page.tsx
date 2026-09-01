@@ -2,10 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { AuthForm } from '@/components/AuthForm'
+import { safeReturnPath } from '@/lib/return-path'
 
 export const metadata: Metadata = { title: 'Create an account', robots: { index: false, follow: false } }
 
-export default function RegisterPage() {
+export default async function RegisterPage({ searchParams }: { searchParams: Promise<{ next?: string }> }) {
+  const { next } = await searchParams
+  const returnTo = safeReturnPath(next)
   return (
     <main id="main" className="auth-page">
       <div className="shell auth-page__layout">
@@ -17,7 +20,7 @@ export default function RegisterPage() {
         </section>
         <section aria-labelledby="create-account-title">
           <h2 id="create-account-title" className="auth-page__form-title">Create your account</h2>
-          <AuthForm mode="register" googleEnabled={Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET)} />
+          <AuthForm mode="register" googleEnabled={Boolean(process.env.GOOGLE_CLIENT_ID && process.env.GOOGLE_CLIENT_SECRET)} returnTo={returnTo} />
         </section>
       </div>
     </main>
