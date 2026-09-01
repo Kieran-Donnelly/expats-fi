@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { canManageContent, canManageMembers, canManageUsers, isSuperAdmin } from '../src/lib/admin-access'
+import { canManageContent, canManageMembers, canManageUsers, isSuperAdmin, isSuperAdminEmail } from '../src/lib/admin-access'
 
 const superAdmin = { collection: 'users' as const, email: 'kieran@podium.dev', role: 'super-admin' as const }
 const editor = { collection: 'users' as const, email: 'editor@example.com', role: 'editor' as const }
@@ -24,4 +24,16 @@ test('member sessions are not treated as CMS administrators', () => {
   const member = { collection: 'members', email: 'member@example.com', role: 'super-admin' }
   assert.equal(isSuperAdmin(member), false)
   assert.equal(canManageContent(member), false)
+})
+
+test('only the two approved owner emails can be super admins', () => {
+  assert.equal(isSuperAdminEmail('uriah@podium.dev'), true)
+  assert.equal(isSuperAdminEmail(' KIERAN@PODIUM.DEV '), true)
+  assert.equal(isSuperAdminEmail('someone@example.com'), false)
+
+  const unapprovedSuperAdmin = { collection: 'users' as const, email: 'someone@example.com', role: 'super-admin' as const }
+  assert.equal(isSuperAdmin(unapprovedSuperAdmin), false)
+  assert.equal(canManageUsers(unapprovedSuperAdmin), false)
+  assert.equal(canManageMembers(unapprovedSuperAdmin), false)
+  assert.equal(canManageContent(unapprovedSuperAdmin), false)
 })

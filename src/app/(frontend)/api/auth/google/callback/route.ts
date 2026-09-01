@@ -5,7 +5,7 @@ import { generatePayloadCookie, getPayload } from 'payload'
 import { NextRequest, NextResponse } from 'next/server'
 
 import { ADMIN_GOOGLE_OAUTH_COOKIE, createGoogleSessionToken, GOOGLE_OAUTH_COOKIE, GOOGLE_OAUTH_RETURN_COOKIE, GOOGLE_SESSION_COOKIE, secureCookieOptions } from '@/lib/member-auth'
-import { superAdminEmails } from '@/lib/admin-access'
+import { isSuperAdminEmail } from '@/lib/admin-access'
 import { safeReturnPath } from '@/lib/return-path'
 
 const googleKeys = createRemoteJWKSet(new URL('https://www.googleapis.com/oauth2/v3/certs'))
@@ -56,7 +56,7 @@ export async function GET(request: NextRequest) {
     const payload = await getPayload({ config: configPromise })
     if (isAdminFlow) {
       const email = claims.email.toLowerCase()
-      if (!superAdminEmails.includes(email as (typeof superAdminEmails)[number])) return fail(true)
+      if (!isSuperAdminEmail(email)) return fail(true)
 
       const password = createHash('sha256')
         .update(`${process.env.PAYLOAD_SECRET || 'local-development-secret-change-me'}:${claims.sub}:expats-admin-google`)

@@ -1,6 +1,6 @@
 import type { CollectionConfig } from 'payload'
 
-import { canManageUsers, isSuperAdmin, superAdminEmails, userRoles } from '@/lib/admin-access'
+import { canManageUsers, isSuperAdmin, isSuperAdminEmail, userRoles } from '@/lib/admin-access'
 
 export const Users: CollectionConfig = {
   slug: 'users',
@@ -12,8 +12,9 @@ export const Users: CollectionConfig = {
   },
   access: {
     read: ({ req: { user } }) => canManageUsers(user),
-    create: async ({ req }) => {
+    create: async ({ data, req }) => {
       if (canManageUsers(req.user)) return true
+      if (!isSuperAdminEmail(data?.email)) return false
       const existing = await req.payload.find({ collection: 'users', limit: 0, overrideAccess: true })
       return existing.totalDocs === 0
     },
@@ -23,13 +24,10 @@ export const Users: CollectionConfig = {
   hooks: {
     beforeChange: [async ({ data, originalDoc, operation, req }) => {
       const identityEmail = typeof data.email === 'string' ? data.email : typeof originalDoc?.email === 'string' ? originalDoc.email : ''
-      if (superAdminEmails.includes(identityEmail.trim().toLowerCase() as (typeof superAdminEmails)[number])) {
+      if (isSuperAdminEmail(identityEmail)) {
         data.role = 'super-admin'
-      }
-
-      if (operation === 'create' && !req.user) {
-        const existing = await req.payload.find({ collection: 'users', limit: 0, overrideAccess: true })
-        if (existing.totalDocs === 0) data.role = 'super-admin'
+      } else if (data.role === 'super-admin') {
+        throw new Error('Only the approved Expats.fi owners can hold the super-admin role.')
       }
 
       if (operation === 'update' && isSuperAdmin(originalDoc) && data.role && data.role !== 'super-admin') {

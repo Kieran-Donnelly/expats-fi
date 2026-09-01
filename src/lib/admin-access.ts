@@ -5,6 +5,11 @@ export const superAdminEmails = ['kieran@podium.dev', 'uriah@podium.dev'] as con
 
 export type UserRole = (typeof userRoles)[number]
 
+export function isSuperAdminEmail(value: unknown): value is (typeof superAdminEmails)[number] {
+  if (typeof value !== 'string') return false
+  return superAdminEmails.includes(value.trim().toLowerCase() as (typeof superAdminEmails)[number])
+}
+
 type AuthenticatedUser = Pick<User, 'id' | 'collection' | 'email'> & {
   role?: UserRole | null
 }
@@ -16,11 +21,11 @@ export function isCmsUser(user: unknown): user is AuthenticatedUser {
 }
 
 export function isSuperAdmin(user: unknown): user is AuthenticatedUser {
-  return isCmsUser(user) && user.role === 'super-admin'
+  return isCmsUser(user) && user.role === 'super-admin' && isSuperAdminEmail(user.email)
 }
 
 export function canManageContent(user: unknown): user is AuthenticatedUser {
-  return isCmsUser(user) && (user.role === 'super-admin' || user.role === 'editor')
+  return isSuperAdmin(user) || (isCmsUser(user) && user.role === 'editor')
 }
 
 export function canManageUsers(user: unknown): user is AuthenticatedUser {
