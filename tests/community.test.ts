@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { communityReportReasonLabels, isCommunityContentAction, isCommunityReportAction, isCommunityReportReason, isCommunityTopic, memberDisplayName, slugifyCommunityTitle } from '../src/lib/community-options'
+import { anonymousCommunityAlias, communityReportReasonLabels, isCommunityContentAction, isCommunityReportAction, isCommunityReportReason, isCommunityTopic, memberDisplayName, slugifyCommunityTitle } from '../src/lib/community-options'
 
 test('whitelists community topics and report reasons', () => {
   assert.equal(isCommunityTopic('housing'), true)
@@ -27,4 +27,11 @@ test('creates readable community slugs and safe member names', () => {
   assert.equal(memberDisplayName({ name: '  Kieran Donnelly ' }), 'Kieran Donnelly')
   assert.equal(memberDisplayName({ email: 'newcomer@example.com' }), 'newcomer')
   assert.equal(memberDisplayName(null), 'Expats.fi member')
+})
+
+test('creates friendly anonymous aliases that remain stable inside a conversation', () => {
+  const first = anonymousCommunityAlias('member-12:conversation-one')
+  assert.match(first, /^Anonymous (neighbour|newcomer|local|learner|resident|explorer|commuter|regular) \d{2}$/)
+  assert.equal(anonymousCommunityAlias('member-12:conversation-one'), first)
+  assert.notEqual(anonymousCommunityAlias('member-12:conversation-two'), first)
 })

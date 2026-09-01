@@ -26,6 +26,11 @@ export function memberName(value: unknown): string {
   return 'Expats.fi member'
 }
 
+export function communityAuthorName(value: { anonymous?: boolean | null; anonymousAlias?: string | null; author?: unknown }): string {
+  if (value.anonymous) return value.anonymousAlias?.trim() || 'Anonymous member'
+  return memberName(value.author)
+}
+
 export function formatCommunityDate(value: string): string {
   const date = new Date(value)
   if (Number.isNaN(date.getTime())) return 'Date unknown'
@@ -62,7 +67,7 @@ export async function getCommunityPosts({
     depth: 1,
     limit,
     pagination: false,
-    overrideAccess: false,
+    overrideAccess: true,
     sort: '-lastActivityAt',
     where: { and },
   })
@@ -77,7 +82,7 @@ export async function getCommunityPost(slug: string, payload?: Payload): Promise
     depth: 1,
     limit: 1,
     pagination: false,
-    overrideAccess: false,
+    overrideAccess: true,
     where: { and: [{ slug: { equals: slug } }, { status: { equals: 'published' } }] },
   })
   return result.docs[0] || null
@@ -91,7 +96,7 @@ export async function getCommunityComments(postId: string | number, payload?: Pa
     depth: 1,
     limit: 100,
     pagination: false,
-    overrideAccess: false,
+    overrideAccess: true,
     sort: 'createdAt',
     where: { and: [{ post: { equals: postId } }, { status: { equals: 'published' } }] },
   })
@@ -109,7 +114,7 @@ export async function getCommunityPostCommentCounts(postIds: Array<string | numb
     depth: 0,
     limit: 1000,
     pagination: false,
-    overrideAccess: false,
+    overrideAccess: true,
     where: { and: [{ post: { in: ids } }, { status: { equals: 'published' } }] },
   })
   for (const comment of result.docs) {

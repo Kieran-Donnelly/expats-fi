@@ -6,7 +6,7 @@ import { notFound } from 'next/navigation'
 import { CommunityCommentForm } from '@/components/CommunityCommentForm'
 import { CommunityReportButton } from '@/components/CommunityReportButton'
 import { getCurrentMember } from '@/lib/member-auth'
-import { formatCommunityDate, getCommunityComments, getCommunityPost, memberName, topicLabel } from '@/lib/community'
+import { communityAuthorName, formatCommunityDate, getCommunityComments, getCommunityPost, topicLabel } from '@/lib/community'
 
 export const dynamic = 'force-dynamic'
 
@@ -33,7 +33,7 @@ export default async function CommunityPostPage({ params }: RouteContext) {
         <header className="community-post-page__header">
           <div className="community-post-page__meta"><span>{topicLabel(post.topic)}</span><time dateTime={post.createdAt}>{formatCommunityDate(post.createdAt)}</time></div>
           <h1>{post.title}</h1>
-          <p className="community-post-page__byline">By {memberName(post.author)}</p>
+          <p className="community-post-page__byline">By {communityAuthorName(post)}</p>
         </header>
         <div className="community-post-page__layout">
           <article className="community-post-page__story">
@@ -41,7 +41,7 @@ export default async function CommunityPostPage({ params }: RouteContext) {
             <div className="community-post-page__report"><CommunityReportButton targetType="post" targetId={post.id} isAuthenticated={Boolean(member)} nextPath={`/community/board/${post.slug}/`} /></div>
             <section className="community-comments" aria-labelledby="community-comments-title">
               <div className="community-comments__heading"><div><p className="eyebrow">Join the conversation</p><h2 id="community-comments-title">{comments.length} {comments.length === 1 ? 'reply' : 'replies'}</h2></div><span>Keep it kind and practical.</span></div>
-              {comments.length ? <div className="community-comments__list">{comments.map((comment) => <article className="community-comment" key={comment.id}><div className="community-comment__meta"><strong>{memberName(comment.author)}</strong><time dateTime={comment.createdAt}>{formatCommunityDate(comment.createdAt)}</time></div><p>{comment.body}</p><CommunityReportButton targetType="comment" targetId={comment.id} isAuthenticated={Boolean(member)} nextPath={`/community/board/${post.slug}/`} /></article>)}</div> : <p className="community-comments__empty">No replies yet. A thoughtful first answer can change the whole shape of a conversation.</p>}
+              {comments.length ? <div className="community-comments__list">{comments.map((comment) => <article className="community-comment" key={comment.id}><div className="community-comment__meta"><strong>{communityAuthorName(comment)}</strong><time dateTime={comment.createdAt}>{formatCommunityDate(comment.createdAt)}</time></div><p>{comment.body}</p><CommunityReportButton targetType="comment" targetId={comment.id} isAuthenticated={Boolean(member)} nextPath={`/community/board/${post.slug}/`} /></article>)}</div> : <p className="community-comments__empty">No replies yet. A thoughtful first answer can change the whole shape of a conversation.</p>}
             <CommunityCommentForm postSlug={post.slug} isAuthenticated={Boolean(member)} canPost={member?.communityTrust !== 'restricted'} rulesAccepted={Boolean(member?.communityRulesAcceptedAt)} />
             </section>
           </article>

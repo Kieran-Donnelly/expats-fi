@@ -2,7 +2,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
 import { getCurrentMember } from '@/lib/member-auth'
-import { isCommunityTopic, slugifyCommunityTitle } from '@/lib/community-options'
+import { anonymousCommunityAlias, isCommunityTopic, slugifyCommunityTitle } from '@/lib/community-options'
 import { communitySubmissionStatus, screenCommunityContent } from '@/lib/community-safety'
 import { isSameOrigin } from '@/lib/request-origin'
 
@@ -42,6 +42,7 @@ export async function POST(request: Request) {
   const title = text(data?.title, 120)
   const body = text(data?.body, 5000)
   const selectedTopic = data?.topic
+  const anonymous = data?.anonymous === true
   const rulesAccepted = data?.rulesAccepted === true || Boolean(member.communityRulesAcceptedAt)
 
   if (title.length < 3) return json({ message: 'Please add a title of at least three characters.' }, 400)
@@ -88,6 +89,8 @@ export async function POST(request: Request) {
       body,
       topic: selectedTopic,
       author: Number(member.id),
+      anonymous,
+      anonymousAlias: anonymous ? anonymousCommunityAlias(`${member.id}:${slug}`) : undefined,
       status,
       screeningStatus: screening.status,
       screeningSignals: screening.signals,

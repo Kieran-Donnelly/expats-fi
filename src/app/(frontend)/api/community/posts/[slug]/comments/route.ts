@@ -2,6 +2,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
 import { getCurrentMember } from '@/lib/member-auth'
+import { anonymousCommunityAlias } from '@/lib/community-options'
 import { communitySubmissionStatus, screenCommunityContent } from '@/lib/community-safety'
 import { isSameOrigin } from '@/lib/request-origin'
 
@@ -24,6 +25,7 @@ export async function POST(request: Request, { params }: RouteContext) {
   const { slug } = await params
   const data = await request.json().catch(() => null) as Record<string, unknown> | null
   const body = text(data?.body, 3000)
+  const anonymous = data?.anonymous === true
   const rulesAccepted = data?.rulesAccepted === true || Boolean(member.communityRulesAcceptedAt)
   if (body.length < 2) return json({ message: 'Please add a little more to your reply.' }, 400)
   if (!rulesAccepted) return json({ message: 'Please read and accept the community rules before replying.' }, 400)
@@ -60,6 +62,12 @@ export async function POST(request: Request, { params }: RouteContext) {
   const screening = screenCommunityContent('', body)
   const status = communitySubmissionStatus(member.communityTrust, screening)
   const screenedAt = new Date().toISOString()
+  const postAuthorId = typeof post.author === 'object' && post.author ? post.author.id : post.author
+  const anonymousAlias = anonymous
+    ? Number(postAuthorId) === Number(member.id) && post.anonymous && post.anonymousAlias
+      ? post.anonymousAlias
+      : anonymousCommunityAlias(`${member.id}:${post.slug}`)
+    : undefined
   if (!member.communityRulesAcceptedAt) {
     await payload.update({
       collection: 'members',
@@ -74,6 +82,8 @@ export async function POST(request: Request, { params }: RouteContext) {
     data: {
       post: post.id,
       author: Number(member.id),
+      anonymous,
+      anonymousAlias,
       body,
       status,
       screeningStatus: screening.status,

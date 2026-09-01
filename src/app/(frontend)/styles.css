@@ -735,6 +735,11 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .community-rules-check { display: flex !important; grid-template-columns: none !important; align-items: flex-start; gap: .65rem !important; padding: .8rem; border-radius: .55rem; background: var(--blue-pale); color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
 .community-rules-check input { inline-size: 1rem; block-size: 1rem; flex: none; margin-block-start: .1rem; }
 .community-rules-check a { color: var(--blue); }
+.community-anonymous-check { display: flex !important; flex-direction: row !important; gap: .7rem !important; align-items: flex-start; padding: .9rem 1rem; border: 1px solid #cbdceb; border-radius: .65rem; background: #f3f8fc; color: var(--ink); cursor: pointer; }
+.community-anonymous-check input { inline-size: 1rem; block-size: 1rem; flex: none; margin-block-start: .18rem; accent-color: var(--blue); }
+.community-anonymous-check span { display: grid; gap: .15rem; }
+.community-anonymous-check strong { font-size: .88rem; }
+.community-anonymous-check small { color: var(--ink-soft); font-size: .74rem; font-weight: 500; line-height: 1.45; }
 .community-rules-hero { border-block-end: 1px solid var(--line); background: var(--blue-soft); }
 .community-rules-hero .shell { padding-block: clamp(3rem, 7vw, 6rem); }
 .community-rules-hero h1 { max-inline-size: 14ch; margin-block: .7rem 1rem; font-size: clamp(3rem, 7vw, 5.7rem); }

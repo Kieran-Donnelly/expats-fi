@@ -494,6 +494,8 @@ export interface CommunityPost {
   body: string;
   topic: 'general' | 'housing' | 'work-money' | 'everyday-life' | 'finnish' | 'family' | 'culture-events';
   author: number | Member;
+  anonymous?: boolean | null;
+  anonymousAlias?: string | null;
   status: 'pending' | 'published' | 'flagged' | 'hidden' | 'rejected';
   screeningStatus: 'unreviewed' | 'clear' | 'attention';
   /**
@@ -530,6 +532,8 @@ export interface CommunityComment {
   id: number;
   post: number | CommunityPost;
   author: number | Member;
+  anonymous?: boolean | null;
+  anonymousAlias?: string | null;
   body: string;
   status: 'pending' | 'published' | 'flagged' | 'hidden' | 'rejected';
   screeningStatus: 'unreviewed' | 'clear' | 'attention';
@@ -1164,6 +1168,8 @@ export interface CommunityPostsSelect<T extends boolean = true> {
   body?: T;
   topic?: T;
   author?: T;
+  anonymous?: T;
+  anonymousAlias?: T;
   status?: T;
   screeningStatus?: T;
   screeningSignals?: T;
@@ -1183,6 +1189,8 @@ export interface CommunityPostsSelect<T extends boolean = true> {
 export interface CommunityCommentsSelect<T extends boolean = true> {
   post?: T;
   author?: T;
+  anonymous?: T;
+  anonymousAlias?: T;
   body?: T;
   status?: T;
   screeningStatus?: T;

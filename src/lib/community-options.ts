@@ -76,3 +76,16 @@ export function memberDisplayName(value: unknown): string {
   }
   return 'Expats.fi member'
 }
+
+const anonymousCommunityNouns = ['neighbour', 'newcomer', 'local', 'learner', 'resident', 'explorer', 'commuter', 'regular'] as const
+
+export function anonymousCommunityAlias(seed: string): string {
+  let hash = 2166136261
+  for (const character of seed) {
+    hash ^= character.charCodeAt(0)
+    hash = Math.imul(hash, 16777619)
+  }
+  const value = hash >>> 0
+  const noun = anonymousCommunityNouns[value % anonymousCommunityNouns.length]
+  return `Anonymous ${noun} ${10 + (value % 90)}`
+}

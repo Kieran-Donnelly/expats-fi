@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { CommunityPostForm } from '@/components/CommunityPostForm'
 import { CommunityReportButton } from '@/components/CommunityReportButton'
 import { getCurrentMember } from '@/lib/member-auth'
-import { getCommunityPostCommentCounts, getCommunityPosts, memberName, topicLabel } from '@/lib/community'
+import { communityAuthorName, getCommunityPostCommentCounts, getCommunityPosts, topicLabel } from '@/lib/community'
 import { communityTopicOptions, isCommunityTopic } from '@/lib/community-options'
 
 export const dynamic = 'force-dynamic'
@@ -62,7 +62,7 @@ export default async function CommunityBoardPage({ searchParams }: { searchParam
               <div className="community-post-card__meta"><span>{topicLabel(post.topic)}</span><time dateTime={post.createdAt}>{displayDate(post.createdAt)}</time></div>
               <h3><Link href={`/community/board/${post.slug}/`}>{post.title}</Link></h3>
               <p className="community-post-card__body">{excerpt(post.body)}</p>
-              <div className="community-post-card__footer"><span>By {memberName(post.author)}</span><span>{commentCounts.get(post.id) || 0} {commentCounts.get(post.id) === 1 ? 'reply' : 'replies'}</span><Link className="text-link" href={`/community/board/${post.slug}/`}>Open conversation <span aria-hidden="true">→</span></Link><CommunityReportButton targetType="post" targetId={post.id} isAuthenticated={Boolean(member)} nextPath={`/community/board/${post.slug}/`} /></div>
+              <div className="community-post-card__footer"><span>By {communityAuthorName(post)}</span><span>{commentCounts.get(post.id) || 0} {commentCounts.get(post.id) === 1 ? 'reply' : 'replies'}</span><Link className="text-link" href={`/community/board/${post.slug}/`}>Open conversation <span aria-hidden="true">→</span></Link><CommunityReportButton targetType="post" targetId={post.id} isAuthenticated={Boolean(member)} nextPath={`/community/board/${post.slug}/`} /></div>
             </article>
           ))}</div> : (
             <div className="community-empty"><span aria-hidden="true">＋</span><div><h3>{query || selectedTopic ? 'No conversations match that search.' : 'Be the first to start a conversation.'}</h3><p>{query || selectedTopic ? 'Try a different phrase or clear the filters. The board is still growing.' : 'Ask about a neighbourhood, share a small Finland win or explain something you wish you had known sooner.'}</p>{(query || selectedTopic) && <Link className="text-link" href="/community/board/">Show all conversations <span aria-hidden="true">→</span></Link>}</div></div>

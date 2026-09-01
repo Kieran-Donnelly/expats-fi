@@ -12,7 +12,7 @@ export const CommunityReports: CollectionConfig = {
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user),
-    create: ({ req: { user } }) => user?.collection === 'members',
+    create: ({ req: { user } }) => canManageContent(user),
     update: ({ req: { user } }) => canManageContent(user),
     delete: ({ req: { user } }) => canManageContent(user),
   },

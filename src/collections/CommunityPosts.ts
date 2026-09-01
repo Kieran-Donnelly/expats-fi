@@ -13,7 +13,7 @@ export const CommunityPosts: CollectionConfig = {
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },
-    create: ({ req: { user } }) => canManageContent(user) || user?.collection === 'members',
+    create: ({ req: { user } }) => canManageContent(user),
     update: ({ req: { user } }) => canManageContent(user),
     delete: ({ req: { user } }) => canManageContent(user),
   },
@@ -65,6 +65,19 @@ export const CommunityPosts: CollectionConfig = {
       relationTo: 'members',
       required: true,
       index: true,
+      access: { read: ({ req: { user } }) => canManageContent(user) },
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'anonymous',
+      type: 'checkbox',
+      defaultValue: false,
+      admin: { position: 'sidebar', description: 'Shows the generated alias publicly while retaining the member privately for moderation.' },
+    },
+    {
+      name: 'anonymousAlias',
+      type: 'text',
+      maxLength: 80,
       admin: { position: 'sidebar', readOnly: true },
     },
     {
