@@ -24,6 +24,14 @@ const submissionStatusLabels = {
   declined: 'Declined',
 } as const
 
+const communityStatus = {
+  pending: { label: 'Awaiting review', tone: 'pending' },
+  flagged: { label: 'Needs review', tone: 'needs-changes' },
+  published: { label: 'Published', tone: 'approved' },
+  hidden: { label: 'Hidden', tone: 'declined' },
+  rejected: { label: 'Not published', tone: 'declined' },
+} as const
+
 function submissionDate(value: string) {
   return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(value))
 }
@@ -114,7 +122,7 @@ export default async function AccountPage() {
               <div><p className="eyebrow">Your conversations</p><h2 id="community-posts-title">My community posts.</h2></div>
               <Link className="text-link" href="/community/board/">Open the board <span aria-hidden="true">→</span></Link>
             </div>
-            {communityPosts.length ? <div className="account-submissions account-community-posts">{communityPosts.map((post) => <article className="account-submission" key={post.id}><div><h3><Link href={`/community/board/${post.slug}/`}>{post.title}</Link></h3><p>{topicLabel(post.topic)} · Started {formatCommunityDate(post.createdAt)}</p></div><div className="account-submission__meta"><span className={`submission-status submission-status--${post.status === 'published' ? 'approved' : 'declined'}`}>{post.status === 'published' ? 'Published' : 'Hidden'}</span></div></article>)}</div> : (
+            {communityPosts.length ? <div className="account-submissions account-community-posts">{communityPosts.map((post) => { const status = communityStatus[post.status]; return <article className="account-submission" key={post.id}><div><h3>{post.status === 'published' ? <Link href={`/community/board/${post.slug}/`}>{post.title}</Link> : post.title}</h3><p>{topicLabel(post.topic)} · Started {formatCommunityDate(post.createdAt)}</p></div><div className="account-submission__meta"><span className={`submission-status submission-status--${status.tone}`}>{status.label}</span></div></article> })}</div> : (
               <div className="account-empty" aria-labelledby="community-posts-empty-title">
                 <span aria-hidden="true">✦</span>
                 <div>

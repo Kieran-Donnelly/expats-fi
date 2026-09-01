@@ -7,7 +7,7 @@ import { useRouter } from 'next/navigation'
 
 import { communityTopicOptions } from '@/lib/community-options'
 
-export function CommunityPostForm({ isAuthenticated }: { isAuthenticated: boolean }) {
+export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccepted = false }: { canPost?: boolean; isAuthenticated: boolean; rulesAccepted?: boolean }) {
   const router = useRouter()
   const [title, setTitle] = useState('')
   const [topic, setTopic] = useState('general')
@@ -15,6 +15,7 @@ export function CommunityPostForm({ isAuthenticated }: { isAuthenticated: boolea
   const [message, setMessage] = useState('')
   const [error, setError] = useState('')
   const [busy, setBusy] = useState(false)
+  const [acceptedRules, setAcceptedRules] = useState(rulesAccepted)
 
   if (!isAuthenticated) {
     return (
@@ -23,6 +24,10 @@ export function CommunityPostForm({ isAuthenticated }: { isAuthenticated: boolea
         <Link className="button" href="/login/?next=/community/board/">Sign in to post</Link>
       </div>
     )
+  }
+
+  if (!canPost) {
+    return <div className="community-board__join"><div><p className="eyebrow">Posting paused</p><h2>This account cannot post right now.</h2><p>Email hello@expats.fi if you believe this is a mistake.</p></div></div>
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {
@@ -34,13 +39,19 @@ export function CommunityPostForm({ isAuthenticated }: { isAuthenticated: boolea
       const response = await fetch('/api/community/posts', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ title, topic, body }),
+        body: JSON.stringify({ title, topic, body, rulesAccepted: acceptedRules }),
       })
-      const result = await response.json().catch(() => ({})) as { message?: string; slug?: string }
+      const result = await response.json().catch(() => ({})) as { message?: string; slug?: string; status?: string }
       if (!response.ok) throw new Error(result.message || 'We could not publish that post.')
-      setMessage('Post published. Opening the conversation…')
-      if (result.slug) router.push(`/community/board/${result.slug}/`)
-      else router.refresh()
+      if (result.status === 'published') {
+        setMessage('Post published. Opening the conversation…')
+        if (result.slug) router.push(`/community/board/${result.slug}/`)
+        else router.refresh()
+      } else {
+        setTitle('')
+        setBody('')
+        setMessage('Thanks. Your post is safely in the review queue and will appear once it has been checked.')
+      }
     } catch (submitError) {
       setError(submitError instanceof Error ? submitError.message : 'We could not publish that post.')
     } finally {
@@ -56,7 +67,8 @@ export function CommunityPostForm({ isAuthenticated }: { isAuthenticated: boolea
       <label>Title<input value={title} onChange={(event) => setTitle(event.target.value)} required minLength={3} maxLength={120} placeholder="e.g. Which neighbourhood is easiest without a car?" /></label>
       <label>Topic<select value={topic} onChange={(event) => setTopic(event.target.value)}>{communityTopicOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
       <label>Your post<textarea value={body} onChange={(event) => setBody(event.target.value)} required minLength={10} maxLength={5000} rows={7} placeholder="Share the context that would help another expat give a useful answer." /></label>
-      <div className="community-form__footer"><small>Posts appear immediately. Please do not share private contact, identity or bank details.</small><button className="button" type="submit" disabled={busy}>{busy ? 'Publishing…' : 'Publish post'}</button></div>
+      {!rulesAccepted && <label className="community-rules-check"><input type="checkbox" checked={acceptedRules} onChange={(event) => setAcceptedRules(event.target.checked)} required /> <span>I have read and agree to the <Link href="/community/rules/" target="_blank">community rules</Link>.</span></label>}
+      <div className="community-form__footer"><small>New members are reviewed first. Never share private identity, banking or contact details.</small><button className="button" type="submit" disabled={busy}>{busy ? 'Sending…' : 'Send post'}</button></div>
     </form>
   )
 }

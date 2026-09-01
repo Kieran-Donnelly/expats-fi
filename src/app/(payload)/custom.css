@@ -143,6 +143,7 @@
 .expats-admin-dashboard__submission-info strong { overflow: hidden; color: #12253f; font-size: .87rem; text-overflow: ellipsis; white-space: nowrap; }
 .expats-admin-dashboard__submission-info span { color: #536476; font-size: .76rem; }
 .expats-admin-dashboard__submission-info time { color: #8a98a6; font-size: .7rem; }
+.expats-admin-dashboard__screening-note { color: #9a5f13; font-size: .7rem; line-height: 1.4; }
 .expats-admin-dashboard__submission-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: .45rem; align-items: center; }
 .expats-admin-dashboard__open-review,
 .expats-admin-moderation-action button { min-block-size: 2.15rem; display: inline-flex; align-items: center; justify-content: center; padding: 0 .7rem; border: 1px solid #b7cad8; border-radius: 6px; background: #fff; color: #155c91; font: inherit; font-size: .7rem; font-weight: 720; text-decoration: none; cursor: pointer; }
@@ -153,6 +154,11 @@
 .expats-admin-moderation-action button:disabled { cursor: wait; opacity: .62; }
 .expats-admin-moderation-action { display: inline-flex; flex-direction: column; gap: .2rem; align-items: stretch; }
 .expats-admin-moderation-action small { max-width: 12rem; color: #b65045; font-size: .64rem; line-height: 1.3; }
+.expats-admin-community-runner { display: grid; justify-items: end; gap: .35rem; }
+.expats-admin-community-runner button { min-block-size: 2.15rem; padding: 0 .8rem; border: 1px solid #155c91; border-radius: 6px; background: #155c91; color: #fff; font: inherit; font-size: .7rem; font-weight: 720; cursor: pointer; }
+.expats-admin-community-runner button:hover:not(:disabled) { border-color: #0d426c; background: #0d426c; }
+.expats-admin-community-runner button:disabled { cursor: wait; opacity: .62; }
+.expats-admin-community-runner p { max-width: 30rem; margin: 0; color: #536476; font-size: .68rem; line-height: 1.4; text-align: right; }
 .expats-admin-dashboard__empty-queue { margin: 0; padding: 1rem 1.4rem 1.3rem; color: #667789; font-size: .8rem; }
 
 .expats-admin-dashboard__note {
@@ -217,6 +223,8 @@
   .expats-admin-dashboard__primary-action { justify-self: start; }
   .expats-admin-dashboard__submission { grid-template-columns: 1fr; }
   .expats-admin-dashboard__submission-actions { justify-content: start; }
+  .expats-admin-community-runner { justify-items: start; }
+  .expats-admin-community-runner p { text-align: left; }
 }
 
 @media (max-width: 420px) {

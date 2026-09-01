@@ -121,6 +121,7 @@ export async function GET(request: NextRequest) {
           googleSubject: claims.sub,
           picture: typeof claims.picture === 'string' ? claims.picture : undefined,
           provider: member.provider === 'password' ? 'both' : 'google',
+          emailVerifiedAt: member.emailVerifiedAt || new Date().toISOString(),
         },
         overrideAccess: true,
       })
@@ -134,6 +135,8 @@ export async function GET(request: NextRequest) {
           googleSubject: claims.sub,
           picture: typeof claims.picture === 'string' ? claims.picture : undefined,
           provider: 'google',
+          emailVerifiedAt: new Date().toISOString(),
+          communityTrust: 'new',
         },
         overrideAccess: true,
       })

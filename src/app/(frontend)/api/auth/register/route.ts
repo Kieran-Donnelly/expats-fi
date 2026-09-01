@@ -21,7 +21,7 @@ export async function POST(request: Request) {
 
   await payload.create({
     collection: 'members',
-    data: { name, email, password, provider: 'password' },
+    data: { name, email, password, provider: 'password', communityTrust: 'new' },
     overrideAccess: true,
   })
 

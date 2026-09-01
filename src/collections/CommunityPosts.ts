@@ -21,7 +21,8 @@ export const CommunityPosts: CollectionConfig = {
     beforeChange: [async ({ data, req }) => {
       if (req.user?.collection === 'members') {
         data.author = req.user.id
-        data.status = 'published'
+        data.status = 'pending'
+        data.screeningStatus = 'unreviewed'
       }
 
       if (!data.lastActivityAt) data.lastActivityAt = new Date().toISOString()
@@ -70,13 +71,73 @@ export const CommunityPosts: CollectionConfig = {
       name: 'status',
       type: 'select',
       required: true,
-      defaultValue: 'published',
+      defaultValue: 'pending',
       options: [
+        { label: 'Pending review', value: 'pending' },
         { label: 'Published', value: 'published' },
+        { label: 'Flagged for attention', value: 'flagged' },
         { label: 'Hidden', value: 'hidden' },
+        { label: 'Rejected', value: 'rejected' },
       ],
       index: true,
       admin: { position: 'sidebar' },
+    },
+    {
+      name: 'screeningStatus',
+      type: 'select',
+      required: true,
+      defaultValue: 'unreviewed',
+      options: [
+        { label: 'Not screened', value: 'unreviewed' },
+        { label: 'No automated warnings', value: 'clear' },
+        { label: 'Needs attention', value: 'attention' },
+      ],
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'screeningSignals',
+      type: 'json',
+      admin: { readOnly: true, description: 'Conservative automated warnings. A warning is not proof of wrongdoing.' },
+    },
+    {
+      name: 'screenedAt',
+      type: 'date',
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'reviewedAt',
+      type: 'date',
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'reviewedByEmail',
+      type: 'email',
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'editorialStatus',
+      type: 'select',
+      required: true,
+      defaultValue: 'none',
+      options: [
+        { label: 'No editorial follow-up', value: 'none' },
+        { label: 'Worth watching', value: 'watch' },
+        { label: 'Possible guide or article', value: 'article' },
+        { label: 'Possible event', value: 'event' },
+        { label: 'Possible site improvement', value: 'site-improvement' },
+        { label: 'Actioned', value: 'actioned' },
+      ],
+      index: true,
+      admin: { position: 'sidebar' },
+    },
+    {
+      name: 'editorialNotes',
+      type: 'textarea',
+      maxLength: 2000,
+      admin: { description: 'Private notes for turning a useful conversation into better Expats.fi content.' },
     },
     {
       name: 'lastActivityAt',

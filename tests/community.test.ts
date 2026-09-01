@@ -1,7 +1,7 @@
 import assert from 'node:assert/strict'
 import test from 'node:test'
 
-import { communityReportReasonLabels, isCommunityReportAction, isCommunityReportReason, isCommunityTopic, memberDisplayName, slugifyCommunityTitle } from '../src/lib/community-options'
+import { communityReportReasonLabels, isCommunityContentAction, isCommunityReportAction, isCommunityReportReason, isCommunityTopic, memberDisplayName, slugifyCommunityTitle } from '../src/lib/community-options'
 
 test('whitelists community topics and report reasons', () => {
   assert.equal(isCommunityTopic('housing'), true)
@@ -15,6 +15,10 @@ test('only exposes moderation actions the admin endpoint understands', () => {
   assert.equal(isCommunityReportAction('hide'), true)
   assert.equal(isCommunityReportAction('dismiss'), true)
   assert.equal(isCommunityReportAction('delete'), false)
+  assert.equal(isCommunityContentAction('approve'), true)
+  assert.equal(isCommunityContentAction('approve-and-trust'), true)
+  assert.equal(isCommunityContentAction('reject'), true)
+  assert.equal(isCommunityContentAction('ban'), false)
 })
 
 test('creates readable community slugs and safe member names', () => {

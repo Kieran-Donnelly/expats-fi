@@ -41,12 +41,12 @@ export default async function CommunityBoardPage({ searchParams }: { searchParam
       <header className="community-board-hero">
         <div className="shell community-board-hero__inner">
           <div><Link className="back-link" href="/community/">← Community in Helsinki</Link><p className="eyebrow">The Expats.fi community board</p><h1>A place to ask, share and find your people.</h1><p>Practical questions, small discoveries and the kind of local knowledge that makes Finland feel easier to live in.</p></div>
-          <aside><strong>Keep it useful</strong><p>Share what you know without sharing private contact, identity or bank details. If something feels unsafe, report it and move on.</p><Link href="/community/how-to-host-a-small-meetup-safely/">Read our community boundaries →</Link></aside>
+          <aside><strong>Keep it useful</strong><p>Share what you know without sharing private contact, identity or bank details. If something feels unsafe, report it and move on.</p><Link href="/community/rules/">Read the community rules →</Link></aside>
         </div>
       </header>
 
       <div className="shell community-board__layout">
-        <CommunityPostForm isAuthenticated={Boolean(member)} />
+        <CommunityPostForm isAuthenticated={Boolean(member)} canPost={member?.communityTrust !== 'restricted'} rulesAccepted={Boolean(member?.communityRulesAcceptedAt)} />
 
         <section className="community-board-feed" aria-labelledby="community-board-feed-title">
           <div className="community-board-feed__heading"><div><p className="eyebrow">Recent conversations</p><h2 id="community-board-feed-title">What people are talking about</h2></div><span>{posts.length} {posts.length === 1 ? 'conversation' : 'conversations'}</span></div>

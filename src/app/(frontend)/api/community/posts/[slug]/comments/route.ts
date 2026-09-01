@@ -2,6 +2,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
 import { getCurrentMember } from '@/lib/member-auth'
+import { communitySubmissionStatus, screenCommunityContent } from '@/lib/community-safety'
 import { isSameOrigin } from '@/lib/request-origin'
 
 type RouteContext = { params: Promise<{ slug: string }> }
@@ -23,7 +24,10 @@ export async function POST(request: Request, { params }: RouteContext) {
   const { slug } = await params
   const data = await request.json().catch(() => null) as Record<string, unknown> | null
   const body = text(data?.body, 3000)
+  const rulesAccepted = data?.rulesAccepted === true || Boolean(member.communityRulesAcceptedAt)
   if (body.length < 2) return json({ message: 'Please add a little more to your reply.' }, 400)
+  if (!rulesAccepted) return json({ message: 'Please read and accept the community rules before replying.' }, 400)
+  if (member.communityTrust === 'restricted') return json({ message: 'Community posting is not available for this account. Contact hello@expats.fi if you think this is a mistake.' }, 403)
 
   const payload = await getPayload({ config: configPromise })
   const posts = await payload.find({
@@ -40,34 +44,55 @@ export async function POST(request: Request, { params }: RouteContext) {
   const recent = await payload.find({
     collection: 'community-comments',
     depth: 0,
-    limit: 10,
+    limit: 101,
     pagination: false,
     overrideAccess: true,
     sort: '-createdAt',
     where: { author: { equals: member.id } },
   })
-  const repliedRecently = recent.docs.some((comment) => Date.now() - new Date(comment.createdAt).getTime() < 10_000)
+  const now = Date.now()
+  const cooldown = member.communityTrust === 'trusted' ? 10_000 : 30_000
+  const repliedRecently = recent.docs.some((comment) => now - new Date(comment.createdAt).getTime() < cooldown)
   if (repliedRecently) return json({ message: 'Give your last reply a moment before adding another.' }, 429)
+  const repliesToday = recent.docs.filter((comment) => now - new Date(comment.createdAt).getTime() < 24 * 60 * 60 * 1000).length
+  if (repliesToday >= (member.communityTrust === 'trusted' ? 100 : 20)) return json({ message: 'You have reached today’s reply limit. Please come back tomorrow.' }, 429)
 
+  const screening = screenCommunityContent('', body)
+  const status = communitySubmissionStatus(member.communityTrust, screening)
+  const screenedAt = new Date().toISOString()
+  if (!member.communityRulesAcceptedAt) {
+    await payload.update({
+      collection: 'members',
+      id: member.id,
+      data: { communityRulesAcceptedAt: screenedAt },
+      depth: 0,
+      overrideAccess: true,
+    })
+  }
   const comment = await payload.create({
     collection: 'community-comments',
     data: {
       post: post.id,
       author: Number(member.id),
       body,
-      status: 'published',
+      status,
+      screeningStatus: screening.status,
+      screeningSignals: screening.signals,
+      screenedAt,
     },
     depth: 0,
     overrideAccess: true,
   })
 
-  await payload.update({
-    collection: 'community-posts',
-    id: post.id,
-    data: { lastActivityAt: new Date().toISOString() },
-    depth: 0,
-    overrideAccess: true,
-  })
+  if (status === 'published') {
+    await payload.update({
+      collection: 'community-posts',
+      id: post.id,
+      data: { lastActivityAt: screenedAt },
+      depth: 0,
+      overrideAccess: true,
+    })
+  }
 
   return json({ ok: true, id: comment.id, status: comment.status }, 201)
 }

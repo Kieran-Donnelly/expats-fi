@@ -3,6 +3,7 @@ import { jwtVerify, SignJWT } from 'jose'
 import { getPayload, type Payload } from 'payload'
 
 import { isMemberArrivalStage, normaliseMemberInterests, type MemberArrivalStage, type MemberInterest } from '@/lib/account-options'
+import { isCommunityTrustLevel, type CommunityTrustLevel } from '@/lib/community-safety'
 
 export const GOOGLE_SESSION_COOKIE = 'expats-google-session'
 export const GOOGLE_OAUTH_COOKIE = 'expats-google-oauth'
@@ -21,6 +22,9 @@ export type MemberSession = {
   interests?: MemberInterest[]
   emailUpdates?: boolean
   newsletter?: boolean
+  emailVerifiedAt?: string | null
+  communityTrust?: CommunityTrustLevel
+  communityRulesAcceptedAt?: string | null
 }
 
 function sessionSecret() {
@@ -78,6 +82,9 @@ function toMemberSession(user: Record<string, unknown>): MemberSession | null {
     interests: normaliseMemberInterests(user.interests),
     emailUpdates: user.emailUpdates === true,
     newsletter: user.newsletter === true,
+    emailVerifiedAt: typeof user.emailVerifiedAt === 'string' ? user.emailVerifiedAt : null,
+    communityTrust: isCommunityTrustLevel(user.communityTrust) ? user.communityTrust : 'new',
+    communityRulesAcceptedAt: typeof user.communityRulesAcceptedAt === 'string' ? user.communityRulesAcceptedAt : null,
   }
 }
 

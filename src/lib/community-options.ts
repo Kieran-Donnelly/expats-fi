@@ -34,6 +34,14 @@ export const communityReportActions = {
 
 export type CommunityReportAction = (typeof communityReportActions)[keyof typeof communityReportActions]
 
+export const communityContentActions = {
+  approve: 'approve',
+  approveAndTrust: 'approve-and-trust',
+  reject: 'reject',
+} as const
+
+export type CommunityContentAction = (typeof communityContentActions)[keyof typeof communityContentActions]
+
 export function isCommunityTopic(value: unknown): value is CommunityTopic {
   return typeof value === 'string' && communityTopicOptions.some((option) => option.value === value)
 }
@@ -44,6 +52,10 @@ export function isCommunityReportReason(value: unknown): value is CommunityRepor
 
 export function isCommunityReportAction(value: unknown): value is CommunityReportAction {
   return value === communityReportActions.hide || value === communityReportActions.dismiss
+}
+
+export function isCommunityContentAction(value: unknown): value is CommunityContentAction {
+  return value === communityContentActions.approve || value === communityContentActions.approveAndTrust || value === communityContentActions.reject
 }
 
 export function slugifyCommunityTitle(value: string): string {

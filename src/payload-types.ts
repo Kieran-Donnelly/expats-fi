@@ -213,6 +213,19 @@ export interface Member {
   googleSubject?: string | null;
   picture?: string | null;
   /**
+   * Set when an identity provider or future email flow verifies this address.
+   */
+  emailVerifiedAt?: string | null;
+  /**
+   * Controls the community moderation lane. Change deliberately after reviewing the member’s contributions.
+   */
+  communityTrust: 'new' | 'trusted' | 'restricted';
+  communityRulesAcceptedAt?: string | null;
+  /**
+   * Private reason for restricting community posting. Never shown publicly.
+   */
+  communityRestrictionReason?: string | null;
+  /**
    * Optional city or municipality in Finland.
    */
   city?: string | null;
@@ -481,7 +494,28 @@ export interface CommunityPost {
   body: string;
   topic: 'general' | 'housing' | 'work-money' | 'everyday-life' | 'finnish' | 'family' | 'culture-events';
   author: number | Member;
-  status: 'published' | 'hidden';
+  status: 'pending' | 'published' | 'flagged' | 'hidden' | 'rejected';
+  screeningStatus: 'unreviewed' | 'clear' | 'attention';
+  /**
+   * Conservative automated warnings. A warning is not proof of wrongdoing.
+   */
+  screeningSignals?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  screenedAt?: string | null;
+  reviewedAt?: string | null;
+  reviewedByEmail?: string | null;
+  editorialStatus: 'none' | 'watch' | 'article' | 'event' | 'site-improvement' | 'actioned';
+  /**
+   * Private notes for turning a useful conversation into better Expats.fi content.
+   */
+  editorialNotes?: string | null;
   lastActivityAt?: string | null;
   updatedAt: string;
   createdAt: string;
@@ -497,7 +531,23 @@ export interface CommunityComment {
   post: number | CommunityPost;
   author: number | Member;
   body: string;
-  status: 'published' | 'hidden';
+  status: 'pending' | 'published' | 'flagged' | 'hidden' | 'rejected';
+  screeningStatus: 'unreviewed' | 'clear' | 'attention';
+  /**
+   * Conservative automated warnings. A warning is not proof of wrongdoing.
+   */
+  screeningSignals?:
+    | {
+        [k: string]: unknown;
+      }
+    | unknown[]
+    | string
+    | number
+    | boolean
+    | null;
+  screenedAt?: string | null;
+  reviewedAt?: string | null;
+  reviewedByEmail?: string | null;
   updatedAt: string;
   createdAt: string;
 }
@@ -968,6 +1018,10 @@ export interface MembersSelect<T extends boolean = true> {
   provider?: T;
   googleSubject?: T;
   picture?: T;
+  emailVerifiedAt?: T;
+  communityTrust?: T;
+  communityRulesAcceptedAt?: T;
+  communityRestrictionReason?: T;
   city?: T;
   languages?: T;
   arrivalStage?: T;
@@ -1111,6 +1165,13 @@ export interface CommunityPostsSelect<T extends boolean = true> {
   topic?: T;
   author?: T;
   status?: T;
+  screeningStatus?: T;
+  screeningSignals?: T;
+  screenedAt?: T;
+  reviewedAt?: T;
+  reviewedByEmail?: T;
+  editorialStatus?: T;
+  editorialNotes?: T;
   lastActivityAt?: T;
   updatedAt?: T;
   createdAt?: T;
@@ -1124,6 +1185,11 @@ export interface CommunityCommentsSelect<T extends boolean = true> {
   author?: T;
   body?: T;
   status?: T;
+  screeningStatus?: T;
+  screeningSignals?: T;
+  screenedAt?: T;
+  reviewedAt?: T;
+  reviewedByEmail?: T;
   updatedAt?: T;
   createdAt?: T;
 }

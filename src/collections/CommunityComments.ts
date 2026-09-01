@@ -20,7 +20,8 @@ export const CommunityComments: CollectionConfig = {
     beforeChange: [async ({ data, req }) => {
       if (req.user?.collection === 'members') {
         data.author = req.user.id
-        data.status = 'published'
+        data.status = 'pending'
+        data.screeningStatus = 'unreviewed'
       }
       return data
     }],
@@ -67,13 +68,51 @@ export const CommunityComments: CollectionConfig = {
       name: 'status',
       type: 'select',
       required: true,
-      defaultValue: 'published',
+      defaultValue: 'pending',
       options: [
+        { label: 'Pending review', value: 'pending' },
         { label: 'Published', value: 'published' },
+        { label: 'Flagged for attention', value: 'flagged' },
         { label: 'Hidden', value: 'hidden' },
+        { label: 'Rejected', value: 'rejected' },
       ],
       index: true,
       admin: { position: 'sidebar' },
+    },
+    {
+      name: 'screeningStatus',
+      type: 'select',
+      required: true,
+      defaultValue: 'unreviewed',
+      options: [
+        { label: 'Not screened', value: 'unreviewed' },
+        { label: 'No automated warnings', value: 'clear' },
+        { label: 'Needs attention', value: 'attention' },
+      ],
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'screeningSignals',
+      type: 'json',
+      admin: { readOnly: true, description: 'Conservative automated warnings. A warning is not proof of wrongdoing.' },
+    },
+    {
+      name: 'screenedAt',
+      type: 'date',
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'reviewedAt',
+      type: 'date',
+      index: true,
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'reviewedByEmail',
+      type: 'email',
+      admin: { position: 'sidebar', readOnly: true },
     },
   ],
 }
