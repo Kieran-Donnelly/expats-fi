@@ -144,6 +144,7 @@
 .expats-admin-dashboard__submission-info span { color: #536476; font-size: .76rem; }
 .expats-admin-dashboard__submission-info time { color: #8a98a6; font-size: .7rem; }
 .expats-admin-dashboard__screening-note { color: #9a5f13; font-size: .7rem; line-height: 1.4; }
+.expats-admin-dashboard__editorial-note { max-width: 58rem; color: #3d5265; font-size: .72rem; line-height: 1.45; }
 .expats-admin-dashboard__submission-actions { display: flex; flex-wrap: wrap; justify-content: end; gap: .45rem; align-items: center; }
 .expats-admin-dashboard__open-review,
 .expats-admin-moderation-action button { min-block-size: 2.15rem; display: inline-flex; align-items: center; justify-content: center; padding: 0 .7rem; border: 1px solid #b7cad8; border-radius: 6px; background: #fff; color: #155c91; font: inherit; font-size: .7rem; font-weight: 720; text-decoration: none; cursor: pointer; }

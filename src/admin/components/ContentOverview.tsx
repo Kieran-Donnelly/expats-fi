@@ -17,6 +17,17 @@ type Metric = {
   tone?: 'default' | 'attention'
 }
 
+const activeEditorialStatuses = ['watch', 'article', 'event', 'site-improvement'] as const
+
+const editorialStatusLabels: Record<(typeof activeEditorialStatuses)[number], string> = {
+  watch: 'Worth watching',
+  article: 'Possible guide or article',
+  event: 'Possible event',
+  'site-improvement': 'Possible site improvement',
+}
+
+const editorialQueueHref = '/admin/collections/community-posts?where%5BeditorialStatus%5D%5Bin%5D%5B0%5D=watch&where%5BeditorialStatus%5D%5Bin%5D%5B1%5D=article&where%5BeditorialStatus%5D%5Bin%5D%5B2%5D=event&where%5BeditorialStatus%5D%5Bin%5D%5B3%5D=site-improvement'
+
 async function countCollection(payload: Awaited<ReturnType<typeof getPayload>>, collection: CollectionSlug, where?: Where): Promise<number> {
   const result = await payload.find({ collection, limit: 0, overrideAccess: true, where })
   return result.totalDocs
@@ -25,7 +36,7 @@ async function countCollection(payload: Awaited<ReturnType<typeof getPayload>>, 
 async function getMetrics() {
   try {
     const payload = await getPayload({ config })
-    const [articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissionsResult, communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityPostsResult, pendingCommunityCommentsResult, pendingCommunityReportsCount, pendingCommunityReportsResult] = await Promise.all([
+    const [articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissionsResult, communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityPostsResult, pendingCommunityCommentsResult, pendingCommunityReportsCount, pendingCommunityReportsResult, editorialLeadsCount, editorialLeadsResult] = await Promise.all([
       countCollection(payload, 'articles'),
       countCollection(payload, 'news-stories'),
       countCollection(payload, 'businesses'),
@@ -80,6 +91,16 @@ async function getMetrics() {
         sort: '-createdAt',
         where: { status: { equals: 'pending' } },
       }),
+      countCollection(payload, 'community-posts', { editorialStatus: { in: [...activeEditorialStatuses] } }),
+      payload.find({
+        collection: 'community-posts',
+        depth: 1,
+        limit: 8,
+        pagination: false,
+        overrideAccess: true,
+        sort: '-updatedAt',
+        where: { editorialStatus: { in: [...activeEditorialStatuses] } },
+      }),
     ])
 
     const pendingCommunityContent = [
@@ -87,7 +108,7 @@ async function getMetrics() {
       ...pendingCommunityCommentsResult.docs.map((comment) => ({ kind: 'comment' as const, item: comment as CommunityComment })),
     ].sort((a, b) => new Date(a.item.createdAt).getTime() - new Date(b.item.createdAt).getTime()).slice(0, 10)
 
-    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityContent, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[] }
+    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityContent, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[], editorialLeadsCount, editorialLeads: editorialLeadsResult.docs as CommunityPost[] }
   } catch {
     return null
   }
@@ -124,6 +145,12 @@ function communityScreeningLabel(item: CommunityPost | CommunityComment): string
   return item.status === 'flagged' ? 'Automatic screening asked for a closer look' : 'Awaiting a human decision'
 }
 
+function editorialStatusLabel(value: CommunityPost['editorialStatus']): string {
+  return value && value in editorialStatusLabels
+    ? editorialStatusLabels[value as keyof typeof editorialStatusLabels]
+    : 'Editorial follow-up'
+}
+
 function MetricCard({ metric }: { metric: Metric }) {
   return (
     <a className={`expats-admin-dashboard__metric expats-admin-dashboard__metric--${metric.tone || 'default'}`} href={metric.href}>
@@ -146,6 +173,7 @@ export default async function ContentOverview() {
     { label: 'Language groups', value: metrics?.practiceGroups ?? null, href: '/admin/collections/practice-groups' },
     { label: 'Community posts', value: metrics?.communityPosts ?? null, href: '/admin/collections/community-posts' },
     { label: 'Community replies', value: metrics?.communityComments ?? null, href: '/admin/collections/community-comments' },
+    { label: 'Community ideas', value: metrics?.editorialLeadsCount ?? null, href: editorialQueueHref },
     { label: 'Community contributions to review', value: metrics?.pendingCommunityContentCount ?? null, href: '/admin/collections/community-posts?where%5Bstatus%5D%5Bin%5D%5B0%5D=pending&where%5Bstatus%5D%5Bin%5D%5B1%5D=flagged', tone: 'attention' },
     { label: 'Submissions to review', value: metrics?.pendingSubmissionsCount ?? null, href: '/admin/collections/business-submissions?where%5Bstatus%5D%5Bequals%5D=pending', tone: 'attention' },
     { label: 'Reports to review', value: metrics?.pendingCommunityReportsCount ?? null, href: '/admin/collections/community-reports?where%5Bstatus%5D%5Bequals%5D=pending', tone: 'attention' },
@@ -238,6 +266,29 @@ export default async function ContentOverview() {
         </div>
       </section>
 
+      <section className="expats-admin-dashboard__panel expats-admin-dashboard__review-panel" aria-labelledby="expats-admin-editorial-leads">
+        <div className="expats-admin-dashboard__panel-heading expats-admin-dashboard__review-heading">
+          <div><p className="expats-admin-dashboard__eyebrow">Ideas from the community</p><h3 id="expats-admin-editorial-leads">Useful conversations worth acting on</h3></div>
+          <Link className="expats-admin-dashboard__panel-link" href={editorialQueueHref}>Open ideas queue →</Link>
+        </div>
+        <div className="expats-admin-dashboard__submission-list">
+          {metrics?.editorialLeads?.length ? metrics.editorialLeads.map((post) => (
+            <div className="expats-admin-dashboard__submission" key={`editorial-${post.id}`}>
+              <div className="expats-admin-dashboard__submission-info">
+                <strong>{post.title}</strong>
+                <span>{editorialStatusLabel(post.editorialStatus)} · {post.status === 'published' ? 'Live conversation' : 'Not public'}</span>
+                {post.editorialNotes && <small className="expats-admin-dashboard__editorial-note">{post.editorialNotes}</small>}
+                <time dateTime={post.updatedAt}>Updated {formatSubmissionDate(post.updatedAt)}</time>
+              </div>
+              <div className="expats-admin-dashboard__submission-actions">
+                {post.status === 'published' && <Link className="expats-admin-dashboard__open-review" href={`/community/board/${post.slug}/`}>Read conversation</Link>}
+                <Link className="expats-admin-dashboard__open-review" href={`/admin/collections/community-posts/${post.id}`}>Open notes</Link>
+              </div>
+            </div>
+          )) : <p className="expats-admin-dashboard__empty-queue">No ideas have been saved yet. When a community post points towards a useful guide, event or site improvement, mark its editorial follow-up in the post editor and it will stay visible here.</p>}
+        </div>
+      </section>
+
       <div className="expats-admin-dashboard__columns">
         <section className="expats-admin-dashboard__panel" aria-labelledby="expats-admin-quick-actions">
           <div className="expats-admin-dashboard__panel-heading"><div><p className="expats-admin-dashboard__eyebrow">Shortcuts</p><h3 id="expats-admin-quick-actions">Common actions</h3></div></div>
@@ -247,6 +298,7 @@ export default async function ContentOverview() {
             <Link href="/admin/collections/businesses/create"><strong>Add a business</strong><span>Create a directory profile</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/business-submissions?where%5Bstatus%5D%5Bequals%5D=pending"><strong>Review submissions</strong><span>Approve, request changes or decline</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/community-posts"><strong>Review community posts</strong><span>Read conversations and hide content when needed</span><b aria-hidden="true">→</b></Link>
+            <Link href={editorialQueueHref}><strong>Open community ideas</strong><span>Turn useful conversations into the next site improvement</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/community-reports?where%5Bstatus%5D%5Bequals%5D=pending"><strong>Review community reports</strong><span>Keep the member board welcoming</span><b aria-hidden="true">→</b></Link>
             <Link href="/admin/collections/events/create"><strong>List an event</strong><span>Add a community pick</span><b aria-hidden="true">＋</b></Link>
             <Link href="/admin/collections/embassies"><strong>Review embassies</strong><span>Check addresses and flags</span><b aria-hidden="true">→</b></Link>
