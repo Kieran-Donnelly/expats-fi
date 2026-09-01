@@ -14,6 +14,7 @@ const rules = [
   ['Be honest about promotion.', 'If you own, work for or benefit from recommending something, say so clearly. Repetitive promotion, recruitment schemes and disguised advertising may be removed.'],
   ['Keep it relevant.', 'Posts should help people moving to, living in or visiting Finland. Use a clear title and enough context for somebody to answer properly.'],
   ['Take extra care around meetups and children.', 'Use public places, keep guardians involved and do not pressure anyone to share private contact details or meet alone.'],
+  ['Anonymous does not mean unaccountable.', 'You can use a friendly public alias, but the post or reply stays privately connected to your account so moderators can act on serious or repeated misuse.'],
   ['Report problems instead of escalating them.', 'A report sends the post or reply to the private moderation queue. It does not prove the author has done something wrong.'],
 ]
 

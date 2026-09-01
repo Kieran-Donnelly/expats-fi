@@ -701,8 +701,12 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .community-board-page { background: var(--snow); }
 .community-board-callout { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-block: 2rem 0; padding: 1.4rem 1.5rem; border: 1px solid var(--line-strong); border-radius: .85rem; background: var(--blue-pale); }
 .community-board-callout h2 { max-inline-size: 25ch; margin-block: .35rem .45rem; font-size: clamp(1.45rem, 3vw, 2rem); }
-.community-board-callout p:last-child { max-inline-size: 55ch; margin: 0; color: var(--ink-soft); font-size: .84rem; }
+.community-board-callout p { max-inline-size: 55ch; margin: 0; color: var(--ink-soft); font-size: .84rem; }
 .community-board-callout .button { flex: none; }
+.community-board-callout__promises { display: flex; flex-wrap: wrap; gap: .45rem; margin-block-start: .85rem; }
+.community-board-callout__promises span { padding: .35rem .55rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--snow); color: var(--blue-dark); font-size: .68rem; font-weight: 720; }
+.community-board-callout__actions { display: grid; gap: .65rem; justify-items: center; flex: none; }
+.community-board-callout__actions .text-link { font-size: .74rem; }
 .community-board-hero { border-block-end: 1px solid var(--line); background: var(--blue-soft); }
 .community-board-hero__inner { display: grid; grid-template-columns: minmax(0, 1fr) minmax(17rem, .48fr); gap: clamp(2.5rem, 8vw, 7rem); align-items: end; padding-block: clamp(3rem, 7vw, 5.5rem); }
 .community-board-hero__inner .back-link { margin-block-end: 2.25rem; }
@@ -712,7 +716,11 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .community-board-hero aside strong { color: var(--blue-dark); font-size: .82rem; }
 .community-board-hero aside p { margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; }
 .community-board-hero aside a { color: var(--blue); font-size: .78rem; font-weight: 680; text-decoration: none; }
+.community-board-hero__actions { display: flex; flex-wrap: wrap; gap: .65rem; margin-block-start: 1.5rem; }
+.community-board-hero__actions .button--secondary { border: 1px solid var(--blue); background: transparent; color: var(--blue); }
+.community-board-hero__actions .button--secondary:hover { background: var(--snow); }
 .community-board__layout { display: grid; grid-template-columns: minmax(17rem, .72fr) minmax(0, 1.28fr); gap: clamp(2rem, 6vw, 5rem); align-items: start; padding-block: clamp(3rem, 6vw, 5.5rem) 7rem; }
+.community-board__composer, .community-board-feed { scroll-margin-top: 6.5rem; }
 .community-board__join, .community-form { display: grid; gap: 1rem; padding: clamp(1.35rem, 3vw, 2rem); border: 1px solid var(--line-strong); border-radius: .9rem; background: var(--blue-pale); }
 .community-board__join { position: sticky; inset-block-start: 6.25rem; }
 .community-board__join h2, .community-form h2 { margin-block: .35rem .45rem; font-size: clamp(1.55rem, 3vw, 2.1rem); }
@@ -731,6 +739,11 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .community-form__footer .button { flex: none; border: 0; }
 .community-form__message { margin: 0; color: var(--green); font-size: .8rem; }
 .community-form__message--error { color: oklch(42% .13 28); }
+.community-form__starters { display: grid; gap: .45rem; padding: .75rem; border-radius: .65rem; background: var(--blue-pale); }
+.community-form__starters > span { color: var(--blue-dark); font-size: .7rem; font-weight: 740; }
+.community-form__starters > div { display: flex; flex-wrap: wrap; gap: .4rem; }
+.community-form__starters button { padding: .4rem .55rem; border: 1px solid var(--line-strong); border-radius: .5rem; background: var(--snow); color: var(--ink-soft); font: inherit; font-size: .68rem; text-align: start; cursor: pointer; }
+.community-form__starters button:hover, .community-form__starters button:focus-visible { border-color: var(--blue); color: var(--blue); }
 .community-form .button:disabled { cursor: wait; opacity: .62; transform: none; }
 .community-rules-check { display: flex !important; grid-template-columns: none !important; align-items: flex-start; gap: .65rem !important; padding: .8rem; border-radius: .55rem; background: var(--blue-pale); color: var(--ink-soft); font-size: .8rem; line-height: 1.45; }
 .community-rules-check input { inline-size: 1rem; block-size: 1rem; flex: none; margin-block-start: .1rem; }
@@ -781,6 +794,21 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .community-report-button:hover { border-color: var(--blue); color: var(--blue); }
 .community-report-button:disabled { cursor: wait; opacity: .6; }
 .community-report-button--sent { border-color: oklch(78% .08 145); background: oklch(96% .03 145); color: oklch(38% .1 145); }
+.community-report-dialog { inline-size: min(32rem, calc(100% - 2rem)); max-block-size: calc(100dvh - 2rem); padding: 0; border: 1px solid var(--line-strong); border-radius: .9rem; background: var(--snow); color: var(--ink); box-shadow: 0 1.25rem 4rem rgb(17 39 62 / .24); }
+.community-report-dialog::backdrop { background: rgb(12 29 46 / .58); backdrop-filter: blur(2px); }
+.community-report-dialog__form { display: grid; gap: 1rem; padding: clamp(1.25rem, 4vw, 2rem); }
+.community-report-dialog h2 { margin-block: .3rem .45rem; font-size: 1.65rem; }
+.community-report-dialog p:not(.eyebrow) { margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; }
+.community-report-dialog label { display: grid; gap: .35rem; color: var(--ink-soft); font-size: .78rem; font-weight: 680; }
+.community-report-dialog label small { color: var(--muted); font-weight: 520; }
+.community-report-dialog select, .community-report-dialog textarea { inline-size: 100%; padding: .7rem .75rem; border: 1px solid var(--line-strong); border-radius: .55rem; background: var(--snow); color: var(--ink); font: inherit; }
+.community-report-dialog textarea { resize: vertical; line-height: 1.5; }
+.community-report-dialog select:focus, .community-report-dialog textarea:focus { border-color: var(--blue); outline: 3px solid oklch(72% .12 245 / .28); outline-offset: 1px; }
+.community-report-dialog__error { color: oklch(42% .13 28) !important; }
+.community-report-dialog__actions { display: flex; justify-content: flex-end; gap: .65rem; padding-block-start: .25rem; }
+.community-report-dialog__actions .button { border: 0; }
+.community-report-dialog__cancel { min-block-size: 2.65rem; padding-inline: .8rem; border: 1px solid var(--line-strong); border-radius: .5rem; background: var(--snow); color: var(--ink-soft); font: inherit; font-size: .78rem; font-weight: 680; cursor: pointer; }
+.community-report-dialog__cancel:hover { border-color: var(--blue); color: var(--blue); }
 .community-empty { display: flex; gap: 1rem; padding: 1.4rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--blue-pale); }
 .community-empty > span { inline-size: 2.4rem; block-size: 2.4rem; display: grid; place-items: center; flex: none; border-radius: .55rem; background: var(--blue-soft); color: var(--blue); font-size: 1.2rem; }
 .community-empty h3 { font-size: 1.25rem; }
@@ -1487,6 +1515,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 
 @media (max-width: 960px) {
   .community-board-hero__inner, .community-board__layout, .community-post-page__layout, .community-rules-layout { grid-template-columns: 1fr; }
+  .community-board-feed { order: 1; }
+  .community-board__composer { order: 2; }
   .community-board__join { position: static; }
   .community-board__join, .community-form { max-inline-size: 42rem; }
   .community-post-page__aside { grid-template-columns: repeat(2, minmax(0, 1fr)); }
@@ -1496,7 +1526,9 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 @media (max-width: 720px) {
   .community-board-hero__inner { padding-block: 2.6rem 3.5rem; }
   .community-board-callout { align-items: start; flex-direction: column; gap: 1rem; margin-block-start: 1rem; }
-  .community-board-callout .button { inline-size: 100%; }
+  .community-board-callout__actions, .community-board-callout .button { inline-size: 100%; }
+  .community-board-hero__actions { align-items: stretch; flex-direction: column; }
+  .community-board-hero__actions .button { inline-size: 100%; }
   .community-board-hero__inner .back-link { margin-block-end: 1.6rem; }
   .community-board-filter { grid-template-columns: 1fr 1fr; }
   .community-board-filter .button { inline-size: 100%; }

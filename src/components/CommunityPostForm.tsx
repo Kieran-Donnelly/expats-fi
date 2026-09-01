@@ -7,6 +7,13 @@ import { useRouter } from 'next/navigation'
 
 import { communityTopicOptions } from '@/lib/community-options'
 
+const starterPrompts = [
+  { title: 'What do you wish somebody had explained when you arrived?', topic: 'general' },
+  { title: 'Can somebody help me understand this Finnish system?', topic: 'everyday-life' },
+  { title: 'Where can I meet people without it feeling forced?', topic: 'culture-events' },
+  { title: 'Which neighbourhood might suit my situation?', topic: 'housing' },
+] as const
+
 export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccepted = false }: { canPost?: boolean; isAuthenticated: boolean; rulesAccepted?: boolean }) {
   const router = useRouter()
   const [title, setTitle] = useState('')
@@ -66,6 +73,7 @@ export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccept
       <div className="community-form__heading"><div><p className="eyebrow">Start a conversation</p><h2>What would you like to ask?</h2></div><span>Be specific, kind and useful.</span></div>
       {error && <p className="community-form__message community-form__message--error" role="alert">{error}</p>}
       {message && <p className="community-form__message" role="status">{message}</p>}
+      <div className="community-form__starters"><span>Need a starting point?</span><div>{starterPrompts.map((prompt) => <button type="button" key={prompt.title} onClick={() => { setTitle(prompt.title); setTopic(prompt.topic) }}>{prompt.title}</button>)}</div></div>
       <label>Title<input value={title} onChange={(event) => setTitle(event.target.value)} required minLength={3} maxLength={120} placeholder="e.g. Which neighbourhood is easiest without a car?" /></label>
       <label>Topic<select value={topic} onChange={(event) => setTopic(event.target.value)}>{communityTopicOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
       <label>Your post<textarea value={body} onChange={(event) => setBody(event.target.value)} required minLength={10} maxLength={5000} rows={7} placeholder="Share the context that would help another expat give a useful answer." /></label>

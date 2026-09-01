@@ -40,15 +40,15 @@ export default async function CommunityBoardPage({ searchParams }: { searchParam
     <main id="main" className="community-board-page">
       <header className="community-board-hero">
         <div className="shell community-board-hero__inner">
-          <div><Link className="back-link" href="/community/">← Community in Helsinki</Link><p className="eyebrow">The Expats.fi community board</p><h1>A place to ask, share and find your people.</h1><p>Practical questions, small discoveries and the kind of local knowledge that makes Finland feel easier to live in.</p></div>
-          <aside><strong>Keep it useful</strong><p>Share what you know without sharing private contact, identity or bank details. If something feels unsafe, report it and move on.</p><Link href="/community/rules/">Read the community rules →</Link></aside>
+          <div><Link className="back-link" href="/community/">← Community in Helsinki</Link><p className="eyebrow">The Expats.fi community board</p><h1>A place to ask, share and find your people.</h1><p>Practical questions, small discoveries and the kind of local knowledge that makes Finland feel easier to live in.</p><div className="community-board-hero__actions"><a className="button" href="#community-conversations">Browse conversations</a><a className="button button--secondary" href="#start-a-conversation">Start a post</a></div></div>
+          <aside><strong>Your name can stay private</strong><p>Post or answer under a friendly anonymous alias. The public will not see your account, but moderators can still step in if somebody abuses the feature.</p><Link href="/community/rules/">See how anonymity and moderation work →</Link></aside>
         </div>
       </header>
 
       <div className="shell community-board__layout">
-        <CommunityPostForm isAuthenticated={Boolean(member)} canPost={member?.communityTrust !== 'restricted'} rulesAccepted={Boolean(member?.communityRulesAcceptedAt)} />
+        <div id="start-a-conversation" className="community-board__composer"><CommunityPostForm isAuthenticated={Boolean(member)} canPost={member?.communityTrust !== 'restricted'} rulesAccepted={Boolean(member?.communityRulesAcceptedAt)} /></div>
 
-        <section className="community-board-feed" aria-labelledby="community-board-feed-title">
+        <section id="community-conversations" className="community-board-feed" aria-labelledby="community-board-feed-title">
           <div className="community-board-feed__heading"><div><p className="eyebrow">Recent conversations</p><h2 id="community-board-feed-title">What people are talking about</h2></div><span>{posts.length} {posts.length === 1 ? 'conversation' : 'conversations'}</span></div>
           <form className="community-board-filter" method="get">
             <label>Search<input type="search" name="q" defaultValue={query} placeholder="Search the board" /></label>
