@@ -32,6 +32,24 @@ const communityStatus = {
   rejected: { label: 'Not published', tone: 'declined' },
 } as const
 
+const communityTrustDetails = {
+  new: {
+    label: 'New contributor',
+    title: 'Your first contributions get a quick human check.',
+    body: 'This is not a test you have to pass. It simply keeps spam and nonsense off the board while we get to know new accounts.',
+  },
+  trusted: {
+    label: 'Trusted contributor',
+    title: 'Your everyday posts can go live straight away.',
+    body: 'You can still use an anonymous alias whenever the topic is personal. Anything that trips a safety warning may be held for a closer look.',
+  },
+  restricted: {
+    label: 'Posting paused',
+    title: 'Community posting is paused for this account.',
+    body: 'Your saved guides and account still work normally. Email hello@expats.fi if you believe this was a mistake.',
+  },
+} as const
+
 function submissionDate(value: string) {
   return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'short', year: 'numeric' }).format(new Date(value))
 }
@@ -46,6 +64,8 @@ export default async function AccountPage() {
     getMemberSubmissions(member.id),
     getMemberCommunityPosts(member.id),
   ])
+  const trustLevel = member.communityTrust || 'new'
+  const trustDetails = communityTrustDetails[trustLevel]
 
   return (
     <main id="main" className="account-page">
@@ -121,6 +141,10 @@ export default async function AccountPage() {
             <div className="account-section__heading">
               <div><p className="eyebrow">Your conversations</p><h2 id="community-posts-title">My community posts.</h2></div>
               <Link className="text-link" href="/community/board/">Open the board <span aria-hidden="true">→</span></Link>
+            </div>
+            <div className={`account-community-status account-community-status--${trustLevel}`}>
+              <div><span>{trustDetails.label}</span><h3>{trustDetails.title}</h3><p>{trustDetails.body}</p></div>
+              <div className="account-community-status__actions"><Link className="text-link" href="/community/rules/">How the board works <span aria-hidden="true">→</span></Link><Link className="text-link" href="/community/board/#start-a-conversation">Start a conversation <span aria-hidden="true">→</span></Link></div>
             </div>
             {communityPosts.length ? <div className="account-submissions account-community-posts">{communityPosts.map((post) => { const status = communityStatus[post.status]; return <article className="account-submission" key={post.id}><div><h3>{post.status === 'published' ? <Link href={`/community/board/${post.slug}/`}>{post.title}</Link> : post.title}</h3><p>{topicLabel(post.topic)} · Started {formatCommunityDate(post.createdAt)}</p></div><div className="account-submission__meta"><span className={`submission-status submission-status--${status.tone}`}>{status.label}</span></div></article> })}</div> : (
               <div className="account-empty" aria-labelledby="community-posts-empty-title">

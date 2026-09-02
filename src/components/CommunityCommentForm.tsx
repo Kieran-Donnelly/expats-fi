@@ -51,6 +51,7 @@ export function CommunityCommentForm({ canPost = true, postSlug, isAuthenticated
   return (
     <form className="community-form community-form--reply" onSubmit={submit} aria-busy={busy}>
       <div className="community-form__heading"><div><p className="eyebrow">Keep it going</p><h2>Add your perspective.</h2></div></div>
+      {!rulesAccepted && <div className="community-form__first-reply" role="note"><strong>First reply?</strong><p>Share what worked for you and leave room for somebody else to have had a different experience. Your first contribution will get a quick human check before it appears.</p></div>}
       {error && <p className="community-form__message community-form__message--error" role="alert">{error}</p>}
       {message && <p className="community-form__message" role="status">{message}</p>}
       <label className="sr-only" htmlFor="community-reply">Your reply</label>

@@ -45,6 +45,26 @@ export default async function CommunityBoardPage({ searchParams }: { searchParam
         </div>
       </header>
 
+      {member && !member.communityRulesAcceptedAt && member.communityTrust !== 'restricted' && (
+        <section className="shell community-onboarding" aria-labelledby="community-onboarding-title">
+          <div className="community-onboarding__intro">
+            <p className="eyebrow">New around here?</p>
+            <h2 id="community-onboarding-title">Welcome in, {member.name.split(' ')[0]}.</h2>
+            <p>You do not need a perfectly polished question. If it would have helped you yesterday, there is a fair chance it will help somebody else tomorrow.</p>
+          </div>
+          <ol className="community-onboarding__steps">
+            <li><span>01</span><div><strong>Ask the real question</strong><p>Housing, work, Finnish admin, kids, language, meeting people or a small win worth passing on.</p></div></li>
+            <li><span>02</span><div><strong>Use your name or keep it private</strong><p>Tick the anonymous option and the public will see a friendly alias. Only moderators can connect it to your account.</p></div></li>
+            <li><span>03</span><div><strong>Your first posts get a quick check</strong><p>This keeps spam and nonsense out. Once we know you are here in good faith, ordinary posts can go live straight away.</p></div></li>
+            <li><span>04</span><div><strong>Useful beats perfect</strong><p>Add the details people need, say when something may have changed and link to an official source when the stakes are high.</p></div></li>
+          </ol>
+          <div className="community-onboarding__footer">
+            <p>Community answers are lived experience, not official decisions. For permits, benefits, healthcare or emergencies, use the authority linked in our guides.</p>
+            <div><a className="button button--small" href="#start-a-conversation">Start writing</a><Link className="text-link" href="/community/rules/">Read the community rules <span aria-hidden="true">→</span></Link></div>
+          </div>
+        </section>
+      )}
+
       <div className="shell community-board__layout">
         <div id="start-a-conversation" className="community-board__composer"><CommunityPostForm isAuthenticated={Boolean(member)} canPost={member?.communityTrust !== 'restricted'} rulesAccepted={Boolean(member?.communityRulesAcceptedAt)} /></div>
 
