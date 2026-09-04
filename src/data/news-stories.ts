@@ -13,6 +13,174 @@ export type SeedNewsStory = {
 
 export const seedNewsStories: SeedNewsStory[] = [
   {
+    slug: 'finland-foreign-language-residents-kela-benefits-2026',
+    title: 'More internationals live in Finland. A smaller share now needs basic support',
+    standfirst: 'New Kela figures complicate a very familiar argument. The amount paid to foreign-language residents has grown, but the share receiving social assistance, unemployment support and housing allowance has fallen sharply.',
+    category: 'Finland',
+    publishedAt: '2026-09-04T09:30:00.000Z',
+    readingMinutes: 8,
+    featured: true,
+    practicalSummary: 'Kela’s figures track registered native language, not nationality or immigration status. Between 2017 and 2025, Finland’s foreign-language population grew by more than 70 percent, while the share receiving basic social assistance fell from 23 to 18 percent and the share receiving labour market subsidy fell from 24 to 16 percent.',
+    html: `
+      <p>Statistics about immigration and benefits have a habit of arriving online without their shoes on, then sprinting straight into an argument.</p>
+      <p>A large number gets pulled out, somebody adds a furious caption, and the useful question disappears: what is actually changing as Finland becomes more international?</p>
+      <p>New figures from Kela give us a much better answer. Finland's foreign-language population has grown quickly, and the total amount paid to that population through major income-support benefits has increased. At the same time, a smaller share of foreign-language residents now receives basic social assistance, unemployment support or general housing allowance than in 2017.</p>
+      <p>Both parts are true. Leaving either one out gives you a much poorer picture.</p>
+      <h2>What did Kela find?</h2>
+      <p>Kela examined nine major benefits that help people cover everyday living costs. These included basic social assistance, labour market subsidy, general housing allowance, sickness allowance, parental allowances, child-care support and Kela-paid pensions.</p>
+      <p>In 2025, Kela paid about €9.2 billion through those benefits. Roughly €1.8 billion, or 20 percent, went to people registered as speaking a language other than Finnish, Swedish or Sámi.</p>
+      <p>Back in 2017, the same group received 15 percent of €8.6 billion in payments.</p>
+      <p>Read on its own, that change from 15 to 20 percent sounds dramatic. The missing context is that Finland's foreign-language population grew by more than 70 percent over the same period, from 373,000 people in 2017 to 646,000 in 2025.</p>
+      <p>There are simply far more international residents in Finland than there were eight years ago. It would be strange if their share of almost every national system had not grown too.</p>
+      <h2>A smaller share is receiving last-resort support</h2>
+      <p>The more revealing comparison looks at recipients within the foreign-language population itself.</p>
+      <p>In 2017, around 23 percent of adult foreign-language residents received basic social assistance. By 2025, the figure had fallen to 18 percent.</p>
+      <p>The share receiving labour market subsidy dropped from 24 to 16 percent. General housing allowance followed a similar path, falling from 26 to 18 percent.</p>
+      <p>The number of recipients can still rise while the recipient rate falls. There were 137,000 foreign-language recipients of social assistance in 2025, up from 110,000 in 2017, because the wider population grew much faster.</p>
+      <p>Kela's Head of Research, Signe Jauhiainen, says the falling rates suggest that a larger proportion of the growing foreign-language population is now working or studying.</p>
+      <h2>Why did the euro amounts rise?</h2>
+      <p>There is no single answer.</p>
+      <p>Population growth is the obvious part. Inflation matters too, and Kela notes that its euro figures are nominal, meaning they have not been adjusted to remove the effect of rising prices.</p>
+      <p>The arrival of Ukrainians under temporary protection has also changed the population and benefit figures. Kela says the rise in foreign-language recipients of social assistance since 2023 is largely explained by Ukrainian speakers.</p>
+      <p>Benefit reforms matter as well. Students moved from general housing allowance to the student housing supplement in 2025, while people living in owner-occupied homes lost access to general housing allowance. Those changes altered who remained inside the housing-allowance statistics.</p>
+      <p>This is why one headline percentage cannot tell you whether people are working, studying, raising children, retired, newly arrived or dealing with a rough patch.</p>
+      <h2>Not every benefit tells the same story</h2>
+      <p>Foreign-language residents received 41 percent of total basic social assistance spending in 2025. That is a significant share and should not be hidden.</p>
+      <p>It also should not be presented as if it describes the entire benefits system. Foreign-language recipients accounted for less than five percent of national pension recipients. Their share of sickness-allowance recipients has remained around five percent, compared with roughly nine to ten percent across the total population.</p>
+      <p>Guarantee pension is different again. It is designed to protect people with very small pensions, including residents who have not lived in Finland long enough to build a larger national pension. The rules and purpose of each benefit shape the numbers.</p>
+      <h2>Who counts as foreign-language here?</h2>
+      <p>Kela grouped people by the native language recorded in its benefit register. Anyone whose registered native language was not Finnish, Swedish or Sámi was included. People with no registered native language were included too.</p>
+      <p>That is useful for studying broad change, but it is not the same thing as measuring nationality, citizenship or immigration status.</p>
+      <p>A Finnish citizen who grew up speaking Arabic may be counted as foreign-language. An immigrant registered as a Finnish or Swedish speaker may not be. Kela says this plainly, and any honest discussion of the figures should do the same.</p>
+      <h2>What does it mean for people living here?</h2>
+      <p>First, receiving a benefit is not evidence that somebody has cheated or failed. These systems exist for unemployment, low income, illness, parenthood, housing costs and old age. People use them when their circumstances meet the rules.</p>
+      <p>Second, the new numbers do not support the simple claim that a growing international population automatically means a growing dependency rate. For several of the most debated benefits, the rate has moved in the opposite direction.</p>
+      <p>Finland still has real work to do. International residents face a difficult labour market, uneven recognition of overseas qualifications and language requirements that can shut capable people out of jobs. Falling benefit-recipient rates are encouraging, but they do not mean those barriers have vanished.</p>
+      <p>The useful takeaway is less dramatic than the social-media version. Finland has become much more international. More foreign-language residents now appear in national spending figures because more foreign-language residents live here. Within that growing population, however, the share relying on several core forms of support has fallen.</p>
+      <p>That is not a neat political slogan. It is simply a fuller and fairer reading of the numbers.</p>
+    `,
+    sources: [
+      { name: 'Kela Info Tray: foreign-language recipients of benefits, 2017 to 2025', url: 'https://tietotarjotin.fi/en/news/1435987/fewer-foreign-language-recipients-of-social-assistance-and-unemployment-benefits-than-before' },
+      { name: 'Yle News summary of the Kela findings', url: 'https://yle.fi/a/74-20244107' },
+    ],
+  },
+  {
+    slug: 'helsinki-international-grocery-store-boom-2026',
+    title: 'Helsinki’s international food shops are having a proper moment',
+    standfirst: 'The city has gone from a handful of specialist grocers to nearly 100. Behind the snack trends and excellent spice aisles is a bigger story about migration, entrepreneurship and who gets to shape Finnish food culture.',
+    category: 'Culture & community',
+    publishedAt: '2026-09-04T08:45:00.000Z',
+    readingMinutes: 7,
+    featured: true,
+    practicalSummary: 'Helsinki now has close to 100 grocery shops specialising in food from outside Finland. They are filling gaps left by a highly concentrated supermarket market, while giving international residents familiar ingredients and everyone else a much larger pantry.',
+    html: `
+      <p>There is a particular kind of relief in finding the right rice, chilli, tea or biscuit after months of being told the supermarket version is basically the same.</p>
+      <p>Sometimes it is basically the same. Sometimes it absolutely is not, and no amount of cheerful Finnish packaging is going to settle the matter.</p>
+      <p>Helsinki's international grocery shops have become one of the clearest signs of how the city is changing. According to fresh reporting from Yle, the number has grown from only a few to nearly 100 over the past fifteen years.</p>
+      <p>These shops are useful places to buy dinner. They are also small community anchors, routes into entrepreneurship and one of the easiest ways for the rest of Helsinki to discover that their regular supermarket has been working with a fairly limited imagination.</p>
+      <h2>A small-shop boom in a very big-chain market</h2>
+      <p>Finland's grocery market is unusually concentrated.</p>
+      <p>The Finnish Competition and Consumer Authority says S Group, Kesko and Lidl together account for roughly 92 percent of grocery retail. That leaves independent shops trying to operate beside three enormous systems with powerful buying networks, familiar loyalty programmes and stores in almost every neighbourhood.</p>
+      <p>International grocers are not likely to replace the weekly Prisma trip. Their advantage is that they can stock more deeply for particular cuisines, respond quickly to community demand and sell ingredients that remain too specialised for a mainstream chain.</p>
+      <p>That can mean several varieties of the same staple rather than one token product tucked onto a world-food shelf.</p>
+      <h2>One shop became five</h2>
+      <p>Yle followed the story of Jun Li and his family company, Long Harvest Oy, which has built RF Asian Market from one shop to five in around five years. Three are in Helsinki and the newest opened in Iso Omena in Espoo.</p>
+      <p>Li moved to Finland from China's Anhui province around twenty years ago. He worked in the clothing and restaurant industries before helping establish a food wholesaler. He told Yle that finding work as a foreigner was difficult, so entrepreneurship became his route forward.</p>
+      <p>That part of the story will sound familiar to plenty of international founders here. Starting a business is not the easy alternative to employment. It brings permits, premises, tax, suppliers, Finnish paperwork and the small matter of convincing people to walk through the door. Sometimes, though, building your own opportunity feels more possible than waiting for somebody else to recognise your experience.</p>
+      <p>RF Asian Market now employs more than twenty people. Li estimates that around half of its customers are native Finns. International customers often arrive for the ingredients used in everyday cooking back home, while other shoppers are drawn by new drinks, snacks and products they have seen online.</p>
+      <h2>These shops do more than sell nostalgia</h2>
+      <p>It is tempting to describe an international food shop only as a place where immigrants can find a taste of home. That matters enormously, but it is only half the picture.</p>
+      <p>A well-stocked grocery shop lets families keep ordinary routines. It saves someone carrying half a suitcase of ingredients after every visit abroad. It gives parents a way to pass familiar meals to their children, and lets friends cook for one another without turning a simple recipe into an ingredient-substitution experiment.</p>
+      <p>The shops also change the wider city's food habits. Ingredients that once felt niche become normal. A Finnish shopper comes in for the viral noodles, notices six unfamiliar vegetables and returns next week with a recipe saved on their phone.</p>
+      <p>That exchange is how food culture actually grows. Not through a speech about diversity, but because somebody discovers the good chilli crisp.</p>
+      <h2>The churn behind the growth</h2>
+      <p>The headline number does not mean every shop survives.</p>
+      <p>Yle's Finnish-language investigation found that 94 specialist grocery shops opened in Helsinki between 2020 and 2026, while 52 closed during the same period. Growth is real, but so is the turnover.</p>
+      <p>Food retail is a difficult business. Rent, refrigeration, importing, waste, labelling rules and narrow margins do not become friendlier because the shop has a lovely community story.</p>
+      <p>Helsinki requires grocery shops and other food businesses to register before opening. Imported products must meet Finnish and EU food-safety and labelling rules. For a small operator bringing in unfamiliar goods, compliance is part of the daily job, not a form filled out once and forgotten.</p>
+      <h2>How to find the good ones</h2>
+      <p>Start in the neighbourhoods where people actually live and shop. Hakaniemi and the streets around it have a strong cluster, while eastern Helsinki, central shopping centres and university areas have increasingly broad choices. Espoo and Vantaa deserve their own exploration too.</p>
+      <p>Do not rely only on the shop name to tell you what is inside. Many stores carry products from several countries and regions. Walk the aisles, ask what is popular and take a photograph of the label if you need help working out how to use something.</p>
+      <p>Opening hours and stock can move quickly, so check the shop's own page before making a special journey. If you are looking for one exact ingredient, a quick call or message can save a cross-city disappointment.</p>
+      <h2>A bigger story for Expats.fi</h2>
+      <p>This boom is also a reminder that our Eats coverage should not stop at cafés and restaurants.</p>
+      <p>The people importing, stocking and explaining these ingredients are part of Helsinki's international food story. We want to start mapping the grocers that readers genuinely use, with clear locations and a note on what each one is best for.</p>
+      <p>For now, the bigger point is worth celebrating. Helsinki's pantry is expanding because international residents are not only arriving in the city. They are building businesses, creating jobs and changing what everybody else gets to eat.</p>
+      <p>That feels like progress you can put in a shopping basket.</p>
+    `,
+    sources: [
+      { name: 'Yle News: Helsinki sees international grocery store boom', url: 'https://yle.fi/a/74-20244227' },
+      { name: 'Yle Finnish investigation and interview with Jun Li', url: 'https://yle.fi/a/74-20240353' },
+      { name: 'Finnish Competition and Consumer Authority research on grocery-market concentration', url: 'https://www.kkv.fi/uploads/sites/2/2025-04-working-papers-price-transmissions-in-the-finnish-foodchain.pdf' },
+      { name: 'City of Helsinki: registering a food business', url: 'https://www.hel.fi/en/business-and-work/apply-for-permits-and-facilities/food-business/registering-a-food-business' },
+    ],
+  },
+  {
+    slug: 'deepfake-images-finland-what-to-do-2026',
+    title: 'That fake photo is not a joke. Here is what to do if it happens to you',
+    standfirst: 'Explicit deepfakes are spreading through Finnish schools, workplaces and social circles. If somebody creates or shares one of you or your child, save the evidence, get support and report what happened.',
+    category: 'Life admin',
+    publishedAt: '2026-09-04T08:00:00.000Z',
+    readingMinutes: 9,
+    featured: false,
+    practicalSummary: 'If a fake intimate image is created or shared, do not blame the person shown. Preserve screenshots, account details, links and dates, report the content to the platform and contact the police. Call 112 only when somebody is in immediate danger. Victim Support Finland can explain the process in English.',
+    html: `
+      <p>AI can now turn an ordinary photograph into an explicit fake before the kettle has boiled.</p>
+      <p>That speed can make the whole thing sound lightweight, like another grim internet prank. It is not. The person shown may know the image is fake, but they still have to wonder who has seen it, where it will appear next and whether somebody believes it.</p>
+      <p>Yle journalist Johanna Vehkoo describes the spread of explicit deepfakes in Finland as an epidemic. Recent investigations have found cases involving schoolgirls, colleagues, women in the voluntary defence forces and public figures.</p>
+      <p>If this happens to you, your child or somebody close to you, the first thing to understand is simple: the person in the image has done nothing wrong.</p>
+      <h2>What is a deepfake?</h2>
+      <p>A deepfake is manipulated or generated image, audio or video that makes a real person appear to say or do something they did not do.</p>
+      <p>The technology is also used in impersonation scams. Finland's National Cyber Security Centre has received reports of fake Finnish-language recordings of public figures and an English-language case where a cloned chief executive's voice requested a large money transfer.</p>
+      <p>Explicit image abuse is especially personal. A normal photograph from social media, school or work can be altered to create a nude or sexual image without the person's knowledge or consent.</p>
+      <p>The image being fake does not make the violation or its impact fake.</p>
+      <h2>Start by preserving evidence</h2>
+      <p>Your first instinct may be to delete everything immediately. Remove public material where you can, but collect evidence before links, messages or accounts disappear.</p>
+      <ul>
+        <li>Take screenshots showing the image, message, username and surrounding conversation.</li>
+        <li>Copy the page address or direct link.</li>
+        <li>Write down the date and time you found it.</li>
+        <li>Save the profile details of the person who posted or sent it.</li>
+        <li>Keep threatening messages, requests for money and any earlier contact.</li>
+      </ul>
+      <p>You do not need to send the image around to prove it exists. Store the evidence securely and avoid creating more copies than necessary, particularly when a child is involved.</p>
+      <p>If the material is on a school or workplace system, tell the responsible adult, principal, safeguarding contact, manager or HR team. That does not replace a police report, but it can help stop immediate circulation and preserve internal records.</p>
+      <h2>Report the content to the platform</h2>
+      <p>Use the platform's reporting tools for non-consensual intimate imagery, harassment, impersonation or child sexual material, whichever accurately describes the situation.</p>
+      <p>Keep a record of the report and any case number. If the platform offers an appeal after rejecting the report, use it and explain clearly that the image is fabricated and was created or shared without consent.</p>
+      <p>Do not get pulled into a long argument with the uploader. If there are threats or demands, preserve them. If money is requested, do not pay before speaking with police. Payment does not guarantee that a copy will disappear.</p>
+      <h2>Make a police report</h2>
+      <p>Finnish police say you do not need to know the legal name of an offence before asking for help. If you believe something wrong has happened, you can report the facts and let the police assess them.</p>
+      <p>For a non-urgent case, file a police report online or visit a police station. Include a clear timeline and the evidence you saved. Screenshots and information from an online profile can be useful.</p>
+      <p>The police online reporting service is unavailable overnight between 22.45 and 06.00. You can prepare the material and submit it when the service reopens.</p>
+      <p>Call 112 if someone is in immediate danger, there is an urgent threat to health or safety, or police help is needed straight away. A distressing but non-urgent online discovery should normally go through the police reporting service rather than the emergency number.</p>
+      <h2>If a child is involved</h2>
+      <p>Stay calm in front of them, even if you are furious.</p>
+      <p>The Police of Finland stresses that a young person whose image has been shared must not be left to manage alone. Do not ask what they did to cause it. They did not cause it.</p>
+      <p>Give them a safe adult presence, protect ordinary routines such as meals and sleep, and explain the next steps before making a report. Save all related material. Schools and other professionals may also have a duty to notify police when they suspect a sexual offence against a child, including an offence committed online.</p>
+      <p>If there is an immediate concern about the child's wellbeing or safety, seek urgent health care or call 112.</p>
+      <h2>Get somebody beside you</h2>
+      <p>Victim Support Finland, usually called RIKU, supports victims, relatives and witnesses. Its services are confidential and you can ask for advice even if you are not sure whether the situation meets the definition of a crime.</p>
+      <p>RIKU's national helpline is 116 006. English-language users can also send a contact request through its website. A trained support person may be able to accompany a victim during police interviews and court proceedings.</p>
+      <p>That practical support matters. When something intimate and humiliating has been pushed into public view, even filling in a form can feel enormous.</p>
+      <h2>What about fake calls and videos?</h2>
+      <p>Deepfakes are not always explicit. A familiar face or voice can be used to create urgency and ask for money, credentials or confidential information.</p>
+      <p>Do not rely on a video call looking convincing. End the call and contact the person or organisation through a number you already trust. Ask a question that only the real person should know. Treat any surprising request for a large transfer, banking codes or secrecy as a reason to stop.</p>
+      <p>If banking details have been exposed, contact the bank immediately and then file a police report.</p>
+      <h2>The useful bit to remember</h2>
+      <p>You do not have to prove that an image is sophisticated, diagnose which AI tool made it or win an argument with the person sharing it.</p>
+      <p>Save the evidence. Report the content. Tell somebody safe. Contact the police and get support.</p>
+      <p>Most importantly, do not let anyone reduce it to banter. A fake intimate image can do very real harm, and the person targeted deserves to be taken seriously from the first conversation.</p>
+    `,
+    sources: [
+      { name: 'Yle All Points North: Finland’s deepfake epidemic', url: 'https://yle.fi/a/74-20244431' },
+      { name: 'Police of Finland: personal integrity and intimate images online', url: 'https://poliisi.fi/en/-/everyone-is-entitled-to-personal-integrity-even-online' },
+      { name: 'Police of Finland: file a police report', url: 'https://poliisi.fi/en/report-a-crime' },
+      { name: 'National Cyber Security Centre Finland: deepfakes used in cybercrime', url: 'https://kyberturvallisuuskeskus.fi/en/news/national-cyber-security-centre-finlands-weekly-review-032024' },
+      { name: 'Victim Support Finland services in English', url: 'https://www.riku.fi/en/service-brochure-english/' },
+    ],
+  },
+  {
     slug: 'english-language-upper-secondary-finland-2026',
     title: 'Finland’s first English-language lukio classes are now underway',
     standfirst: 'A new route has opened for internationally mobile families: the regular Finnish upper secondary curriculum, taught in English. It is a welcome change, but the eligibility and fee rules need a careful read.',
