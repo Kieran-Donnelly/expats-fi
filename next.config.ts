@@ -8,6 +8,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const businessSlugs = ['home-chef-mark', 'aussie-bar', 'alstudio-barbershop']
 
 const nextConfig: NextConfig = {
+  trailingSlash: true,
   experimental: {
     globalNotFound: true,
   },
@@ -25,12 +26,12 @@ const nextConfig: NextConfig = {
     return [
       ...articles.map((article) => ({
         source: `/${article.slug}`,
-        destination: `/resources/${article.slug}`,
+        destination: `/resources/${article.slug}/`,
         permanent: true,
       })),
       ...businessSlugs.map((slug) => ({
         source: `/business/${slug}`,
-        destination: `/businesses/${slug}`,
+        destination: `/businesses/${slug}/`,
         permanent: true,
       })),
     ]

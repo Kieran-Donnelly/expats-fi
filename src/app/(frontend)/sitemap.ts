@@ -58,8 +58,5 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     ...embassies.map((embassy) => ({ url: `https://expats.fi/embassies/${embassy.slug}/`, lastModified: new Date(embassy.updatedAt), priority: .65 })),
   ]
 
-  return entries.map((entry) => ({
-    ...entry,
-    url: entry.url === 'https://expats.fi/' ? entry.url : entry.url.replace(/\/$/, ''),
-  }))
+  return entries
 }
