@@ -34,6 +34,8 @@ const refreshedBusinessSlugs = new Set([
   'purna-yoga-helsinki',
   'himalayan-beauty-spa',
   'lazy-fox',
+  'inka-roastery',
+  'connect-fit',
 ])
 
 function withRefreshedBusinessProfile(business: Business): Business {

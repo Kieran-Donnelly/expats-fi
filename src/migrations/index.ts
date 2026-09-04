@@ -23,6 +23,8 @@ import * as migration_20260828_131500_seed_news_stories_batch_four from './20260
 import * as migration_20260831_070000_publish_english_lukio_and_update_economy from './20260831_070000_publish_english_lukio_and_update_economy';
 import * as migration_20260901_060000_harden_community_board from './20260901_060000_harden_community_board';
 import * as migration_20260901_080000_add_anonymous_community_posts from './20260901_080000_add_anonymous_community_posts';
+import * as migration_20260902_120000_publish_connect_fit from './20260902_120000_publish_connect_fit';
+import * as migration_20260904_090000_publish_inka_roastery from './20260904_090000_publish_inka_roastery';
 
 export const migrations = [
   {
@@ -149,5 +151,15 @@ export const migrations = [
     up: migration_20260901_080000_add_anonymous_community_posts.up,
     down: migration_20260901_080000_add_anonymous_community_posts.down,
     name: '20260901_080000_add_anonymous_community_posts',
+  },
+  {
+    up: migration_20260902_120000_publish_connect_fit.up,
+    down: migration_20260902_120000_publish_connect_fit.down,
+    name: '20260902_120000_publish_connect_fit',
+  },
+  {
+    up: migration_20260904_090000_publish_inka_roastery.up,
+    down: migration_20260904_090000_publish_inka_roastery.down,
+    name: '20260904_090000_publish_inka_roastery',
   },
 ];
