@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
 import { familyGuides, familySystems } from '@/data/family'
 
@@ -111,6 +112,16 @@ export default function FamilyPage() {
         <div><p className="eyebrow">Helsinki first</p><h2>Living somewhere else in Finland?</h2></div>
         <p>The national parts, including Kela, MyKanta, 112 and the school structure, still apply. Healthcare, social services and local applications belong to your municipality or wellbeing services county, so use the same guide but swap Helsinki’s service link for your local one.</p>
       </section>
+
+      <ContinueExploring
+        title="Find the next bit of support around your family."
+        intro="Some questions belong in another part of the site. These routes connect the systems without making you start the search again."
+        links={[
+          { eyebrow: 'Community', title: 'Meet other parents locally', description: 'Family groups, local connections and ways to meet people without forcing it.', href: '/community/parents-families-and-meeting-locally/' },
+          { eyebrow: 'Education', title: 'Explore study in Finland', description: 'Universities, vocational routes, open studies and integration training.', href: '/study/' },
+          { eyebrow: 'Urgent help', title: 'Know where to turn', description: 'Calm starting points for health, safety, housing and other difficult moments.', href: '/help/' },
+        ]}
+      />
     </main>
   )
 }

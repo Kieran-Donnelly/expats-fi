@@ -120,6 +120,16 @@
 .family-related__grid strong { margin-block: 1.5rem .65rem; font-size: 1.08rem; line-height: 1.35; }
 .family-related__grid small { color: var(--ink-soft); font-size: .76rem; line-height: 1.5; }
 
+.continue-exploring { border-block-start: 1px solid var(--line); background: var(--blue-pale); }
+.continue-exploring__grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.continue-exploring__grid > a { position: relative; min-block-size: 13rem; display: flex; flex-direction: column; padding: 1.4rem; border: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: border-color .2s ease, transform .2s ease, box-shadow .2s ease; }
+.continue-exploring__grid > a + a { border-inline-start: 0; }
+.continue-exploring__grid > a:hover { z-index: 1; border-color: var(--blue); transform: translateY(-3px); box-shadow: 0 12px 30px rgb(13 45 78 / 9%); }
+.continue-exploring__grid span { color: var(--blue); font-size: .7rem; font-weight: 720; letter-spacing: .04em; text-transform: uppercase; }
+.continue-exploring__grid strong { margin-block: 1.35rem .55rem; padding-inline-end: 2rem; font-size: 1.12rem; line-height: 1.25; }
+.continue-exploring__grid small { color: var(--ink-soft); font-size: .8rem; line-height: 1.5; }
+.continue-exploring__grid i { position: absolute; inset-inline-end: 1.4rem; inset-block-end: 1.25rem; color: var(--blue); font-size: 1.1rem; font-style: normal; }
+
 @media (max-width: 960px) {
   .family-stage-grid, .family-system-grid { grid-template-columns: repeat(2, 1fr); }
   .family-guide-grid { grid-template-columns: repeat(2, 1fr); }
@@ -131,8 +141,8 @@
   .family-real-life__inner, .family-detail__header, .family-detail__layout, .family-local-note { grid-template-columns: 1fr; }
   .family-urgent__inner { align-items: start; flex-direction: column; gap: .6rem; padding-block: 1rem; }
   .family-maisa-tip { grid-template-columns: 1fr; gap: .6rem; }
-  .family-guide-grid, .family-related__grid { grid-template-columns: 1fr; }
-  .family-related__grid > a + a { border-inline-start: 1px solid var(--line); border-block-start: 0; }
+  .family-guide-grid, .family-related__grid, .continue-exploring__grid { grid-template-columns: 1fr; }
+  .family-related__grid > a + a, .continue-exploring__grid > a + a { border-inline-start: 1px solid var(--line); border-block-start: 0; }
   .family-detail__header { gap: 2rem; }
   .family-detail__header > aside { max-inline-size: 30rem; }
   .family-detail__aside { grid-template-columns: repeat(2, 1fr); }

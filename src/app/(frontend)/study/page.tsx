@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
 import { studyGuides, studyProviders } from '@/data/study'
 
@@ -112,6 +113,16 @@ export default function StudyPage() {
         <div><p className="eyebrow">Already qualified abroad?</p><h2>You may not need another entire degree.</h2></div>
         <p>Start by checking whether your profession is regulated and speak with a SIMHE higher-education guidance service. Recognition, bridging studies or a smaller qualification may be the sensible answer. Repeating five years of education should not be the default plan.</p>
       </section>
+
+      <ContinueExploring
+        title="Make the study plan work outside the classroom too."
+        intro="Language, money and family arrangements can change which route is realistic. These are the useful next checks."
+        links={[
+          { eyebrow: 'Language', title: 'Build your Finnish alongside it', description: 'Courses, apps, listening practice, language cafés and YKI preparation.', href: '/learn-finnish/' },
+          { eyebrow: 'Work and money', title: 'Check the practical finances', description: 'Guides to working, tax, benefits and managing money in Finland.', href: '/resources/?category=Work%20%26%20money#resource-library' },
+          { eyebrow: 'Family', title: 'Plan around family life', description: 'Daycare, schools, healthcare and support for families living in Finland.', href: '/family/' },
+        ]}
+      />
     </main>
   )
 }

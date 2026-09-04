@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 
 import type { LearningResource } from '@/data/finnishLearning'
+import { ContinueExploring } from '@/components/ContinueExploring'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getLearningPageData } from '@/lib/content'
 
@@ -143,6 +144,16 @@ export default async function LearnFinnishPage() {
       </section>
 
       <div className="shell learning-review-note"><strong>Curated, not scraped.</strong><p>We checked these resources on {lastLearningReview}. Courses, prices and meetup schedules change; follow the provider link before enrolling or travelling.</p></div>
+
+      <ContinueExploring
+        title="Give the language somewhere useful to land."
+        intro="Finnish sticks faster when it connects to a course, a weekly routine or people you actually want to speak with."
+        links={[
+          { eyebrow: 'Study', title: 'Explore education routes', description: 'Degrees, vocational study, integration training and flexible ways to learn.', href: '/study/' },
+          { eyebrow: 'Community', title: 'Meet people in Helsinki', description: 'Groups, local meetups and gentler ways to build a social circle.', href: '/community/' },
+          { eyebrow: 'Getting settled', title: 'Follow your first 90 days', description: 'Put permits, registration, banking and everyday admin in a workable order.', href: '/start-here/first-90-days-in-finland/' },
+        ]}
+      />
     </main>
   )
 }

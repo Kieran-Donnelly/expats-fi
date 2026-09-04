@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
 
 export const metadata: Metadata = {
@@ -178,6 +179,16 @@ export default function HelpPage() {
         <div><p className="eyebrow">A useful habit</p><h2>Save this page before you need it.</h2></div>
         <p>Official numbers and opening arrangements can change. We check this hub, but the linked authority is always the final word. If you spot something that has moved, email <a className="text-link" href="mailto:hello@expats.fi">hello@expats.fi</a> and we will sort it.</p>
       </section>
+
+      <ContinueExploring
+        title="Keep the right backup close."
+        intro="A little preparation makes the next difficult day less confusing. Save the route that fits your situation."
+        links={[
+          { eyebrow: 'Family safety', title: 'Family urgent help', description: 'Health, child safety, violence support and practical help for families.', href: '/family/urgent-help-and-safety/' },
+          { eyebrow: 'Housing', title: 'Handle problems at home', description: 'Renting, landlord issues and the practical side of keeping a secure home.', href: '/housing/' },
+          { eyebrow: 'Documents abroad', title: 'Find your embassy', description: 'Official representation and consular contacts for every country in Finland.', href: '/embassies/' },
+        ]}
+      />
     </main>
   )
 }

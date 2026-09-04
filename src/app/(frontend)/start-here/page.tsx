@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
 import { settlingGuides } from '@/data/settling'
 
@@ -58,6 +59,16 @@ export default function StartHerePage() {
       <section className="family-real-life" aria-labelledby="arrival-habits-heading">
         <div className="shell family-real-life__inner"><div className="family-real-life__copy"><p className="eyebrow">The habits that help</p><h2 id="arrival-habits-heading">You do not need to sort everything in your first week.</h2><p>Finland will still be here if the bank appointment takes another week. Keep moving one dependency at a time.</p></div><ol className="family-real-life__list"><li><span>01</span><div><strong>Book scarce appointments early.</strong><p>You can keep researching while the appointment date approaches.</p></div></li><li><span>02</span><div><strong>Use one exact version of your name.</strong><p>Match your identity document unless an authority tells you otherwise.</p></div></li><li><span>03</span><div><strong>Keep a tiny application timeline.</strong><p>Date, office, reference number, missing item and next follow-up.</p></div></li><li><span>04</span><div><strong>Do not share bank credentials.</strong><p>Use proper authorisations when a partner or trusted person helps.</p></div></li><li><span>05</span><div><strong>Build one recurring human routine.</strong><p>A class, club, café or group helps the country feel like somewhere you live.</p></div></li></ol></div>
       </section>
+
+      <ContinueExploring
+        title="Once the paperwork starts behaving, build a life around it."
+        intro="The admin is only the beginning. Pick the next part that would make Finland feel easier this week."
+        links={[
+          { eyebrow: 'Language', title: 'Start learning Finnish', description: 'Free resources, proper courses and friendly places to practise in Helsinki.', href: '/learn-finnish/' },
+          { eyebrow: 'Family', title: 'Sort family life', description: 'Healthcare, daycare, schools, support and the practical systems around them.', href: '/family/' },
+          { eyebrow: 'Work and money', title: 'Understand jobs, tax and pay', description: 'Plain-English guides for the financial side of getting established.', href: '/resources/?category=Work%20%26%20money#resource-library' },
+        ]}
+      />
     </main>
   )
 }
