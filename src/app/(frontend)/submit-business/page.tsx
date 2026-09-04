@@ -4,7 +4,11 @@ import { headers } from 'next/headers'
 import { SubmissionForm } from '@/components/SubmissionForm'
 import { getCurrentMember } from '@/lib/member-auth'
 
-export const metadata: Metadata = { title: 'List an expat-owned business', description: 'Suggest an expat-owned business for the Expats.fi Finland directory.' }
+export const metadata: Metadata = {
+  title: 'List an expat-owned business',
+  description: 'Suggest an expat-owned business for the Expats.fi Finland directory.',
+  robots: { index: false, follow: true },
+}
 
 export default async function SubmitBusinessPage() {
   const member = await getCurrentMember(await headers())

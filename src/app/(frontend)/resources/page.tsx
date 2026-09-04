@@ -13,6 +13,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Life in Finland guides',
   description: 'Plain-English guides covering permits, work, money, healthcare, housing and everyday life in Finland.',
+  alternates: { canonical: '/resources/' },
 }
 
 const categories = ['Immigration & permits', 'Work & money', 'Housing', 'Health & wellbeing', 'Getting around', 'Family', 'Everyday life']

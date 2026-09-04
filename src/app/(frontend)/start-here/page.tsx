@@ -5,7 +5,7 @@ import { SectionHero } from '@/components/SectionHero'
 import { settlingGuides } from '@/data/settling'
 
 export const metadata: Metadata = {
-  title: 'Start here: your first months in Finland',
+  title: 'Moving to Finland: your first 90 days',
   description: 'A practical route through permits, registration, banking, tax, Kela, healthcare and digital services during your first 90 days in Finland.',
   alternates: { canonical: '/start-here/' },
 }

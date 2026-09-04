@@ -11,6 +11,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Embassies and consulates for every country in Finland',
   description: 'Find the embassy, accredited mission, honorary consulate or best official contact for every country while living in Finland.',
+  alternates: { canonical: '/embassies/' },
 }
 
 const regions: Embassy['region'][] = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania']

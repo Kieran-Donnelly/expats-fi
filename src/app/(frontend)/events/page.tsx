@@ -12,6 +12,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'What’s on in Helsinki',
   description: 'Discover upcoming events, festivals, markets and gatherings in Helsinki, with clear practical details and transport tips.',
+  alternates: { canonical: '/events/' },
 }
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; q?: string }> }) {

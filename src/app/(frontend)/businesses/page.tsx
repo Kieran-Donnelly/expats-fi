@@ -12,6 +12,7 @@ export const dynamic = 'force-dynamic'
 export const metadata: Metadata = {
   title: 'Expat-owned businesses in Finland',
   description: 'Find restaurants, services and independent businesses owned by people who moved to Finland.',
+  alternates: { canonical: '/businesses/' },
 }
 
 export default async function BusinessesPage({ searchParams }: { searchParams: Promise<{ category?: string; location?: string; q?: string }> }) {
