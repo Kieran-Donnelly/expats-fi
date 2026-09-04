@@ -8,7 +8,7 @@ const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const businessSlugs = ['home-chef-mark', 'aussie-bar', 'alstudio-barbershop']
 
 const nextConfig: NextConfig = {
-  trailingSlash: true,
+  skipTrailingSlashRedirect: true,
   experimental: {
     globalNotFound: true,
   },
