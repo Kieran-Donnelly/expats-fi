@@ -14,6 +14,8 @@ import './family.css'
 import './eats.css'
 import './study.css'
 
+import { defaultSocialImage } from '@/lib/seo'
+
 const schibsted = Schibsted_Grotesk({
   subsets: ['latin'],
   variable: '--font-schibsted',
@@ -39,7 +41,15 @@ export const metadata: Metadata = {
     siteName: 'Expats.fi',
     type: 'website',
     locale: 'en_FI',
+    images: [{ url: defaultSocialImage, width: 1600, height: 1067, alt: 'Helsinki Cathedral beneath a blue Finnish sky' }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    images: [defaultSocialImage],
+  },
+  verification: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION
+    ? { google: process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION }
+    : undefined,
 }
 
 export default function FrontendLayout({ children }: { children: ReactNode }) {

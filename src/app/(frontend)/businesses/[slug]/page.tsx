@@ -5,11 +5,13 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { SaveBusinessButton } from '@/components/SaveBusinessButton'
+import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { businessVerificationLabel, isPubliclyVerifiedBusiness } from '@/lib/business-verification'
 import { getBusiness, labels } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedBusinessIds } from '@/lib/saved-businesses'
+import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -24,7 +26,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const business = await getBusiness(slug)
   if (!business) return {}
-  return { title: business.name, description: business.summary, alternates: { canonical: `/businesses/${business.slug}/` } }
+  const image = business.imagePath ? absoluteUrl(business.imagePath) : defaultSocialImage
+  return {
+    title: business.name,
+    description: business.summary,
+    alternates: { canonical: `/businesses/${business.slug}/` },
+    openGraph: { title: business.name, description: business.summary, type: 'website', url: `/businesses/${business.slug}/`, images: [image] },
+    twitter: { card: 'summary_large_image', title: business.name, description: business.summary, images: [image] },
+  }
 }
 
 export default async function BusinessPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -45,9 +54,14 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
     business.currentOffer &&
     (!business.currentOfferEndsAt || new Date(business.currentOfferEndsAt).getTime() >= requestTime),
   )
+  const sameAs = [business.website, business.instagram, business.facebook, business.youtube, business.tiktok].filter((value): value is string => Boolean(value))
 
   return (
     <main id="main"><div className="shell detail-shell business-profile">
+      <JsonLd data={[
+        { '@context': 'https://schema.org', '@type': 'LocalBusiness', name: business.name, description: business.summary, url: absoluteUrl(`/businesses/${business.slug}/`), image: business.imagePath ? absoluteUrl(business.imagePath) : undefined, logo: business.logoPath ? absoluteUrl(business.logoPath) : undefined, telephone: business.phone || undefined, address: { '@type': 'PostalAddress', streetAddress: business.address, addressCountry: 'FI' }, sameAs },
+        breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Business directory', path: '/businesses/' }, { name: business.name, path: `/businesses/${business.slug}/` }]),
+      ]} />
       <Link className="back-link" href="/businesses/">← Business directory</Link>
       <header className="business-profile__header">
         <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p>{publiclyVerified && <p className="business-profile__verification"><span aria-hidden="true">✓</span> {verificationLabel}{verificationDate && <span> · Last checked {verificationDate}</span>}</p>}<div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /><ShareButton contentType="business" path={`/businesses/${business.slug}/`} title={business.name} text={business.summary} /></div></div>

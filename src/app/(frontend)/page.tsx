@@ -1,14 +1,27 @@
 import Image from 'next/image'
 import Link from 'next/link'
+import type { Metadata } from 'next'
 
 import { ArticleCard } from '@/components/ArticleCard'
 import { BusinessCard } from '@/components/BusinessCard'
 import { EventCard } from '@/components/EventCard'
 import { HelsinkiNow } from '@/components/HelsinkiNow'
+import { JsonLd } from '@/components/JsonLd'
 import { getArticles, getBusinesses, getEvents } from '@/lib/content'
+import { defaultSocialImage, publisher, siteUrl } from '@/lib/seo'
 import { getHelsinkiWeather } from '@/lib/weather'
 
 export const dynamic = 'force-dynamic'
+
+export const metadata: Metadata = {
+  alternates: { canonical: '/' },
+  openGraph: {
+    title: 'Expats.fi | Living in Finland, made clearer',
+    description: 'Friendly, practical help for moving to Finland, building a life here and making the most of Helsinki.',
+    url: '/',
+    images: [{ url: defaultSocialImage, width: 1600, height: 1067, alt: 'Helsinki Cathedral beneath a blue Finnish sky' }],
+  },
+}
 
 const practicalHubs = [
   { number: '01', label: 'Start here', detail: 'The first 90 days, official systems and what to do in what order', href: '/start-here/', icon: 'flag' },
@@ -61,6 +74,10 @@ export default async function HomePage() {
 
   return (
     <main id="main">
+      <JsonLd data={[
+        { '@context': 'https://schema.org', ...publisher, description: 'Friendly, practical help for moving to Finland, building a life here and making the most of Helsinki.', sameAs: ['https://www.facebook.com/groups/1579279056393368'] },
+        { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Expats.fi', url: siteUrl, publisher, inLanguage: 'en', potentialAction: { '@type': 'SearchAction', target: `${siteUrl}/search?q={search_term_string}`, 'query-input': 'required name=search_term_string' } },
+      ]} />
       <section className="home-hero">
         <div className="home-hero__media" aria-hidden="true">
           <Image

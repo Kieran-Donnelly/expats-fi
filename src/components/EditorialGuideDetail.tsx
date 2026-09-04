@@ -4,6 +4,8 @@ import type { ReactNode } from 'react'
 
 import type { EditorialGuide } from '@/data/editorial-guide'
 import { ShareButton } from '@/components/ShareButton'
+import { JsonLd } from '@/components/JsonLd'
+import { absoluteUrl, breadcrumbJsonLd, publisher } from '@/lib/seo'
 
 type EditorialGuideDetailProps = {
   guide: EditorialGuide
@@ -33,6 +35,23 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
 
   return (
     <main id="main" className="family-detail" data-guide-tone={tone}>
+      <JsonLd data={[
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: guide.title,
+          description: guide.summary,
+          mainEntityOfPage: absoluteUrl(`${hubHref}${guide.slug}/`),
+          author: publisher,
+          publisher,
+          inLanguage: 'en',
+        },
+        breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: hubLabel, path: hubHref },
+          { name: guide.title, path: `${hubHref}${guide.slug}/` },
+        ]),
+      ]} />
       <div className="shell family-detail__shell">
         <Link className="back-link" href={hubHref}>← {hubLabel}</Link>
         <header className="family-detail__header" data-has-image={heroImage ? true : undefined}>

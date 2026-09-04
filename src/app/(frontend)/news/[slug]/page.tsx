@@ -5,7 +5,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getNewsStory } from '@/lib/content'
+import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
+import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage, publisher } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,7 +30,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: story.title,
     description: story.standfirst,
     alternates: { canonical: `/news/${story.slug}/` },
-    openGraph: { title: story.title, description: story.standfirst, type: 'article', publishedTime: story.publishedAt },
+    openGraph: { title: story.title, description: story.standfirst, type: 'article', url: `/news/${story.slug}/`, publishedTime: story.publishedAt, modifiedTime: story.updatedAt, images: [defaultSocialImage] },
+    twitter: { card: 'summary_large_image', title: story.title, description: story.standfirst, images: [defaultSocialImage] },
   }
 }
 
@@ -43,6 +46,10 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
 
   return (
     <main id="main" className="news-story-page">
+      <JsonLd data={[
+        { '@context': 'https://schema.org', '@type': 'NewsArticle', headline: story.title, description: story.standfirst, datePublished: story.publishedAt, dateModified: story.updatedAt, articleSection: story.category, mainEntityOfPage: absoluteUrl(`/news/${story.slug}/`), author: publisher, publisher, image: defaultSocialImage, inLanguage: 'en', isAccessibleForFree: true },
+        breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'News', path: '/news/' }, { name: story.title, path: `/news/${story.slug}/` }]),
+      ]} />
       <article className="shell news-story">
         <Link className="back-link" href="/news/">← All news</Link>
         <header className="news-story__header">

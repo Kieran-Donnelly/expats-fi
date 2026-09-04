@@ -6,10 +6,12 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { SaveArticleButton } from '@/components/SaveArticleButton'
+import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { getArticle } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedArticleIds } from '@/lib/saved-articles'
+import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage, publisher } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,7 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: article.title,
     description: article.description,
     alternates: { canonical: `/resources/${article.slug}/` },
-    openGraph: { title: article.title, description: article.description, type: 'article' },
+    openGraph: { title: article.title, description: article.description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [defaultSocialImage] },
+    twitter: { card: 'summary_large_image', title: article.title, description: article.description, images: [defaultSocialImage] },
   }
 }
 
@@ -38,6 +41,10 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
 
   return (
     <main id="main"><div className="shell detail-shell article-page">
+      <JsonLd data={[
+        { '@context': 'https://schema.org', '@type': 'Article', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: defaultSocialImage, inLanguage: 'en', isAccessibleForFree: true },
+        breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/resources/' }, { name: article.title, path: `/resources/${article.slug}/` }]),
+      ]} />
       <Link className="back-link" href="/resources/">← All Finland guides</Link>
       <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1><p className="article-page__description">{article.description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /><ShareButton contentType="guide" path={`/resources/${article.slug}/`} title={article.title} text={article.description} /></div></header>
       <div className="article-page__layout">

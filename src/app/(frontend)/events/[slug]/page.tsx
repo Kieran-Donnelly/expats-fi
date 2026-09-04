@@ -3,8 +3,10 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { EventLocationMap } from '@/components/EventsMap'
+import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { getEvent } from '@/lib/content'
+import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,7 +14,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const event = await getEvent(slug)
   if (!event) return {}
-  return { title: event.title, description: event.blurb, alternates: { canonical: `/events/${event.slug}/` } }
+  return {
+    title: event.title,
+    description: event.blurb,
+    alternates: { canonical: `/events/${event.slug}/` },
+    openGraph: { title: event.title, description: event.blurb, type: 'website', url: `/events/${event.slug}/`, images: [defaultSocialImage] },
+    twitter: { card: 'summary_large_image', title: event.title, description: event.blurb, images: [defaultSocialImage] },
+  }
 }
 
 export default async function EventPage({ params }: { params: Promise<{ slug: string }> }) {
@@ -22,6 +30,10 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
 
   return (
     <main id="main"><div className="shell detail-shell event-detail">
+      <JsonLd data={[
+        { '@context': 'https://schema.org', '@type': 'Event', name: event.title, description: event.blurb, startDate: event.startDate, endDate: event.endDate, eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', eventStatus: 'https://schema.org/EventScheduled', url: absoluteUrl(`/events/${event.slug}/`), image: defaultSocialImage, location: { '@type': 'Place', name: event.location, address: { '@type': 'PostalAddress', streetAddress: event.address, addressLocality: 'Helsinki', addressCountry: 'FI' } }, organizer: { '@type': 'Organization', name: event.sourceName, url: event.sourceUrl }, ...(event.free ? { offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: event.sourceUrl } } : {}) },
+        breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Events', path: '/events/' }, { name: event.title, path: `/events/${event.slug}/` }]),
+      ]} />
       <Link className="back-link" href="/events/">← All Helsinki events</Link>
       <header className="event-detail__header">
         <div><div className="event-detail__kicker"><span>{event.category}</span>{event.free && <span>Free</span>}{event.familyFriendly && <span>Family-friendly</span>}</div><h1>{event.title}</h1><p>{event.blurb}</p><div className="detail-share"><ShareButton contentType="event" path={`/events/${event.slug}/`} title={event.title} text={event.blurb} /></div></div>
