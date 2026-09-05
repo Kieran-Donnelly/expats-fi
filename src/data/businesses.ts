@@ -50,7 +50,7 @@ export const businesses: Business[] = [
     name: 'Aussie Bar',
     summary: 'A loud, friendly slice of Australia in Kamppi, with live sport, Friday music, weekend DJs, familiar pub food and a properly international crowd.',
     description: "Aussie Bar is one of those easy landing spots for international Helsinki. It is central enough for an after-work drink, casual enough that you do not need a plan and familiar in a way that matters when you are missing sport, pub food or a bit of banter from home. Seven screens show games from Australia and around the world, with especially strong crowds gathering around the big football fixtures. Fridays bring live music and the long-running Chase the Ace, while DJs carry Friday and Saturday nights into livelier territory. The kitchen keeps things suitably unfussy with pies, fish and chips, wings and other proper pub favourites. The best part is the mix of regulars, travellers, Finns, expats and whoever has wandered in from Kamppi. Come with a group, turn up for a match or lean on the bar and have a yarn. Their own line is 'where strangers become mates', and that is honestly a pretty good description of the place.",
-    categories: ['Bars & restaurants'],
+    categories: ['Bars & restaurants', 'Food & drink'],
     locations: ['Helsinki'],
     address: 'Salomonkatu 5, 00100 Helsinki',
     website: 'https://aussiebar.net',

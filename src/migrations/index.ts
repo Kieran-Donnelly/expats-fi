@@ -30,6 +30,7 @@ import * as migration_20260905_080000_publish_byrne_carpentry from './20260905_0
 import * as migration_20260905_133000_add_home_chef_mark_images from './20260905_133000_add_home_chef_mark_images';
 import * as migration_20260905_143000_add_alstudio_image from './20260905_143000_add_alstudio_image';
 import * as migration_20260905_150000_replace_alstudio_image from './20260905_150000_replace_alstudio_image';
+import * as migration_20260905_160000_connect_aussie_bar_category from './20260905_160000_connect_aussie_bar_category';
 
 export const migrations = [
   {
@@ -191,5 +192,10 @@ export const migrations = [
     up: migration_20260905_150000_replace_alstudio_image.up,
     down: migration_20260905_150000_replace_alstudio_image.down,
     name: '20260905_150000_replace_alstudio_image',
+  },
+  {
+    up: migration_20260905_160000_connect_aussie_bar_category.up,
+    down: migration_20260905_160000_connect_aussie_bar_category.down,
+    name: '20260905_160000_connect_aussie_bar_category',
   },
 ];
