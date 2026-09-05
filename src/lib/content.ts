@@ -6,6 +6,7 @@ import type { CityEvent, EventTransport } from '@/data/events'
 import type { LearningResource, PracticeGroup } from '@/data/finnishLearning'
 import { businessDrafts } from '@/data/business-drafts'
 import { businesses as seedBusinesses } from '@/data/businesses'
+import { helsinkiDateKey } from '@/lib/events'
 import type { Article, Business, Embassy, NewsStory } from '@/payload-types'
 
 const localBusinessTimestamp = '2026-08-25T00:00:00.000Z'
@@ -352,12 +353,7 @@ export async function getEvents({ upcoming = false }: { upcoming?: boolean } = {
   ].sort((a, b) => a.startDate.localeCompare(b.startDate))
   if (!upcoming) return combined
 
-  const today = new Intl.DateTimeFormat('en-CA', {
-    timeZone: 'Europe/Helsinki',
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-  }).format(new Date())
+  const today = helsinkiDateKey()
   return combined.filter((event) => event.endDate >= today)
 }
 

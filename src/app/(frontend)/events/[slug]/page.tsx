@@ -6,6 +6,7 @@ import { EventLocationMap } from '@/components/EventsMap'
 import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { getEvent } from '@/lib/content'
+import { isPastEvent } from '@/lib/events'
 import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
@@ -14,12 +15,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const event = await getEvent(slug)
   if (!event) return {}
+  const hasPassed = isPastEvent(event.endDate)
   return {
     title: event.title,
     description: event.blurb,
     alternates: { canonical: `/events/${event.slug}/` },
     openGraph: { title: event.title, description: event.blurb, type: 'website', url: `/events/${event.slug}/`, images: [defaultSocialImage] },
     twitter: { card: 'summary_large_image', title: event.title, description: event.blurb, images: [defaultSocialImage] },
+    ...(hasPassed ? { robots: { index: false, follow: true } } : {}),
   }
 }
 
@@ -27,6 +30,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
   const { slug } = await params
   const event = await getEvent(slug)
   if (!event) notFound()
+  const hasPassed = isPastEvent(event.endDate)
 
   return (
     <main id="main"><div className="shell detail-shell event-detail">
@@ -39,6 +43,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
         <div><div className="event-detail__kicker"><span>{event.category}</span>{event.free && <span>Free</span>}{event.familyFriendly && <span>Family-friendly</span>}</div><h1>{event.title}</h1><p>{event.blurb}</p><div className="detail-share"><ShareButton contentType="event" path={`/events/${event.slug}/`} title={event.title} text={event.blurb} /></div></div>
         <div className="event-detail__when"><strong>{event.dateLabel}</strong><span>{event.timeLabel}</span></div>
       </header>
+      {hasPassed && <div className="verification-callout"><strong>This event has now wrapped up</strong><p>We have kept the page here for anyone following an old link. <Link href="/events/">See what is coming up around Helsinki instead.</Link></p></div>}
       <div className="event-detail__layout">
         <article className="event-detail__story">
           <h2>Why it’s worth going</h2>
