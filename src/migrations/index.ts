@@ -26,6 +26,7 @@ import * as migration_20260901_080000_add_anonymous_community_posts from './2026
 import * as migration_20260902_120000_publish_connect_fit from './20260902_120000_publish_connect_fit';
 import * as migration_20260904_090000_publish_inka_roastery from './20260904_090000_publish_inka_roastery';
 import * as migration_20260904_150000_seed_news_stories_batch_five from './20260904_150000_seed_news_stories_batch_five';
+import * as migration_20260905_080000_publish_byrne_carpentry from './20260905_080000_publish_byrne_carpentry';
 
 export const migrations = [
   {
@@ -167,5 +168,10 @@ export const migrations = [
     up: migration_20260904_150000_seed_news_stories_batch_five.up,
     down: migration_20260904_150000_seed_news_stories_batch_five.down,
     name: '20260904_150000_seed_news_stories_batch_five',
+  },
+  {
+    up: migration_20260905_080000_publish_byrne_carpentry.up,
+    down: migration_20260905_080000_publish_byrne_carpentry.down,
+    name: '20260905_080000_publish_byrne_carpentry',
   },
 ];

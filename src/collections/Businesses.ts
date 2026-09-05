@@ -55,7 +55,8 @@ export const Businesses: CollectionConfig = {
       fields: [{ name: 'label', type: 'text', required: true }],
     },
     { name: 'address', type: 'text', required: true },
-    { name: 'website', type: 'text', required: true },
+    { name: 'website', type: 'text' },
+    { name: 'email', type: 'email' },
     { name: 'newsletterUrl', type: 'text' },
     { name: 'phone', type: 'text' },
     {

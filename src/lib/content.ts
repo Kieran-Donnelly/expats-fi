@@ -37,6 +37,7 @@ const refreshedBusinessSlugs = new Set([
   'lazy-fox',
   'inka-roastery',
   'connect-fit',
+  'byrne-carpentry',
 ])
 
 function withRefreshedBusinessProfile(business: Business): Business {
@@ -51,6 +52,7 @@ function withRefreshedBusinessProfile(business: Business): Business {
     bookingUrl: refreshed.bookingUrl ?? business.bookingUrl,
     categories: refreshed.categories.map((label) => ({ label })),
     description: refreshed.description,
+    email: refreshed.email ?? business.email,
     featured: 'featured' in refreshed ? Boolean(refreshed.featured) : Boolean(business.featured),
     imageAlt: refreshed.imageAlt,
     imagePath: refreshed.imagePath,
@@ -62,7 +64,7 @@ function withRefreshedBusinessProfile(business: Business): Business {
     name: refreshed.name,
     phone: refreshed.phone,
     summary: refreshed.summary,
-    website: refreshed.website,
+    website: refreshed.website ?? business.website,
   }
 }
 

@@ -13,8 +13,8 @@ export function isBusinessSubmissionAction(value: unknown): value is BusinessSub
   return typeof value === 'string' && value in businessSubmissionActions
 }
 
-export function normalizeBusinessWebsite(value: string): string {
-  const input = value.trim()
+export function normalizeBusinessWebsite(value: string | null | undefined): string {
+  const input = value?.trim() || ''
   if (!input) return ''
 
   try {
@@ -118,7 +118,9 @@ export async function promoteApprovedSubmission({
       sort: 'id',
     })
     const website = normalizeBusinessWebsite(submission.website)
-    existing = allBusinesses.docs.find((business) => normalizeBusinessWebsite(business.website) === website) as Business | undefined
+    existing = website
+      ? allBusinesses.docs.find((business) => normalizeBusinessWebsite(business.website) === website) as Business | undefined
+      : undefined
   }
 
   if (existing) {

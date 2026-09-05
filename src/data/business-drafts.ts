@@ -6,7 +6,8 @@ export type BusinessDraft = {
   categories: string[]
   locations: string[]
   address: string
-  website: string
+  website?: string
+  email?: string
   newsletterUrl?: string
   phone?: string
   instagramHandle?: string
@@ -175,6 +176,23 @@ export const businessDrafts: BusinessDraft[] = [
     imageAlt: 'Connect Fit members and coaches smiling together after a group training session in Ruoholahti',
     logoPath: '/businesses/connect-fit/logo.png',
     logoAlt: 'Connect Fit logo',
+    status: 'published',
+  },
+  {
+    slug: 'byrne-carpentry',
+    name: 'Byrne Carpentry',
+    summary: 'Friendly, English-speaking carpentry, building and renovation work in Helsinki, from smaller repairs and bespoke joinery to complete home renovations.',
+    description: "Finding a reliable tradesperson can be tricky enough without throwing a language barrier into the mix. When you are working on your home, it helps enormously to have somebody you can speak with openly, explain your ideas to and trust to give you a straightforward answer. Byrne Carpentry is run by Patrick Byrne, an Irish carpenter and builder who has been living and working in Finland for around 15 years. Based in Helsinki, he brings plenty of hands-on experience across carpentry, building, renovation, painting, finishing and bespoke joinery. Paddy takes on everything from smaller repairs, painting and individual carpentry jobs to kitchens, bathrooms, outdoor projects and complete home renovations. He also creates bespoke joinery, including custom furniture, storage and fitted pieces designed around the home and the space available. That broad skill set means he can help with the early building and renovation work, then carry the job through to the flooring, painting, fitted details and finishing touches that bring everything together. For international residents, being able to discuss the job clearly in English, ask questions and understand what happens next can take a lot of stress out of the process. Whether you have a small job that needs sorting, an idea for a custom piece or an entire home ready for a new chapter, send Paddy a message and have a chat about what you need.",
+    categories: ['Trades', 'Carpentry & building', 'Renovations'],
+    locations: ['Helsinki'],
+    address: 'Based in Helsinki',
+    email: 'byrnecarpentryhelsinki@gmail.com',
+    instagramHandle: '@byrne_carpentry',
+    instagram: 'https://www.instagram.com/byrne_carpentry/',
+    imagePath: '/businesses/byrne-carpentry/patrick-byrne-at-work.webp',
+    imageAlt: 'Patrick Byrne working on a brick building project in Helsinki',
+    logoPath: '/businesses/byrne-carpentry/logo.webp',
+    logoAlt: 'Byrne Carpentry logo',
     status: 'published',
   },
 ]

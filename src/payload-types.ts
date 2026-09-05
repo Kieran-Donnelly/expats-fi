@@ -346,7 +346,8 @@ export interface Business {
     id?: string | null;
   }[];
   address: string;
-  website: string;
+  website?: string | null;
+  email?: string | null;
   newsletterUrl?: string | null;
   phone?: string | null;
   /**
@@ -494,6 +495,9 @@ export interface CommunityPost {
   body: string;
   topic: 'general' | 'housing' | 'work-money' | 'everyday-life' | 'finnish' | 'family' | 'culture-events';
   author: number | Member;
+  /**
+   * Shows the generated alias publicly while retaining the member privately for moderation.
+   */
   anonymous?: boolean | null;
   anonymousAlias?: string | null;
   status: 'pending' | 'published' | 'flagged' | 'hidden' | 'rejected';
@@ -532,6 +536,9 @@ export interface CommunityComment {
   id: number;
   post: number | CommunityPost;
   author: number | Member;
+  /**
+   * Shows the generated alias publicly while retaining the member privately for moderation.
+   */
   anonymous?: boolean | null;
   anonymousAlias?: string | null;
   body: string;
@@ -1112,6 +1119,7 @@ export interface BusinessesSelect<T extends boolean = true> {
       };
   address?: T;
   website?: T;
+  email?: T;
   newsletterUrl?: T;
   phone?: T;
   instagramHandle?: T;

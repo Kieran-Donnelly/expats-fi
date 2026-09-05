@@ -6,7 +6,8 @@ export type Business = {
   categories: string[];
   locations: string[];
   address: string;
-  website: string;
+  website?: string;
+  email?: string;
   newsletterUrl?: string;
   phone: string;
   instagramHandle?: string;
