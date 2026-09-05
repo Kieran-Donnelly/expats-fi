@@ -28,6 +28,7 @@ import * as migration_20260904_090000_publish_inka_roastery from './20260904_090
 import * as migration_20260904_150000_seed_news_stories_batch_five from './20260904_150000_seed_news_stories_batch_five';
 import * as migration_20260905_080000_publish_byrne_carpentry from './20260905_080000_publish_byrne_carpentry';
 import * as migration_20260905_133000_add_home_chef_mark_images from './20260905_133000_add_home_chef_mark_images';
+import * as migration_20260905_143000_add_alstudio_image from './20260905_143000_add_alstudio_image';
 
 export const migrations = [
   {
@@ -179,5 +180,10 @@ export const migrations = [
     up: migration_20260905_133000_add_home_chef_mark_images.up,
     down: migration_20260905_133000_add_home_chef_mark_images.down,
     name: '20260905_133000_add_home_chef_mark_images',
+  },
+  {
+    up: migration_20260905_143000_add_alstudio_image.up,
+    down: migration_20260905_143000_add_alstudio_image.down,
+    name: '20260905_143000_add_alstudio_image',
   },
 ];

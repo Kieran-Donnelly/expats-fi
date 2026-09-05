@@ -72,6 +72,8 @@ export const businesses: Business[] = [
     website: 'https://alstudio.fi',
     phone: '+358 41 328 8028',
     bookingUrl: 'https://varaa.timma.fi/reservation/alstudiobarbershop',
+    imagePath: '/businesses/alstudio-barbershop/fade-haircut-close-up.webp',
+    imageAlt: 'Close-up detail of clippers shaping a fade haircut',
   },
 ];
 
