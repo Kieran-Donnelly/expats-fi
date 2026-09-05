@@ -1,7 +1,7 @@
 export const businessVerificationStatuses = [
   { label: 'Unverified', value: 'unverified' },
-  { label: 'Reviewed by Expats.fi', value: 'reviewed' },
-  { label: 'Owner verified', value: 'owner-verified' },
+  { label: 'Details checked', value: 'reviewed' },
+  { label: 'Confirmed by business', value: 'owner-verified' },
 ] as const
 
 export type BusinessVerificationStatus = (typeof businessVerificationStatuses)[number]['value']
@@ -16,4 +16,10 @@ export function isPubliclyVerifiedBusiness(value: unknown): boolean {
 
 export function businessVerificationLabel(value: unknown): string {
   return businessVerificationStatuses.find((status) => status.value === value)?.label || 'Unverified'
+}
+
+export function businessVerificationDescription(value: unknown): string {
+  if (value === 'owner-verified') return 'The business has confirmed its listing details'
+  if (value === 'reviewed') return 'Expats.fi has checked the listing details against public information'
+  return 'This listing has not yet been checked'
 }
