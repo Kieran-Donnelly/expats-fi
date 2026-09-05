@@ -692,6 +692,16 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-profile__image img { display: block; inline-size: 100%; block-size: auto; max-block-size: 36rem; object-fit: cover; }
 .business-profile__actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-block-start: 1.5rem; }
 .business-profile__actions .save-business-button { min-block-size: 2.8rem; padding-inline: .9rem; font-size: .82rem; }
+.business-profile__neighbourhoods { display: grid; grid-template-columns: minmax(0, .75fr) minmax(24rem, 1.25fr); gap: clamp(2rem, 7vw, 5rem); margin-block-start: 4rem; padding-block: 2.5rem; border-block: 1px solid var(--line); }
+.business-profile__neighbourhoods h2 { max-inline-size: 16ch; margin-block: .4rem .8rem; font-size: clamp(1.8rem, 3vw, 2.6rem); }
+.business-profile__neighbourhoods > div:first-child > p:not(.eyebrow) { max-inline-size: 34rem; margin: 0; color: var(--ink-soft); line-height: 1.65; }
+.business-profile__neighbourhood-links { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+.business-profile__neighbourhood-links a { min-inline-size: 0; display: flex; flex-direction: column; padding: 1.25rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); color: var(--ink); text-decoration: none; transition: background-color var(--motion-fast) ease, color var(--motion-fast) ease; }
+.business-profile__neighbourhood-links a:hover, .business-profile__neighbourhood-links a:focus-visible { background: var(--blue); color: var(--snow); }
+.business-profile__neighbourhood-links strong { font-size: 1.08rem; }
+.business-profile__neighbourhood-links span { margin-block: .55rem 1.2rem; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; transition: color var(--motion-fast) ease; }
+.business-profile__neighbourhood-links small { margin-block-start: auto; color: var(--blue); font-weight: 720; transition: color var(--motion-fast) ease; }
+.business-profile__neighbourhood-links a:hover span, .business-profile__neighbourhood-links a:focus-visible span, .business-profile__neighbourhood-links a:hover small, .business-profile__neighbourhood-links a:focus-visible small { color: inherit; }
 .facts { display: grid; gap: 1.2rem; align-self: start; padding: 1.5rem; border-radius: .8rem; background: var(--blue-pale); }
 .facts div { display: grid; }
 .facts strong { font-size: .72rem; letter-spacing: .06em; text-transform: uppercase; }
@@ -1545,7 +1555,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .escape-card__number { margin-block-end: 1.4rem; }
   .escape-card__facts dl { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .escape-planner__links { grid-column: 1; }
-  .business-profile__header, .business-profile__body, .article-page__layout, .submission-page, .embassy-profile__header, .embassy-profile__body { grid-template-columns: 1fr; }
+  .business-profile__header, .business-profile__body, .business-profile__neighbourhoods, .article-page__layout, .submission-page, .embassy-profile__header, .embassy-profile__body { grid-template-columns: 1fr; }
+  .business-profile__neighbourhood-links { grid-template-columns: 1fr; }
   .business-profile__mark { grid-row: 1; inline-size: 6rem; }
   .article-aside { position: static; }
   .site-footer__grid { grid-template-columns: 1fr 1fr; gap: 2.5rem; }

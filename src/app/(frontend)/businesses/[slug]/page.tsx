@@ -7,6 +7,8 @@ import { notFound } from 'next/navigation'
 import { SaveBusinessButton } from '@/components/SaveBusinessButton'
 import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
+import { getAreaGuide } from '@/data/areas'
+import { businessAreaSlugs } from '@/data/business-area-connections'
 import { getBusiness, labels } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedBusinessIds } from '@/lib/saved-businesses'
@@ -36,6 +38,10 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
   const saved = member ? (await getSavedBusinessIds(member.id)).has(business.id) : false
   const categories = labels(business.categories)
   const locations = labels(business.locations)
+  const neighbourhoods = (businessAreaSlugs[business.slug] || []).flatMap((areaSlug) => {
+    const guide = getAreaGuide(areaSlug)
+    return guide ? [guide] : []
+  })
   // This force-dynamic server page checks the request time so short-lived offers disappear automatically.
   // eslint-disable-next-line react-hooks/purity
   const requestTime = Date.now()
@@ -82,6 +88,24 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
           {business.youtube && <div><strong>YouTube</strong><a href={business.youtube} target="_blank" rel="noreferrer">YouTube ↗</a></div>}
         </aside>
       </div>
+      {neighbourhoods.length > 0 && (
+        <section className="business-profile__neighbourhoods" aria-labelledby="business-neighbourhood-heading">
+          <div>
+            <p className="eyebrow">Explore nearby</p>
+            <h2 id="business-neighbourhood-heading">See what else is in the neighbourhood.</h2>
+            <p>Food, useful stops and a few good reasons to take your time before heading home.</p>
+          </div>
+          <div className="business-profile__neighbourhood-links">
+            {neighbourhoods.map((guide) => (
+              <Link href={`/areas/${guide.slug}/`} key={guide.slug}>
+                <strong>{guide.label}</strong>
+                <span>{guide.summary}</span>
+                <small>Open the neighbourhood guide →</small>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
     </div></main>
   )
 }
