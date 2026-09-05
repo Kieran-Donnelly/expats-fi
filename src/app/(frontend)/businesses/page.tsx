@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
+import Link from 'next/link'
 
 import { BusinessCard } from '@/components/BusinessCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
@@ -32,6 +33,19 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
         <HeroBackdrop src="/images/heroes/businesses-bookshop-owner.webp" position="center 45%" />
         <div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div>
       </header>
+      <section className="shell directory-intro" aria-labelledby="directory-shortcuts-title">
+        <div>
+          <p className="eyebrow">A useful way in</p>
+          <h2 id="directory-shortcuts-title">Looking for somebody who gets it?</h2>
+          <p>Start with the job at hand. Find an English-speaking tradesperson, somewhere good to eat, a wellbeing service or a welcoming local space.</p>
+        </div>
+        <nav className="directory-shortcuts" aria-label="Popular business categories">
+          <Link className={category === 'Trades' ? 'is-active' : ''} href="/businesses/?category=Trades#business-directory">Trades &amp; home help <span aria-hidden="true">→</span></Link>
+          <Link className={category === 'Food & drink' ? 'is-active' : ''} href="/businesses/?category=Food%20%26%20drink#business-directory">Food &amp; drink <span aria-hidden="true">→</span></Link>
+          <Link className={category === 'Health & wellbeing' ? 'is-active' : ''} href="/businesses/?category=Health%20%26%20wellbeing#business-directory">Health &amp; wellbeing <span aria-hidden="true">→</span></Link>
+          <Link className={category === 'Community spaces' ? 'is-active' : ''} href="/businesses/?category=Community%20spaces#business-directory">Community spaces <span aria-hidden="true">→</span></Link>
+        </nav>
+      </section>
       <section className="shell listing-section filter-target" id="business-directory" aria-label="Business directory">
         <form className="filter-form" action="/businesses/#business-directory" method="get" role="search" data-analytics-event="search_submitted" data-analytics-section="businesses">
           <label>Search<input name="q" defaultValue={q} placeholder="Pizza, barber, Helsinki…" /></label>

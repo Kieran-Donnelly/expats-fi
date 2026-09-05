@@ -332,6 +332,14 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .directory-callout strong { font-size: 1.1rem; }
 .directory-callout p { margin: .15rem 0 0; color: oklch(82% .015 255); }
 .directory-callout .button { flex: none; }
+.directory-intro { display: grid; grid-template-columns: minmax(0, .85fr) minmax(28rem, 1.15fr); gap: clamp(2rem, 5vw, 5rem); align-items: end; padding-block: clamp(3rem, 6vw, 5.5rem) 1rem; }
+.directory-intro h2 { max-inline-size: 13ch; margin: .35rem 0 .75rem; font-size: clamp(2rem, 4vw, 3.8rem); line-height: .98; letter-spacing: -.045em; }
+.directory-intro p:not(.eyebrow) { max-inline-size: 42rem; margin: 0; color: var(--muted); font-size: 1.08rem; line-height: 1.7; }
+.directory-shortcuts { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+.directory-shortcuts a { display: flex; align-items: center; justify-content: space-between; min-block-size: 5.25rem; gap: 1rem; padding: 1.15rem 1.25rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); color: var(--ink); font-weight: 750; text-decoration: none; transition: color 160ms ease, background 160ms ease; }
+.directory-shortcuts a:hover, .directory-shortcuts a:focus-visible, .directory-shortcuts a.is-active { background: var(--blue); color: var(--snow); }
+.directory-shortcuts a span { color: var(--blue); transition: color 160ms ease, transform 160ms ease; }
+.directory-shortcuts a:hover span, .directory-shortcuts a:focus-visible span, .directory-shortcuts a.is-active span { color: var(--snow); transform: translateX(.2rem); }
 .article-grid .article-card + .article-card { border-inline-start: 0; }
 .article-grid .article-card { min-block-size: 19rem; }
 
@@ -1511,6 +1519,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .learning-routine { gap: 2rem; }
   .learning-review-note { align-items: start; flex-direction: column; gap: .35rem; }
   .directory-callout { align-items: start; flex-direction: column; }
+  .directory-intro { grid-template-columns: 1fr; align-items: start; }
   .filter-form { grid-template-columns: 1fr; }
   .sports-filter { grid-template-columns: 1fr; }
   .sports-profile__header, .sports-profile__layout { grid-template-columns: 1fr; }
@@ -1555,6 +1564,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .news-story__aside { position: static; }
   .source-notice { grid-template-columns: 1fr; }
   .directory-toolbar { align-items: stretch; flex-direction: column; }
+  .directory-shortcuts { grid-template-columns: 1fr; }
   .view-toggle { align-self: stretch; }
   .view-toggle button { flex: 1; min-block-size: 2.75rem; }
   .embassy-map-meta { align-items: start; flex-direction: column; gap: .2rem; }
