@@ -31,6 +31,7 @@ import * as migration_20260905_133000_add_home_chef_mark_images from './20260905
 import * as migration_20260905_143000_add_alstudio_image from './20260905_143000_add_alstudio_image';
 import * as migration_20260905_150000_replace_alstudio_image from './20260905_150000_replace_alstudio_image';
 import * as migration_20260905_160000_connect_aussie_bar_category from './20260905_160000_connect_aussie_bar_category';
+import * as migration_20260905_180000_refresh_official_guide_links from './20260905_180000_refresh_official_guide_links';
 
 export const migrations = [
   {
@@ -197,5 +198,10 @@ export const migrations = [
     up: migration_20260905_160000_connect_aussie_bar_category.up,
     down: migration_20260905_160000_connect_aussie_bar_category.down,
     name: '20260905_160000_connect_aussie_bar_category',
+  },
+  {
+    up: migration_20260905_180000_refresh_official_guide_links.up,
+    down: migration_20260905_180000_refresh_official_guide_links.down,
+    name: '20260905_180000_refresh_official_guide_links',
   },
 ];
