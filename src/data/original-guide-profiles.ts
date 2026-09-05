@@ -34,7 +34,7 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Your address connects you to the Population Information System, municipal services and the delivery of official letters. Posti, the Digital and Population Data Services Agency and your own service providers may each have a part to play.',
     'Submit the move notification within the permitted window and distinguish a permanent move from a temporary stay.|Set up OmaPosti or another secure delivery method and arrange forwarding if mail will go to an old address.|Update banks, employers, insurers, schools and subscriptions after the official address is in place.',
     'Use the exact apartment letter, stairwell and postcode shown in your lease.|A forwarding order does not replace the official notification of move.|Check delivery days and collection points for your postcode, especially when expecting a permit card or decision.',
-    'https://www.posti.fi/en/private/arrival-and-forwarding/change-of-address'
+    'https://www.posti.fi/en/moving/change-address'
   ),
   'moving_to_finland-study_in_finland': topic(
     'Finland has universities, universities of applied sciences, vocational routes and exchange options. The right choice depends on your qualification, language, programme, funding and the residence route that supports your studies.',
@@ -692,6 +692,6 @@ export const originalGuideProfiles: Record<string, GuideProfile> = {
     'Online shopping opens Finnish, EU and international choice, but delivery, VAT, customs, seller identity, returns and fraud sit behind the button. Verify the shop before the price looks attractive.',
     'Check the trader’s country, terms, contact details, delivery, returns, payment and privacy information before ordering.|Calculate the total landed cost and keep the order, invoice, tracking and correspondence.|Use a payment method with sensible dispute protection and inspect goods promptly on arrival.',
     'An EU purchase and a non-EU import can have different VAT, customs and consumer-rights paths.|Marketplace sellers may not be the platform itself.|Do not click a delivery-fee link from an unexpected message; open the courier’s site directly.',
-    'https://tulli.fi/en/private-persons/online-shopping'
+    'https://tulli.fi/en/individuals/going-to-order-goods-from-abroad'
   ),
 }
