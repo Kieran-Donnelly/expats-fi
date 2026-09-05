@@ -38,6 +38,9 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
   const saved = member ? (await getSavedBusinessIds(member.id)).has(business.id) : false
   const categories = labels(business.categories)
   const locations = labels(business.locations)
+  const mapUrl = /\b\d{5}\b/.test(business.address)
+    ? `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.name}, ${business.address.includes(';') ? locations.join(', ') : business.address}`)}`
+    : null
   const neighbourhoods = (businessAreaSlugs[business.slug] || []).flatMap((areaSlug) => {
     const guide = getAreaGuide(areaSlug)
     return guide ? [guide] : []
@@ -75,7 +78,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
         <aside className="facts">
           {hasCurrentOffer && <div className="facts__offer"><strong>Current offer</strong><span>{business.currentOffer}</span></div>}
           <div><strong>Locations</strong><span>{locations.join(', ')}</span></div>
-          <div><strong>Address or service area</strong><span>{business.address}</span></div>
+          <div><strong>Address or service area</strong><span>{business.address}</span>{mapUrl && <a href={mapUrl} target="_blank" rel="noreferrer" data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="map">Open in Google Maps ↗</a>}</div>
           {business.phone && <div><strong>Phone</strong><a href={`tel:${business.phone.replace(/\s/g, '')}`} data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="phone">{business.phone}</a></div>}
           {business.website && <div><strong>Website</strong><a href={business.website} target="_blank" rel="noreferrer" data-analytics-event="business_website_clicked" data-analytics-label={business.slug}>Visit {business.name} ↗</a></div>}
           {business.email && <div><strong>Email</strong><a href={`mailto:${business.email}`} data-analytics-event="business_contact_clicked" data-analytics-label={business.slug} data-analytics-position="email">{business.email}</a></div>}
