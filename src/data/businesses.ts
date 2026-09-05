@@ -39,6 +39,10 @@ export const businesses: Business[] = [
     phone: '+358 40 0208994',
     instagramHandle: '@homechefmark',
     instagram: 'https://www.instagram.com/homechefmark/',
+    imagePath: '/businesses/home-chef-mark/mark-in-pizza-trailer.webp',
+    imageAlt: 'Home Chef Mark smiling from the serving window of his mobile pizza trailer',
+    logoPath: '/businesses/home-chef-mark/logo.webp',
+    logoAlt: 'Illustrated Home Chef Mark logo',
     featured: true,
   },
   {
