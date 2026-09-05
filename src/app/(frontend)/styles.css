@@ -681,8 +681,6 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-profile__header { display: grid; grid-template-columns: 1fr auto; gap: 3rem; align-items: end; padding-block-end: 2.5rem; border-block-end: 1px solid var(--line); }
 .business-profile__header h1 { max-inline-size: 18ch; }
 .business-profile__summary { max-inline-size: 45rem; margin: 1rem 0 0; color: var(--ink-soft); font-size: 1.15rem; }
-.business-profile__verification { display: flex; flex-wrap: wrap; gap: .25rem; margin: .75rem 0 0; color: var(--blue-dark); font-size: .8rem; font-weight: 680; }
-.business-profile__verification span:first-child { color: oklch(39% .12 150); }
 .business-profile__mark { inline-size: clamp(7rem, 16vw, 11rem); aspect-ratio: 1; display: grid; place-items: center; border-radius: 1rem; background: var(--blue); color: var(--snow); font-size: clamp(3rem, 8vw, 6rem); font-weight: 750; }
 .business-profile__mark--logo { padding: 1rem; overflow: hidden; background: var(--snow); border: 1px solid var(--line); }
 .business-profile__mark--logo img { inline-size: 100%; block-size: 100%; object-fit: contain; }
@@ -700,8 +698,6 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .facts a { color: var(--blue); overflow-wrap: anywhere; }
 .facts .facts__offer { padding: 1rem; border-radius: .65rem; background: var(--snow); color: var(--ink); }
 
-.business-card__verified { color: var(--blue-dark); font-size: .7rem; font-weight: 700; }
-.business-card__verified span { color: oklch(39% .12 150); }
 
 .article-page__header { max-inline-size: 61rem; padding-block-end: 2.7rem; border-block-end: 1px solid var(--line); }
 .article-page__header h1 { font-size: clamp(2.6rem, 6vw, 4.7rem); }

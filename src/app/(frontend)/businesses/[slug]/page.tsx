@@ -7,20 +7,12 @@ import { notFound } from 'next/navigation'
 import { SaveBusinessButton } from '@/components/SaveBusinessButton'
 import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
-import { businessVerificationDescription, businessVerificationLabel, isPubliclyVerifiedBusiness } from '@/lib/business-verification'
 import { getBusiness, labels } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedBusinessIds } from '@/lib/saved-businesses'
 import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
-
-function displayVerificationDate(value: string | null | undefined): string {
-  if (!value) return ''
-  const date = new Date(value)
-  if (Number.isNaN(date.getTime())) return ''
-  return new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'UTC' }).format(date)
-}
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -44,10 +36,6 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
   const saved = member ? (await getSavedBusinessIds(member.id)).has(business.id) : false
   const categories = labels(business.categories)
   const locations = labels(business.locations)
-  const publiclyVerified = isPubliclyVerifiedBusiness(business.verificationStatus)
-  const verificationLabel = businessVerificationLabel(business.verificationStatus)
-  const verificationDescription = businessVerificationDescription(business.verificationStatus)
-  const verificationDate = displayVerificationDate(business.verifiedAt)
   // This force-dynamic server page checks the request time so short-lived offers disappear automatically.
   // eslint-disable-next-line react-hooks/purity
   const requestTime = Date.now()
@@ -65,7 +53,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
       ]} />
       <Link className="back-link" href="/businesses/">← Business directory</Link>
       <header className="business-profile__header">
-        <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p>{publiclyVerified && <p className="business-profile__verification" title={verificationDescription}><span aria-hidden="true">✓</span> {verificationLabel}{verificationDate && <span> · Last checked {verificationDate}</span>}</p>}<div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /><ShareButton contentType="business" path={`/businesses/${business.slug}/`} title={business.name} text={business.summary} /></div></div>
+        <div><p className="eyebrow">{categories.join(' · ')}</p><h1>{business.name}</h1><p className="business-profile__summary">{business.summary}</p><div className="business-profile__actions"><SaveBusinessButton businessSlug={business.slug} initialSaved={saved} /><ShareButton contentType="business" path={`/businesses/${business.slug}/`} title={business.name} text={business.summary} /></div></div>
         <div className={`business-profile__mark${business.logoPath ? ' business-profile__mark--logo' : ''}`} data-business={business.slug} aria-hidden={!business.logoPath}>
           {business.logoPath
             ? <Image src={business.logoPath} alt={business.logoAlt || `${business.name} logo`} width={220} height={220} />
