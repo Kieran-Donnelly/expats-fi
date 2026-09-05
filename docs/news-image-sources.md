@@ -4,7 +4,7 @@ These images were downloaded from the Expats.fi team's licensed Unlimphotos acco
 
 | Story image | Unlimphotos source ID |
 | --- | --- |
-| `finland-foreign-language-residents-kela-benefits-2026.webp` | 101810390 |
+| `finland-foreign-language-residents-kela-benefits-2026-v2.webp` | 101810390 |
 | `helsinki-international-grocery-store-boom-2026.webp` | 100942418 |
 | `deepfake-images-finland-what-to-do-2026.webp` | 82423484 |
 | `english-language-upper-secondary-finland-2026.webp` | 18946048 |

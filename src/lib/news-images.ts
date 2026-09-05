@@ -5,7 +5,7 @@ type NewsImage = {
 
 const newsImages: Record<string, NewsImage> = {
   'finland-foreign-language-residents-kela-benefits-2026': {
-    src: '/images/news/finland-foreign-language-residents-kela-benefits-2026.webp',
+    src: '/images/news/finland-foreign-language-residents-kela-benefits-2026-v2.webp',
     alt: 'Two people calmly reviewing paperwork beside a laptop at home',
   },
   'helsinki-international-grocery-store-boom-2026': {
