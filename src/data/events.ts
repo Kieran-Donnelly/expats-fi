@@ -306,7 +306,7 @@ export const events: CityEvent[] = [
     bookingNote: 'Check individual listings for tickets, registration and language information.',
     sourceName: 'Helsinki Design Week',
     sourceUrl: 'https://helsinkidesignweek.com/?lang=en',
-    lastChecked: '3 August 2026',
+    lastChecked: '5 September 2026',
     transport: [
       { mode: 'Train', advice: 'Central Station works well for city-centre exhibitions and onward connections.' },
       { mode: 'Tram or bus', advice: 'Trams link many design-district venues; confirm each event address first.' },
@@ -337,7 +337,7 @@ export const events: CityEvent[] = [
     bookingNote: 'No registration required. The organiser notes that participants are not insured by the activity provider or the City of Helsinki.',
     sourceName: 'City of Helsinki',
     sourceUrl: 'https://tapahtumat.hel.fi/en/events/helsinki%3Aagpe5v6gxm',
-    lastChecked: '24 August 2026',
+    lastChecked: '5 September 2026',
     transport: [
       { mode: 'Train', advice: 'Puistola station is the nearest commuter-train hub; continue by local bus or on foot.' },
       { mode: 'Tram or bus', advice: 'Use the HSL planner for a local connection to Tenavatie.' },

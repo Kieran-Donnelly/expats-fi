@@ -55,7 +55,7 @@ export const eventAdditions: CityEvent[] = [
     bookingNote: 'No booking needed. Check the organiser’s page if the weather looks rough.',
     sourceName: 'MyHelsinki',
     sourceUrl: 'https://www.myhelsinki.fi/events/teurastamo-block-party/',
-    lastChecked: '28 August 2026',
+    lastChecked: '5 September 2026',
     featured: true,
     transport: [
       { mode: 'Metro', advice: 'Kalasatama metro station is roughly a ten-minute walk away.' },
@@ -85,9 +85,9 @@ export const eventAdditions: CityEvent[] = [
     familyFriendly: false,
     ageNote: '18+',
     bookingNote: 'No advance ticket is listed. Venue capacity still applies, so arrive in good time for a particular performer.',
-    sourceName: 'MyHelsinki',
-    sourceUrl: 'https://www.myhelsinki.fi/events/pk-live/',
-    lastChecked: '28 August 2026',
+    sourceName: 'City of Helsinki event calendar',
+    sourceUrl: 'https://tapahtumat.hel.fi/en/events/helsinki%3Aagpr2276du',
+    lastChecked: '5 September 2026',
     transport: [
       { mode: 'Metro', advice: 'Kamppi metro station opens directly beside Narinkkatori.' },
       { mode: 'Train', advice: 'Helsinki Central Station is around five minutes away on foot.' },
@@ -117,7 +117,7 @@ export const eventAdditions: CityEvent[] = [
     bookingNote: 'No ticket is required. Seats are first come, first served and the hall capacity is 200.',
     sourceName: 'MyHelsinki and Malmitalo',
     sourceUrl: 'https://www.myhelsinki.fi/events/welcome-day-grande-mahogany/',
-    lastChecked: '28 August 2026',
+    lastChecked: '5 September 2026',
     transport: [
       { mode: 'Train', advice: 'Malmi station is beside Ala-Malmin tori and is the simplest arrival route.' },
       { mode: 'Tram or bus', advice: 'Several local and cross-city buses stop at Malmi station.' },
@@ -147,7 +147,7 @@ export const eventAdditions: CityEvent[] = [
     bookingNote: 'No booking needed. Flea-market trading requires separate organiser arrangements, but visitors can simply turn up.',
     sourceName: 'MyHelsinki',
     sourceUrl: 'https://www.myhelsinki.fi/events/brahe-street-festival/',
-    lastChecked: '28 August 2026',
+    lastChecked: '5 September 2026',
     featured: true,
     transport: [
       { mode: 'Tram or bus', advice: 'Trams and buses along Mäkelänkatu and Helsinginkatu stop within a short walk.' },
@@ -179,7 +179,7 @@ export const eventAdditions: CityEvent[] = [
     bookingNote: 'No admission ticket is listed. Bring ear protection for younger visitors and check the safe-space guidance before joining in.',
     sourceName: 'MyHelsinki and Tiivistämö',
     sourceUrl: 'https://www.myhelsinki.fi/events/valokarkelot-light-carnival/',
-    lastChecked: '28 August 2026',
+    lastChecked: '5 September 2026',
     transport: [
       { mode: 'Metro', advice: 'Kalasatama and Sörnäinen stations are both within walking distance.' },
       { mode: 'Tram or bus', advice: 'Use a Suvilahti or Sörnäinen stop and follow signs into the former gasworks area.' },
