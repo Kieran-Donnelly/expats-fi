@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { EatsCard } from '@/components/EatsCard'
 import { EatsMap } from '@/components/EatsMap'
+import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { eatAreas, eatKinds, eatMoods, eatSpots } from '@/data/eats'
 import { finlandFoodGuides } from '@/data/finland-food-guides'
@@ -92,6 +93,14 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
           <div className="eats-source-note"><div><strong>{eatSpots.length} researched places and plenty more to come.</strong><p>Hours, menus and prices change. We link you to the place or the trusted current source we used, so have a quick check before crossing town.</p></div><a href="mailto:hello@expats.fi?subject=Food%20and%20Drink%20suggestion">Suggest a place or correction</a></div>
         </div>
       </section>
+
+      <RelatedBusinesses
+        eyebrow="Meet the people behind the food"
+        title="Expat-owned spots worth knowing."
+        intro="These are the fuller founder stories from our directory, from neighbourhood breakfasts and proper pizza to independently roasted coffee."
+        slugs={['villa-severino', 'lazy-fox', 'inka-roastery', 'home-chef-mark']}
+        directoryCategory="Food & drink"
+      />
 
       <section className="shell family-local-note">
         <div><p className="eyebrow">Food & Drink versus the directory</p><h2>Recommendations and business stories do different jobs.</h2></div>

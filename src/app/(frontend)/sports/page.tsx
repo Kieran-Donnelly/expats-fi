@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SportsCard } from '@/components/SportsCard'
 import { SportsMap } from '@/components/SportsMap'
 import { sportsCategories, sportsListings, sportsListingTypes } from '@/data/sports'
@@ -113,6 +114,14 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
           </div>
         </div>
       </section>
+
+      <RelatedBusinesses
+        eyebrow="Expat-owned training"
+        title="Prefer a coach who understands the newcomer bit too?"
+        intro="Meet international founders building welcoming places to train, move and find a regular crew in Helsinki."
+        categories={['Fitness & training', 'Gyms']}
+        directoryCategory="Health & wellbeing"
+      />
 
       {sportsEvents.length > 0 && (
         <section className="section shell home-events" aria-labelledby="sports-events-heading">

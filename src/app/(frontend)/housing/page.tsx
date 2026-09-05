@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { housingGuides } from '@/data/housing'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Housing in Finland: finding, renting and running your home',
@@ -54,6 +57,14 @@ export default function HousingPage() {
         <div className="section-heading"><div><p className="eyebrow">The housing guides</p><h2 id="housing-guides-heading">Four stages, properly explained.</h2></div><p>Each guide gives you the order, the evidence worth keeping and the official place to check the current answer.</p></div>
         <div className="family-guide-grid">{housingGuides.map((guide) => <article className="family-guide-card" key={guide.slug}><div><span>{guide.number}</span><small>{guide.label}</small></div><h3><Link href={`/housing/${guide.slug}/`}>{guide.title}</Link></h3><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}<Link className="text-link" href={`/housing/${guide.slug}/`}>Open the guide <span aria-hidden="true">→</span></Link></article>)}</div>
       </section>
+
+      <RelatedBusinesses
+        eyebrow="Expat-owned home help"
+        title="Need somebody to work on the actual home?"
+        intro="Meet English-speaking people from our directory who can help with repairs, carpentry, building work and renovations."
+        categories={['Carpentry & building', 'Renovations']}
+        directoryCategory="Trades"
+      />
 
       <section className="shell family-local-note"><div><p className="eyebrow">When it feels urgent</p><h2>Ask for housing help early.</h2></div><p>Helsinki housing counselling can help residents with applications, rental agreements, rent-payment problems and other housing difficulties. A conversation after the first missed payment is far easier than one after several.<br /><a className="text-link" href="https://www.hel.fi/en/health-and-social-services/social-support-and-financial-assistance/guidance-and-advice/housing-counselling" target="_blank" rel="noreferrer">Open Helsinki housing counselling ↗</a></p></section>
     </main>

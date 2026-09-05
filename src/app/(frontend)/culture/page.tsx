@@ -1,11 +1,14 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { cultureGuides } from '@/data/culture'
 
 const everydayCultureGuides = cultureGuides.filter((guide) => guide.label !== 'Finland, Explained')
 const finlandExplainedGuides = cultureGuides.filter((guide) => guide.label === 'Finland, Explained')
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'How Finland actually works',
@@ -42,6 +45,14 @@ export default function CulturePage() {
           <div className="family-guide-grid">{finlandExplainedGuides.map((guide) => <article className="family-guide-card" key={guide.slug}><div><span>{guide.number}</span><small>{guide.label}</small></div><h3><Link href={`/culture/${guide.slug}/`}>{guide.title}</Link></h3><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}<Link className="text-link" href={`/culture/${guide.slug}/`}>Open the guide <span aria-hidden="true">→</span></Link></article>)}</div>
         </div>
       </section>
+
+      <RelatedBusinesses
+        eyebrow="Culture with a front door"
+        title="Meet a few of the people adding to Helsinki’s story."
+        intro="Our directory goes deeper on expat-owned bookshops, galleries and creative spaces where culture is something you can walk into."
+        categories={['Art & culture']}
+        directoryCategory="Art & culture"
+      />
 
       <section className="shell family-local-note"><div><p className="eyebrow">A useful warning</p><h2>Culture is context, not an excuse.</h2></div><p>Directness can explain a short reply. It does not excuse discrimination, harassment or somebody repeatedly treating you badly. Use cultural context to reduce needless worry, not to talk yourself out of reasonable boundaries.</p></section>
     </main>

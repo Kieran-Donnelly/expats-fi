@@ -2,8 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
+import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { familyGuides, familySystems } from '@/data/family'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Family life in Helsinki and Finland',
@@ -112,6 +115,14 @@ export default function FamilyPage() {
         <div><p className="eyebrow">Helsinki first</p><h2>Living somewhere else in Finland?</h2></div>
         <p>The national parts, including Kela, MyKanta, 112 and the school structure, still apply. Healthcare, social services and local applications belong to your municipality or wellbeing services county, so use the same guide but swap Helsinki’s service link for your local one.</p>
       </section>
+
+      <RelatedBusinesses
+        eyebrow="Family-friendly local people"
+        title="A little support outside the official systems."
+        intro="Meet expat-owned services with genuinely useful options for parents, pregnancy, postnatal life and finding your feet as a family."
+        slugs={['purna-yoga-helsinki']}
+        directoryCategory="Health & wellbeing"
+      />
 
       <ContinueExploring
         title="Find the next bit of support around your family."

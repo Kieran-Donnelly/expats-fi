@@ -1,8 +1,11 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { communityGuides } from '@/data/community'
+
+export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Community in Helsinki: meet people, find groups and support local businesses',
@@ -95,6 +98,14 @@ export default function CommunityPage() {
           ))}
         </div>
       </section>
+
+      <RelatedBusinesses
+        eyebrow="Community-minded businesses"
+        title="Places where turning up can lead somewhere."
+        intro="Some businesses become part of the social fabric too. These expat-owned spaces make room for conversation, creativity and meeting people naturally."
+        categories={['Community spaces']}
+        directoryCategory="Community spaces"
+      />
 
       <section className="shell family-local-note">
         <div><p className="eyebrow">A quiet but important rule</p><h2>Community still needs boundaries.</h2></div>
