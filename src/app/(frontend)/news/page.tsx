@@ -1,9 +1,11 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { NewsCard } from '@/components/NewsCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getNewsStories } from '@/lib/content'
+import { getNewsImage } from '@/lib/news-images'
 
 export const dynamic = 'force-dynamic'
 
@@ -20,6 +22,7 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
   const stories = await getNewsStories({ category: category || undefined })
   const featured = stories.find((story) => story.featured) || stories[0]
   const latest = stories.filter((story) => story.id !== featured?.id)
+  const featuredImage = featured ? getNewsImage(featured.slug) : null
 
   return (
     <main id="main" className="news-page">
@@ -49,7 +52,7 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
       <section className="shell news-lead-section filter-target" id="news-results" aria-label={category ? `${category} news` : 'Leading story'}>
         {featured ? (
           <article className="news-lead">
-            <div className="news-lead__stamp" aria-hidden="true"><span>FI</span><b>News</b></div>
+            {featuredImage && <Link className="news-lead__image" href={`/news/${featured.slug}/`} aria-label={`Read ${featured.title}`}><Image src={featuredImage.src} alt={featuredImage.alt} width={1600} height={900} sizes="(max-width: 760px) 100vw, 42vw" /><span aria-hidden="true">FI News</span></Link>}
             <div className="news-lead__copy">
               <div className="news-lead__meta"><span>{featured.category}</span><span>{featured.readingMinutes} min read</span></div>
               <h2><Link href={`/news/${featured.slug}/`}>{featured.title}</Link></h2>
