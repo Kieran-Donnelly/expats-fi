@@ -174,13 +174,14 @@ Downloaded on September 5, 2026 through the licensed Unlimphotos account connect
 
 ### ALstudio Barbershop
 
-- Site file: `public/businesses/alstudio-barbershop/fade-haircut-close-up.webp`
-- Unlimphotos asset ID: `59531252`
-- Title: Close up men's hairstyling and haircutting with hair clipper in a barber shop or hair salon
-- Creator: `Babenko`
-- Source: `https://unlimphotos.com/59531252/close-up-mens-hairstyling-and-haircutting-with-hair-clipper-in-a-barber-shop-or-hair-salon-hairdresser-service-in-a-modern-barbershop-in-a-dark-key-lightning-with-warm-light-and-smoke-back-view.html`
-- Licence shown at download: Royalty Free License, model released
+- Site file: `public/businesses/alstudio-barbershop/barber-tools-close-up.webp`
+- Unlimphotos asset ID: `93606502`
+- Title: Close up view barbershop accessories
+- Creator: `Zahard`
+- Source: `https://unlimphotos.com/93606502/close-up-view-barbershop-accessories.html`
+- Licence shown at download: Royalty Free License
 - Treatment: Cropped, resized and compressed for the web. Used as a generic service image and not as a photograph of ALstudio, its staff or its premises.
+- Replaced source: asset `59531252` was removed because its in-progress haircut did not present the quality of finish intended for the profile.
 
 ## Working rule
 

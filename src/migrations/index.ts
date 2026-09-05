@@ -29,6 +29,7 @@ import * as migration_20260904_150000_seed_news_stories_batch_five from './20260
 import * as migration_20260905_080000_publish_byrne_carpentry from './20260905_080000_publish_byrne_carpentry';
 import * as migration_20260905_133000_add_home_chef_mark_images from './20260905_133000_add_home_chef_mark_images';
 import * as migration_20260905_143000_add_alstudio_image from './20260905_143000_add_alstudio_image';
+import * as migration_20260905_150000_replace_alstudio_image from './20260905_150000_replace_alstudio_image';
 
 export const migrations = [
   {
@@ -185,5 +186,10 @@ export const migrations = [
     up: migration_20260905_143000_add_alstudio_image.up,
     down: migration_20260905_143000_add_alstudio_image.down,
     name: '20260905_143000_add_alstudio_image',
+  },
+  {
+    up: migration_20260905_150000_replace_alstudio_image.up,
+    down: migration_20260905_150000_replace_alstudio_image.down,
+    name: '20260905_150000_replace_alstudio_image',
   },
 ];
