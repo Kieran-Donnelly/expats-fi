@@ -71,6 +71,8 @@ svg { display: block; }
 .logo__word span { color: var(--logo-blue); }
 
 .site-header { position: sticky; inset-block-start: 0; z-index: 50; border-block-end: 1px solid var(--line); background: oklch(99.5% 0.003 242 / .92); backdrop-filter: blur(12px); }
+.reading-progress { position: fixed; z-index: 49; inset: 4.5rem 0 auto; block-size: 3px; overflow: hidden; pointer-events: none; }
+.reading-progress span { inline-size: 100%; block-size: 100%; display: block; background: linear-gradient(90deg, var(--green), var(--blue)); box-shadow: 0 0 .65rem oklch(68% .16 170 / .42); transform: scaleX(0); transform-origin: left center; will-change: transform; }
 .site-header__inner { min-block-size: 4.5rem; display: flex; align-items: center; gap: clamp(1rem, 2vw, 1.75rem); }
 .site-header__brand { min-block-size: 2.75rem; display: flex; align-items: center; flex: none; color: var(--ink); text-decoration: none; }
 .desktop-nav { min-inline-size: 0; display: flex; align-items: center; gap: clamp(.75rem, 1.25vw, 1.25rem); font-size: .9rem; font-weight: 560; }

@@ -5,6 +5,7 @@ import type { ReactNode } from 'react'
 import type { EditorialGuide } from '@/data/editorial-guide'
 import { ShareButton } from '@/components/ShareButton'
 import { JsonLd } from '@/components/JsonLd'
+import { ReadingProgress } from '@/components/ReadingProgress'
 import { absoluteUrl, breadcrumbJsonLd, publisher } from '@/lib/seo'
 
 type EditorialGuideDetailProps = {
@@ -35,6 +36,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
 
   return (
     <main id="main" className="family-detail" data-guide-tone={tone}>
+      <ReadingProgress />
       <JsonLd data={[
         {
           '@context': 'https://schema.org',

@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 
 import { getNewsStory } from '@/lib/content'
 import { JsonLd } from '@/components/JsonLd'
+import { ReadingProgress } from '@/components/ReadingProgress'
 import { ShareButton } from '@/components/ShareButton'
 import { getNewsImage } from '@/lib/news-images'
 import { absoluteUrl, breadcrumbJsonLd, publisher } from '@/lib/seo'
@@ -51,6 +52,7 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
 
   return (
     <main id="main" className="news-story-page">
+      <ReadingProgress />
       <JsonLd data={[
         { '@context': 'https://schema.org', '@type': 'NewsArticle', headline: story.title, description: story.standfirst, datePublished: story.publishedAt, dateModified: story.updatedAt, articleSection: story.category, mainEntityOfPage: absoluteUrl(`/news/${story.slug}/`), author: publisher, publisher, image: imageUrl, inLanguage: 'en', isAccessibleForFree: true },
         breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'News', path: '/news/' }, { name: story.title, path: `/news/${story.slug}/` }]),

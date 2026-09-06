@@ -7,6 +7,7 @@ import { notFound } from 'next/navigation'
 
 import { SaveArticleButton } from '@/components/SaveArticleButton'
 import { JsonLd } from '@/components/JsonLd'
+import { ReadingProgress } from '@/components/ReadingProgress'
 import { ShareButton } from '@/components/ShareButton'
 import { getArticle } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
@@ -41,7 +42,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const wasUpdated = publishedDate !== updatedDate
 
   return (
-    <main id="main"><div className="shell detail-shell article-page">
+    <main id="main"><ReadingProgress /><div className="shell detail-shell article-page">
       <JsonLd data={[
         { '@context': 'https://schema.org', '@type': 'Article', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: defaultSocialImage, inLanguage: 'en', isAccessibleForFree: true },
         breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/resources/' }, { name: article.title, path: `/resources/${article.slug}/` }]),
