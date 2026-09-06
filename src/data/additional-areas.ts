@@ -45,7 +45,7 @@ export const additionalAreaGuides: EditorialGuide[] = [
         title: 'Find the quieter centre hiding in plain sight',
         paragraphs: [
           'Old Church Park is one of the easiest escapes from the centre’s noise. The church dates from 1826, while the surrounding park works as a picnic spot, a lunch break and a useful patch of green between Kamppi and the Design District.',
-          'The Kamppi Chapel offers another kind of pause beside Narinkkatori. If you want more room, walk towards Lapinlahti or Hietaniemi. Central Helsinki changes from retail to shoreline surprisingly quickly once you keep going west.',
+          'The Kamppi Chapel offers another kind of pause beside Narinkkatori. If settling into the city means finding a regular class rather than another attraction, Purna Yoga on Fredrikinkatu runs its small classes in English and welcomes beginners. For more room outdoors, walk towards Lapinlahti or Hietaniemi. Central Helsinki changes from retail to shoreline surprisingly quickly once you keep going west.',
         ],
       },
       {
@@ -67,6 +67,7 @@ export const additionalAreaGuides: EditorialGuide[] = [
       'Get a Helsinki library card early. Oodi is the showpiece, but the same card works across the Helmet network.',
       'Kamppi’s underground passages are useful in winter, but remember which exit you used or your quick errand becomes an accidental tour.',
       'Book the museum, not every hour around it. The centre is excellent for filling an unplanned gap.',
+      'Purna Yoga teaches in English, but check the timetable and book the class that suits you before turning up.',
       'Goose does not take table bookings, so an early arrival is the calmer move.',
       'When meeting somebody, name the exact entrance or landmark. “At Kamppi” can mean several floors and half a city block.',
     ],
@@ -74,6 +75,7 @@ export const additionalAreaGuides: EditorialGuide[] = [
       { title: 'Kamppi neighbourhood guide', description: 'Current overview of central culture, local history and places to visit.', url: 'https://www.myhelsinki.fi/neighborhoods/kamppi/', source: 'MyHelsinki' },
       { title: 'Helsinki Central Library Oodi', description: 'Opening hours, services, events, spaces and library-card guidance.', url: 'https://oodihelsinki.fi/en/', source: 'Oodi' },
       { title: 'Amos Rex', description: 'Current exhibitions, tickets, accessibility and visitor information.', url: 'https://amosrex.fi/en/', source: 'Amos Rex' },
+      { title: 'Purna Yoga Helsinki', description: 'English-language class timetable, booking and beginner information for the Fredrikinkatu studio.', url: 'https://www.purnayoga.fi/', source: 'Purna Yoga Helsinki' },
       { title: 'Lazy Fox', description: 'Current hours and menu for its Kamppi and Kallio locations.', url: 'https://lazyfox.fi/', source: 'Lazy Fox' },
       { title: 'Aussie Bar', description: 'Current opening hours, food, live sport and music information.', url: 'https://aussiebar.net/', source: 'Aussie Bar' },
       { title: 'HSL Journey Planner', description: 'Live routes for metro, trains, trams, buses, walking and cycling.', url: 'https://www.hsl.fi/en/journey-planner', source: 'HSL' },

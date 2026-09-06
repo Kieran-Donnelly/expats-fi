@@ -121,7 +121,7 @@ const coreAreaGuides: EditorialGuide[] = [
         title: 'Design without buying an entire new personality',
         paragraphs: [
           'Use the official Design District map to pick a few studios, second-hand shops or galleries that genuinely interest you. The point is not collecting brand names. It is seeing how Finnish design moves between useful everyday objects, serious craft and the occasional chair that costs more than your first car.',
-          'The Architecture and Design Museum is the obvious larger stop. Smaller galleries and shops make the area feel alive, but their exhibitions and hours change. Check the current programme, say hello when you enter and ask before photographing work in a small space.',
+          'The Architecture and Design Museum is the obvious larger stop. For something smaller and more social, Mimosa Galleria on Uudenmaankatu mixes exhibitions with dance, creative workshops and community gatherings, with English and Spanish both welcome. Programmes and opening hours at small spaces change, so check what is on before heading over and ask before photographing any work.',
         ],
       },
       {
@@ -144,11 +144,13 @@ const coreAreaGuides: EditorialGuide[] = [
       'Do not confuse “Design District” with one short street. Save the official map and wander between a few anchors.',
       'The flea market at Hietalahti is seasonal and weather-dependent. Check before carrying an empty tote bag across town.',
       'Onigiri Musubi is small. Have a backup plan if every seat is taken.',
+      'Check Mimosa Galleria’s current programme rather than assuming it is operating like a walk-in museum every day.',
       'For housing, ask whether the building has a lift and visit the street after the restaurants close.',
     ],
     resources: [
       { title: 'Design District Helsinki', description: 'Official district map and current member shops, studios, galleries, museums and restaurants.', url: 'https://designdistrict.fi/en/', source: 'Design District Helsinki' },
       { title: 'Architecture and Design Museum', description: 'Current exhibitions, tickets, opening hours and visitor information.', url: 'https://admuseo.fi/en/', source: 'Architecture and Design Museum' },
+      { title: 'Mimosa Galleria', description: 'Current exhibitions, workshops, classes and community events on Uudenmaankatu.', url: 'https://mimosagalleria.fi/', source: 'Mimosa Galleria' },
       { title: 'Lazy Fox', description: 'Current menu, hours and details for the Albertinkatu breakfast and bar location.', url: 'https://lazyfox.fi/', source: 'Lazy Fox' },
       { title: 'Onigiri Musubi', description: 'Official menu and current details for the Pursimiehenkatu shop.', url: 'https://www.onigirimusubi.fi/', source: 'Onigiri Musubi' },
       { title: 'HSL Journey Planner', description: 'Live tram, bus, walking and cycling routes around southern Helsinki.', url: 'https://www.hsl.fi/en/journey-planner', source: 'HSL' },
@@ -197,7 +199,7 @@ const coreAreaGuides: EditorialGuide[] = [
         title: 'Culture and sport live on the same streets',
         paragraphs: [
           'The Finnish National Opera and Ballet, Finlandia Hall, Helsinki Music Centre, Kunsthalle Helsinki, the Tram Museum and TAHTO give you options from major performances to a free small museum. Around the Olympic Stadium you also have swimming, ice hockey, football and outdoor exercise.',
-          'Do not try to do all of them in a day. Check current exhibitions and performance times, then pair one indoor stop with one outdoor loop. The contrast is what makes Töölö work.',
+          'Arkadia International Bookshop on Nervanderinkatu is the smaller, wonderfully unpredictable option. It is a second-hand bookshop with titles in many languages, but also a place for readings, music, art, conversation and the occasional event that resists a tidy label. Do not try to do everything in a day. Check current programmes, then pair one indoor stop with one outdoor loop. The contrast is what makes Töölö work.',
         ],
       },
       {
@@ -219,6 +221,7 @@ const coreAreaGuides: EditorialGuide[] = [
       'The Winter Garden has no café, but you may bring your own snack and eat it in the permitted areas.',
       'Café Regatta is much calmer early in the day and does not need a perfect summer sunset to be good.',
       'Use the Tram Museum as a free rainy-day option, particularly with younger children.',
+      'Arkadia rewards a slow browse, and its events vary. Check the current programme or simply leave enough time to look around properly.',
       'Event nights around the Stadium, Ice Hall and Opera can affect transport and restaurant availability.',
       'The bay loop is easy, but the western shoreline adds distance quickly. Check the route before promising tired legs a short walk.',
     ],
@@ -226,6 +229,7 @@ const coreAreaGuides: EditorialGuide[] = [
       { title: 'Töölö neighbourhood guide', description: 'A current local overview of Töölö’s culture, cafés, parks and sports.', url: 'https://www.myhelsinki.fi/neighborhoods/toolo/', source: 'MyHelsinki' },
       { title: 'The Winter Garden', description: 'Current free-entry opening hours, accessibility and visitor guidance.', url: 'https://www.hel.fi/en/culture-and-leisure/outdoor-activities-parks-and-nature-destinations/parks/the-winter-garden', source: 'City of Helsinki' },
       { title: 'Café Regatta', description: 'Official hours and practical information for the year-round seaside café.', url: 'https://www.caferegatta.fi/in-english', source: 'Café Regatta' },
+      { title: 'Arkadia International Bookshop', description: 'Books, opening information and the current programme of events on Nervanderinkatu.', url: 'https://arkadiabookshop.fi/', source: 'Arkadia International Bookshop' },
       { title: 'Rolling Cheese Töölö', description: 'Current shop, wine bar, menu, tasting and accessibility information.', url: 'https://rollingcheese.shop/en/pages/viinibaari-helsinki', source: 'Rolling Cheese' },
       { title: 'HSL Journey Planner', description: 'Live tram, bus, walking and cycling routes.', url: 'https://www.hsl.fi/en/journey-planner', source: 'HSL' },
     ],
