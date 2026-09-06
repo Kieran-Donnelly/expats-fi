@@ -1353,6 +1353,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .news-story__aside ul { display: grid; gap: .55rem; margin: .65rem 0 0; padding: 0; list-style: none; }
 .news-story__aside a { color: var(--blue); font-size: .78rem; font-weight: 680; text-decoration: none; }
 .news-story__aside li a { display: flex; justify-content: space-between; gap: .8rem; }
+.detail-related { border-block-start: 1px solid var(--line); background: linear-gradient(145deg, var(--blue-pale), var(--snow) 72%); }
+.detail-related .section-heading h2 { max-inline-size: 19ch; }
 
 @media (hover: hover) and (pointer: fine) {
   .article-card:hover, .article-card:focus-within,

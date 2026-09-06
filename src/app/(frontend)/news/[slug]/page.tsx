@@ -5,8 +5,9 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
-import { getNewsStory } from '@/lib/content'
+import { getNewsStories, getNewsStory } from '@/lib/content'
 import { JsonLd } from '@/components/JsonLd'
+import { NewsCard } from '@/components/NewsCard'
 import { ReadingProgress } from '@/components/ReadingProgress'
 import { ShareButton } from '@/components/ShareButton'
 import { getNewsImage } from '@/lib/news-images'
@@ -49,6 +50,9 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
   const sources = sourcesFrom(story.sources)
   const image = getNewsImage(story.slug)
   const imageUrl = absoluteUrl(image.src)
+  const relatedStories = (await getNewsStories({ category: story.category, limit: 4 }))
+    .filter((candidate) => candidate.slug !== story.slug)
+    .slice(0, 3)
 
   return (
     <main id="main" className="news-story-page">
@@ -81,6 +85,17 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
           </aside>
         </div>
       </article>
+      {relatedStories.length > 0 && (
+        <section className="detail-related" aria-labelledby="related-news-heading">
+          <div className="shell section">
+            <div className="section-heading">
+              <div><p className="eyebrow">Keep reading</p><h2 id="related-news-heading">More from {story.category.toLowerCase()}.</h2></div>
+              <Link className="text-link" href="/news/">Open all news <span aria-hidden="true">→</span></Link>
+            </div>
+            <div className="news-grid">{relatedStories.map((relatedStory) => <NewsCard story={relatedStory} compact key={relatedStory.slug} />)}</div>
+          </div>
+        </section>
+      )}
     </main>
   )
 }
