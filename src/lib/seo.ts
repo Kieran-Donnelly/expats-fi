@@ -23,6 +23,8 @@ export function socialMetadata({ title, description, path, image = defaultSocial
   path: string
   image?: string
 }): Metadata {
+  const imageUrl = absoluteUrl(image)
+
   return {
     title,
     description,
@@ -32,13 +34,13 @@ export function socialMetadata({ title, description, path, image = defaultSocial
       description,
       type: 'website',
       url: path,
-      images: [{ url: image, alt: `${title} on Expats.fi` }],
+      images: [{ url: imageUrl, alt: `${title} on Expats.fi` }],
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description,
-      images: [image],
+      images: [imageUrl],
     },
   }
 }

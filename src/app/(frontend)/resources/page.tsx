@@ -15,6 +15,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Life in Finland guides',
   description: 'Plain-English guides covering permits, work, money, healthcare, housing and everyday life in Finland.',
   path: '/resources/',
+  image: '/images/heroes/resources-documents-laptop.webp',
 })
 
 const categories = ['Immigration & permits', 'Work & money', 'Housing', 'Health & wellbeing', 'Getting around', 'Family', 'Everyday life']

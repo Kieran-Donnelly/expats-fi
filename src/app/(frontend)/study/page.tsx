@@ -10,6 +10,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Study in Finland: degrees, vocational education and integration training',
   description: 'A friendly, practical guide to universities, UAS, vocational schools, integration training, online study, fees, permits and funding in Finland.',
   path: '/study/',
+  image: '/images/heroes/study-finland-students.webp',
 })
 
 const routes = [

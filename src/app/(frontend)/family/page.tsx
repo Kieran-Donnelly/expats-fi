@@ -13,6 +13,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Family life in Helsinki and Finland',
   description: 'A warm, practical guide to healthcare, Maisa, daycare, school, Kela, family support, community and urgent help in Helsinki.',
   path: '/family/',
+  image: '/images/heroes/family-parents-and-children.webp',
 })
 
 const stageLinks = [

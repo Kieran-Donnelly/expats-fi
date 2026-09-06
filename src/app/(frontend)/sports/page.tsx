@@ -16,6 +16,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Sports and activities in Helsinki',
   description: 'Find international sports clubs, beginner-friendly sessions, courses and places to get active around Helsinki.',
   path: '/sports/',
+  image: '/images/heroes/sports-rugby-team-v2.webp',
 })
 
 export default async function SportsPage({ searchParams }: { searchParams: Promise<{ type?: string; sport?: string; fit?: string; q?: string }> }) {

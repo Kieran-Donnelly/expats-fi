@@ -15,6 +15,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Food and drink in Finland: local dishes, recipes and Helsinki favourites',
   description: 'A warm guide to Finnish food, seasonal favourites, practical recipes and places to eat around Helsinki.',
   path: '/eats/',
+  image: '/images/heroes/food-main-herring.webp',
 })
 
 type EatsSearch = { area?: string; kind?: string; mood?: string; price?: string; q?: string }

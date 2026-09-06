@@ -14,6 +14,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'What’s on in Helsinki',
   description: 'Discover upcoming events, festivals, markets and gatherings in Helsinki, with clear practical details and transport tips.',
   path: '/events/',
+  image: '/images/heroes/events-evening-gathering.webp',
 })
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; q?: string }> }) {

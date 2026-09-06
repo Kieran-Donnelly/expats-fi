@@ -15,6 +15,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Community board',
   description: 'Ask questions, share practical Finland advice and meet other people building a life here.',
   path: '/community/board/',
+  image: '/images/heroes/community-city-friends.webp',
 })
 
 type BoardSearchParams = Promise<{ topic?: string; q?: string }>

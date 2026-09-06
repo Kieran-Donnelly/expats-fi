@@ -14,6 +14,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'News from Finland, minus the waffle',
   description: 'Warm, original news and explainers about Helsinki and Finland, with proper context for international residents.',
   path: '/news/',
+  image: '/images/heroes/news-phone-coffee.webp',
 })
 
 const categories = ['Helsinki', 'Finland', 'Work & money', 'Life admin', 'Culture & community']

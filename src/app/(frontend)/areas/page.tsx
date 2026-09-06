@@ -9,6 +9,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Helsinki neighbourhood guides: where to eat, wander and live',
   description: 'Warm, practical guides to Helsinki neighbourhoods, with good eats, cafés, free places, easy local routes and honest notes about living there.',
   path: '/areas/',
+  image: '/images/heroes/areas-helsinki-street.webp',
 })
 
 const quickRoutes = [

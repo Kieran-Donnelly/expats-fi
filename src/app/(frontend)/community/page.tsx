@@ -12,6 +12,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Community in Helsinki: meet people, find groups and support local businesses',
   description: 'A friendly route into Helsinki community life through newcomer programmes, language cafés, hobbies, volunteering, family groups, meetups and expat-owned businesses.',
   path: '/community/',
+  image: '/images/heroes/community-city-friends.webp',
 })
 
 const communityRoutes = [

@@ -15,6 +15,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'How Finland actually works',
   description: 'Warm guides to Finnish communication, friendship, history, important people, historic places and everyday culture without the tired stereotypes.',
   path: '/culture/',
+  image: '/images/heroes/culture-coffee-conversation.webp',
 })
 
 export default function CulturePage() {

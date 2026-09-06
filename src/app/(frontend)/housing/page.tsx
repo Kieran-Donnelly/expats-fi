@@ -12,6 +12,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Housing in Finland: finding, renting and running your home',
   description: 'Warm, practical guides to finding a rental home, understanding Finnish leases, setting up utilities and solving housing problems.',
   path: '/housing/',
+  image: '/images/heroes/housing-helsinki-apartments.webp',
 })
 
 const housingStages = [

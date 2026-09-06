@@ -15,6 +15,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Expat-owned businesses in Finland',
   description: 'Find restaurants, services and independent businesses owned by people who moved to Finland.',
   path: '/businesses/',
+  image: '/images/heroes/businesses-bookshop-owner.webp',
 })
 
 export default async function BusinessesPage({ searchParams }: { searchParams: Promise<{ category?: string; location?: string; q?: string }> }) {

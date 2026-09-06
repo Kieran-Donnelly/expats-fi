@@ -12,6 +12,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Things to do in Helsinki',
   description: 'Find museums, family attractions, cinemas, beaches, islands, saunas, libraries and free days around Helsinki, with clear transport and joining advice.',
   path: '/explore/',
+  image: '/images/heroes/explore-suomenlinna.webp',
 })
 
 export default async function ExplorePage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; fit?: string; setting?: string; q?: string }> }) {

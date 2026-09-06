@@ -9,6 +9,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'When things go wrong in Finland',
   description: 'A calm, practical route to urgent healthcare, housing help, scam and crime support, workplace advice, debt help, safety services and lost-document guidance in Finland.',
   path: '/help/',
+  image: '/images/heroes/when-things-go-wrong-help.webp',
 })
 
 const helpRoutes = [

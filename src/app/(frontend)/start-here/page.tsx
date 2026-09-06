@@ -10,6 +10,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Moving to Finland: your first 90 days',
   description: 'A practical route through permits, registration, banking, tax, Kela, healthcare and digital services during your first 90 days in Finland.',
   path: '/start-here/',
+  image: '/images/heroes/start-here-helsinki-station.webp',
 })
 
 const arrivalStages = [
