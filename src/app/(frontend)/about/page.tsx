@@ -48,7 +48,7 @@ export default function AboutPage() {
           <h2 id="about-origin-heading">After years here, the simple stuff was still far too hard to find.</h2>
         </div>
         <div className="about-origin__story">
-          <p>We are two Kiwi mates who have both spent years building lives in Finland. Between us, we know what it is like to move a family across the world, help the kids feel connected to their Finnish side and slowly turn a new country into home. We have also spent plenty of time trying to work out what needs doing, which office actually handles it and whether the short Finnish email we just received is bad news or simply a short Finnish email.</p>
+          <p>We are two Kiwi mates who have both spent years building lives in Finland. People arrive here for all sorts of reasons: work, study, family, love, adventure or simply the chance to try something new. The details are different for everyone, but sooner or later most of us end up trying to work out what needs doing, which office actually handles it and whether the short Finnish email we just received is bad news or simply a short Finnish email.</p>
           <p>There is excellent information out there, but it is often spread between official services, city pages, community groups and advice that has quietly gone out of date. We wanted one place that could pull the useful bits together without sounding like another government form.</p>
           <p>So we began building Expats.fi in the spare hours around work and family life. It started as the practical guide we would have wanted ourselves. It is slowly becoming something much bigger.</p>
         </div>
