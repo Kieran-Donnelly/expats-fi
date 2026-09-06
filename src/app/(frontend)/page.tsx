@@ -7,7 +7,8 @@ import { BusinessCard } from '@/components/BusinessCard'
 import { EventCard } from '@/components/EventCard'
 import { HelsinkiNow } from '@/components/HelsinkiNow'
 import { JsonLd } from '@/components/JsonLd'
-import { getArticles, getBusinesses, getEvents } from '@/lib/content'
+import { getArticles, getBusinesses, getEvents, getNewsStories } from '@/lib/content'
+import { getNewsImage } from '@/lib/news-images'
 import { defaultSocialImage, publisher, siteUrl } from '@/lib/seo'
 import { getHelsinkiWeather } from '@/lib/weather'
 
@@ -64,13 +65,43 @@ function QuickIcon({ name }: { name: string }) {
 
 export default async function HomePage() {
   const hasDatabase = Boolean(process.env.DATABASE_URL)
-  const [articles, businesses, upcoming, weather] = await Promise.all([
+  const [articles, businesses, upcoming, newsStories, weather] = await Promise.all([
     hasDatabase ? getArticles({ limit: 3 }) : Promise.resolve([]),
     getBusinesses({ limit: 3 }),
     hasDatabase ? getEvents({ upcoming: true }) : Promise.resolve([]),
+    hasDatabase ? getNewsStories({ limit: 1 }) : Promise.resolve([]),
     getHelsinkiWeather(),
   ])
   const upcomingEvents = upcoming.slice(0, 3)
+  const nextEvent = upcomingEvents[0]
+  const latestStory = newsStories[0]
+  const latestStoryImage = latestStory ? getNewsImage(latestStory.slug) : null
+  const homeSpotlights = [
+    {
+      eyebrow: nextEvent ? `Coming up · ${nextEvent.dateLabel}` : 'What’s on',
+      title: nextEvent?.title || 'Find something worth leaving the apartment for.',
+      href: nextEvent ? `/events/${nextEvent.slug}/` : '/events/',
+      image: '/images/heroes/events-evening-gathering.webp',
+    },
+    {
+      eyebrow: 'Fresh from the news desk',
+      title: latestStory?.title || 'The Finland stories that actually affect life here.',
+      href: latestStory ? `/news/${latestStory.slug}/` : '/news/',
+      image: latestStoryImage?.src || '/images/heroes/news-phone-coffee.webp',
+    },
+    {
+      eyebrow: 'Find your corner',
+      title: 'Eleven Helsinki neighbourhoods, properly unpacked.',
+      href: '/areas/',
+      image: '/images/heroes/areas-helsinki-street.webp',
+    },
+    {
+      eyebrow: 'Built here',
+      title: 'Meet the expats turning good ideas into local businesses.',
+      href: '/businesses/',
+      image: '/images/heroes/businesses-bookshop-owner.webp',
+    },
+  ]
 
   return (
     <main id="main">
@@ -110,6 +141,28 @@ export default async function HomePage() {
             <button type="submit">Search</button>
           </form>
           <div className="popular-links"><span>Good places to begin</span><Link href="/start-here/first-90-days-in-finland/">your first 90 days</Link><Link href="/community/">meet people</Link><Link href="/learn-finnish/">learn Finnish</Link><Link href="/study/">study in Finland</Link><Link href="/events/">what’s on</Link><Link href="/areas/">explore an area</Link></div>
+        </div>
+      </section>
+
+      <section className="home-spotlight" aria-labelledby="home-spotlight-heading">
+        <div className="shell">
+          <div className="home-spotlight__heading">
+            <div><p className="eyebrow">Now on Expats.fi</p><h2 id="home-spotlight-heading">A little more life, straight from the front door.</h2></div>
+            <p>Fresh stories, upcoming plans and useful ways into the city.</p>
+          </div>
+          <div className="home-spotlight__rail">
+            {homeSpotlights.map((spotlight) => (
+              <Link className="home-spotlight-card" href={spotlight.href} key={spotlight.eyebrow}>
+                <Image src={spotlight.image} alt="" fill sizes="(max-width: 640px) 82vw, (max-width: 960px) 44vw, 25vw" />
+                <span className="home-spotlight-card__wash" aria-hidden="true" />
+                <span className="home-spotlight-card__copy">
+                  <small>{spotlight.eyebrow}</small>
+                  <strong>{spotlight.title}</strong>
+                  <i aria-hidden="true">↗</i>
+                </span>
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
