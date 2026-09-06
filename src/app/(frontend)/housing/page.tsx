@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { housingGuides } from '@/data/housing'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Housing in Finland: finding, renting and running your home',
   description: 'Warm, practical guides to finding a rental home, understanding Finnish leases, setting up utilities and solving housing problems.',
-  alternates: { canonical: '/housing/' },
-}
+  path: '/housing/',
+})
 
 const housingStages = [
   { number: '01', title: 'I need a home', detail: 'Search routes, applications, viewings and scam checks', href: '/housing/finding-a-rental-home-in-finland/' },

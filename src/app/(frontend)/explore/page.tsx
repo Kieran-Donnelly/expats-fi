@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { ExploreCard } from '@/components/ExploreCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { exploreCategories, exploreFreeDates, exploreListings, exploreMemberships } from '@/data/explore'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Things to do in Helsinki',
   description: 'Find museums, family attractions, cinemas, beaches, islands, saunas, libraries and free days around Helsinki, with clear transport and joining advice.',
-  alternates: { canonical: '/explore/' },
-}
+  path: '/explore/',
+})
 
 export default async function ExplorePage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; fit?: string; setting?: string; q?: string }> }) {
   const { category = '', cost = '', fit = '', setting = '', q = '' } = await searchParams

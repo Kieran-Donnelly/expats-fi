@@ -4,17 +4,18 @@ import Link from 'next/link'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { cultureGuides } from '@/data/culture'
+import { socialMetadata } from '@/lib/seo'
 
 const everydayCultureGuides = cultureGuides.filter((guide) => guide.label !== 'Finland, Explained')
 const finlandExplainedGuides = cultureGuides.filter((guide) => guide.label === 'Finland, Explained')
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'How Finland actually works',
   description: 'Warm guides to Finnish communication, friendship, history, important people, historic places and everyday culture without the tired stereotypes.',
-  alternates: { canonical: '/culture/' },
-}
+  path: '/culture/',
+})
 
 export default function CulturePage() {
   return (

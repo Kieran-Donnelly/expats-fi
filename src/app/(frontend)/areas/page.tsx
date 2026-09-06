@@ -3,12 +3,13 @@ import Link from 'next/link'
 
 import { SectionHero } from '@/components/SectionHero'
 import { areaGuides } from '@/data/areas'
+import { socialMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Helsinki neighbourhood guides: where to eat, wander and live',
   description: 'Warm, practical guides to Helsinki neighbourhoods, with good eats, cafés, free places, easy local routes and honest notes about living there.',
-  alternates: { canonical: '/areas/' },
-}
+  path: '/areas/',
+})
 
 const quickRoutes = [
   { label: 'Food and late nights', name: 'Kallio & Hakaniemi', detail: 'Market breakfast, bakeries, neighbourhood restaurants and excellent transport', href: '/areas/kallio-and-hakaniemi/' },

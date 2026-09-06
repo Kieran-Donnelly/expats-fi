@@ -4,15 +4,16 @@ import { EmbassyDirectoryView } from '@/components/EmbassyDirectoryView'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { representationLabels } from '@/lib/embassies'
 import { getEmbassies } from '@/lib/content'
+import { socialMetadata } from '@/lib/seo'
 import type { Embassy } from '@/payload-types'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Embassies and consulates for every country in Finland',
   description: 'Find the embassy, accredited mission, honorary consulate or best official contact for every country while living in Finland.',
-  alternates: { canonical: '/embassies/' },
-}
+  path: '/embassies/',
+})
 
 const regions: Embassy['region'][] = ['Africa', 'Asia', 'Europe', 'North America', 'South America', 'Oceania']
 const representationTypes: Embassy['representationType'][] = ['resident-embassy', 'representative-office', 'non-resident-embassy', 'honorary-consulate', 'foreign-ministry']

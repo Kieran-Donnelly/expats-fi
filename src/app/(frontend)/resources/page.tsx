@@ -7,14 +7,15 @@ import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getArticles } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedArticleIds } from '@/lib/saved-articles'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Life in Finland guides',
   description: 'Plain-English guides covering permits, work, money, healthcare, housing and everyday life in Finland.',
-  alternates: { canonical: '/resources/' },
-}
+  path: '/resources/',
+})
 
 const categories = ['Immigration & permits', 'Work & money', 'Housing', 'Health & wellbeing', 'Getting around', 'Family', 'Everyday life']
 

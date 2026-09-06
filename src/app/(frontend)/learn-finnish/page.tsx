@@ -4,12 +4,13 @@ import type { LearningResource } from '@/data/finnishLearning'
 import { ContinueExploring } from '@/components/ContinueExploring'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getLearningPageData } from '@/lib/content'
+import { socialMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Learn Finnish: free resources, courses and practice',
   description: 'A carefully checked guide to Finnish courses, free resources, apps, podcasts, YouTube channels, YKI preparation and Helsinki language cafés.',
-  alternates: { canonical: '/learn-finnish/' },
-}
+  path: '/learn-finnish/',
+})
 
 const sections: Array<{ category: LearningResource['category']; id: string; title: string; eyebrow: string; intro: string }> = [
   {

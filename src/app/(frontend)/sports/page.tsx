@@ -8,14 +8,15 @@ import { SportsCard } from '@/components/SportsCard'
 import { SportsMap } from '@/components/SportsMap'
 import { sportsCategories, sportsListings, sportsListingTypes } from '@/data/sports'
 import { getEvents } from '@/lib/content'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Sports and activities in Helsinki',
   description: 'Find international sports clubs, beginner-friendly sessions, courses and places to get active around Helsinki.',
-  alternates: { canonical: '/sports/' },
-}
+  path: '/sports/',
+})
 
 export default async function SportsPage({ searchParams }: { searchParams: Promise<{ type?: string; sport?: string; fit?: string; q?: string }> }) {
   const [{ type = '', sport = '', fit = '', q = '' }, upcomingEvents] = await Promise.all([

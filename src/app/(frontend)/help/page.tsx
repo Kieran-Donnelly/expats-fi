@@ -3,12 +3,13 @@ import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
+import { socialMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'When things go wrong in Finland',
   description: 'A calm, practical route to urgent healthcare, housing help, scam and crime support, workplace advice, debt help, safety services and lost-document guidance in Finland.',
-  alternates: { canonical: '/help/' },
-}
+  path: '/help/',
+})
 
 const helpRoutes = [
   { number: '01', title: 'Urgent health', detail: 'Emergency care, medical advice, poisoning and a sudden crisis', href: '#urgent-health' },

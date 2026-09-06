@@ -7,14 +7,15 @@ import { CommunityReportButton } from '@/components/CommunityReportButton'
 import { getCurrentMember } from '@/lib/member-auth'
 import { communityAuthorName, getCommunityPostCommentCounts, getCommunityPosts, topicLabel } from '@/lib/community'
 import { communityTopicOptions, isCommunityTopic } from '@/lib/community-options'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Community board',
   description: 'Ask questions, share practical Finland advice and meet other people building a life here.',
-  alternates: { canonical: '/community/board/' },
-}
+  path: '/community/board/',
+})
 
 type BoardSearchParams = Promise<{ topic?: string; q?: string }>
 
