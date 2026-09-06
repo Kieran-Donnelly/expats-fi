@@ -89,6 +89,7 @@
 .family-detail__intro p { color: var(--ink-soft); font-size: 1.08rem; line-height: 1.8; }
 .family-detail__intro p:first-child { margin-block-start: 0; }
 .family-key-facts, .family-story-section, .family-insider { margin-block-start: 3.5rem; }
+.family-story-section { scroll-margin-block-start: 6rem; }
 .family-key-facts h2, .family-story-section h2, .family-insider h2 { margin-block-end: 1.15rem; font-size: 1.85rem; }
 .family-key-facts ul { display: grid; grid-template-columns: repeat(2, 1fr); gap: .65rem; margin: 0; padding: 0; list-style: none; }
 .family-key-facts li { min-block-size: 8rem; padding: 1rem; border-radius: .7rem; background: var(--blue-soft); color: var(--ink-soft); font-size: .85rem; font-weight: 630; }
@@ -103,7 +104,12 @@
 .family-jump, .family-source-box, .family-editor-note { display: grid; padding: 1.25rem; border: 1px solid var(--line); border-radius: .8rem; background: var(--snow); }
 .family-jump { gap: .65rem; }
 .family-jump strong, .family-source-box > strong, .family-editor-note strong { margin-block-end: .3rem; font-size: .84rem; }
-.family-jump span { padding-block-start: .55rem; border-block-start: 1px solid var(--line); color: var(--ink-soft); font-size: .74rem; line-height: 1.4; }
+.family-jump a { display: grid; grid-template-columns: 1.6rem minmax(0, 1fr) auto; gap: .45rem; align-items: start; padding: .65rem .35rem .15rem; border-block-start: 1px solid var(--line); border-radius: .35rem; color: var(--ink-soft); font-size: .74rem; line-height: 1.4; text-decoration: none; transition: background 160ms ease, color 160ms ease; }
+.family-jump a small { color: var(--muted); font-size: .68rem; font-weight: 730; }
+.family-jump a span { min-inline-size: 0; }
+.family-jump a i { color: var(--blue); font-style: normal; opacity: .65; transition: transform 160ms ease; }
+.family-jump a:hover, .family-jump a:focus-visible { outline: none; background: var(--blue-pale); color: var(--blue-dark); }
+.family-jump a:hover i, .family-jump a:focus-visible i { transform: translateY(.18rem); }
 .family-source-box { background: var(--blue-pale); }
 .family-source-box > p { margin: .2rem 0 1rem; color: var(--ink-soft); font-size: .75rem; }
 .family-source-box a { display: grid; gap: .12rem; padding-block: .75rem; border-block-start: 1px solid var(--line); text-decoration: none; }

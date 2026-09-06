@@ -81,8 +81,8 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
               <p className="eyebrow">The quick version</p><h2 id="key-facts-heading">A few things worth knowing first</h2>
               <ul>{guide.keyFacts.map((fact) => <li key={fact}>{fact}</li>)}</ul>
             </section>
-            {guide.sections.map((section) => (
-              <section className="family-story-section" key={section.title}>
+            {guide.sections.map((section, index) => (
+              <section className="family-story-section" id={`guide-section-${index + 1}`} key={section.title}>
                 <h2>{section.title}</h2>
                 {section.paragraphs.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
                 {section.bullets && <ul>{section.bullets.map((bullet) => <li key={bullet}>{bullet}</li>)}</ul>}
@@ -95,7 +95,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
           </article>
 
           <aside className="family-detail__aside">
-            <div className="family-jump"><strong>On this page</strong>{guide.sections.map((section, index) => <span key={section.title}>{String(index + 1).padStart(2, '0')} {section.title}</span>)}</div>
+            <nav className="family-jump" aria-label="On this page"><strong>On this page</strong>{guide.sections.map((section, index) => <a href={`#guide-section-${index + 1}`} key={section.title}><small>{String(index + 1).padStart(2, '0')}</small><span>{section.title}</span><i aria-hidden="true">↓</i></a>)}</nav>
             <div className="family-source-box"><strong>Official and trusted links</strong><p>Open the source, check the current details and get the job done.</p>{guide.resources.map((resource) => <a href={resource.url} target="_blank" rel="noreferrer" key={resource.title}><span>{resource.title}</span><small>{resource.source} ↗</small></a>)}</div>
             <div className="family-editor-note"><strong>Independent, not official</strong><p>We have joined the pieces together in ordinary English. The linked authority or service always has the final word on current rules and individual decisions.</p></div>
           </aside>
