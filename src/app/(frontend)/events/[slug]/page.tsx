@@ -7,9 +7,10 @@ import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { getEvent } from '@/lib/content'
 import { isPastEvent } from '@/lib/events'
-import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
+const eventSocialImage = absoluteUrl('/images/heroes/events-evening-gathering.webp')
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -20,8 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: event.title,
     description: event.blurb,
     alternates: { canonical: `/events/${event.slug}/` },
-    openGraph: { title: event.title, description: event.blurb, type: 'website', url: `/events/${event.slug}/`, images: [defaultSocialImage] },
-    twitter: { card: 'summary_large_image', title: event.title, description: event.blurb, images: [defaultSocialImage] },
+    openGraph: { title: event.title, description: event.blurb, type: 'website', url: `/events/${event.slug}/`, images: [eventSocialImage] },
+    twitter: { card: 'summary_large_image', title: event.title, description: event.blurb, images: [eventSocialImage] },
     ...(hasPassed ? { robots: { index: false, follow: true } } : {}),
   }
 }
@@ -35,7 +36,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
   return (
     <main id="main"><div className="shell detail-shell event-detail">
       <JsonLd data={[
-        { '@context': 'https://schema.org', '@type': 'Event', name: event.title, description: event.blurb, startDate: event.startDate, endDate: event.endDate, eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', eventStatus: 'https://schema.org/EventScheduled', url: absoluteUrl(`/events/${event.slug}/`), image: defaultSocialImage, location: { '@type': 'Place', name: event.location, address: { '@type': 'PostalAddress', streetAddress: event.address, addressLocality: 'Helsinki', addressCountry: 'FI' } }, organizer: { '@type': 'Organization', name: event.sourceName, url: event.sourceUrl }, ...(event.free ? { offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: event.sourceUrl } } : {}) },
+        { '@context': 'https://schema.org', '@type': 'Event', name: event.title, description: event.blurb, startDate: event.startDate, endDate: event.endDate, eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', eventStatus: 'https://schema.org/EventScheduled', url: absoluteUrl(`/events/${event.slug}/`), image: eventSocialImage, location: { '@type': 'Place', name: event.location, address: { '@type': 'PostalAddress', streetAddress: event.address, addressLocality: 'Helsinki', addressCountry: 'FI' } }, organizer: { '@type': 'Organization', name: event.sourceName, url: event.sourceUrl }, ...(event.free ? { offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: event.sourceUrl } } : {}) },
         breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Events', path: '/events/' }, { name: event.title, path: `/events/${event.slug}/` }]),
       ]} />
       <Link className="back-link" href="/events/">← All Helsinki events</Link>

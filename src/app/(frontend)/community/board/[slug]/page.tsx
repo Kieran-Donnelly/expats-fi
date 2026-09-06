@@ -17,7 +17,7 @@ export async function generateMetadata({ params }: RouteContext): Promise<Metada
   const { slug } = await params
   const post = await getCommunityPost(slug)
   if (!post) return { title: 'Community conversation' }
-  return socialMetadata({ title: post.title, description: post.body.slice(0, 155), path: `/community/board/${post.slug}/` })
+  return socialMetadata({ title: post.title, description: post.body.slice(0, 155), path: `/community/board/${post.slug}/`, image: '/images/heroes/community-city-friends.webp' })
 }
 
 export default async function CommunityPostPage({ params }: RouteContext) {

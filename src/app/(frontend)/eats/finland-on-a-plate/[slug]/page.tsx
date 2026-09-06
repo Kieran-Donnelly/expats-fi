@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getFinlandFoodGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/eats/finland-on-a-plate/${guide.slug}/` })
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/eats/finland-on-a-plate/${guide.slug}/`, image: '/images/heroes/food-main-herring.webp' })
 }
 
 export default async function FinlandFoodGuidePage({ params }: { params: Promise<{ slug: string }> }) {

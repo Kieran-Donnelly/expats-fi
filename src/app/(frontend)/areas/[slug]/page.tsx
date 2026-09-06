@@ -16,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getAreaGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/areas/${guide.slug}/` })
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/areas/${guide.slug}/`, image: '/images/heroes/areas-helsinki-street.webp' })
 }
 
 export default async function AreaGuidePage({ params }: { params: Promise<{ slug: string }> }) {

@@ -16,6 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${embassy.country} embassy or official representation for Finland`,
     description: representationSummary(embassy),
     path: `/embassies/${slug}/`,
+    image: '/images/heroes/embassies-international-flags.webp',
   })
 }
 

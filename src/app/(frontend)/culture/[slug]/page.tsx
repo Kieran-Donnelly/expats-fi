@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getCultureGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/culture/${guide.slug}/` })
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/culture/${guide.slug}/`, image: '/images/heroes/culture-coffee-conversation.webp' })
 }
 
 export default async function CultureGuidePage({ params }: { params: Promise<{ slug: string }> }) {

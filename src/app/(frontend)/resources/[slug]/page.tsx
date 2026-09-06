@@ -14,9 +14,10 @@ import { getArticle, getArticles } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { demoteEmbeddedH1Headings } from '@/lib/rich-text'
 import { getSavedArticleIds } from '@/lib/saved-articles'
-import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage, publisher } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, publisher } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
+const resourceSocialImage = absoluteUrl('/images/heroes/resources-documents-laptop.webp')
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -26,8 +27,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: article.title,
     description: article.description,
     alternates: { canonical: `/resources/${article.slug}/` },
-    openGraph: { title: article.title, description: article.description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [defaultSocialImage] },
-    twitter: { card: 'summary_large_image', title: article.title, description: article.description, images: [defaultSocialImage] },
+    openGraph: { title: article.title, description: article.description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [resourceSocialImage] },
+    twitter: { card: 'summary_large_image', title: article.title, description: article.description, images: [resourceSocialImage] },
   }
 }
 
@@ -50,7 +51,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <ReadingProgress />
       <div className="shell detail-shell article-page">
         <JsonLd data={[
-          { '@context': 'https://schema.org', '@type': 'Article', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: defaultSocialImage, inLanguage: 'en', isAccessibleForFree: true },
+          { '@context': 'https://schema.org', '@type': 'Article', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: resourceSocialImage, inLanguage: 'en', isAccessibleForFree: true },
           breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/resources/' }, { name: article.title, path: `/resources/${article.slug}/` }]),
         ]} />
         <Link className="back-link" href="/resources/">← All Finland guides</Link>

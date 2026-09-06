@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getCommunityGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/community/${guide.slug}/` })
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/community/${guide.slug}/`, image: '/images/heroes/community-city-friends.webp' })
 }
 
 export default async function CommunityGuidePage({ params }: { params: Promise<{ slug: string }> }) {

@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getHousingGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/housing/${guide.slug}/` })
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/housing/${guide.slug}/`, image: '/images/heroes/housing-helsinki-apartments.webp' })
 }
 
 export default async function HousingGuidePage({ params }: { params: Promise<{ slug: string }> }) {

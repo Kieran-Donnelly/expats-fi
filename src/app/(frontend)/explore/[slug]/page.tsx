@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const listing = getExploreListing(slug)
   if (!listing) return {}
-  return socialMetadata({ title: `${listing.name} | Things to do`, description: listing.blurb, path: `/explore/${listing.slug}/` })
+  return socialMetadata({ title: `${listing.name} | Things to do`, description: listing.blurb, path: `/explore/${listing.slug}/`, image: '/images/heroes/explore-suomenlinna.webp' })
 }
 
 export default async function ExploreListingPage({ params }: { params: Promise<{ slug: string }> }) {

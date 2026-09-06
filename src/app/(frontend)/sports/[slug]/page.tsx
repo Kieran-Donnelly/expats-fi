@@ -14,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const listing = getSportsListing(slug)
   if (!listing) return {}
-  return socialMetadata({ title: listing.name, description: listing.blurb, path: `/sports/${listing.slug}/` })
+  return socialMetadata({ title: listing.name, description: listing.blurb, path: `/sports/${listing.slug}/`, image: '/images/heroes/sports-rugby-team-v2.webp' })
 }
 
 export default async function SportsListingPage({ params }: { params: Promise<{ slug: string }> }) {

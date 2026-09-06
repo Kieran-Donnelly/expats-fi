@@ -13,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getFamilyGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/family/${guide.slug}/` })
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/family/${guide.slug}/`, image: '/images/heroes/family-parents-and-children.webp' })
 }
 
 export default async function FamilyGuidePage({ params }: { params: Promise<{ slug: string }> }) {
