@@ -31,13 +31,14 @@ export const additionalAreaGuides: EditorialGuide[] = [
         title: 'Food for rushed days and proper evenings',
         paragraphs: [
           'Lazy Fox on Albertinkatu is the relaxed all-day breakfast, while Café Lasipalatsi gives you a classic functionalist setting beside Amos Rex. Fisken på Disken is the useful central answer when somebody specifically wants salmon soup or seafood without trekking to a harbour market.',
-          'Goose Pastabar is built for a noisier evening and does not take bookings, so arrive with a bit of patience and a backup idea. Kamppi has endless chains and food courts too, which can be exactly what a mixed group, tight budget or tired child requires. Useful beats impressive sometimes.',
+          'Goose Pastabar is built for a noisier evening and does not take bookings, so arrive with a bit of patience and a backup idea. Aussie Bar on Salomonkatu is the easy one for live sport, pub food and an international crowd. Kamppi has endless chains and food courts too, which can be exactly what a mixed group, tight budget or tired child requires. Useful beats impressive sometimes.',
         ],
         bullets: [
           'Big breakfast: Lazy Fox Kamppi on Albertinkatu.',
           'Museum pause: Café Lasipalatsi beside Amos Rex.',
           'Finnish seafood: Fisken på Disken inside Kamppi’s Kortteli.',
           'Casual evening: Goose Pastabar, with no reservations and plenty of energy.',
+          'Live sport and a social pub: Aussie Bar on Salomonkatu.',
         ],
       },
       {
@@ -74,6 +75,7 @@ export const additionalAreaGuides: EditorialGuide[] = [
       { title: 'Helsinki Central Library Oodi', description: 'Opening hours, services, events, spaces and library-card guidance.', url: 'https://oodihelsinki.fi/en/', source: 'Oodi' },
       { title: 'Amos Rex', description: 'Current exhibitions, tickets, accessibility and visitor information.', url: 'https://amosrex.fi/en/', source: 'Amos Rex' },
       { title: 'Lazy Fox', description: 'Current hours and menu for its Kamppi and Kallio locations.', url: 'https://lazyfox.fi/', source: 'Lazy Fox' },
+      { title: 'Aussie Bar', description: 'Current opening hours, food, live sport and music information.', url: 'https://aussiebar.net/', source: 'Aussie Bar' },
       { title: 'HSL Journey Planner', description: 'Live routes for metro, trains, trams, buses, walking and cycling.', url: 'https://www.hsl.fi/en/journey-planner', source: 'HSL' },
     ],
   },
