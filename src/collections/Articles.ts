@@ -2,6 +2,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
 import { canManageContent } from '@/lib/admin-access'
+import { publicPreview } from '@/lib/admin-preview'
 
 const articleCategories = [
   'Immigration & permits',
@@ -19,6 +20,7 @@ export const Articles: CollectionConfig = {
     group: 'Content',
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'publishedAt', '_status'],
+    preview: publicPreview('/resources', '_status'),
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user) || { _status: { equals: 'published' } },

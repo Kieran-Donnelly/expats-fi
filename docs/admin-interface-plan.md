@@ -8,6 +8,7 @@
 - `editor` users can create, edit and publish content, but cannot change users or member records.
 - `kieran@podium.dev` and `uriah@podium.dev` are protected super-admin identities. The migration promotes matching existing records, and the user hook enforces the role whenever either identity is created or updated.
 - Events, learning paths, learning resources, language-practice groups and YKI resources are seeded from the existing curated data and read by the public pages through Payload.
+- Published guides, news stories, businesses, events, embassies and community posts have direct public preview links from their admin edit screens.
 
 ## Operating model
 
@@ -19,7 +20,6 @@
 ## Next enhancements
 
 - Add a review-date dashboard that highlights stale embassy, event and learning records automatically.
-- Add preview links from each collection to its public page.
 - Add revision notes and a lightweight editorial owner field.
 - Add bulk import/export for embassy and directory maintenance.
 - Configure transactional email for password reset and admin invitations.

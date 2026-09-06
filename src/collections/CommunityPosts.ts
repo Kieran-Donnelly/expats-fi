@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { canManageContent } from '@/lib/admin-access'
+import { publicPreview } from '@/lib/admin-preview'
 import { communityTopicOptions } from '@/lib/community-options'
 
 export const CommunityPosts: CollectionConfig = {
@@ -10,6 +11,7 @@ export const CommunityPosts: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'topic', 'author', 'status', 'lastActivityAt', 'createdAt'],
     description: 'Member conversations. Keep posts useful, kind and grounded in life in Finland.',
+    preview: publicPreview('/community/board'),
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },

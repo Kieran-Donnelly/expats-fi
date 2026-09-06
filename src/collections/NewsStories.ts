@@ -2,6 +2,7 @@ import { lexicalEditor } from '@payloadcms/richtext-lexical'
 import type { CollectionConfig } from 'payload'
 
 import { canManageContent } from '@/lib/admin-access'
+import { publicPreview } from '@/lib/admin-preview'
 
 export const newsCategories = [
   'Helsinki',
@@ -19,6 +20,7 @@ export const NewsStories: CollectionConfig = {
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'publishedAt', 'status'],
     description: 'Original Expats.fi reporting and explainers. Keep the source list and checked date current.',
+    preview: publicPreview('/news'),
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },

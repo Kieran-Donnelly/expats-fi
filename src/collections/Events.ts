@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { canManageContent } from '@/lib/admin-access'
+import { publicPreview } from '@/lib/admin-preview'
 
 const eventCategories = ['Music & nightlife', 'Arts & culture', 'Food & markets', 'Community & free', 'Sports & outdoors']
 
@@ -10,6 +11,7 @@ export const Events: CollectionConfig = {
     group: 'Community',
     useAsTitle: 'title',
     defaultColumns: ['title', 'category', 'startDate', 'location', 'status'],
+    preview: publicPreview('/events'),
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },

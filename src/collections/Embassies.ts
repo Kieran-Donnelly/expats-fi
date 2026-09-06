@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { canManageContent } from '@/lib/admin-access'
+import { publicPreview } from '@/lib/admin-preview'
 
 export const Embassies: CollectionConfig = {
   slug: 'embassies',
@@ -8,6 +9,7 @@ export const Embassies: CollectionConfig = {
     group: 'Directories',
     useAsTitle: 'country',
     defaultColumns: ['country', 'representationType', 'city', 'hostCountry', 'lastVerifiedAt'],
+    preview: publicPreview('/embassies', null),
   },
   access: {
     read: () => true,

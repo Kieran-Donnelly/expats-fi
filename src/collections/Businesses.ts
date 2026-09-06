@@ -1,6 +1,7 @@
 import type { CollectionConfig } from 'payload'
 
 import { canManageContent } from '@/lib/admin-access'
+import { publicPreview } from '@/lib/admin-preview'
 import { businessVerificationStatuses } from '@/lib/business-verification'
 
 export const Businesses: CollectionConfig = {
@@ -9,6 +10,7 @@ export const Businesses: CollectionConfig = {
     group: 'Directory',
     useAsTitle: 'name',
     defaultColumns: ['name', 'categories', 'locations', 'status', 'verificationStatus'],
+    preview: publicPreview('/businesses'),
   },
   access: {
     read: ({ req: { user } }) => canManageContent(user) || { status: { equals: 'published' } },
