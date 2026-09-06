@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { EditorialGuideDetail } from '@/components/EditorialGuideDetail'
 import { cultureGuides, getCultureGuide } from '@/data/culture'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return cultureGuides.map((guide) => ({ slug: guide.slug }))
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getCultureGuide(slug)
   if (!guide) return {}
-  return { title: guide.title, description: guide.summary, alternates: { canonical: `/culture/${guide.slug}/` } }
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/culture/${guide.slug}/` })
 }
 
 export default async function CultureGuidePage({ params }: { params: Promise<{ slug: string }> }) {

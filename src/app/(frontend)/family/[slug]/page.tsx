@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { EditorialGuideDetail } from '@/components/EditorialGuideDetail'
 import { familyGuides, getFamilyGuide } from '@/data/family'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return familyGuides.map((guide) => ({ slug: guide.slug }))
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getFamilyGuide(slug)
   if (!guide) return {}
-  return { title: guide.title, description: guide.summary, alternates: { canonical: `/family/${guide.slug}/` } }
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/family/${guide.slug}/` })
 }
 
 export default async function FamilyGuidePage({ params }: { params: Promise<{ slug: string }> }) {

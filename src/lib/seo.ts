@@ -1,3 +1,5 @@
+import type { Metadata } from 'next'
+
 export const siteUrl = 'https://expats.fi'
 export const defaultSocialImage = `${siteUrl}/images/heroes/home-helsinki-cathedral-v2.webp`
 
@@ -13,6 +15,32 @@ export const publisher = {
 
 export function absoluteUrl(path: string): string {
   return new URL(path, siteUrl).toString()
+}
+
+export function socialMetadata({ title, description, path, image = defaultSocialImage }: {
+  title: string
+  description: string
+  path: string
+  image?: string
+}): Metadata {
+  return {
+    title,
+    description,
+    alternates: { canonical: path },
+    openGraph: {
+      title,
+      description,
+      type: 'website',
+      url: path,
+      images: [{ url: image, alt: `${title} on Expats.fi` }],
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+      images: [image],
+    },
+  }
 }
 
 export function breadcrumbJsonLd(items: { name: string; path: string }[]) {

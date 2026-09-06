@@ -6,6 +6,7 @@ import { AreaEatsSection } from '@/components/AreaEatsSection'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { areaGuides, getAreaGuide } from '@/data/areas'
 import { areaBusinessSlugs } from '@/data/business-area-connections'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return areaGuides.map((guide) => ({ slug: guide.slug }))
@@ -15,7 +16,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getAreaGuide(slug)
   if (!guide) return {}
-  return { title: guide.title, description: guide.summary, alternates: { canonical: `/areas/${guide.slug}/` } }
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/areas/${guide.slug}/` })
 }
 
 export default async function AreaGuidePage({ params }: { params: Promise<{ slug: string }> }) {

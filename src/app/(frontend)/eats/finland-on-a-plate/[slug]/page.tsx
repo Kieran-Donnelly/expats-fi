@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { EditorialGuideDetail } from '@/components/EditorialGuideDetail'
 import { finlandFoodGuides, getFinlandFoodGuide } from '@/data/finland-food-guides'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return finlandFoodGuides.map((guide) => ({ slug: guide.slug }))
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getFinlandFoodGuide(slug)
   if (!guide) return {}
-  return { title: guide.title, description: guide.summary, alternates: { canonical: `/eats/finland-on-a-plate/${guide.slug}/` } }
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/eats/finland-on-a-plate/${guide.slug}/` })
 }
 
 export default async function FinlandFoodGuidePage({ params }: { params: Promise<{ slug: string }> }) {

@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 
 import { EditorialGuideDetail } from '@/components/EditorialGuideDetail'
 import { getSettlingGuide, settlingGuides } from '@/data/settling'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return settlingGuides.map((guide) => ({ slug: guide.slug }))
@@ -12,7 +13,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getSettlingGuide(slug)
   if (!guide) return {}
-  return { title: guide.title, description: guide.summary, alternates: { canonical: `/start-here/${guide.slug}/` } }
+  return socialMetadata({ title: guide.title, description: guide.summary, path: `/start-here/${guide.slug}/` })
 }
 
 export default async function SettlingGuidePage({ params }: { params: Promise<{ slug: string }> }) {
