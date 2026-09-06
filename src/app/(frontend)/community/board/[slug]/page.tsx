@@ -7,6 +7,7 @@ import { CommunityCommentForm } from '@/components/CommunityCommentForm'
 import { CommunityReportButton } from '@/components/CommunityReportButton'
 import { getCurrentMember } from '@/lib/member-auth'
 import { communityAuthorName, formatCommunityDate, getCommunityComments, getCommunityPost, topicLabel } from '@/lib/community'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -16,7 +17,7 @@ export async function generateMetadata({ params }: RouteContext): Promise<Metada
   const { slug } = await params
   const post = await getCommunityPost(slug)
   if (!post) return { title: 'Community conversation' }
-  return { title: post.title, description: post.body.slice(0, 155), alternates: { canonical: `/community/board/${post.slug}/` } }
+  return socialMetadata({ title: post.title, description: post.body.slice(0, 155), path: `/community/board/${post.slug}/` })
 }
 
 export default async function CommunityPostPage({ params }: RouteContext) {

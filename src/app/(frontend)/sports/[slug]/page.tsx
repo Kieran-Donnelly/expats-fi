@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { getSportsListing, sportsListings } from '@/data/sports'
 import { ShareButton } from '@/components/ShareButton'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return sportsListings.map((listing) => ({ slug: listing.slug }))
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const listing = getSportsListing(slug)
   if (!listing) return {}
-  return { title: listing.name, description: listing.blurb, alternates: { canonical: `/sports/${listing.slug}/` } }
+  return socialMetadata({ title: listing.name, description: listing.blurb, path: `/sports/${listing.slug}/` })
 }
 
 export default async function SportsListingPage({ params }: { params: Promise<{ slug: string }> }) {

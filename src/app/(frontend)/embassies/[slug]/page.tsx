@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { representationLabels, representationSummary } from '@/lib/embassies'
 import { getEmbassy } from '@/lib/content'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -11,11 +12,11 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const embassy = await getEmbassy(slug)
   if (!embassy) return {}
-  return {
+  return socialMetadata({
     title: `${embassy.country} embassy or official representation for Finland`,
     description: representationSummary(embassy),
-    alternates: { canonical: `/embassies/${slug}/` },
-  }
+    path: `/embassies/${slug}/`,
+  })
 }
 
 export default async function EmbassyPage({ params }: { params: Promise<{ slug: string }> }) {

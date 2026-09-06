@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 
 import { exploreListings, getExploreListing } from '@/data/explore'
 import { ShareButton } from '@/components/ShareButton'
+import { socialMetadata } from '@/lib/seo'
 
 export function generateStaticParams() {
   return exploreListings.map((listing) => ({ slug: listing.slug }))
@@ -13,7 +14,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const listing = getExploreListing(slug)
   if (!listing) return {}
-  return { title: `${listing.name} | Things to do`, description: listing.blurb, alternates: { canonical: `/explore/${listing.slug}/` } }
+  return socialMetadata({ title: `${listing.name} | Things to do`, description: listing.blurb, path: `/explore/${listing.slug}/` })
 }
 
 export default async function ExploreListingPage({ params }: { params: Promise<{ slug: string }> }) {
