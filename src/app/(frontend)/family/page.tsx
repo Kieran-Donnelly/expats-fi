@@ -5,14 +5,15 @@ import { ContinueExploring } from '@/components/ContinueExploring'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { familyGuides, familySystems } from '@/data/family'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Family life in Helsinki and Finland',
   description: 'A warm, practical guide to healthcare, Maisa, daycare, school, Kela, family support, community and urgent help in Helsinki.',
-  alternates: { canonical: '/family/' },
-}
+  path: '/family/',
+})
 
 const stageLinks = [
   { label: 'Expecting or new baby', detail: 'Neuvola, baby checks, groups and parental support', href: '/family/babies-and-neuvola/' },

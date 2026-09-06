@@ -4,12 +4,13 @@ import Link from 'next/link'
 import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
 import { studyGuides, studyProviders } from '@/data/study'
+import { socialMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Study in Finland: degrees, vocational education and integration training',
   description: 'A friendly, practical guide to universities, UAS, vocational schools, integration training, online study, fees, permits and funding in Finland.',
-  alternates: { canonical: '/study/' },
-}
+  path: '/study/',
+})
 
 const routes = [
   { label: 'I want a degree', detail: 'University and UAS routes, applications and English programmes', href: '/study/universities-and-universities-of-applied-sciences/' },

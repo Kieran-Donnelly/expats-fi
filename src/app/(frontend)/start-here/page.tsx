@@ -4,12 +4,13 @@ import Link from 'next/link'
 import { ContinueExploring } from '@/components/ContinueExploring'
 import { SectionHero } from '@/components/SectionHero'
 import { settlingGuides } from '@/data/settling'
+import { socialMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Moving to Finland: your first 90 days',
   description: 'A practical route through permits, registration, banking, tax, Kela, healthcare and digital services during your first 90 days in Finland.',
-  alternates: { canonical: '/start-here/' },
-}
+  path: '/start-here/',
+})
 
 const arrivalStages = [
   { number: '01', title: 'Before you arrive', detail: 'Legal route, documents, money buffer and medication', href: '/start-here/first-90-days-in-finland/' },

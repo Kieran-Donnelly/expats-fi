@@ -4,14 +4,15 @@ import Link from 'next/link'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { communityGuides } from '@/data/community'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Community in Helsinki: meet people, find groups and support local businesses',
   description: 'A friendly route into Helsinki community life through newcomer programmes, language cafés, hobbies, volunteering, family groups, meetups and expat-owned businesses.',
-  alternates: { canonical: '/community/' },
-}
+  path: '/community/',
+})
 
 const communityRoutes = [
   { number: '01', title: 'I have just arrived', detail: 'A first-month plan when you know nobody yet', href: '/community/where-to-start-when-you-know-nobody/' },

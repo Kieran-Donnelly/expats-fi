@@ -7,14 +7,15 @@ import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { eatAreas, eatKinds, eatMoods, eatSpots } from '@/data/eats'
 import { finlandFoodGuides } from '@/data/finland-food-guides'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'Food and drink in Finland: local dishes, recipes and Helsinki favourites',
   description: 'A warm guide to Finnish food, seasonal favourites, practical recipes and places to eat around Helsinki.',
-  alternates: { canonical: '/eats/' },
-}
+  path: '/eats/',
+})
 
 type EatsSearch = { area?: string; kind?: string; mood?: string; price?: string; q?: string }
 

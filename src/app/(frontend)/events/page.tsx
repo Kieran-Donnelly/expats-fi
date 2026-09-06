@@ -6,14 +6,15 @@ import { EventsMap } from '@/components/EventsMap'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { eventCategories } from '@/data/events'
 import { getEvents } from '@/lib/content'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'What’s on in Helsinki',
   description: 'Discover upcoming events, festivals, markets and gatherings in Helsinki, with clear practical details and transport tips.',
-  alternates: { canonical: '/events/' },
-}
+  path: '/events/',
+})
 
 export default async function EventsPage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; q?: string }> }) {
   const { category = '', cost = '', q = '' } = await searchParams

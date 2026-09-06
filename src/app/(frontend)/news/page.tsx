@@ -6,14 +6,15 @@ import { NewsCard } from '@/components/NewsCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
 import { getNewsStories } from '@/lib/content'
 import { getNewsImage } from '@/lib/news-images'
+import { socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = socialMetadata({
   title: 'News from Finland, minus the waffle',
   description: 'Warm, original news and explainers about Helsinki and Finland, with proper context for international residents.',
-  alternates: { canonical: '/news/' },
-}
+  path: '/news/',
+})
 
 const categories = ['Helsinki', 'Finland', 'Work & money', 'Life admin', 'Culture & community']
 
