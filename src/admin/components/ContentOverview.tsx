@@ -103,12 +103,22 @@ async function getMetrics() {
       }),
     ])
 
+    const reviewCutoff = new Date(Date.now() - (180 * 24 * 60 * 60 * 1000)).toISOString()
+    const today = new Date().toISOString()
+    const [staleEmbassies, staleLearningResources, stalePracticeGroups, staleYkiResources, endedEvents] = await Promise.all([
+      countCollection(payload, 'embassies', { lastVerifiedAt: { less_than: reviewCutoff } }),
+      countCollection(payload, 'learning-resources', { lastReviewedAt: { less_than: reviewCutoff } }),
+      countCollection(payload, 'practice-groups', { lastReviewedAt: { less_than: reviewCutoff } }),
+      countCollection(payload, 'yki-resources', { lastReviewedAt: { less_than: reviewCutoff } }),
+      countCollection(payload, 'events', { endDate: { less_than: today } }),
+    ])
+
     const pendingCommunityContent = [
       ...pendingCommunityPostsResult.docs.map((post) => ({ kind: 'post' as const, item: post as CommunityPost })),
       ...pendingCommunityCommentsResult.docs.map((comment) => ({ kind: 'comment' as const, item: comment as CommunityComment })),
     ].sort((a, b) => new Date(a.item.createdAt).getTime() - new Date(b.item.createdAt).getTime()).slice(0, 10)
 
-    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityContent, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[], editorialLeadsCount, editorialLeads: editorialLeadsResult.docs as CommunityPost[] }
+    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityContent, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[], editorialLeadsCount, editorialLeads: editorialLeadsResult.docs as CommunityPost[], reviewCutoff, today, staleEmbassies, staleLearningResources, stalePracticeGroups, staleYkiResources, endedEvents }
   } catch {
     return null
   }
@@ -159,6 +169,12 @@ function MetricCard({ metric }: { metric: Metric }) {
       <small>Open collection →</small>
     </a>
   )
+}
+
+function dateFilterHref(collection: string, field: string, operator: 'less_than', value: string | undefined): string {
+  if (!value) return `/admin/collections/${collection}`
+  const query = new URLSearchParams({ [`where[${field}][${operator}]`]: value })
+  return `/admin/collections/${collection}?${query.toString()}`
 }
 
 export default async function ContentOverview() {
@@ -286,6 +302,20 @@ export default async function ContentOverview() {
               </div>
             </div>
           )) : <p className="expats-admin-dashboard__empty-queue">No ideas have been saved yet. When a community post points towards a useful guide, event or site improvement, mark its editorial follow-up in the post editor and it will stay visible here.</p>}
+        </div>
+      </section>
+
+      <section className="expats-admin-dashboard__panel" aria-labelledby="expats-admin-maintenance">
+        <div className="expats-admin-dashboard__panel-heading">
+          <div><p className="expats-admin-dashboard__eyebrow">Routine maintenance</p><h3 id="expats-admin-maintenance">Details due a fresh look</h3></div>
+          <p>Records older than six months, plus events that have ended. A number here means check the source and update, archive or remove the record when needed.</p>
+        </div>
+        <div className="expats-admin-dashboard__attention-list">
+          <Link href={dateFilterHref('embassies', 'lastVerifiedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.staleEmbassies ?? '—'}</strong><span>embassy records due a recheck</span><b aria-hidden="true">→</b></Link>
+          <Link href={dateFilterHref('learning-resources', 'lastReviewedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.staleLearningResources ?? '—'}</strong><span>learning resources due a recheck</span><b aria-hidden="true">→</b></Link>
+          <Link href={dateFilterHref('practice-groups', 'lastReviewedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.stalePracticeGroups ?? '—'}</strong><span>language groups due a recheck</span><b aria-hidden="true">→</b></Link>
+          <Link href={dateFilterHref('yki-resources', 'lastReviewedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.staleYkiResources ?? '—'}</strong><span>YKI resources due a recheck</span><b aria-hidden="true">→</b></Link>
+          <Link href={dateFilterHref('events', 'endDate', 'less_than', metrics?.today)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--blue" /> <strong>{metrics?.endedEvents ?? '—'}</strong><span>ended events ready to archive</span><b aria-hidden="true">→</b></Link>
         </div>
       </section>
 
