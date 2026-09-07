@@ -75,7 +75,7 @@ export default function AboutPage() {
       <section className="shell section about-method" aria-labelledby="about-method-heading">
         <div>
           <p className="eyebrow">How we work</p>
-          <h2 id="about-method-heading">Friendly does not mean making things up.</h2>
+          <h2 id="about-method-heading">Useful information you can trust</h2>
           <p>For practical guides and news, we begin with official and primary sources wherever possible. We check dates, keep the source links visible and update things as the details move. Community posts can tell us what people are worried about, but they are never treated as proof on their own.</p>
           <p>Business listings and directory features are written in our own voice. Where we are working directly with an owner, we send the piece through so they can correct the facts before it goes live. The warmth is ours. Their story remains theirs.</p>
         </div>

@@ -1,3 +1,4 @@
+import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
 import * as migration_20260803_075648_seed_current_content from './20260803_075648_seed_current_content';
 import * as migration_20260803_133319_add_embassies from './20260803_133319_add_embassies';
@@ -203,5 +204,10 @@ export const migrations = [
     up: migration_20260905_180000_refresh_official_guide_links.up,
     down: migration_20260905_180000_refresh_official_guide_links.down,
     name: '20260905_180000_refresh_official_guide_links',
+  },
+  {
+    up: migration_20260907_100000_publish_september_news.up,
+    down: migration_20260907_100000_publish_september_news.down,
+    name: '20260907_100000_publish_september_news',
   },
 ];
