@@ -31,7 +31,7 @@ export function SaveBusinessButton({
       })
 
       if (response.status === 401) {
-        router.push(`/login/?next=${encodeURIComponent(pathname || '/')}`)
+        router.push(`/login/?next=${encodeURIComponent(pathname || '/')}&reason=save-business`)
         return
       }
 

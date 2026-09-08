@@ -15,7 +15,7 @@ export function CommunityCommentForm({ canPost = true, postSlug, isAuthenticated
   const [anonymous, setAnonymous] = useState(false)
 
   if (!isAuthenticated) {
-    return <p className="community-comments__join">Have something useful to add? <Link href={`/login/?next=/community/board/${postSlug}/`}>Sign in to reply</Link>.</p>
+    return <p className="community-comments__join">Have something useful to add? <Link href={`/login/?next=${encodeURIComponent(`/community/board/${postSlug}/`)}&reason=reply`}>Sign in to reply</Link>.</p>
   }
 
   if (!canPost) return <p className="community-comments__join">Replying is paused for this account. Email hello@expats.fi if you believe this is a mistake.</p>

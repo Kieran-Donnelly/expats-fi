@@ -21,7 +21,7 @@ export function CommunityReportButton({ targetType, targetId, isAuthenticated, n
   const dialogRef = useRef<HTMLDialogElement>(null)
   const dialogTitleId = `community-report-title-${targetType}-${targetId}`
 
-  if (!isAuthenticated) return <Link className="community-report-button" href={`/login/?next=${encodeURIComponent(nextPath)}`}>Sign in to report</Link>
+  if (!isAuthenticated) return <Link className="community-report-button" href={`/login/?next=${encodeURIComponent(nextPath)}&reason=report`}>Sign in to report</Link>
   if (state === 'sent') return <span className="community-report-button community-report-button--sent" role="status">Thanks, reported</span>
 
   function openDialog() {

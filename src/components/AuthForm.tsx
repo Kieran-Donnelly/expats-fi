@@ -4,13 +4,17 @@ import Link from 'next/link'
 import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
+import { authJourneyMessages, type AuthJourney } from '@/lib/auth-journey'
+
 type AuthMode = 'login' | 'register'
 
-export function AuthForm({ mode, googleEnabled, returnTo = '/account/' }: { mode: AuthMode; googleEnabled: boolean; returnTo?: string }) {
+export function AuthForm({ authJourney, mode, googleEnabled, returnTo = '/account/' }: { authJourney?: AuthJourney; mode: AuthMode; googleEnabled: boolean; returnTo?: string }) {
   const router = useRouter()
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
   const isRegister = mode === 'register'
+  const switchParams = new URLSearchParams({ next: returnTo })
+  if (authJourney) switchParams.set('reason', authJourney)
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()
@@ -53,6 +57,7 @@ export function AuthForm({ mode, googleEnabled, returnTo = '/account/' }: { mode
 
   return (
     <div className="auth-panel">
+      {authJourney && <p className="auth-panel__context">{authJourneyMessages[authJourney]}</p>}
       <a className={`google-button${googleEnabled ? '' : ' google-button--disabled'}`} href={googleEnabled ? `/api/auth/google/start?next=${encodeURIComponent(returnTo)}` : undefined} aria-disabled={!googleEnabled}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.8 3-4.3 3-7.3Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1a5.8 5.8 0 0 1-5.5-4H3.2v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.5 14a6 6 0 0 1 0-3.9V7.5H3.2a10 10 0 0 0 0 9.1L6.5 14Z"/><path fill="#EA4335" d="M12 6.1c1.5 0 2.8.5 3.9 1.5l2.8-2.8A9.4 9.4 0 0 0 3.2 7.5l3.3 2.6a5.8 5.8 0 0 1 5.5-4Z"/></svg>
         Continue with Google
@@ -87,7 +92,7 @@ export function AuthForm({ mode, googleEnabled, returnTo = '/account/' }: { mode
 
       <p className="auth-panel__switch">
         {isRegister ? 'Already have an account?' : 'New to Expats.fi?'}{' '}
-        <Link href={`${isRegister ? '/login/' : '/register/'}?next=${encodeURIComponent(returnTo)}`}>{isRegister ? 'Sign in' : 'Create an account'}</Link>
+        <Link href={`${isRegister ? '/login/' : '/register/'}?${switchParams.toString()}`}>{isRegister ? 'Sign in' : 'Create an account'}</Link>
       </p>
     </div>
   )

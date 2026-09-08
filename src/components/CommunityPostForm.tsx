@@ -29,7 +29,7 @@ export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccept
     return (
       <div className="community-board__join" aria-labelledby="community-join-title">
         <div><p className="eyebrow">Want to join in?</p><h2 id="community-join-title">Ask a question or share what you have learned.</h2><p>Sign in to start a conversation. Reading is open to everyone.</p></div>
-        <Link className="button" href="/login/?next=/community/board/">Sign in to post</Link>
+        <Link className="button" href="/login/?next=%2Fcommunity%2Fboard%2F&reason=start-post">Sign in to post</Link>
       </div>
     )
   }

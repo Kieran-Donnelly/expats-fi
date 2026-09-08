@@ -33,8 +33,8 @@ export function SubmissionForm({
         <h2 id="submission-sign-in-title">Sign in before sending your listing.</h2>
         <p>That gives you a place to follow the review and means we can come back to you if anything needs checking.</p>
         <div className="button-row">
-          <Link className="button" href="/login/?next=%2Fsubmit-business%2F">Sign in to continue</Link>
-          <Link className="button button--quiet" href="/register/?next=%2Fsubmit-business%2F">Create an account</Link>
+          <Link className="button" href="/login/?next=%2Fsubmit-business%2F&reason=submit-business">Sign in to continue</Link>
+          <Link className="button button--quiet" href="/register/?next=%2Fsubmit-business%2F&reason=submit-business">Create an account</Link>
         </div>
         <p className="form-note">Once you are signed in, we will bring you straight back here.</p>
       </div>
