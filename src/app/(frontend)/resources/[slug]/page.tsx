@@ -14,7 +14,7 @@ import { getArticle, getArticles } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { demoteEmbeddedH1Headings } from '@/lib/rich-text'
 import { getSavedArticleIds } from '@/lib/saved-articles'
-import { absoluteUrl, breadcrumbJsonLd, publisher } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, publisher, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 const resourceSocialImage = absoluteUrl('/images/heroes/resources-documents-laptop.webp')
@@ -23,12 +23,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const article = await getArticle(slug)
   if (!article) return {}
+  const description = seoDescription(article.description)
   return {
     title: article.title,
-    description: article.description,
+    description,
     alternates: { canonical: `/resources/${article.slug}/` },
-    openGraph: { title: article.title, description: article.description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [resourceSocialImage] },
-    twitter: { card: 'summary_large_image', title: article.title, description: article.description, images: [resourceSocialImage] },
+    openGraph: { title: article.title, description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [resourceSocialImage] },
+    twitter: { card: 'summary_large_image', title: article.title, description, images: [resourceSocialImage] },
   }
 }
 
@@ -42,9 +43,13 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   const publishedDate = dateFormatter.format(new Date(article.publishedAt))
   const updatedDate = dateFormatter.format(new Date(article.updatedAt))
   const wasUpdated = publishedDate !== updatedDate
-  const relatedArticles = (await getArticles({ category: article.category, limit: 4 }))
-    .filter((candidate) => candidate.slug !== article.slug)
-    .slice(0, 3)
+  const categoryArticles = await getArticles({ category: article.category })
+  const currentIndex = categoryArticles.findIndex((candidate) => candidate.slug === article.slug)
+  const relatedArticles = currentIndex < 0
+    ? categoryArticles.filter((candidate) => candidate.slug !== article.slug).slice(0, 3)
+    : Array.from({ length: Math.min(3, categoryArticles.length - 1) }, (_, offset) =>
+        categoryArticles[(currentIndex + offset + 1) % categoryArticles.length],
+      )
 
   return (
     <main id="main">

@@ -12,7 +12,7 @@ import { businessAreaSlugs } from '@/data/business-area-connections'
 import { getBusiness, labels } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedBusinessIds } from '@/lib/saved-businesses'
-import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, defaultSocialImage, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,12 +21,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const business = await getBusiness(slug)
   if (!business) return {}
   const image = business.imagePath ? absoluteUrl(business.imagePath) : defaultSocialImage
+  const description = seoDescription(business.summary)
   return {
     title: business.name,
-    description: business.summary,
+    description,
     alternates: { canonical: `/businesses/${business.slug}/` },
-    openGraph: { title: business.name, description: business.summary, type: 'website', url: `/businesses/${business.slug}/`, images: [image] },
-    twitter: { card: 'summary_large_image', title: business.name, description: business.summary, images: [image] },
+    openGraph: { title: business.name, description, type: 'website', url: `/businesses/${business.slug}/`, images: [image] },
+    twitter: { card: 'summary_large_image', title: business.name, description, images: [image] },
   }
 }
 

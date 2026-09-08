@@ -17,6 +17,19 @@ export function absoluteUrl(path: string): string {
   return new URL(path, siteUrl).toString()
 }
 
+export function seoDescription(value: string, maxLength = 160): string {
+  const description = value.replace(/\s+/g, ' ').trim()
+  if (description.length <= maxLength) return description
+
+  const shortened = description.slice(0, maxLength - 1)
+  const lastSpace = shortened.lastIndexOf(' ')
+  const cleanCut = lastSpace >= Math.floor(maxLength * 0.7)
+    ? shortened.slice(0, lastSpace)
+    : shortened
+
+  return `${cleanCut.replace(/[,:;.!?\s]+$/, '')}…`
+}
+
 export function socialMetadata({ title, description, path, image = defaultSocialImage }: {
   title: string
   description: string
@@ -24,14 +37,15 @@ export function socialMetadata({ title, description, path, image = defaultSocial
   image?: string
 }): Metadata {
   const imageUrl = absoluteUrl(image)
+  const searchDescription = seoDescription(description)
 
   return {
     title,
-    description,
+    description: searchDescription,
     alternates: { canonical: path },
     openGraph: {
       title,
-      description,
+      description: searchDescription,
       type: 'website',
       url: path,
       images: [{ url: imageUrl, alt: `${title} on Expats.fi` }],
@@ -39,7 +53,7 @@ export function socialMetadata({ title, description, path, image = defaultSocial
     twitter: {
       card: 'summary_large_image',
       title,
-      description,
+      description: searchDescription,
       images: [imageUrl],
     },
   }

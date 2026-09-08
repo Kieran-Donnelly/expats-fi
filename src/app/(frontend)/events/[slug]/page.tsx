@@ -7,7 +7,7 @@ import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { getEvent } from '@/lib/content'
 import { isPastEvent } from '@/lib/events'
-import { absoluteUrl, breadcrumbJsonLd } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 const eventSocialImage = absoluteUrl('/images/heroes/events-evening-gathering.webp')
@@ -17,12 +17,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const event = await getEvent(slug)
   if (!event) return {}
   const hasPassed = isPastEvent(event.endDate)
+  const description = seoDescription(event.blurb)
   return {
     title: event.title,
-    description: event.blurb,
+    description,
     alternates: { canonical: `/events/${event.slug}/` },
-    openGraph: { title: event.title, description: event.blurb, type: 'website', url: `/events/${event.slug}/`, images: [eventSocialImage] },
-    twitter: { card: 'summary_large_image', title: event.title, description: event.blurb, images: [eventSocialImage] },
+    openGraph: { title: event.title, description, type: 'website', url: `/events/${event.slug}/`, images: [eventSocialImage] },
+    twitter: { card: 'summary_large_image', title: event.title, description, images: [eventSocialImage] },
     ...(hasPassed ? { robots: { index: false, follow: true } } : {}),
   }
 }

@@ -11,7 +11,7 @@ import { NewsCard } from '@/components/NewsCard'
 import { ReadingProgress } from '@/components/ReadingProgress'
 import { ShareButton } from '@/components/ShareButton'
 import { getNewsImage } from '@/lib/news-images'
-import { absoluteUrl, breadcrumbJsonLd, publisher } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, publisher, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -31,12 +31,13 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const story = await getNewsStory(slug)
   if (!story) return {}
   const image = absoluteUrl(getNewsImage(story.slug).src)
+  const description = seoDescription(story.standfirst)
   return {
     title: story.title,
-    description: story.standfirst,
+    description,
     alternates: { canonical: `/news/${story.slug}/` },
-    openGraph: { title: story.title, description: story.standfirst, type: 'article', url: `/news/${story.slug}/`, publishedTime: story.publishedAt, modifiedTime: story.updatedAt, images: [image] },
-    twitter: { card: 'summary_large_image', title: story.title, description: story.standfirst, images: [image] },
+    openGraph: { title: story.title, description, type: 'article', url: `/news/${story.slug}/`, publishedTime: story.publishedAt, modifiedTime: story.updatedAt, images: [image] },
+    twitter: { card: 'summary_large_image', title: story.title, description, images: [image] },
   }
 }
 
@@ -50,9 +51,13 @@ export default async function NewsStoryPage({ params }: { params: Promise<{ slug
   const sources = sourcesFrom(story.sources)
   const image = getNewsImage(story.slug)
   const imageUrl = absoluteUrl(image.src)
-  const relatedStories = (await getNewsStories({ category: story.category, limit: 4 }))
-    .filter((candidate) => candidate.slug !== story.slug)
-    .slice(0, 3)
+  const categoryStories = await getNewsStories({ category: story.category })
+  const currentIndex = categoryStories.findIndex((candidate) => candidate.slug === story.slug)
+  const relatedStories = currentIndex < 0
+    ? categoryStories.filter((candidate) => candidate.slug !== story.slug).slice(0, 3)
+    : Array.from({ length: Math.min(3, categoryStories.length - 1) }, (_, offset) =>
+        categoryStories[(currentIndex + offset + 1) % categoryStories.length],
+      )
 
   return (
     <main id="main" className="news-story-page">

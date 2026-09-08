@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "cross-env NODE_OPTIONS=--no-deprecation next dev",
     "build": "cross-env NODE_OPTIONS=--no-deprecation next build",
+    "audit:seo": "node scripts/seo-audit.mjs",
     "start": "cross-env NODE_OPTIONS=--no-deprecation next start",
     "lint": "cross-env NODE_OPTIONS=--no-deprecation eslint .",
     "test": "cross-env NODE_OPTIONS=--no-deprecation tsx --test",

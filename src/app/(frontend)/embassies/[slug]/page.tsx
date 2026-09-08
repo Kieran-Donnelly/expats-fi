@@ -2,9 +2,10 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
+import { JsonLd } from '@/components/JsonLd'
 import { representationLabels, representationSummary } from '@/lib/embassies'
 import { getEmbassy } from '@/lib/content'
-import { socialMetadata } from '@/lib/seo'
+import { breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -26,6 +27,11 @@ export default async function EmbassyPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main id="main" className="shell detail-shell embassy-profile">
+      <JsonLd data={breadcrumbJsonLd([
+        { name: 'Home', path: '/' },
+        { name: 'Embassies and consulates', path: '/embassies/' },
+        { name: embassy.country, path: `/embassies/${embassy.slug}/` },
+      ])} />
       <Link className="back-link" href="/embassies/">← All embassies and missions</Link>
       <header className="embassy-profile__header">
         <div>
