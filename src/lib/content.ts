@@ -6,6 +6,7 @@ import type { CityEvent, EventTransport } from '@/data/events'
 import type { LearningResource, PracticeGroup } from '@/data/finnishLearning'
 import { businessDrafts } from '@/data/business-drafts'
 import { businesses as seedBusinesses } from '@/data/businesses'
+import { retiredArticleSlugs } from '@/lib/article-lifecycle'
 import { helsinkiDateKey } from '@/lib/events'
 import type { Article, Business, Embassy, NewsStory } from '@/payload-types'
 
@@ -80,7 +81,7 @@ export async function getArticles({
   query?: string
 } = {}): Promise<Article[]> {
   const payload = await getPayload({ config })
-  const and: Where[] = []
+  const and: Where[] = [{ slug: { not_in: retiredArticleSlugs } }]
 
   if (category) and.push({ category: { equals: category } })
   if (typeof featured === 'boolean') and.push({ featured: { equals: featured } })

@@ -3,6 +3,7 @@ import type { NextConfig } from 'next'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import articles from './src/data/articles.json' with { type: 'json' }
+import { retiredArticleRedirects } from './src/lib/article-lifecycle'
 
 const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 const businessSlugs = ['home-chef-mark', 'aussie-bar', 'alstudio-barbershop']
@@ -42,6 +43,11 @@ const nextConfig: NextConfig = {
       { source: '/privacy-policy', destination: '/privacy/', permanent: true },
       { source: '/contact', destination: '/about/#about-invitation-heading', permanent: true },
       { source: '/list-your-business', destination: '/submit-business/', permanent: true },
+      ...Object.entries(retiredArticleRedirects).map(([slug, destination]) => ({
+        source: `/resources/${slug}`,
+        destination,
+        permanent: true,
+      })),
       ...Object.entries({
         catering: 'Catering',
         'food-beverage': 'Food & drink',

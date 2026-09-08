@@ -7,8 +7,8 @@ import { settlingGuides } from '@/data/settling'
 import { socialMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = socialMetadata({
-  title: 'Moving to Finland: your first 90 days',
-  description: 'A practical route through permits, registration, banking, tax, Kela, healthcare and digital services during your first 90 days in Finland.',
+  title: 'Moving to Finland checklist: start here',
+  description: 'A practical moving-to-Finland checklist covering what to prepare before arrival, then permits, DVV registration, banking, tax, Kela and healthcare.',
   path: '/start-here/',
   image: '/images/heroes/start-here-helsinki-station.webp',
 })

@@ -13,7 +13,10 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getSettlingGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/start-here/${guide.slug}/`, image: '/images/heroes/start-here-helsinki-station.webp' })
+  const title = guide.slug === 'first-90-days-in-finland'
+    ? 'First 90 days in Finland: what to do after you arrive'
+    : guide.title
+  return socialMetadata({ title, description: guide.summary, path: `/start-here/${guide.slug}/`, image: '/images/heroes/start-here-helsinki-station.webp' })
 }
 
 export default async function SettlingGuidePage({ params }: { params: Promise<{ slug: string }> }) {

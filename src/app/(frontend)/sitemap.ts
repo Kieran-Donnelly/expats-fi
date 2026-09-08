@@ -17,7 +17,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const [articles, businesses, embassies, events, newsStories] = await Promise.all([getArticles(), getBusinesses(), getEmbassies(), getEvents({ upcoming: true }), getNewsStories()])
   // Update this when the guides and other file-backed content receive a material edit.
   // CMS-backed entries below keep their own real update dates.
-  const staticLastModified = new Date('2026-09-06T00:00:00.000Z')
+  const staticLastModified = new Date('2026-09-08T00:00:00.000Z')
   const entries: MetadataRoute.Sitemap = [
     { url: 'https://expats.fi/', lastModified: staticLastModified, priority: 1 },
     { url: 'https://expats.fi/about/', lastModified: staticLastModified, priority: .7 },
