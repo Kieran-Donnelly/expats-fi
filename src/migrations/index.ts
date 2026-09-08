@@ -1,3 +1,4 @@
+import * as migration_20260908_080000_restore_missing_events from './20260908_080000_restore_missing_events';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
 import * as migration_20260803_075648_seed_current_content from './20260803_075648_seed_current_content';
@@ -209,5 +210,10 @@ export const migrations = [
     up: migration_20260907_100000_publish_september_news.up,
     down: migration_20260907_100000_publish_september_news.down,
     name: '20260907_100000_publish_september_news',
+  },
+  {
+    up: migration_20260908_080000_restore_missing_events.up,
+    down: migration_20260908_080000_restore_missing_events.down,
+    name: '20260908_080000_restore_missing_events',
   },
 ];

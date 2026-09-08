@@ -24,6 +24,26 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      // Preserve useful links from the former WordPress site. Do not redirect
+      // retired system endpoints or unknown URLs to unrelated home-page content.
+      { source: '/privacy-policy', destination: '/privacy/', permanent: true },
+      { source: '/contact', destination: '/about/#about-invitation-heading', permanent: true },
+      { source: '/list-your-business', destination: '/submit-business/', permanent: true },
+      ...Object.entries({
+        catering: 'Catering',
+        'food-beverage': 'Food & drink',
+        trades: 'Trades',
+        'bars-restaurants': 'Bars & restaurants',
+      }).map(([slug, category]) => ({
+        source: `/business-category/${slug}`,
+        destination: `/businesses/?category=${encodeURIComponent(category)}#business-directory`,
+        permanent: true,
+      })),
+      ...['Helsinki', 'Espoo', 'Vantaa'].map((city) => ({
+        source: `/business-location/${city.toLowerCase()}`,
+        destination: `/businesses/?location=${city}#business-directory`,
+        permanent: true,
+      })),
       ...articles.map((article) => ({
         source: `/${article.slug}`,
         destination: `/resources/${article.slug}/`,
