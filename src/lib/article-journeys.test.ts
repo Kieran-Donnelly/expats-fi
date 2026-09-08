@@ -21,3 +21,18 @@ test('connects the registration, bank account, digital identity and Kela journey
     ],
   )
 })
+
+test('separates job search, public employment services and employment rights', () => {
+  assert.equal(
+    articleSeoTitle('guide-employment-employment-services', 'Fallback'),
+    'Job Market Finland and local employment services',
+  )
+  assert.deepEqual(
+    articleJourneyLinks['guide-employment-employment-contract'].map(({ href }) => href),
+    [
+      '/resources/guide-employment-wages-conditions/',
+      '/resources/guide-employment-unions/',
+      '/resources/guide-employment-employment-law-and-disputes/',
+    ],
+  )
+})
