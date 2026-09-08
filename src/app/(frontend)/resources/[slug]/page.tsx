@@ -14,6 +14,7 @@ import { getArticle, getArticles } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { demoteEmbeddedH1Headings } from '@/lib/rich-text'
 import { getSavedArticleIds } from '@/lib/saved-articles'
+import { articleJourneyLinks, articleSeoTitle } from '@/lib/article-journeys'
 import { absoluteUrl, breadcrumbJsonLd, publisher, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
@@ -23,13 +24,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const article = await getArticle(slug)
   if (!article) return {}
+  const title = articleSeoTitle(article.slug, article.title)
   const description = seoDescription(article.description)
   return {
-    title: article.title,
+    title,
     description,
     alternates: { canonical: `/resources/${article.slug}/` },
-    openGraph: { title: article.title, description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [resourceSocialImage] },
-    twitter: { card: 'summary_large_image', title: article.title, description, images: [resourceSocialImage] },
+    openGraph: { title, description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [resourceSocialImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [resourceSocialImage] },
   }
 }
 
@@ -50,6 +52,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
     : Array.from({ length: Math.min(3, categoryArticles.length - 1) }, (_, offset) =>
         categoryArticles[(currentIndex + offset + 1) % categoryArticles.length],
       )
+  const journeyLinks = articleJourneyLinks[article.slug] ?? []
 
   return (
     <main id="main">
@@ -63,7 +66,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1><p className="article-page__description">{article.description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /><ShareButton contentType="guide" path={`/resources/${article.slug}/`} title={article.title} text={article.description} /></div></header>
         <div className="article-page__layout">
           <article className="prose"><RichText data={demoteEmbeddedH1Headings(article.content) as SerializedEditorState} /></article>
-          <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This is part of the original Expats.fi guide library, kept here and updated as the practical details change.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div><div><strong>Check before acting</strong><p>Immigration, tax and benefit rules can change. Confirm decisions with the relevant Finnish authority.</p></div></aside>
+          <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This is part of the original Expats.fi guide library, kept here and updated as the practical details change.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div>{journeyLinks.length > 0 && <nav className="article-next-steps" aria-label="Next useful steps"><strong>Next useful steps</strong>{journeyLinks.map((item) => <Link href={item.href} key={item.href}><span>{item.title}</span><small>{item.description}</small></Link>)}</nav>}<div><strong>Check before acting</strong><p>Immigration, tax and benefit rules can change. Confirm decisions with the relevant Finnish authority.</p></div></aside>
         </div>
       </div>
       {relatedArticles.length > 0 && (

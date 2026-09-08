@@ -15,6 +15,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!guide) return {}
   const title = guide.slug === 'first-90-days-in-finland'
     ? 'First 90 days in Finland: what to do after you arrive'
+    : guide.slug === 'digital-finland-survival-kit'
+      ? 'Strong identification and online services in Finland'
     : guide.title
   return socialMetadata({ title, description: guide.summary, path: `/start-here/${guide.slug}/`, image: '/images/heroes/start-here-helsinki-station.webp' })
 }
