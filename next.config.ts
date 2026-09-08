@@ -34,9 +34,10 @@ const nextConfig: NextConfig = {
         'food-beverage': 'Food & drink',
         trades: 'Trades',
         'bars-restaurants': 'Bars & restaurants',
+        'professional-services': '',
       }).map(([slug, category]) => ({
         source: `/business-category/${slug}`,
-        destination: `/businesses/?category=${encodeURIComponent(category)}#business-directory`,
+        destination: category ? `/businesses/?category=${encodeURIComponent(category)}#business-directory` : '/businesses/#business-directory',
         permanent: true,
       })),
       ...['Helsinki', 'Espoo', 'Vantaa'].map((city) => ({
