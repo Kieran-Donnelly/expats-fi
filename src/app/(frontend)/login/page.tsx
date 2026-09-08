@@ -19,8 +19,8 @@ async function AuthPage({ searchParams }: { searchParams: Promise<{ error?: stri
         <section className="auth-page__intro">
           <Link className="back-link" href="/">← Back to Expats.fi</Link>
           <h1>Welcome back.</h1>
-          <p>Sign in to your Expats.fi account. Keep useful Finland guides saved in one place, with more member tools to come.</p>
-          <div className="auth-promise"><strong>One account for life in Finland</strong><span>We are building the useful parts next.</span></div>
+          <p>Sign in to your Expats.fi account. Keep useful guides and businesses saved in one place, manage your preferences and join the community board.</p>
+          <div className="auth-promise"><strong>One account for life in Finland</strong><span>Your saved reading, local finds and community conversations stay together.</span></div>
         </section>
         <section aria-labelledby="sign-in-title">
           <h2 id="sign-in-title" className="auth-page__form-title">Sign in</h2>

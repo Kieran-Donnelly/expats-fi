@@ -46,7 +46,7 @@ export default function PrivacyPage() {
           <section>
             <h2>Why we use it</h2>
             <p>Account and contribution data are used to provide the service you request. Security and moderation information are used for our legitimate interest in protecting members, the site and the wider community. Email updates and analytics are optional and rely on your consent, which you can withdraw.</p>
-            <p>Automated checks may flag a contribution for a closer look, but they do not make the final decision on questionable community content. Uriah or Kieran reviews anything that needs a human call.</p>
+            <p>Automated checks may flag a contribution for a closer look, but they do not make the final decision on questionable community content. The Expats.fi team reviews anything that needs a human call.</p>
           </section>
 
           <section>
