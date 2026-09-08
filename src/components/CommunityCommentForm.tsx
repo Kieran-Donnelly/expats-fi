@@ -57,7 +57,7 @@ export function CommunityCommentForm({ canPost = true, postSlug, isAuthenticated
       <label className="sr-only" htmlFor="community-reply">Your reply</label>
       <textarea id="community-reply" value={body} onChange={(event) => setBody(event.target.value)} required minLength={2} maxLength={3000} rows={5} placeholder="Add a useful detail, personal experience or kind follow-up." />
       <label className="community-anonymous-check"><input type="checkbox" checked={anonymous} onChange={(event) => setAnonymous(event.target.checked)} /> <span><strong>Answer anonymously</strong><small>Your friendly alias is public. Moderators can still see your account.</small></span></label>
-      {!rulesAccepted && <label className="community-rules-check"><input type="checkbox" checked={acceptedRules} onChange={(event) => setAcceptedRules(event.target.checked)} required /> <span>I agree to the <Link href="/community/rules/" target="_blank">community rules</Link>.</span></label>}
+      {!rulesAccepted && <label className="community-rules-check"><input type="checkbox" checked={acceptedRules} onChange={(event) => setAcceptedRules(event.target.checked)} required /> <span>I agree to the <Link href="/community/rules/" target="_blank" rel="noreferrer">community rules</Link>.</span></label>}
       <div className="community-form__footer"><small>Keep personal information private and assume good intent.</small><button className="button" type="submit" disabled={busy}>{busy ? 'Sending…' : 'Reply'}</button></div>
     </form>
   )

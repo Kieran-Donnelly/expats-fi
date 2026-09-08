@@ -78,7 +78,7 @@ export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccept
       <label>Topic<select value={topic} onChange={(event) => setTopic(event.target.value)}>{communityTopicOptions.map((option) => <option value={option.value} key={option.value}>{option.label}</option>)}</select></label>
       <label>Your post<textarea value={body} onChange={(event) => setBody(event.target.value)} required minLength={10} maxLength={5000} rows={7} placeholder="Share the context that would help another expat give a useful answer." /></label>
       <label className="community-anonymous-check"><input type="checkbox" checked={anonymous} onChange={(event) => setAnonymous(event.target.checked)} /> <span><strong>Post anonymously</strong><small>Your friendly alias is public. Expats.fi moderators can still see the account behind it.</small></span></label>
-      {!rulesAccepted && <label className="community-rules-check"><input type="checkbox" checked={acceptedRules} onChange={(event) => setAcceptedRules(event.target.checked)} required /> <span>I have read and agree to the <Link href="/community/rules/" target="_blank">community rules</Link>.</span></label>}
+      {!rulesAccepted && <label className="community-rules-check"><input type="checkbox" checked={acceptedRules} onChange={(event) => setAcceptedRules(event.target.checked)} required /> <span>I have read and agree to the <Link href="/community/rules/" target="_blank" rel="noreferrer">community rules</Link>.</span></label>}
       <div className="community-form__footer"><small>New members are reviewed first. Never share private identity, banking or contact details.</small><button className="button" type="submit" disabled={busy}>{busy ? 'Sending…' : 'Send post'}</button></div>
     </form>
   )
