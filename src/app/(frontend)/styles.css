@@ -934,6 +934,10 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .auth-page__intro h1 { max-inline-size: 12ch; font-size: clamp(3rem, 6vw, 4.5rem); }
 .auth-page__intro > p { max-inline-size: 35rem; margin: 1.2rem 0 0; color: var(--ink-soft); font-size: 1.1rem; }
 .auth-page__intro .back-link { margin-block-end: 3.5rem; }
+.auth-benefits { display: grid; gap: .7rem; margin: 2rem 0 0; padding: 0; list-style: none; }
+.auth-benefits li { display: flex; gap: .8rem; align-items: baseline; }
+.auth-benefits span { color: var(--green); font-size: .68rem; font-weight: 780; letter-spacing: .06em; }
+.auth-benefits strong { color: var(--ink); font-size: .94rem; }
 .auth-promise { display: flex; flex-wrap: wrap; gap: .35rem 1rem; margin-block-start: 2.5rem; padding-block-start: 1rem; border-block-start: 1px solid var(--line-strong); }
 .auth-promise strong { color: var(--blue-dark); }
 .auth-promise span { color: var(--ink-soft); }
@@ -969,6 +973,15 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .text-button { padding: .65rem .8rem; border: 1px solid var(--line-strong); border-radius: .55rem; background: var(--snow); color: var(--ink-soft); font-weight: 650; }
 .text-button:hover { border-color: var(--blue); color: var(--blue); }
 .account-content { display: grid; gap: 4rem; margin-block-start: 3rem; }
+.account-welcome { display: grid; grid-template-columns: minmax(15rem, .7fr) minmax(0, 1.3fr); gap: clamp(1.5rem, 5vw, 4rem); padding: clamp(1.5rem, 4vw, 2.2rem); border-radius: .9rem; background: var(--blue-dark); color: var(--snow); }
+.account-welcome__intro h2 { margin-block: .35rem .65rem; color: var(--snow); font-size: clamp(1.8rem, 4vw, 2.5rem); }
+.account-welcome__intro > p:last-child { margin: 0; color: oklch(88% .02 250); font-size: .86rem; line-height: 1.6; }
+.account-welcome__steps { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.account-welcome__steps a { display: grid; align-content: start; gap: .45rem; padding: .25rem 1.2rem; border-inline-start: 1px solid oklch(100% 0 0 / .2); color: var(--snow); text-decoration: none; }
+.account-welcome__steps span { color: oklch(79% .13 145); font-size: .68rem; font-weight: 780; letter-spacing: .06em; }
+.account-welcome__steps strong { font-size: .9rem; line-height: 1.35; }
+.account-welcome__steps small { color: oklch(84% .02 250); font-size: .72rem; line-height: 1.5; }
+.account-welcome__steps a:hover strong { text-decoration: underline; text-underline-offset: .2rem; }
 .account-section__heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; margin-block-end: 1.2rem; }
 .account-section__heading .eyebrow { margin-block-end: .35rem; }
 .account-section__heading h2 { font-size: clamp(1.9rem, 4vw, 2.7rem); }
@@ -1644,6 +1657,9 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .account-page__header { grid-template-columns: auto minmax(0, 1fr); }
   .account-page__header .text-button { grid-column: 1 / -1; justify-self: start; }
   .account-section__heading { align-items: start; flex-direction: column; gap: .45rem; }
+  .account-welcome { grid-template-columns: 1fr; }
+  .account-welcome__steps { grid-template-columns: 1fr; gap: 1rem; }
+  .account-welcome__steps a { padding: 0 0 1rem 1rem; }
 }
 
 @media (max-width: 440px) {

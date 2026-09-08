@@ -66,6 +66,7 @@ export default async function AccountPage() {
   ])
   const trustLevel = member.communityTrust || 'new'
   const trustDetails = communityTrustDetails[trustLevel]
+  const isFreshAccount = !member.city && !member.languages && !member.arrivalStage && !member.interests?.length && savedArticles.length === 0 && savedBusinesses.length === 0 && submissions.length === 0 && communityPosts.length === 0
 
   return (
     <main id="main" className="account-page">
@@ -81,7 +82,22 @@ export default async function AccountPage() {
         </header>
 
         <div className="account-content">
-          <section className="account-settings-grid" aria-label="Account settings">
+          {isFreshAccount && (
+            <section className="account-welcome" aria-labelledby="account-welcome-title">
+              <div className="account-welcome__intro">
+                <p className="eyebrow">A good place to begin</p>
+                <h2 id="account-welcome-title">Settle in at your own pace.</h2>
+                <p>You do not need to fill in everything today. Pick whichever of these would make the site more useful right now.</p>
+              </div>
+              <div className="account-welcome__steps">
+                <Link href="#account-details"><span>01</span><strong>Tell us what stage you are at</strong><small>So future recommendations feel relevant.</small></Link>
+                <Link href="/resources/"><span>02</span><strong>Find your first useful guide</strong><small>Save it here for the day you need it.</small></Link>
+                <Link href="/community/board/"><span>03</span><strong>Have a look around the board</strong><small>Ask, answer or simply see what people are discussing.</small></Link>
+              </div>
+            </section>
+          )}
+
+          <section id="account-details" className="account-settings-grid" aria-label="Account settings">
             <AccountProfileForm initialName={member.name} initialCity={member.city} initialLanguages={member.languages} initialArrivalStage={member.arrivalStage} />
             <AccountPreferencesForm initialEmailUpdates={member.emailUpdates} initialInterests={member.interests} initialNewsletter={member.newsletter} />
           </section>

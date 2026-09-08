@@ -15,8 +15,13 @@ export default async function RegisterPage({ searchParams }: { searchParams: Pro
         <section className="auth-page__intro">
           <Link className="back-link" href="/">← Back to Expats.fi</Link>
           <h1>Make Finland feel more familiar.</h1>
-          <p>Create your free account to save useful Finland guides and keep a personal shortlist as you find your way around.</p>
-          <div className="auth-promise"><strong>Free to join</strong><span>No subscription and no clutter.</span></div>
+          <p>Create an account to keep the useful bits together and take part when you have a question, a recommendation or something worth sharing.</p>
+          <ul className="auth-benefits" aria-label="What your account includes">
+            <li><span aria-hidden="true">01</span><strong>Save the guides you will actually need again.</strong></li>
+            <li><span aria-hidden="true">02</span><strong>Keep good local businesses in one shortlist.</strong></li>
+            <li><span aria-hidden="true">03</span><strong>Join practical community conversations.</strong></li>
+          </ul>
+          <div className="auth-promise"><strong>Free to join</strong><span>Your profile is not made public.</span></div>
         </section>
         <section aria-labelledby="create-account-title">
           <h2 id="create-account-title" className="auth-page__form-title">Create your account</h2>
