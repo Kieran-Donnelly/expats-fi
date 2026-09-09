@@ -4,6 +4,14 @@ type NewsImage = {
 }
 
 const newsImages: Record<string, NewsImage> = {
+  'finland-pisa-2025-immigrant-background-gap': {
+    src: '/images/news/finland-pisa-2025-immigrant-background-gap.webp',
+    alt: 'A diverse group of teenagers working together on a science task in a Nordic classroom',
+  },
+  'finland-driving-licence-rules-october-2026': {
+    src: '/images/news/finland-driving-licence-rules-october-2026.webp',
+    alt: 'An adult learner driver taking a calm lesson on a Helsinki-area street',
+  },
   'finland-foreign-language-residents-kela-benefits-2026': {
     src: '/images/news/finland-foreign-language-residents-kela-benefits-2026-v2.webp',
     alt: 'Two people calmly reviewing paperwork beside a laptop at home',

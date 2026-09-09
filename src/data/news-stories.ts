@@ -432,7 +432,8 @@ export const seedNewsStories: SeedNewsStory[] = [
       <p>Finnish job hunting already comes with enough tabs, forms and official vocabulary to make a perfectly capable person wonder whether they have accidentally applied to become an accountant. From 1 September 2026, there is another item to put on the list: a published job applicant profile on Job Market Finland.</p>
       <p>The important bit is that this is not simply a nice extra for people who fancy polishing their online presence. For most people registered as jobseekers, creating and publishing the profile will become an obligation.</p>
       <h2>What is actually changing?</h2>
-      <p>A new jobseeker will generally have 15 business days from the start of their job search to create and publish a profile. People whose unemployment began before September are not automatically forgotten. Their 15-business-day clock starts after their next jobseeker interview.</p>
+      <p>If your job search started on or after 1 September, you will generally have 15 business days from the start of the job search to create and publish a profile. The deadline is set automatically.</p>
+      <p>If your job search began before September, the obligation is normally added at your next meeting with employment services. You then have 15 business days to publish the profile. That distinction matters if you have been registered for a while and were wondering why no deadline had appeared yet.</p>
       <p>The duty can apply if you are unemployed, temporarily laid off, working part time or on a reduced working week. It may also cover part-time entrepreneurs, students and people studying independently while receiving unemployment benefit.</p>
       <p>There are exceptions. If your job search lasts no more than 15 business days, you normally do not need to publish a profile. An employment services specialist can also decide that publication is not appropriate or necessary in your particular situation. In other words, do not guess if your circumstances are unusual. Ask the person handling your case and get a clear answer.</p>
       <h2>Will all of Finland be reading your CV?</h2>
@@ -443,6 +444,9 @@ export const seedNewsStories: SeedNewsStory[] = [
       <p>Think of the profile as a short shop window rather than your entire professional autobiography. Employers should be able to understand what you do, what you are good at and what sort of work you want without decoding a page of vague corporate language.</p>
       <p>Job Market Finland divides the profile into skills, an introduction, and work experience and education. Give the profile a useful title, write a clear opening paragraph, add the areas where you can work, and be specific about your experience. If you work in English, say so clearly. If you have Finnish or Swedish at any level, include that honestly too.</p>
       <p>The service uses the details to recommend jobs and allows employers to contact suitable candidates, including for roles that may never appear as a public vacancy. That does not magically fix Finland's difficult job market, but a well-written profile gives you another route into it.</p>
+      <h2>Do not let the profile quietly expire</h2>
+      <p>A published profile can currently remain active for no more than six months at a time. If your job search continues beyond that, remember to extend or republish it before the publication period ends.</p>
+      <p>Put a reminder in your calendar when you publish. Six months is long enough for the detail to vanish from your head, but short enough to arrive while you are still dealing with the rest of the employment system.</p>
       <h2>What to do now</h2>
       <ol>
         <li>Log in to Job Market Finland and check whether you already have a profile.</li>
@@ -457,6 +461,7 @@ export const seedNewsStories: SeedNewsStory[] = [
       { name: 'City of Helsinki Employment Services', url: 'https://www.hel.fi/en/news/a-job-applicant-profile-helps-employers-find-your-competence-creating-one-will-be-mandatory-for' },
       { name: 'Job Market Finland', url: 'https://tyomarkkinatori.fi/en/news/tyollisyyspalveluja_koskevat_lakiuudistukset_vuonna_2026_' },
       { name: 'Job Market Finland profile guide', url: 'https://tyomarkkinatori.fi/en/teemasivut/job-applicant-profile' },
+      { name: 'Job Market Finland: how the publication obligation is applied', url: 'https://tyomarkkinatori.fi/en/news/tyonhakuprofiilin-julkaisemisesta-velvoittavaa-poks' },
     ],
   },
   {

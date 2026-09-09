@@ -1,5 +1,6 @@
 import * as migration_20260908_080000_restore_missing_events from './20260908_080000_restore_missing_events';
 import * as migration_20260908_210000_refine_employment_guides from './20260908_210000_refine_employment_guides';
+import * as migration_20260909_070000_publish_pisa_driving_news from './20260909_070000_publish_pisa_driving_news';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
 import * as migration_20260803_075648_seed_current_content from './20260803_075648_seed_current_content';
@@ -221,5 +222,10 @@ export const migrations = [
     up: migration_20260908_210000_refine_employment_guides.up,
     down: migration_20260908_210000_refine_employment_guides.down,
     name: '20260908_210000_refine_employment_guides',
+  },
+  {
+    up: migration_20260909_070000_publish_pisa_driving_news.up,
+    down: migration_20260909_070000_publish_pisa_driving_news.down,
+    name: '20260909_070000_publish_pisa_driving_news',
   },
 ];
