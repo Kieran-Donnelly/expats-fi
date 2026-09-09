@@ -3,7 +3,7 @@ import { RichText } from '@payloadcms/richtext-lexical/react'
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
 import Link from 'next/link'
-import { notFound } from 'next/navigation'
+import { notFound, permanentRedirect } from 'next/navigation'
 
 import { ArticleCard } from '@/components/ArticleCard'
 import { SaveArticleButton } from '@/components/SaveArticleButton'
@@ -15,6 +15,7 @@ import { getCurrentMember } from '@/lib/member-auth'
 import { demoteEmbeddedH1Headings } from '@/lib/rich-text'
 import { getSavedArticleIds } from '@/lib/saved-articles'
 import { articleJourneyLinks, articleSeoTitle } from '@/lib/article-journeys'
+import { retiredArticleDestination } from '@/lib/article-lifecycle'
 import { absoluteUrl, breadcrumbJsonLd, publisher, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
@@ -22,6 +23,8 @@ const resourceSocialImage = absoluteUrl('/images/heroes/resources-documents-lapt
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
+  const replacement = retiredArticleDestination(slug)
+  if (replacement) permanentRedirect(replacement)
   const article = await getArticle(slug)
   if (!article) return {}
   const title = articleSeoTitle(article.slug, article.title)
@@ -37,6 +40,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
 
 export default async function ArticlePage({ params }: { params: Promise<{ slug: string }> }) {
   const { slug } = await params
+  const replacement = retiredArticleDestination(slug)
+  if (replacement) permanentRedirect(replacement)
   const article = await getArticle(slug)
   if (!article) notFound()
   const member = await getCurrentMember(await headers())
