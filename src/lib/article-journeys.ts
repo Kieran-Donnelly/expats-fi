@@ -17,6 +17,12 @@ export const articleSeoTitles: Record<string, string> = {
   'guide-employment-employment-contract': 'Finnish employment contracts: what to check before signing',
   'guide-employment-employment-law-and-disputes': 'Employment rights and workplace disputes in Finland',
   'guide-employment-unions': 'Trade unions and unemployment funds in Finland',
+  'guide-moving-to-finland-study-in-finland': 'Studying in Finland: choosing a route and planning your move',
+  'guide-living-in-finland-public-healthcare': 'Public healthcare in Finland: appointments, costs and urgent care',
+  'guide-living-in-finland-private-healthcare': 'Private healthcare in Finland: access, insurance and costs',
+  'guide-living-in-finland-preschools-kindergartens': 'Daycare and preschool in Finland: applications, options and fees',
+  'guide-living-in-finland-international-schools': 'International and bilingual schools in Finland: choosing a route',
+  'guide-living-in-finland-education': 'Education in Finland: the routes from daycare to higher study',
   'guide-housing-index': 'Housing in Finland: renting, buying and running your home',
   'guide-housing-finding-housing-in-finland': 'Finding a home in Finland: rental and buying routes',
   'guide-housing-renting-in-finland': 'Renting in Finland: leases, deposits and tenant rights',
@@ -66,6 +72,113 @@ export const articleJourneyLinks: Record<string, ArticleJourneyLink[]> = {
       href: '/start-here/digital-finland-survival-kit/',
       title: 'Find your way around OmaKela and Suomi.fi',
       description: 'See which Finnish online service does what and what to do while strong identification is still missing.',
+    },
+    {
+      href: '/family/benefits-and-family-money/',
+      title: 'Understand benefits for families',
+      description: 'Pregnancy, parental and child-related support each have their own conditions, applications and timing.',
+    },
+  ],
+  'guide-moving-to-finland-study-in-finland': [
+    {
+      href: '/study/',
+      title: 'Open the Study in Finland hub',
+      description: 'Compare degree, vocational, integration, language and flexible study routes before choosing a programme.',
+    },
+    {
+      href: '/study/tuition-fees-permits-and-paying-for-study/',
+      title: 'Check the real cost and permit route',
+      description: 'Free study, tuition fees, scholarships, residence permits and Kela support do not follow one universal rule.',
+    },
+    {
+      href: '/study/choosing-the-right-study-route/',
+      title: 'Choose the route before the school',
+      description: 'Start with the qualification, job skill or language outcome you need, then compare providers.',
+    },
+  ],
+  'guide-living-in-finland-public-healthcare': [
+    {
+      href: '/family/healthcare-and-maisa/',
+      title: 'Learn how appointments and records work',
+      description: 'Health stations, Maisa, MyKanta and acting for a child or partner become much easier once the roles are separated.',
+    },
+    {
+      href: '/family/urgent-help-and-safety/',
+      title: 'Know where to go when it is urgent',
+      description: 'Separate 112, the Medical Helpline, emergency departments, poisoning advice and family crisis support.',
+    },
+    {
+      href: '/help/',
+      title: 'Open the When Things Go Wrong hub',
+      description: 'Find a calm first doorway when health, safety, money or family circumstances have become difficult.',
+    },
+  ],
+  'guide-living-in-finland-private-healthcare': [
+    {
+      href: '/resources/guide-living-in-finland-public-healthcare/',
+      title: 'Compare the public route first',
+      description: 'Your municipality, occupational care and student care may already provide the service you need.',
+    },
+    {
+      href: '/family/healthcare-and-maisa/',
+      title: 'Keep the family health admin straight',
+      description: 'See where appointments, results, prescriptions and proxy access live across Finnish services.',
+    },
+    {
+      href: '/family/urgent-help-and-safety/',
+      title: 'Use the right urgent service',
+      description: 'A private booking service does not replace 112 or the Medical Helpline when the situation cannot wait.',
+    },
+  ],
+  'guide-living-in-finland-preschools-kindergartens': [
+    {
+      href: '/family/daycare-and-preschool/',
+      title: 'Use the complete daycare and preschool guide',
+      description: 'Work through applications, the four-month rule, fees, language support and the pre-primary year.',
+    },
+    {
+      href: '/family/babies-and-neuvola/',
+      title: 'Connect care with neuvola',
+      description: 'Child health clinics follow development, vaccinations and family wellbeing before school begins.',
+    },
+    {
+      href: '/family/community-and-support-groups/',
+      title: 'Find low-pressure family activities',
+      description: 'Playgrounds, family houses and family cafés can make the gap before a daycare place feel less lonely.',
+    },
+  ],
+  'guide-living-in-finland-international-schools': [
+    {
+      href: '/family/schooling-in-helsinki/',
+      title: 'Understand the local school route too',
+      description: 'Compare nearby schools, preparatory education, bilingual options, support and the daily Wilma routine.',
+    },
+    {
+      href: '/family/teenagers-and-next-steps/',
+      title: 'Plan the route after comprehensive school',
+      description: 'Lukio, vocational study, TUVA and youth guidance each solve a different next-step question.',
+    },
+    {
+      href: '/study/',
+      title: 'Look further ahead with the Study hub',
+      description: 'Higher education, vocational routes and tuition rules matter when a family is planning several years ahead.',
+    },
+  ],
+  'guide-living-in-finland-education': [
+    {
+      href: '/family/daycare-and-preschool/',
+      title: 'Start with the early-years route',
+      description: 'Understand daycare applications, fees, language support and the pre-primary year.',
+    },
+    {
+      href: '/family/schooling-in-helsinki/',
+      title: 'Move into comprehensive school',
+      description: 'Local schools, preparatory teaching, bilingual options, Wilma and learning support explained for families.',
+    },
+    {
+      href: '/study/',
+      title: 'Compare upper-secondary and adult study routes',
+      description: 'Use the Study hub for vocational qualifications, universities, integration training and flexible learning.',
     },
   ],
   'guide-employment-index': [

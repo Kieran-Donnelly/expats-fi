@@ -53,3 +53,18 @@ test('connects older housing resources to the stronger housing journeys', () => 
   assert.equal(articleJourneyLinks['guide-housing-student-housing-in-finland'][0].href, '/study/')
   assert.equal(articleJourneyLinks['guide-housing-emergency-accommodation-in-finland'][0].href, '/help/')
 })
+
+test('connects health, family and study resources to the detailed hubs', () => {
+  assert.equal(
+    articleSeoTitle('guide-living-in-finland-public-healthcare', 'Fallback'),
+    'Public healthcare in Finland: appointments, costs and urgent care',
+  )
+  assert.deepEqual(
+    articleJourneyLinks['guide-living-in-finland-public-healthcare'].map(({ href }) => href),
+    ['/family/healthcare-and-maisa/', '/family/urgent-help-and-safety/', '/help/'],
+  )
+  assert.equal(articleJourneyLinks['guide-living-in-finland-preschools-kindergartens'][0].href, '/family/daycare-and-preschool/')
+  assert.equal(articleJourneyLinks['guide-living-in-finland-education'][2].href, '/study/')
+  assert.equal(articleJourneyLinks['guide-moving-to-finland-study-in-finland'][0].href, '/study/')
+  assert.equal(articleJourneyLinks['guide-living-in-finland-social-security'][2].href, '/family/benefits-and-family-money/')
+})
