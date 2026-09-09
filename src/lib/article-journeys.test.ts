@@ -36,3 +36,20 @@ test('separates job search, public employment services and employment rights', (
     ],
   )
 })
+
+test('connects older housing resources to the stronger housing journeys', () => {
+  assert.equal(
+    articleSeoTitle('guide-housing-renting-in-finland', 'Fallback'),
+    'Renting in Finland: leases, deposits and tenant rights',
+  )
+  assert.deepEqual(
+    articleJourneyLinks['guide-housing-renting-in-finland'].map(({ href }) => href),
+    [
+      '/housing/lease-deposit-and-moving-in/',
+      '/housing/setting-up-and-running-your-home/',
+      '/housing/repairs-rent-trouble-and-moving-out/',
+    ],
+  )
+  assert.equal(articleJourneyLinks['guide-housing-student-housing-in-finland'][0].href, '/study/')
+  assert.equal(articleJourneyLinks['guide-housing-emergency-accommodation-in-finland'][0].href, '/help/')
+})

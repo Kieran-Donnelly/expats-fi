@@ -17,6 +17,13 @@ export const articleSeoTitles: Record<string, string> = {
   'guide-employment-employment-contract': 'Finnish employment contracts: what to check before signing',
   'guide-employment-employment-law-and-disputes': 'Employment rights and workplace disputes in Finland',
   'guide-employment-unions': 'Trade unions and unemployment funds in Finland',
+  'guide-housing-index': 'Housing in Finland: renting, buying and running your home',
+  'guide-housing-finding-housing-in-finland': 'Finding a home in Finland: rental and buying routes',
+  'guide-housing-renting-in-finland': 'Renting in Finland: leases, deposits and tenant rights',
+  'guide-housing-housing-and-utilities': 'Utilities in Finland: electricity, water, heating and internet',
+  'guide-housing-buying-property-in-finland': 'Buying property in Finland: costs, checks and offers',
+  'guide-housing-student-housing-in-finland': 'Student housing in Finland: providers, timing and costs',
+  'guide-housing-emergency-accommodation-in-finland': 'Emergency accommodation in Finland: where to get help',
 }
 
 export const articleJourneyLinks: Record<string, ArticleJourneyLink[]> = {
@@ -180,6 +187,115 @@ export const articleJourneyLinks: Record<string, ArticleJourneyLink[]> = {
       href: '/resources/guide-employment-employment-law-and-disputes/',
       title: 'Prepare for a workplace dispute',
       description: 'Keep a clear record and find the right adviser before deadlines or evidence slip away.',
+    },
+  ],
+  'guide-housing-index': [
+    {
+      href: '/housing/',
+      title: 'Open the complete Housing hub',
+      description: 'Choose the stage you are actually dealing with, from the first search to repairs, rent trouble and moving out.',
+    },
+    {
+      href: '/housing/finding-a-rental-home-in-finland/',
+      title: 'Start a safer rental search',
+      description: 'Compare search routes, prepare the application and check the landlord before sending money or identity documents.',
+    },
+    {
+      href: '/housing/lease-deposit-and-moving-in/',
+      title: 'Read the lease before signing',
+      description: 'Check the term, deposit, extra charges and move-in evidence while you can still ask for changes.',
+    },
+  ],
+  'guide-housing-finding-housing-in-finland': [
+    {
+      href: '/housing/finding-a-rental-home-in-finland/',
+      title: 'Use the full rental-search guide',
+      description: 'Turn the search into a practical routine covering applications, viewings, city housing and scam checks.',
+    },
+    {
+      href: '/areas/',
+      title: 'Compare Helsinki neighbourhoods',
+      description: 'Look at the daily rhythm, transport and local services before judging an area from the postcode alone.',
+    },
+    {
+      href: '/housing/lease-deposit-and-moving-in/',
+      title: 'Check the offer before paying',
+      description: 'Understand the agreement, deposit and condition record before the relief of finding a home takes over.',
+    },
+  ],
+  'guide-housing-renting-in-finland': [
+    {
+      href: '/housing/lease-deposit-and-moving-in/',
+      title: 'Check the lease and deposit',
+      description: 'See what belongs in the agreement and build a move-in record that protects both sides.',
+    },
+    {
+      href: '/housing/setting-up-and-running-your-home/',
+      title: 'Make the home work',
+      description: 'Sort electricity, insurance, internet, water, maintenance contacts and the building services you inherit.',
+    },
+    {
+      href: '/housing/repairs-rent-trouble-and-moving-out/',
+      title: 'Handle a tenancy problem early',
+      description: 'Report repairs properly, get help with rent trouble and follow the right route when moving out or disputing a deposit.',
+    },
+  ],
+  'guide-housing-housing-and-utilities': [
+    {
+      href: '/housing/setting-up-and-running-your-home/',
+      title: 'Set up the household essentials',
+      description: 'Work through electricity, insurance, internet, heating, water and urgent maintenance contacts in a sensible order.',
+    },
+    {
+      href: '/start-here/digital-finland-survival-kit/',
+      title: 'Set up your Finnish digital access',
+      description: 'Strong identification makes contracts, address services and many household jobs much easier to manage online.',
+    },
+  ],
+  'guide-housing-buying-property-in-finland': [
+    {
+      href: '/resources/guide-housing-home-loans-in-finland/',
+      title: 'Work out the financing first',
+      description: 'Compare the loan, reference rate, margin, collateral and the monthly costs that continue after the keys arrive.',
+    },
+    {
+      href: '/resources/guide-housing-real-estate-terms/',
+      title: 'Decode the property documents',
+      description: 'Learn the Finnish listing and housing-company terms that can change the real price of an apartment.',
+    },
+    {
+      href: '/housing/setting-up-and-running-your-home/',
+      title: 'Plan the running costs',
+      description: 'Electricity, insurance, water, heating and maintenance still need a place in the budget after the purchase.',
+    },
+  ],
+  'guide-housing-student-housing-in-finland': [
+    {
+      href: '/study/',
+      title: 'Open the Study in Finland hub',
+      description: 'Connect the housing plan to applications, tuition, residence rules, student services and the academic calendar.',
+    },
+    {
+      href: '/housing/finding-a-rental-home-in-finland/',
+      title: 'Keep a private-rental backup',
+      description: 'Student housing can be tight around intake dates. Build a second search without sending money to an unverified advertiser.',
+    },
+    {
+      href: '/housing/lease-deposit-and-moving-in/',
+      title: 'Check what the room includes',
+      description: 'Furniture, internet, electricity, shared spaces and notice terms vary, even when the monthly rent looks straightforward.',
+    },
+  ],
+  'guide-housing-emergency-accommodation-in-finland': [
+    {
+      href: '/help/',
+      title: 'Open the When Things Go Wrong hub',
+      description: 'Find the urgent route for homelessness, family safety, violence, money problems and other situations that cannot wait.',
+    },
+    {
+      href: '/housing/repairs-rent-trouble-and-moving-out/',
+      title: 'Get help before the home is lost',
+      description: 'Housing counselling, written records and an early conversation can create more options than waiting for the final notice.',
     },
   ],
 }
