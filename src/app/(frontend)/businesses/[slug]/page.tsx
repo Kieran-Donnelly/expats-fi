@@ -73,7 +73,9 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
       <div className="business-profile__body">
         <article>
           <h2>About {business.name}</h2>
-          <p>{business.description}</p>
+          {business.description.split(/\n\s*\n/).map((paragraph, index) => (
+            <p key={`${business.slug}-paragraph-${index}`}>{paragraph}</p>
+          ))}
           {business.imagePath && <figure className="business-profile__image"><Image src={business.imagePath} alt={business.imageAlt || business.name} width={1200} height={900} /></figure>}
         </article>
         <aside className="facts">

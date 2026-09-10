@@ -708,6 +708,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-profile__body { display: grid; grid-template-columns: minmax(0, 1fr) 21rem; gap: clamp(3rem, 8vw, 6rem); padding-block-start: 3rem; }
 .business-profile__body h2 { margin-block-end: 1rem; font-size: 1.8rem; }
 .business-profile__body p { color: var(--ink-soft); }
+.business-profile__body article > p + p { margin-block-start: 1.15rem; }
 .business-profile__image { margin: 2rem 0 0; overflow: hidden; border-radius: .9rem; background: var(--blue-pale); }
 .business-profile__image img { display: block; inline-size: 100%; block-size: auto; max-block-size: 36rem; object-fit: cover; }
 .business-profile__actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-block-start: 1.5rem; }
