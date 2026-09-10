@@ -40,6 +40,7 @@ const refreshedBusinessSlugs = new Set([
   'connect-fit',
   'byrne-carpentry',
   'vacek-valmennus',
+  'vitaldon-therapy',
 ])
 
 function withRefreshedBusinessProfile(business: Business): Business {

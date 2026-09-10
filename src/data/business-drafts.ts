@@ -213,4 +213,17 @@ export const businessDrafts: BusinessDraft[] = [
     logoAlt: 'Vacek Valmennus and Fysioterapia logo',
     status: 'published',
   },
+  {
+    slug: 'vitaldon-therapy',
+    name: 'Vitaldon Therapy',
+    summary: 'English-friendly manual therapy, sports massage and acupuncture across the Helsinki capital region, built around more than a decade of practical experience.',
+    description: "Don Raduma's story stretches from Nairobi to growing up in Finland, competitive sport and eventually building a working life around helping other people move and recover more comfortably.\n\nBasketball and kickboxing gave Don first-hand experience of the demands sport places on the body, including the less glamorous side of injuries and rehabilitation. That experience helped shape the way he now works with clients, whether they are training seriously, dealing with the effects of long hours at a desk or simply trying to feel better in everyday life.\n\nDon is a licensed massage therapist with more than ten years of active experience. Through Vitaldon Therapy, he combines manual therapy with stretching, trigger-point work, myofascial techniques and acupuncture, choosing the approach around the person rather than treating every appointment as the same routine.\n\nThe service can cover the full body or focus on the areas that need the most attention. Vitaldon also offers workplace sessions and mobile appointments across Helsinki, Espoo and Vantaa, which can be especially handy for teams or people who would rather arrange treatment at their own location. Fixed appointments are also available with Don at SUHK Konala.\n\nWhat stands out is Don's wider interest in how movement, recovery, nutrition and mental wellbeing connect. The aim is not only to work on the immediate tension, but to help clients understand what their body is telling them and leave with something useful to take into daily life.\n\nFor internationals in the capital region, having an experienced therapist who can explain the process clearly in English removes a lot of the guesswork from booking and asking questions. Sessions are available in English and Finnish.",
+    categories: ['Health & wellbeing', 'Massage & spa', 'Sports massage'],
+    locations: ['Helsinki', 'Espoo', 'Vantaa'],
+    address: 'Mobile and workplace appointments across Helsinki, Espoo and Vantaa; fixed appointments at SUHK Konala, Konalantie 47 B, 00390 Helsinki',
+    website: 'https://www.vitaldon.com/',
+    phone: '+358 44 376 4585',
+    bookingUrl: 'https://www.suomenurheiluhierontakeskus.fi/en/booking/',
+    status: 'published',
+  },
 ]
