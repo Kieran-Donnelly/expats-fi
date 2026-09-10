@@ -78,4 +78,26 @@ test('gives the remaining practical library clearer reader-facing titles', () =>
     articleSeoTitle('guide-shopping-in-finland-online-shopping', 'Fallback'),
     'Online shopping in Finland: delivery, VAT, returns and scams',
   )
+  assert.equal(
+    articleSeoTitle('guide-housing-investment-property-in-finland', 'Fallback'),
+    'Buying an investment property in Finland: costs, tenants and risk',
+  )
+  assert.equal(
+    articleSeoTitle('guide-moving-to-finland-address-and-postal-services', 'Fallback'),
+    'Your address and post in Finland: registrations, mail and moving notices',
+  )
+})
+
+test('connects the remaining library hubs to clear next steps', () => {
+  assert.deepEqual(
+    articleJourneyLinks['guide-telecommunications-and-media-index'].map(({ href }) => href),
+    [
+      '/resources/guide-telecommunications-and-media-telephone/',
+      '/resources/guide-telecommunications-and-media-isp/',
+      '/resources/guide-telecommunications-and-media-television/',
+    ],
+  )
+  assert.equal(articleJourneyLinks['guide-travel-finland-index'][2].href, '/explore/day-trips/')
+  assert.equal(articleJourneyLinks['guide-shopping-in-finland-index'][1].href, '/resources/guide-shopping-in-finland-groceries/')
+  assert.equal(articleJourneyLinks['guide-living-in-finland-index'][0].href, '/start-here/')
 })

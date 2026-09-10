@@ -30,6 +30,8 @@ test('retired guides point to their stronger replacements', () => {
     'guide-events-index': '/events/',
     'guide-events-expat-sports': '/sports/',
     'guide-events-finnish-sports': '/sports/',
+    'guide-events-events': '/events/',
+    'guide-living-in-finland-driving-tips': '/resources/guide-living-in-finland-driving/',
     'guide-entrepreneurship-accounting-and-auditing-firms': '/resources/guide-entrepreneurship-accountancy/',
     'guide-entrepreneurship-electronic-financial-management': '/resources/guide-entrepreneurship-accountancy/',
     'guide-telecommunications-and-media-pay-tv': '/resources/guide-telecommunications-and-media-television/',
