@@ -8,6 +8,14 @@ const newsImages: Record<string, NewsImage> = {
     src: '/images/news/finland-pisa-2025-immigrant-background-gap.webp',
     alt: 'A diverse group of teenagers working together on a science task in a Nordic classroom',
   },
+  'helsinki-social-services-mykanta-september-2026': {
+    src: '/images/news/helsinki-social-services-mykanta-september-2026.jpg',
+    alt: 'A person using a laptop with documents open beside them',
+  },
+  'kesaranta-open-house-september-2026': {
+    src: '/images/news/kesaranta-open-house-september-2026.jpg',
+    alt: 'The Finnish flag flying above the Helsinki waterfront',
+  },
   'finland-driving-licence-rules-october-2026': {
     src: '/images/news/finland-driving-licence-rules-october-2026.webp',
     alt: 'An adult learner driver taking a calm lesson on a Helsinki-area street',
