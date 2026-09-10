@@ -46,7 +46,7 @@ const communityTrustDetails = {
   restricted: {
     label: 'Posting paused',
     title: 'Community posting is paused for this account.',
-    body: 'Your saved guides and account still work normally. Email hello@expats.fi if you believe this was a mistake.',
+    body: 'Your saved guides and account still work normally. Email moi@expats.fi if you believe this was a mistake.',
   },
 } as const
 

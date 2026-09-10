@@ -29,7 +29,7 @@ export async function POST(request: Request, { params }: RouteContext) {
   const rulesAccepted = data?.rulesAccepted === true || Boolean(member.communityRulesAcceptedAt)
   if (body.length < 2) return json({ message: 'Please add a little more to your reply.' }, 400)
   if (!rulesAccepted) return json({ message: 'Please read and accept the community rules before replying.' }, 400)
-  if (member.communityTrust === 'restricted') return json({ message: 'Community posting is not available for this account. Contact hello@expats.fi if you think this is a mistake.' }, 403)
+  if (member.communityTrust === 'restricted') return json({ message: 'Community posting is not available for this account. Contact moi@expats.fi if you think this is a mistake.' }, 403)
 
   const payload = await getPayload({ config: configPromise })
   const posts = await payload.find({

@@ -24,7 +24,7 @@ export default function PrivacyPage() {
         <article className="privacy-content">
           <section>
             <h2>Who is responsible</h2>
-            <p>Expats.fi is operated by the Expats.fi founding team, who decide why and how information is used on this service. For privacy questions, access requests, corrections or account deletion requests, email <a href="mailto:hello@expats.fi?subject=Privacy%20request">hello@expats.fi</a>.</p>
+            <p>Expats.fi is operated by the Expats.fi founding team, who decide why and how information is used on this service. For privacy questions, access requests, corrections or account deletion requests, email <a href="mailto:moi@expats.fi?subject=Privacy%20request">moi@expats.fi</a>.</p>
           </section>
 
           <section>
@@ -69,13 +69,13 @@ export default function PrivacyPage() {
           <section>
             <h2>Your choices and rights</h2>
             <p>You can ask what personal information we hold, request a copy, correct inaccurate details, object to certain uses or ask for deletion or restriction where the law provides it. You can update profile and email preferences in your account and change analytics permission on this page.</p>
-            <p>Start with <a href="mailto:hello@expats.fi?subject=Privacy%20request">hello@expats.fi</a>. You may also contact the <a href="https://tietosuoja.fi/en/home" target="_blank" rel="noreferrer">Office of the Data Protection Ombudsman ↗</a>. The European Commission has a useful <a href="https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en" target="_blank" rel="noreferrer">plain-language guide to individual data rights ↗</a>.</p>
+            <p>Start with <a href="mailto:moi@expats.fi?subject=Privacy%20request">moi@expats.fi</a>. You may also contact the <a href="https://tietosuoja.fi/en/home" target="_blank" rel="noreferrer">Office of the Data Protection Ombudsman ↗</a>. The European Commission has a useful <a href="https://commission.europa.eu/law/law-topic/data-protection/information-individuals_en" target="_blank" rel="noreferrer">plain-language guide to individual data rights ↗</a>.</p>
           </section>
         </article>
 
         <aside className="privacy-aside">
           <PrivacyChoicePanel />
-          <div><strong>Need something changed?</strong><p>Profile details can be edited in your account. For a data copy or account deletion, email us from the address connected to the account.</p><a href="mailto:hello@expats.fi?subject=Privacy%20request">Email hello@expats.fi</a></div>
+          <div><strong>Need something changed?</strong><p>Profile details can be edited in your account. For a data copy or account deletion, email us from the address connected to the account.</p><a href="mailto:moi@expats.fi?subject=Privacy%20request">Email moi@expats.fi</a></div>
         </aside>
       </div>
     </main>

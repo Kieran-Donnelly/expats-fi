@@ -18,7 +18,7 @@ export function CommunityCommentForm({ canPost = true, postSlug, isAuthenticated
     return <p className="community-comments__join">Have something useful to add? <Link href={`/login/?next=${encodeURIComponent(`/community/board/${postSlug}/`)}&reason=reply`}>Sign in to reply</Link>.</p>
   }
 
-  if (!canPost) return <p className="community-comments__join">Replying is paused for this account. Email hello@expats.fi if you believe this is a mistake.</p>
+  if (!canPost) return <p className="community-comments__join">Replying is paused for this account. Email moi@expats.fi if you believe this is a mistake.</p>
 
   async function submit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault()

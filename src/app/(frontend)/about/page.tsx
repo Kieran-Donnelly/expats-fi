@@ -107,7 +107,7 @@ export default function AboutPage() {
         <p className="eyebrow">Help us make it better</p>
         <h2 id="about-invitation-heading">What took you far too long to figure out?</h2>
         <p>If something confused you when you arrived, there is a fair chance somebody else is wrestling with it now. Tell us what is missing, point us towards a brilliant local project or let us know when a useful detail has changed.</p>
-        <a className="button" href="mailto:hello@expats.fi?subject=An%20idea%20for%20Expats.fi">Email hello@expats.fi</a>
+        <a className="button" href="mailto:moi@expats.fi?subject=An%20idea%20for%20Expats.fi">Email moi@expats.fi</a>
       </section>
     </main>
   )

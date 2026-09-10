@@ -32,7 +32,7 @@ export function NotFoundPage() {
             </Link>
           ))}
         </div>
-        <p className="status-page__help">Certain the page should exist? <a href="mailto:hello@expats.fi?subject=Missing%20page%20on%20Expats.fi">Give us a heads-up</a> and we will have a look.</p>
+        <p className="status-page__help">Certain the page should exist? <a href="mailto:moi@expats.fi?subject=Missing%20page%20on%20Expats.fi">Give us a heads-up</a> and we will have a look.</p>
       </section>
     </main>
   )

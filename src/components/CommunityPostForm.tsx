@@ -35,7 +35,7 @@ export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccept
   }
 
   if (!canPost) {
-    return <div className="community-board__join"><div><p className="eyebrow">Posting paused</p><h2>This account cannot post right now.</h2><p>Email hello@expats.fi if you believe this is a mistake.</p></div></div>
+    return <div className="community-board__join"><div><p className="eyebrow">Posting paused</p><h2>This account cannot post right now.</h2><p>Email moi@expats.fi if you believe this is a mistake.</p></div></div>
   }
 
   async function submit(event: FormEvent<HTMLFormElement>) {

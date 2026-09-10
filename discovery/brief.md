@@ -55,6 +55,6 @@ _Status: complete · Last updated: 2026-08-03 · Approved for MVP execution by d
 - Recommended positioning: “Find your people. Find your way.”
 
 ## Open questions / research tasks
-- [ ] Confirm that hello@expats.fi is configured as the durable public mailbox.
+- [x] Use moi@expats.fi as the durable public mailbox.
 - [ ] Establish a content review cadence for legal and immigration articles.
 - [ ] Recruit the first 25 businesses outside Helsinki.

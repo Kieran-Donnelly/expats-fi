@@ -15,7 +15,7 @@ export default function ErrorPage({ reset }: { error: Error & { digest?: string 
             <button className="button" type="button" onClick={reset}>Try again</button>
             <Link className="button button--quiet" href="/">Back to the homepage</Link>
           </div>
-          <p className="status-page__help">Still stuck? <a href="mailto:hello@expats.fi?subject=Page%20error%20on%20Expats.fi">Tell us what happened</a> and we will take a look.</p>
+          <p className="status-page__help">Still stuck? <a href="mailto:moi@expats.fi?subject=Page%20error%20on%20Expats.fi">Tell us what happened</a> and we will take a look.</p>
         </div>
       </section>
     </main>
