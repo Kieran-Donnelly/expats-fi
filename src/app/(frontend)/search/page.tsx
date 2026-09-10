@@ -8,6 +8,7 @@ import { exploreListings } from '@/data/explore'
 import { finlandFoodGuides } from '@/data/finland-food-guides'
 import { sportsListings } from '@/data/sports'
 import { getCommunityPosts } from '@/lib/community'
+import { articleSeoTitle } from '@/lib/article-journeys'
 import { getArticles, getBusinesses, getEmbassies, getEvents, getNewsStories, labels } from '@/lib/content'
 
 export const dynamic = 'force-dynamic'
@@ -128,7 +129,7 @@ export default async function SearchPage({ searchParams }: { searchParams: Promi
   ])
 
   const hubResults: SearchResult[] = hubs.filter((hub) => matches(query, hub.title, hub.description, hub.keywords)).map((hub) => ({ href: hub.href, label: 'Section', title: hub.title, description: hub.description }))
-  const guideResults: SearchResult[] = articles.filter((article) => matches(query, article.title, article.description, article.category)).slice(0, 12).map((article) => ({ href: `/resources/${article.slug}/`, label: article.category, title: article.title, description: article.description, meta: `${article.readingMinutes} min read` }))
+  const guideResults: SearchResult[] = articles.filter((article) => matches(query, articleSeoTitle(article.slug, article.title), article.description, article.category)).slice(0, 12).map((article) => ({ href: `/resources/${article.slug}/`, label: article.category, title: articleSeoTitle(article.slug, article.title), description: article.description, meta: `${article.readingMinutes} min read` }))
   const newsResults: SearchResult[] = newsStories.filter((story) => matches(query, story.title, story.standfirst, story.practicalSummary, story.category)).slice(0, 10).map((story) => ({ href: `/news/${story.slug}/`, label: 'News', title: story.title, description: story.standfirst, meta: story.category }))
   const eventResults: SearchResult[] = events.filter((event) => matches(query, event.title, event.blurb, event.location, event.district, event.category)).slice(0, 12).map((event) => ({ href: `/events/${event.slug}/`, label: 'Event', title: event.title, description: event.blurb, meta: `${event.dateLabel} · ${event.location}` }))
   const businessResults: SearchResult[] = businesses.filter((business) => matches(query, business.name, business.summary, ...labels(business.categories), ...labels(business.locations))).slice(0, 12).map((business) => ({ href: `/businesses/${business.slug}/`, label: 'Expat-owned business', title: business.name, description: business.summary, meta: [...labels(business.categories), ...labels(business.locations)].slice(0, 3).join(' · ') }))

@@ -44,6 +44,7 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
   if (replacement) permanentRedirect(replacement)
   const article = await getArticle(slug)
   if (!article) notFound()
+  const title = articleSeoTitle(article.slug, article.title)
   const member = await getCurrentMember(await headers())
   const saved = member ? (await getSavedArticleIds(member.id)).has(article.id) : false
   const dateFormatter = new Intl.DateTimeFormat('en-GB', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Europe/Helsinki' })
@@ -64,11 +65,11 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
       <ReadingProgress />
       <div className="shell detail-shell article-page">
         <JsonLd data={[
-          { '@context': 'https://schema.org', '@type': 'Article', headline: article.title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: resourceSocialImage, inLanguage: 'en', isAccessibleForFree: true },
-          breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/resources/' }, { name: article.title, path: `/resources/${article.slug}/` }]),
+          { '@context': 'https://schema.org', '@type': 'Article', headline: title, description: article.description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: resourceSocialImage, inLanguage: 'en', isAccessibleForFree: true },
+          breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/resources/' }, { name: title, path: `/resources/${article.slug}/` }]),
         ]} />
         <Link className="back-link" href="/resources/">← All Finland guides</Link>
-        <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{article.title}</h1><p className="article-page__description">{article.description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /><ShareButton contentType="guide" path={`/resources/${article.slug}/`} title={article.title} text={article.description} /></div></header>
+        <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{title}</h1><p className="article-page__description">{article.description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /><ShareButton contentType="guide" path={`/resources/${article.slug}/`} title={title} text={article.description} /></div></header>
         <div className="article-page__layout">
           <article className="prose"><RichText data={demoteEmbeddedH1Headings(article.content) as SerializedEditorState} /></article>
           <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This is part of the original Expats.fi guide library, kept here and updated as the practical details change.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div>{journeyLinks.length > 0 && <nav className="article-next-steps" aria-label="Next useful steps"><strong>Next useful steps</strong>{journeyLinks.map((item) => <Link href={item.href} key={item.href}><span>{item.title}</span><small>{item.description}</small></Link>)}</nav>}<div><strong>Check before acting</strong><p>Immigration, tax and benefit rules can change. Confirm decisions with the relevant Finnish authority.</p></div></aside>

@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import type { Article } from '@/payload-types'
+import { articleSeoTitle } from '@/lib/article-journeys'
 
 import { SaveArticleButton } from './SaveArticleButton'
 
@@ -14,10 +15,12 @@ export function ArticleCard({
   saved?: boolean
   showSave?: boolean
 }) {
+  const title = articleSeoTitle(article.slug, article.title)
+
   return (
     <article className="article-card" data-featured={featured || undefined}>
       <div className="article-card__meta"><span>{article.category}</span><span>{article.readingMinutes} min read</span></div>
-      <h3><Link href={`/resources/${article.slug}/`} data-analytics-event="guide_opened" data-analytics-label={article.slug} data-analytics-position="title">{article.title}</Link></h3>
+      <h3><Link href={`/resources/${article.slug}/`} data-analytics-event="guide_opened" data-analytics-label={article.slug} data-analytics-position="title">{title}</Link></h3>
       <p>{article.description}</p>
       <div className="article-card__actions">
         <Link className="text-link" href={`/resources/${article.slug}/`} data-analytics-event="guide_opened" data-analytics-label={article.slug} data-analytics-position="card_cta">Read the guide <span aria-hidden="true">→</span></Link>

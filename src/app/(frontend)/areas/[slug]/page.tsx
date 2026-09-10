@@ -32,7 +32,7 @@ export default async function AreaGuidePage({ params }: { params: Promise<{ slug
       hubHref="/areas/"
       hubLabel="Helsinki neighbourhoods"
       relatedHeading="Try another part of Helsinki"
-      reviewedAt="25 August 2026"
+      reviewedAt="2026-08-25"
       extraSection={(
         <>
           <AreaEatsSection area={guide.label} />

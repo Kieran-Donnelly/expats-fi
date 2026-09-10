@@ -24,6 +24,17 @@ export const retiredArticleRedirects = {
   'guide-events-index': '/events/',
   'guide-events-expat-sports': '/sports/',
   'guide-events-finnish-sports': '/sports/',
+  'guide-entrepreneurship-accounting-and-auditing-firms': '/resources/guide-entrepreneurship-accountancy/',
+  'guide-entrepreneurship-electronic-financial-management': '/resources/guide-entrepreneurship-accountancy/',
+  'guide-telecommunications-and-media-pay-tv': '/resources/guide-telecommunications-and-media-television/',
+  'guide-telecommunications-and-media-net-tv': '/resources/guide-telecommunications-and-media-television/',
+  'guide-telecommunications-and-media-satellite-tv': '/resources/guide-telecommunications-and-media-television/',
+  'guide-telecommunications-and-media-radio': '/resources/guide-telecommunications-and-media-index/',
+  'guide-travel-finland-accommodation': '/housing/',
+  'guide-travel-finland-finnish-travel-guides': '/explore/',
+  'guide-travel-finland-finnish-adventures': '/explore/day-trips/',
+  'guide-travel-finland-bus-train': '/resources/guide-travel-finland-public-transport/',
+  'guide-shopping-in-finland-sales-tax': '/resources/guide-living-in-finland-tax/',
 } as const
 
 export const retiredArticleSlugs = Object.keys(retiredArticleRedirects)

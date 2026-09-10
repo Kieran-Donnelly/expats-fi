@@ -32,7 +32,7 @@ export default async function SettlingGuidePage({ params }: { params: Promise<{ 
       hubHref="/start-here/"
       hubLabel="The Start Here hub"
       relatedHeading="Keep getting settled"
-      reviewedAt="25 August 2026"
+      reviewedAt="2026-08-25"
       heroImage={guide.slug === 'first-90-days-in-finland' ? { src: '/images/heroes/start-here-helsinki-station.webp', position: 'center 58%' } : undefined}
     />
   )

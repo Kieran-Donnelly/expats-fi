@@ -68,3 +68,14 @@ test('connects health, family and study resources to the detailed hubs', () => {
   assert.equal(articleJourneyLinks['guide-moving-to-finland-study-in-finland'][0].href, '/study/')
   assert.equal(articleJourneyLinks['guide-living-in-finland-social-security'][2].href, '/family/benefits-and-family-money/')
 })
+
+test('gives the remaining practical library clearer reader-facing titles', () => {
+  assert.equal(
+    articleSeoTitle('guide-telecommunications-and-media-index', 'Fallback'),
+    'Phones, internet and television in Finland: getting connected',
+  )
+  assert.equal(
+    articleSeoTitle('guide-shopping-in-finland-online-shopping', 'Fallback'),
+    'Online shopping in Finland: delivery, VAT, returns and scams',
+  )
+})
