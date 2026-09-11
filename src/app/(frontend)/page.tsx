@@ -106,7 +106,7 @@ export default async function HomePage() {
   return (
     <main id="main">
       <JsonLd data={[
-        { '@context': 'https://schema.org', ...publisher, description: 'Friendly, practical help for moving to Finland, building a life here and making the most of Helsinki.', sameAs: ['https://www.facebook.com/groups/1579279056393368'] },
+        { '@context': 'https://schema.org', ...publisher, description: 'Friendly, practical help for moving to Finland, building a life here and making the most of Helsinki.', sameAs: ['https://www.facebook.com/groups/1579279056393368', 'https://www.instagram.com/expats_fi/'] },
         { '@context': 'https://schema.org', '@type': 'WebSite', name: 'Expats.fi', url: siteUrl, publisher, inLanguage: 'en', potentialAction: { '@type': 'SearchAction', target: `${siteUrl}/search?q={search_term_string}`, 'query-input': 'required name=search_term_string' } },
       ]} />
       <section className="home-hero">
