@@ -4,6 +4,14 @@ type NewsImage = {
 }
 
 const newsImages: Record<string, NewsImage> = {
+  'finland-international-student-family-reunion-proposal-2026': {
+    src: '/images/news/finland-international-student-family-reunion-proposal-2026.jpg',
+    alt: 'A student saying goodbye to her parents at an airport before travelling abroad',
+  },
+  'kela-social-assistance-housing-limits-2027': {
+    src: '/images/news/kela-social-assistance-housing-limits-2027.jpg',
+    alt: 'A model home, apartment keys, euro notes and a calculator',
+  },
   'finland-pisa-2025-immigrant-background-gap': {
     src: '/images/news/finland-pisa-2025-immigrant-background-gap.webp',
     alt: 'A diverse group of teenagers working together on a science task in a Nordic classroom',
