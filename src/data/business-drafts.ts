@@ -224,6 +224,10 @@ export const businessDrafts: BusinessDraft[] = [
     website: 'https://www.vitaldon.com/',
     phone: '+358 44 376 4585',
     bookingUrl: 'https://www.suomenurheiluhierontakeskus.fi/en/booking/',
+    imagePath: '/businesses/vitaldon-therapy/treatment.jpg',
+    imageAlt: 'A Vitaldon Therapy manual treatment focusing on the hand and wrist',
+    logoPath: '/businesses/vitaldon-therapy/logo.svg',
+    logoAlt: 'Vitaldon Therapy logo',
     status: 'published',
   },
 ]
