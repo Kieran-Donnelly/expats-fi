@@ -712,6 +712,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-profile__body article > p + p { margin-block-start: 1.15rem; }
 .business-profile__image { margin: 2rem 0 0; overflow: hidden; border-radius: .9rem; background: var(--blue-pale); }
 .business-profile__image img { display: block; inline-size: 100%; block-size: auto; max-block-size: 36rem; object-fit: cover; }
+.business-profile__image[data-business="vitaldon-therapy"] img { aspect-ratio: 4 / 3; object-position: center 28%; }
 .business-profile__actions { display: flex; flex-wrap: wrap; gap: .7rem; margin-block-start: 1.5rem; }
 .business-profile__actions .save-business-button { min-block-size: 2.8rem; padding-inline: .9rem; font-size: .82rem; }
 .business-profile__neighbourhoods { display: grid; grid-template-columns: minmax(0, .75fr) minmax(24rem, 1.25fr); gap: clamp(2rem, 7vw, 5rem); margin-block-start: 4rem; padding-block: 2.5rem; border-block: 1px solid var(--line); }
