@@ -3,13 +3,26 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { getSportsListing, sportsListings } from '@/data/sports'
+import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
-import { socialMetadata } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
 const seoOverrides: Record<string, { title: string; description: string }> = {
   'tokoinranta-parkrun': {
     title: 'Tokoinranta parkrun: Helsinki’s free Saturday 5K',
     description: 'How to join Tokoinranta parkrun in Helsinki, including Saturday start time, registration, barcode, route, transport and walking or volunteering.',
+  },
+  'dojo-helsinki-bjj': {
+    title: 'BJJ in Helsinki: Dojo Helsinki beginner courses',
+    description: 'Begin Brazilian jiu-jitsu at Dojo Helsinki, with English-friendly BJJ courses, adult and junior groups, address, level and joining information.',
+  },
+  'unisport-kluuvi': {
+    title: 'UniSport Kluuvi: gym, classes and joining information',
+    description: 'A practical guide to UniSport Kluuvi in central Helsinki, including gym access, group exercise, courses, eligibility, address and how to get started.',
+  },
+  'tali-taivallahti-tennis-centres': {
+    title: 'Taivallahti and Tali tennis centres: booking and courts',
+    description: 'How to book indoor tennis courts at Taivallahti and Tali in Helsinki, including locations, player requirements and practical joining information.',
   },
 }
 
@@ -32,6 +45,23 @@ export default async function SportsListingPage({ params }: { params: Promise<{ 
 
   return (
     <main id="main">
+      <JsonLd data={[
+        {
+          '@context': 'https://schema.org',
+          '@type': listing.type === 'Club & team' ? 'SportsOrganization' : listing.type === 'Venue & facility' ? 'SportsActivityLocation' : 'Organization',
+          name: listing.name,
+          description: listing.blurb,
+          url: absoluteUrl(`/sports/${listing.slug}/`),
+          address: listing.address,
+          sport: listing.sports,
+          sameAs: listing.website,
+        },
+        breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Sports and activities', path: '/sports/' },
+          { name: listing.name, path: `/sports/${listing.slug}/` },
+        ]),
+      ]} />
       <div className="shell detail-shell sports-profile">
         <Link className="back-link" href="/sports/">← All sports and activities</Link>
         <header className="sports-profile__header">

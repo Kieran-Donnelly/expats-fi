@@ -5,6 +5,13 @@ import { EditorialGuideDetail } from '@/components/EditorialGuideDetail'
 import { finlandFoodGuides, getFinlandFoodGuide } from '@/data/finland-food-guides'
 import { socialMetadata } from '@/lib/seo'
 
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  'three-finnish-recipes-to-start-with': {
+    title: 'Three easy Finnish recipes to make at home',
+    description: 'Start cooking Finnish food with three approachable recipes, clear ingredients, sensible substitutions and the cultural context behind each dish.',
+  },
+}
+
 export function generateStaticParams() {
   return finlandFoodGuides.map((guide) => ({ slug: guide.slug }))
 }
@@ -13,7 +20,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getFinlandFoodGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/eats/finland-on-a-plate/${guide.slug}/`, image: '/images/heroes/food-main-herring.webp' })
+  const seo = seoOverrides[guide.slug]
+  return socialMetadata({ title: seo?.title || guide.title, description: seo?.description || guide.summary, path: `/eats/finland-on-a-plate/${guide.slug}/`, image: '/images/heroes/food-main-herring.webp' })
 }
 
 export default async function FinlandFoodGuidePage({ params }: { params: Promise<{ slug: string }> }) {

@@ -8,6 +8,13 @@ import { areaGuides, getAreaGuide } from '@/data/areas'
 import { areaBusinessSlugs } from '@/data/business-area-connections'
 import { socialMetadata } from '@/lib/seo'
 
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  'vallila-and-konepaja': {
+    title: 'Vallila and Konepaja Helsinki: neighbourhood guide',
+    description: 'Explore Vallila and Konepaja in Helsinki, including wooden streets, cafés, restaurants, culture, events, transport and honest notes about living locally.',
+  },
+}
+
 export function generateStaticParams() {
   return areaGuides.map((guide) => ({ slug: guide.slug }))
 }
@@ -16,7 +23,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const guide = getAreaGuide(slug)
   if (!guide) return {}
-  return socialMetadata({ title: guide.title, description: guide.summary, path: `/areas/${guide.slug}/`, image: '/images/heroes/areas-helsinki-street.webp' })
+  const seo = seoOverrides[guide.slug]
+  return socialMetadata({ title: seo?.title || guide.title, description: seo?.description || guide.summary, path: `/areas/${guide.slug}/`, image: '/images/heroes/areas-helsinki-street.webp' })
 }
 
 export default async function AreaGuidePage({ params }: { params: Promise<{ slug: string }> }) {

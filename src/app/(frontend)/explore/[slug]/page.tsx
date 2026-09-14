@@ -3,8 +3,9 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 import { exploreListings, getExploreListing } from '@/data/explore'
+import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
-import { socialMetadata } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
 const seoOverrides: Record<string, { title: string; description: string }> = {
   kiasma: {
@@ -22,6 +23,30 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
   loyly: {
     title: 'Löyly Helsinki: sauna price, booking and what to expect',
     description: 'Plan a visit to Löyly in Helsinki, including public sauna prices, booking, swimwear, towels, sea swimming and transport to Hernesaari.',
+  },
+  'helsinki-playground-network': {
+    title: 'Helsinki playgrounds: free activities and family houses',
+    description: 'Find Helsinki’s staffed playgrounds and family houses, including free activities, indoor rooms, playground clubs, Edlevo applications and the city map.',
+  },
+  'korkeasaari-zoo': {
+    title: 'Korkeasaari Zoo Helsinki: tickets, transport and free days',
+    description: 'Plan a family visit to Korkeasaari Zoo, including tickets, seasonal free Mondays, tram and walking routes, opening information and practical tips.',
+  },
+  'finnkino-helsinki': {
+    title: 'Finnkino Helsinki: English-language films and cinemas',
+    description: 'Find English-language films at Finnkino cinemas in Helsinki, including Tennispalatsi and Itis, audio and subtitle filters, tickets and family screenings.',
+  },
+  pihlajasaari: {
+    title: 'Pihlajasaari Helsinki: ferry, beaches and island guide',
+    description: 'Plan a summer trip to Pihlajasaari, including waterbus routes, beaches, picnic shelters, seasonal services, prices and what to bring.',
+  },
+  kuusijarvi: {
+    title: 'Kuusijärvi: lake, smoke sauna and transport from Helsinki',
+    description: 'Visit Kuusijärvi in Vantaa for swimming, smoke saunas and Sipoonkorpi trails, with bus information, prices, family facilities and practical tips.',
+  },
+  oodi: {
+    title: 'Oodi Helsinki: library services, rooms and things to do',
+    description: 'A practical guide to Oodi Central Library, including free entry, workspaces, children’s areas, studios, makerspace equipment, booking and Kino Regina.',
   },
 }
 
@@ -44,6 +69,22 @@ export default async function ExploreListingPage({ params }: { params: Promise<{
 
   return (
     <main id="main">
+      <JsonLd data={[
+        {
+          '@context': 'https://schema.org',
+          '@type': 'Place',
+          name: listing.name,
+          description: listing.blurb,
+          url: absoluteUrl(`/explore/${listing.slug}/`),
+          address: listing.address,
+          sameAs: listing.website,
+        },
+        breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Things to do in Helsinki', path: '/explore/' },
+          { name: listing.name, path: `/explore/${listing.slug}/` },
+        ]),
+      ]} />
       <div className="shell detail-shell explore-profile">
         <Link className="back-link" href="/explore/">← All things to do</Link>
         <header className="explore-profile__header">
@@ -57,6 +98,7 @@ export default async function ExploreListingPage({ params }: { params: Promise<{
             {listing.description.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
 
             <section className="explore-profile__highlights"><p className="eyebrow">The useful bits</p><h2>Good to know before you go</h2><ul>{listing.highlights.map((item) => <li key={item}>{item}</li>)}</ul></section>
+            {listing.slug === 'oodi' && <section className="explore-profile__visit"><p className="eyebrow">Looking for the cinema?</p><h2>Kino Regina is inside Oodi.</h2><p>The National Audiovisual Institute runs the cinema separately from the library. Check the individual film language and subtitle details before booking.</p><Link className="text-link" href="/explore/kino-regina/">Open the Kino Regina guide <span aria-hidden="true">→</span></Link></section>}
             <section className="explore-profile__visit"><p className="eyebrow">Your first move</p><h2>How to visit</h2><p>{listing.howToVisit}</p><div><strong>One more thing</strong><p>{listing.goodToKnow}</p></div><a className="button" href={listing.website} target="_blank" rel="noreferrer">Open official information ↗</a></section>
             <section className="event-detail__transport"><p className="eyebrow">Getting there</p><h2>Choose your route</h2><div>{listing.transport.map((option) => <section key={option.mode}><strong>{option.mode}</strong><p>{option.advice}</p></section>)}</div><a className="text-link" href="https://www.hsl.fi/en" target="_blank" rel="noreferrer">Open the HSL Journey Planner <span aria-hidden="true">↗</span></a></section>
           </article>
