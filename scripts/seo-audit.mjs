@@ -16,6 +16,12 @@ function normalizeUrl(value) {
   return url.toString()
 }
 
+function requestedUrl(value) {
+  const url = new URL(value, ORIGIN)
+  url.hash = ''
+  return url.toString()
+}
+
 async function request(url, options = {}, attempt = 0) {
   try {
     const response = await fetch(url, {
@@ -119,7 +125,7 @@ async function inspectPage(url, index, total) {
 
     const response = await request(url)
     result.status = response.status
-    result.finalUrl = normalizeUrl(response.url || url)
+    result.finalUrl = requestedUrl(response.url || url)
     result.contentType = response.headers.get('content-type') || ''
 
     if (result.contentType.includes('text/html')) {
@@ -179,7 +185,7 @@ const sitemapResponse = await request(SITEMAP_URL)
 if (!sitemapResponse.ok) throw new Error(`Sitemap returned ${sitemapResponse.status}`)
 const sitemapXml = await sitemapResponse.text()
 const sitemapUrls = [...sitemapXml.matchAll(/<loc>(.*?)<\/loc>/g)]
-  .map((match) => normalizeUrl(match[1]))
+  .map((match) => requestedUrl(match[1]))
   .filter((url) => url.startsWith(ORIGIN))
 
 console.log(`Found ${sitemapUrls.length} URLs in the sitemap`)
@@ -188,8 +194,8 @@ const pages = await mapLimit(sitemapUrls, CONCURRENCY, (url, index) =>
 )
 
 const linkedUrls = [...new Set(pages.flatMap((page) => page.internalLinks))]
-const sitemapSet = new Set(sitemapUrls)
-const nonSitemapInternalUrls = linkedUrls.filter((url) => !sitemapSet.has(url))
+const sitemapSet = new Set(sitemapUrls.map(normalizeUrl))
+const nonSitemapInternalUrls = linkedUrls.filter((url) => !sitemapSet.has(normalizeUrl(url)))
   .filter((url) => new URL(url).pathname !== '/cdn-cgi/l/email-protection')
 
 console.log(`Checking ${nonSitemapInternalUrls.length} linked URLs outside the sitemap`)
@@ -231,7 +237,7 @@ const findings = {
   missingTitle: pages.filter((page) => !page.title).map((page) => page.url),
   missingDescription: pages.filter((page) => !page.description).map((page) => page.url),
   missingCanonical: pages.filter((page) => !page.canonical).map((page) => page.url),
-  canonicalMismatch: pages.filter((page) => page.canonical && normalizedCanonical(page) !== page.url).map((page) => ({
+  canonicalMismatch: pages.filter((page) => page.canonical && normalizedCanonical(page) !== normalizeUrl(page.url)).map((page) => ({
     url: page.url,
     canonical: page.canonical,
   })),

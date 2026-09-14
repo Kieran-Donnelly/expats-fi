@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation'
 import { JsonLd } from '@/components/JsonLd'
 import { representationLabels, representationSummary } from '@/lib/embassies'
 import { getEmbassy } from '@/lib/content'
-import { breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
+import { absoluteUrl, breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
 
@@ -27,11 +27,33 @@ export default async function EmbassyPage({ params }: { params: Promise<{ slug: 
 
   return (
     <main id="main" className="shell detail-shell embassy-profile">
-      <JsonLd data={breadcrumbJsonLd([
-        { name: 'Home', path: '/' },
-        { name: 'Embassies and consulates', path: '/embassies/' },
-        { name: embassy.country, path: `/embassies/${embassy.slug}/` },
-      ])} />
+      <JsonLd data={[
+        {
+          '@context': 'https://schema.org',
+          '@type': 'GovernmentOrganization',
+          name: embassy.missionName,
+          description: representationSummary(embassy),
+          url: absoluteUrl(`/embassies/${embassy.slug}/`),
+          areaServed: {
+            '@type': 'Country',
+            name: embassy.country,
+          },
+          address: embassy.address ? {
+            '@type': 'PostalAddress',
+            streetAddress: embassy.address,
+            addressLocality: embassy.city,
+            addressCountry: embassy.hostCountry,
+          } : undefined,
+          telephone: embassy.phone || undefined,
+          email: embassy.email || undefined,
+          sameAs: embassy.website ? [embassy.website] : undefined,
+        },
+        breadcrumbJsonLd([
+          { name: 'Home', path: '/' },
+          { name: 'Embassies and consulates', path: '/embassies/' },
+          { name: embassy.country, path: `/embassies/${embassy.slug}/` },
+        ]),
+      ]} />
       <Link className="back-link" href="/embassies/">← All embassies and missions</Link>
       <header className="embassy-profile__header">
         <div>
