@@ -8,7 +8,7 @@ import { getLearningPageData } from '@/lib/content'
 import { socialMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = socialMetadata({
-  title: 'Learn Finnish: free resources, courses and practice',
+  title: 'Learn Finnish in Helsinki: free courses and practice',
   description: 'A carefully checked guide to Finnish courses, free resources, apps, podcasts, YouTube channels, YKI preparation and Helsinki language cafés.',
   path: '/learn-finnish/',
   image: '/images/heroes/learn-finnish-class.webp',

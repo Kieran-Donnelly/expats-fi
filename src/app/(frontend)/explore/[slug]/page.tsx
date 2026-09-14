@@ -6,6 +6,25 @@ import { exploreListings, getExploreListing } from '@/data/explore'
 import { ShareButton } from '@/components/ShareButton'
 import { socialMetadata } from '@/lib/seo'
 
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  kiasma: {
+    title: 'Kiasma Helsinki: free entry, tickets and visiting',
+    description: 'Plan a visit to Kiasma in Helsinki, including first-Friday free entry, ticket options, opening information, English tours and how to get there.',
+  },
+  sompasauna: {
+    title: 'Sompasauna Helsinki: free sauna, rules and visiting',
+    description: 'How to visit Helsinki’s free volunteer-run Sompasauna, including its Mustikkamaa location, what to bring, sauna etiquette, sea swimming and transport.',
+  },
+  'riviera-cinemas': {
+    title: 'Riviera cinemas in Helsinki: tickets, locations and films',
+    description: 'A practical guide to Riviera’s Helsinki cinemas, including Kallio and Punavuori locations, tickets, food, drinks and what to check before booking.',
+  },
+  loyly: {
+    title: 'Löyly Helsinki: sauna price, booking and what to expect',
+    description: 'Plan a visit to Löyly in Helsinki, including public sauna prices, booking, swimwear, towels, sea swimming and transport to Hernesaari.',
+  },
+}
+
 export function generateStaticParams() {
   return exploreListings.map((listing) => ({ slug: listing.slug }))
 }
@@ -14,7 +33,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const listing = getExploreListing(slug)
   if (!listing) return {}
-  return socialMetadata({ title: `${listing.name} | Things to do`, description: listing.blurb, path: `/explore/${listing.slug}/`, image: '/images/heroes/explore-suomenlinna.webp' })
+  const seo = seoOverrides[listing.slug]
+  return socialMetadata({ title: seo?.title || `${listing.name} | Things to do`, description: seo?.description || listing.blurb, path: `/explore/${listing.slug}/`, image: '/images/heroes/explore-suomenlinna.webp' })
 }
 
 export default async function ExploreListingPage({ params }: { params: Promise<{ slug: string }> }) {

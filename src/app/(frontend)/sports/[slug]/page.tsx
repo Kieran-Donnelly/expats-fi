@@ -6,6 +6,13 @@ import { getSportsListing, sportsListings } from '@/data/sports'
 import { ShareButton } from '@/components/ShareButton'
 import { socialMetadata } from '@/lib/seo'
 
+const seoOverrides: Record<string, { title: string; description: string }> = {
+  'tokoinranta-parkrun': {
+    title: 'Tokoinranta parkrun: Helsinki’s free Saturday 5K',
+    description: 'How to join Tokoinranta parkrun in Helsinki, including Saturday start time, registration, barcode, route, transport and walking or volunteering.',
+  },
+}
+
 export function generateStaticParams() {
   return sportsListings.map((listing) => ({ slug: listing.slug }))
 }
@@ -14,7 +21,8 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const { slug } = await params
   const listing = getSportsListing(slug)
   if (!listing) return {}
-  return socialMetadata({ title: listing.name, description: listing.blurb, path: `/sports/${listing.slug}/`, image: '/images/heroes/sports-rugby-team-v2.webp' })
+  const seo = seoOverrides[listing.slug]
+  return socialMetadata({ title: seo?.title || listing.name, description: seo?.description || listing.blurb, path: `/sports/${listing.slug}/`, image: '/images/heroes/sports-rugby-team-v2.webp' })
 }
 
 export default async function SportsListingPage({ params }: { params: Promise<{ slug: string }> }) {
