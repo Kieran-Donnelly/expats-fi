@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { JsonLd } from '@/components/JsonLd'
 import { SectionHero } from '@/components/SectionHero'
-import { socialMetadata } from '@/lib/seo'
+import { absoluteUrl, publisher, socialMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = socialMetadata({
   title: 'About Expats.fi',
@@ -32,6 +33,21 @@ const principles = [
 export default function AboutPage() {
   return (
     <main id="main" className="about-page family-hub">
+      <JsonLd data={{
+        '@context': 'https://schema.org',
+        '@type': 'AboutPage',
+        name: 'About Expats.fi',
+        description: 'Why two Kiwi expats built a warmer, clearer guide to moving to Finland, settling in and finding your people here.',
+        url: absoluteUrl('/about/'),
+        mainEntity: {
+          ...publisher,
+          email: 'moi@expats.fi',
+          sameAs: [
+            'https://www.facebook.com/groups/1579279056393368',
+            'https://www.instagram.com/expats_fi/',
+          ],
+        },
+      }} />
       <SectionHero
         eyebrow="About Expats.fi"
         title="The guide we wish somebody had handed us."

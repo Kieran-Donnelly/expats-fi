@@ -53,7 +53,9 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
           dateModified: reviewedAt,
           author: publisher,
           publisher,
+          image: heroImage ? absoluteUrl(heroImage.src) : undefined,
           inLanguage: 'en',
+          isAccessibleForFree: true,
         },
         breadcrumbJsonLd([
           { name: 'Home', path: '/' },

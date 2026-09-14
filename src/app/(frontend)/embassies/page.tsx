@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 
 import { EmbassyDirectoryView } from '@/components/EmbassyDirectoryView'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { representationLabels } from '@/lib/embassies'
 import { getEmbassies } from '@/lib/content'
 import { socialMetadata } from '@/lib/seo'
@@ -31,6 +32,12 @@ export default async function EmbassiesPage({ searchParams }: { searchParams: Pr
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Embassies and consulates in Finland"
+        description="Find the embassy, accredited mission, honorary consulate or best official contact for every country while living in Finland."
+        path="/embassies/"
+        items={allEmbassies.map((embassy) => ({ name: embassy.country, path: `/embassies/${embassy.slug}/` }))}
+      />
       <header className="page-hero embassy-hero photo-hero">
         <HeroBackdrop src="/images/heroes/embassies-international-flags.webp" position="center 50%" />
         <div className="shell page-hero__inner">
