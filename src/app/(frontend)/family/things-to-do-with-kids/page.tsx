@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
@@ -16,8 +17,27 @@ export const metadata: Metadata = socialMetadata({
   title: 'Things to do with kids in Helsinki',
   description: 'Family-friendly events and reliable days out in Helsinki, with free ideas, rainy-day options, places to burn energy and practical parent notes.',
   path: pagePath,
-  image: '/images/heroes/family-together.webp',
+  image: '/images/family-kids/hero-family-day-out.webp',
 })
+
+const placeImages: Record<string, { src: string; alt: string; position?: string }> = {
+  'helsinki-city-museum': { src: '/images/family-kids/helsinki-city-museum-kids.webp', alt: 'A child exploring a colourful interactive exhibition' },
+  'tram-museum': { src: '/images/family-kids/tram-museum-helsinki.webp', alt: 'A Helsinki tram travelling along a rain-washed city street' },
+  'playground-loru': { src: '/images/family-kids/playground-loru-library.webp', alt: 'A family reading together in a children’s library' },
+  'helsinki-playground-network': { src: '/images/family-kids/helsinki-playgrounds.webp', alt: 'Children playing together at an outdoor playground' },
+  oodi: { src: '/images/family-kids/oodi-helsinki.webp', alt: 'The sweeping wooden exterior of Oodi Central Library in Helsinki' },
+  annantalo: { src: '/images/family-kids/annantalo-art-workshop.webp', alt: 'Children painting together during an art workshop' },
+  'finnkino-helsinki': { src: '/images/family-kids/finnkino-family-cinema.webp', alt: 'A cinema visitor holding popcorn in front of red theatre seats' },
+  'helsinki-cultural-centres': { src: '/images/family-kids/helsinki-cultural-centres-children.webp', alt: 'An audience watching children perform on stage' },
+  'oittaa-lake-bodom': { src: '/images/family-kids/oittaa-family-lake.webp', alt: 'A family sharing a picnic beside a lake' },
+  kuusijarvi: { src: '/images/family-kids/kuusijarvi-smoke-sauna.webp', alt: 'A traditional smoke sauna among Finnish lakeside trees' },
+  'aurinkolahti-beach': { src: '/images/family-kids/aurinkolahti-family-beach.webp', alt: 'A family playing together on a sandy beach' },
+  palettilampi: { src: '/images/family-kids/palettilampi-lake-swimming.webp', alt: 'Children running into clear lake water' },
+  'korkeasaari-zoo': { src: '/images/family-kids/korkeasaari-tiger.webp', alt: 'A close view of a tiger’s striped coat' },
+  suomenlinna: { src: '/images/family-kids/suomenlinna-family-day.webp', alt: 'A sailboat passing Suomenlinna across the Helsinki sea' },
+  'nuuksio-and-haltia': { src: '/images/family-kids/nuuksio-lake.webp', alt: 'A quiet forest lake in Nuuksio National Park' },
+  linnanmaki: { src: '/images/family-kids/linnanmaki-ferris-wheel.webp', alt: 'The colourful Rinkeli Ferris wheel at Linnanmäki' },
+}
 
 const groups = [
   {
@@ -60,17 +80,25 @@ function picksFor(slugs: readonly string[]) {
 
 function KidsPlaceCard({ place }: { place: ExploreListing }) {
   const setting = place.indoor ? (place.allYear ? 'Indoors · all year' : 'Indoors') : (place.allYear ? 'Outdoors · all year' : 'Outdoors · seasonal')
+  const image = placeImages[place.slug]
 
   return (
     <article className="kids-place-card">
-      <div className="kids-place-card__meta"><span>{place.area}</span><span>{setting}</span></div>
-      <h3><Link href={`/explore/${place.slug}/`}>{place.name}</Link></h3>
-      <p>{place.blurb}</p>
-      <dl>
-        <div><dt>Cost</dt><dd>{place.priceNote}</dd></div>
-        <div><dt>Good to know</dt><dd>{place.goodToKnow}</dd></div>
-      </dl>
-      <Link className="text-link" href={`/explore/${place.slug}/`}>Plan this one <span aria-hidden="true">→</span></Link>
+      {image && (
+        <div className="kids-place-card__media">
+          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 720px) 100vw, 50vw" style={{ objectPosition: image.position ?? 'center' }} />
+        </div>
+      )}
+      <div className="kids-place-card__body">
+        <div className="kids-place-card__meta"><span>{place.area}</span><span>{setting}</span></div>
+        <h3><Link href={`/explore/${place.slug}/`}>{place.name}</Link></h3>
+        <p>{place.blurb}</p>
+        <dl>
+          <div><dt>Cost</dt><dd>{place.priceNote}</dd></div>
+          <div><dt>Good to know</dt><dd>{place.goodToKnow}</dd></div>
+        </dl>
+        <Link className="text-link" href={`/explore/${place.slug}/`}>Plan this one <span aria-hidden="true">→</span></Link>
+      </div>
     </article>
   )
 }
@@ -107,7 +135,7 @@ export default async function ThingsToDoWithKidsPage() {
         noteTitle="Pick the day you actually have."
         noteBody="Ten spare minutes, a wet afternoon and a full Saturday are three different jobs. Choose a lane below, then check the linked organiser before setting off."
         tone="warm"
-        image={{ src: '/images/heroes/family-together.webp', position: 'center 48%' }}
+        image={{ src: '/images/family-kids/hero-family-day-out.webp', position: 'center 46%' }}
       />
 
       <nav className="kids-jump" aria-label="Things to do with kids sections">
