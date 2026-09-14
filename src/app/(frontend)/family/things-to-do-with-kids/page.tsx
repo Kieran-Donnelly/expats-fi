@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { EventCard } from '@/components/EventCard'
 import { JsonLd } from '@/components/JsonLd'
 import { SectionHero } from '@/components/SectionHero'
+import type { CityEvent } from '@/data/events'
 import { exploreListings, type ExploreListing } from '@/data/explore'
 import { getEvents } from '@/lib/content'
 import { breadcrumbJsonLd, collectionPageJsonLd, socialMetadata } from '@/lib/seo'
@@ -37,6 +38,15 @@ const placeImages: Record<string, { src: string; alt: string; position?: string 
   suomenlinna: { src: '/images/family-kids/suomenlinna-family-day.webp', alt: 'A sailboat passing Suomenlinna across the Helsinki sea' },
   'nuuksio-and-haltia': { src: '/images/family-kids/nuuksio-lake.webp', alt: 'A quiet forest lake in Nuuksio National Park' },
   linnanmaki: { src: '/images/family-kids/linnanmaki-ferris-wheel.webp', alt: 'The colourful Rinkeli Ferris wheel at Linnanmäki' },
+}
+
+const eventImages: Record<string, { src: string; alt: string }> = {
+  'relaxed-basketball-puistola-2026': { src: '/images/family-kids/event-relaxed-basketball.webp', alt: 'Young people playing basketball together in a gym' },
+  'sense-of-some-place-exhibition-2026': { src: '/images/family-kids/event-sense-of-place.webp', alt: 'Colourful paintings displayed inside a contemporary gallery' },
+  'espoo-kids-minimarathon-2026': { src: '/images/family-kids/event-kids-minimarathon.webp', alt: 'Children racing together across a grassy field' },
+  'espoo-rantamaraton-2026': { src: '/images/family-kids/event-rantamaraton.webp', alt: 'A runner training beside the waterfront' },
+  'hjk-women-gnistan-2026': { src: '/images/family-kids/event-womens-football.webp', alt: 'A group playing football together on a sunny field' },
+  'helsinki-international-grand-market-2026': { src: '/images/family-kids/event-international-market.webp', alt: 'Colourful dishes laid out at a busy outdoor food market' },
 }
 
 const groups = [
@@ -100,6 +110,21 @@ function KidsPlaceCard({ place }: { place: ExploreListing }) {
         <Link className="text-link" href={`/explore/${place.slug}/`}>Plan this one <span aria-hidden="true">→</span></Link>
       </div>
     </article>
+  )
+}
+
+function KidsEventCard({ event }: { event: CityEvent }) {
+  const image = eventImages[event.slug]
+
+  return (
+    <div className="kids-event-card">
+      {image && (
+        <div className="kids-event-card__media">
+          <Image src={image.src} alt={image.alt} fill sizes="(max-width: 720px) 100vw, 33vw" />
+        </div>
+      )}
+      <EventCard event={event} />
+    </div>
   )
 }
 
@@ -167,7 +192,7 @@ export default async function ThingsToDoWithKidsPage() {
           </div>
           {familyEvents.length > 0 ? (
             <div className="kids-events__grid">
-              {familyEvents.map((event) => <EventCard event={event} key={event.slug} />)}
+              {familyEvents.map((event) => <KidsEventCard event={event} key={event.slug} />)}
             </div>
           ) : (
             <div className="kids-events__empty"><strong>No fresh family events are confirmed just now.</strong><p>The evergreen ideas below still have your afternoon covered.</p></div>

@@ -21,3 +21,9 @@ Downloaded under the Expats.fi Unlimphotos account on 14 September 2026 and conv
 | `suomenlinna-family-day.webp` | 67746182 |
 | `nuuksio-lake.webp` | 30119480 |
 | `linnanmaki-ferris-wheel.webp` | 61623694 |
+| `event-relaxed-basketball.webp` | 74107714 |
+| `event-sense-of-place.webp` | 102914676 |
+| `event-kids-minimarathon.webp` | 19591480 |
+| `event-rantamaraton.webp` | 89563162 |
+| `event-womens-football.webp` | 64421940 |
+| `event-international-market.webp` | 61484988 |
