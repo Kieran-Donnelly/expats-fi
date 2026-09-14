@@ -17,6 +17,7 @@ export function SiteFooter() {
           <Link href="/resources/?category=Work%20%26%20money#resource-library">Work and money</Link>
           <Link href="/study/">Study in Finland</Link>
           <Link href="/family/">Family</Link>
+          <Link href="/family/things-to-do-with-kids/">Things to do with kids</Link>
           <Link href="/culture/">How Finland actually works</Link>
           <Link href="/help/">When things go wrong</Link>
         </nav>

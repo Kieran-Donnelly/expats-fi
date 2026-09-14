@@ -36,6 +36,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/help/', priority: .9 },
     { url: 'https://expats.fi/resources/', priority: .9 },
     { url: 'https://expats.fi/family/', priority: .9 },
+    { url: 'https://expats.fi/family/things-to-do-with-kids/', priority: .85 },
     { url: 'https://expats.fi/learn-finnish/', priority: .9 },
     { url: 'https://expats.fi/study/', priority: .9 },
     { url: 'https://expats.fi/news/', priority: .9 },

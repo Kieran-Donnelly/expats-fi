@@ -66,6 +66,67 @@
 .family-local-note h2 { font-size: 2rem; }
 .family-local-note > p { margin: 0; color: var(--ink-soft); }
 
+.family-kids-callout { position: relative; overflow: hidden; min-block-size: 29rem; display: flex; align-items: center; margin-block: clamp(2rem, 5vw, 4rem) 0; border-radius: 1rem; background: var(--blue-dark); isolation: isolate; }
+.family-kids-callout::after { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, oklch(24% .075 250 / .98) 0%, oklch(24% .075 250 / .9) 34%, oklch(24% .075 250 / .35) 69%, transparent 100%); }
+.family-kids-callout > img { z-index: -2; object-fit: cover; object-position: center 48%; filter: saturate(.9) contrast(.98); }
+.family-kids-callout > div { max-inline-size: 38rem; padding: clamp(2rem, 6vw, 5rem); color: var(--snow); }
+.family-kids-callout .eyebrow { color: oklch(84% .13 75); }
+.family-kids-callout h2 { color: var(--snow); font-size: clamp(2.2rem, 5vw, 4.4rem); line-height: .98; }
+.family-kids-callout p:not(.eyebrow) { max-inline-size: 34rem; color: oklch(88% .018 250); }
+.family-kids-callout .button { margin-block-start: 1rem; background: var(--snow); color: var(--blue-dark); }
+
+.kids-jump { position: sticky; z-index: 8; inset-block-start: var(--header-height, 5rem); border-block-end: 1px solid var(--line); background: color-mix(in oklch, var(--snow) 94%, transparent); backdrop-filter: blur(14px); }
+.kids-jump > div { overflow-x: auto; display: flex; gap: clamp(1rem, 3vw, 2rem); scrollbar-width: none; }
+.kids-jump a { flex: none; padding-block: .9rem; color: var(--ink-soft); font-size: .73rem; font-weight: 720; text-decoration: none; }
+.kids-jump a:hover { color: var(--blue); }
+.kids-choice-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+.kids-choice-grid a { position: relative; min-block-size: 14rem; display: flex; flex-direction: column; padding: 1.35rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: background 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
+.kids-choice-grid a:hover { z-index: 1; background: var(--coral-soft); transform: translateY(-3px); }
+.kids-choice-grid span { color: var(--coral); font-size: .7rem; font-weight: 780; }
+.kids-choice-grid strong { margin-block: auto .65rem; font-size: 1.3rem; }
+.kids-choice-grid small { max-inline-size: 16rem; color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
+.kids-choice-grid i { position: absolute; inset: 1.1rem 1.1rem auto auto; color: var(--muted); font-style: normal; }
+
+.kids-events { scroll-margin-block-start: 8rem; border-block: 1px solid var(--line); background: var(--blue-pale); }
+.kids-events__grid { display: grid; grid-template-columns: repeat(3, 1fr); }
+.kids-events__empty { padding: 2rem; border: 1px solid var(--line); background: var(--snow); }
+.kids-events__empty p { margin-block-end: 0; color: var(--ink-soft); }
+.kids-events__more { display: flex; justify-content: flex-end; margin-block-start: 1.4rem; }
+
+.kids-pick-group { scroll-margin-block-start: 8rem; border-block-end: 1px solid var(--line); }
+.kids-pick-group:nth-of-type(even) { background: oklch(98% .014 75); }
+.kids-pick-group__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, .7fr); gap: clamp(2rem, 7vw, 6rem); align-items: end; margin-block-end: 2rem; }
+.kids-pick-group__heading > div > span { display: block; margin-block-end: 2rem; color: var(--coral); font-size: .75rem; font-weight: 780; }
+.kids-pick-group__heading h2 { max-inline-size: 17ch; }
+.kids-pick-group__heading > p { margin: 0; color: var(--ink-soft); }
+.kids-place-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
+.kids-place-card { min-inline-size: 0; min-block-size: 24rem; display: flex; flex-direction: column; padding: clamp(1.35rem, 3vw, 2rem); border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
+.kids-place-card__meta { display: flex; flex-wrap: wrap; gap: .4rem .9rem; color: var(--muted); font-size: .68rem; font-weight: 720; letter-spacing: .05em; text-transform: uppercase; }
+.kids-place-card__meta span + span::before { content: "·"; margin-inline-end: .9rem; }
+.kids-place-card h3 { margin-block: 1.6rem .75rem; font-size: clamp(1.45rem, 3vw, 2rem); }
+.kids-place-card h3 a { text-decoration: none; }
+.kids-place-card h3 a:hover { color: var(--blue); }
+.kids-place-card > p { color: var(--ink-soft); }
+.kids-place-card dl { display: grid; gap: .7rem; margin-block: auto 1.5rem; }
+.kids-place-card dl > div { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1rem; padding-block-start: .7rem; border-block-start: 1px solid var(--line); }
+.kids-place-card dt { color: var(--coral); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
+.kids-place-card dd { margin: 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
+
+.kids-checklist { background: var(--ink); color: var(--snow); }
+.kids-checklist .section { display: grid; grid-template-columns: minmax(17rem, .8fr) minmax(0, 1.2fr); gap: clamp(3rem, 8vw, 7rem); }
+.kids-checklist .eyebrow { color: oklch(84% .13 75); }
+.kids-checklist h2 { color: var(--snow); }
+.kids-checklist > div > div > p:last-child { color: oklch(82% .018 255); }
+.kids-checklist ol { display: grid; margin: 0; padding: 0; list-style: none; }
+.kids-checklist li { display: grid; grid-template-columns: 2.5rem minmax(0, 1fr); gap: 1rem; padding-block: 1.15rem; border-block-end: 1px solid oklch(80% .02 250 / .18); }
+.kids-checklist li:first-child { border-block-start: 1px solid oklch(80% .02 250 / .18); }
+.kids-checklist li span { color: oklch(84% .13 75); font-size: .7rem; font-weight: 760; }
+.kids-checklist li strong { color: var(--snow); }
+.kids-more { display: flex; justify-content: space-between; gap: 3rem; align-items: end; padding-block: clamp(4rem, 8vw, 6rem); }
+.kids-more > div:first-child { max-inline-size: 42rem; }
+.kids-more > div:first-child > p:last-child { color: var(--ink-soft); }
+.kids-more > div:last-child { display: flex; flex-wrap: wrap; gap: .7rem; }
+
 .family-detail { --guide-accent: var(--blue); --guide-accent-soft: var(--blue-soft); }
 .family-detail[data-guide-tone="warm"] { --guide-accent: var(--coral); --guide-accent-soft: oklch(97% .035 70); }
 .family-detail__shell { padding-block: 2.25rem clamp(4rem, 8vw, 7rem); }
@@ -140,6 +201,8 @@
   .family-stage-grid, .family-system-grid { grid-template-columns: repeat(2, 1fr); }
   .family-guide-grid { grid-template-columns: repeat(2, 1fr); }
   .family-detail__layout { grid-template-columns: minmax(0, 1fr) 18rem; gap: 3rem; }
+  .kids-choice-grid { grid-template-columns: repeat(2, 1fr); }
+  .kids-events__grid { grid-template-columns: repeat(2, 1fr); }
 }
 
 @media (max-width: 720px) {
@@ -153,6 +216,11 @@
   .family-detail__header > aside { max-inline-size: 30rem; }
   .family-detail__aside { grid-template-columns: repeat(2, 1fr); }
   .family-editor-note { grid-column: 1 / -1; }
+  .family-kids-callout { margin-inline: 0; border-radius: 0; }
+  .family-kids-callout::after { background: linear-gradient(90deg, oklch(24% .075 250 / .96), oklch(24% .075 250 / .68)); }
+  .kids-pick-group__heading, .kids-checklist .section { grid-template-columns: 1fr; }
+  .kids-place-grid, .kids-events__grid { grid-template-columns: 1fr; }
+  .kids-more { align-items: start; flex-direction: column; }
 }
 
 @media (max-width: 520px) {
@@ -160,4 +228,6 @@
   .family-system-grid a, .help-step { min-block-size: 15rem; }
   .family-guide-card { min-block-size: 19rem; }
   .family-editor-note { grid-column: auto; }
+  .kids-choice-grid { grid-template-columns: 1fr; }
+  .kids-place-card dl > div { grid-template-columns: 1fr; gap: .25rem; }
 }

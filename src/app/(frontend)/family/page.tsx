@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
@@ -48,6 +49,16 @@ export default function FamilyPage() {
         <div className="shell family-urgent__inner">
           <div><span>Need help now?</span><strong>112 for immediate danger · 116 117 for urgent medical advice · 116 016 for domestic violence support</strong></div>
           <Link href="/family/urgent-help-and-safety/">Open the calm, practical help page <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
+
+      <section className="shell family-kids-callout" aria-labelledby="family-kids-callout-heading">
+        <Image src="/images/heroes/family-together.webp" alt="A family spending time together outdoors in Helsinki" fill sizes="(max-width: 720px) 100vw, 1200px" />
+        <div>
+          <p className="eyebrow">Helsinki with kids</p>
+          <h2 id="family-kids-callout-heading">Good shouts for getting out of the house.</h2>
+          <p>Current family events, free fallbacks, rainy-day rescues and bigger days out, grouped around the sort of day you actually have.</p>
+          <Link className="button" href="/family/things-to-do-with-kids/">Find something to do</Link>
         </div>
       </section>
 
