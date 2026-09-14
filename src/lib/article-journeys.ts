@@ -5,6 +5,7 @@ export type ArticleJourneyLink = {
 }
 
 export const articleSeoTitles: Record<string, string> = {
+  '15-ects-of-finnish-fast-the-smartest-routes-for-expats-in-finland': 'How to earn 15 ECTS of Finnish language credits',
   'guide-moving-to-finland-registration': 'Registering in Finland: identity code, address and kotikunta',
   'guide-finance-account': 'Opening a bank account in Finland as a newcomer',
   'guide-living-in-finland-social-security': 'Kela after moving to Finland: eligibility and first steps',
@@ -81,7 +82,28 @@ export const articleSeoTitles: Record<string, string> = {
   'guide-housing-emergency-accommodation-in-finland': 'Emergency accommodation in Finland: where to get help',
 }
 
+export const articleSeoDescriptions: Record<string, string> = {
+  '15-ects-of-finnish-fast-the-smartest-routes-for-expats-in-finland': 'Compare university, open-study and online routes to 15 ECTS of Finnish, including realistic timing, costs and the checks to make before enrolling.',
+}
+
 export const articleJourneyLinks: Record<string, ArticleJourneyLink[]> = {
+  '15-ects-of-finnish-fast-the-smartest-routes-for-expats-in-finland': [
+    {
+      href: '/study/open-university-online-and-flexible-study/',
+      title: 'Compare open and flexible study routes',
+      description: 'Understand open university, open UAS, online courses, fees and whether the credits can support your wider study plan.',
+    },
+    {
+      href: '/study/universities-and-universities-of-applied-sciences/',
+      title: 'Check university and UAS options',
+      description: 'Find the difference between the two higher-education systems and where language-centre or open-study credits may fit.',
+    },
+    {
+      href: '/learn-finnish/',
+      title: 'Build the Finnish around the credits',
+      description: 'Combine structured study with free listening, practical tools, language cafés and YKI preparation.',
+    },
+  ],
   'guide-moving-to-finland-registration': [
     {
       href: '/resources/guide-finance-account/',
@@ -566,4 +588,8 @@ export const articleJourneyLinks: Record<string, ArticleJourneyLink[]> = {
 
 export function articleSeoTitle(slug: string, fallback: string): string {
   return articleSeoTitles[slug] ?? fallback
+}
+
+export function articleSeoDescription(slug: string, fallback: string): string {
+  return articleSeoDescriptions[slug] ?? fallback
 }

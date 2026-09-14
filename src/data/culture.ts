@@ -367,7 +367,7 @@ export const cultureGuides: EditorialGuide[] = [
     resources: [
       { title: 'Eating out in Helsinki', description: 'Current practical information on Helsinki food, weekday lunch and restaurant customs.', url: 'https://www.myhelsinki.fi/itinerary/visitor/3-day-helsinki-itinerary-first-time/', source: 'MyHelsinki' },
       { title: 'Shopping at Alko', description: 'Store locations, current opening hours, identification rules and shopping guidance.', url: 'https://www.alko.fi/en/services/shopping-alko-store', source: 'Alko' },
-      { title: 'Places to eat and hang out', description: 'Our growing collection of independent cafés, welcoming spaces and places worth knowing.', url: '/explore/', source: 'Expats.fi' },
+      { title: 'Places to eat and hang out', description: 'Our growing collection of independent cafés, welcoming spaces and places worth knowing.', url: '/eats/', source: 'Expats.fi' },
     ],
   },
   {
