@@ -1,13 +1,6 @@
 .family-hub { --hub-accent: var(--blue); --hub-accent-soft: var(--blue-soft); overflow: hidden; }
 .family-hub[data-hub-tone="warm"] { --hub-accent: var(--coral); --hub-accent-soft: var(--coral-soft); }
 
-.kids-hub .hub-hero__media img { filter: saturate(1) contrast(1); }
-.kids-hub .hub-hero__media::after {
-  background:
-    linear-gradient(90deg, color-mix(in oklch, var(--hub-hero-surface) 92%, transparent) 0%, color-mix(in oklch, var(--hub-hero-surface) 82%, transparent) 22%, color-mix(in oklch, var(--hub-hero-surface) 48%, transparent) 36%, color-mix(in oklch, var(--hub-hero-surface) 12%, transparent) 53%, transparent 68%),
-    linear-gradient(180deg, color-mix(in oklch, var(--hub-hero-wash) 3%, transparent), color-mix(in oklch, var(--hub-hero-wash) 7%, transparent));
-}
-
 .family-urgent { background: var(--ink); color: var(--snow); }
 .family-urgent__inner { min-block-size: 5.25rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; padding-block: .85rem; }
 .family-urgent__inner > div { display: grid; gap: .1rem; }
@@ -214,11 +207,6 @@
 .continue-exploring__grid i { position: absolute; inset-inline-end: 1.4rem; inset-block-end: 1.25rem; color: var(--blue); font-size: 1.1rem; font-style: normal; }
 
 @media (max-width: 960px) {
-  .kids-hub .hub-hero__media::after {
-    background:
-      linear-gradient(180deg, color-mix(in oklch, var(--hub-hero-surface) 84%, transparent) 0%, color-mix(in oklch, var(--hub-hero-surface) 70%, transparent) 30%, color-mix(in oklch, var(--hub-hero-surface) 36%, transparent) 54%, color-mix(in oklch, var(--hub-hero-surface) 9%, transparent) 78%, transparent 100%),
-      linear-gradient(90deg, color-mix(in oklch, var(--hub-hero-wash) 3%, transparent), color-mix(in oklch, var(--hub-hero-wash) 6%, transparent));
-  }
   .family-stage-grid, .family-system-grid { grid-template-columns: repeat(2, 1fr); }
   .family-guide-grid { grid-template-columns: repeat(2, 1fr); }
   .family-detail__layout { grid-template-columns: minmax(0, 1fr) 18rem; gap: 3rem; }
