@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { BusinessCard } from '@/components/BusinessCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { getBusinesses, labels } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedBusinessIds } from '@/lib/saved-businesses'
@@ -31,6 +32,12 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Expat-owned businesses in Finland"
+        description="Restaurants, services and independent businesses owned by people who moved to Finland."
+        path="/businesses/"
+        items={businesses.slice(0, 50).map((business) => ({ name: business.name, path: `/businesses/${business.slug}/` }))}
+      />
       <header className="page-hero photo-hero">
         <HeroBackdrop src="/images/heroes/businesses-bookshop-owner.webp" position="center 45%" />
         <div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div>

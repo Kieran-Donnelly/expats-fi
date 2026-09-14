@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { cultureGuides } from '@/data/culture'
 import { socialMetadata } from '@/lib/seo'
@@ -21,6 +22,12 @@ export const metadata: Metadata = socialMetadata({
 export default function CulturePage() {
   return (
     <main id="main" className="family-hub">
+      <HubStructuredData
+        name="Finnish culture and customs"
+        description="Guides to Finnish communication, friendship, history, important people, historic places and everyday culture."
+        path="/culture/"
+        items={cultureGuides.map((guide) => ({ name: guide.title, path: `/culture/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="How Finland actually works"
         title="The cultural bits nobody puts on the residence permit."

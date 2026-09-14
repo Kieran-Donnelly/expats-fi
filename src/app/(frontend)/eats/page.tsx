@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { EatsCard } from '@/components/EatsCard'
 import { EatsMap } from '@/components/EatsMap'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { eatAreas, eatKinds, eatMoods, eatSpots } from '@/data/eats'
@@ -54,6 +55,12 @@ export default async function EatsPage({ searchParams }: { searchParams: Promise
 
   return (
     <main id="main" className="eats-page">
+      <HubStructuredData
+        name="Food and drink in Finland"
+        description="Finnish food, seasonal favourites, practical recipes and places to eat around Helsinki."
+        path="/eats/"
+        items={finlandFoodGuides.map((guide) => ({ name: guide.title, path: `/eats/finland-on-a-plate/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Food & Drink"
         title="Taste Finland. Find your next favourite."

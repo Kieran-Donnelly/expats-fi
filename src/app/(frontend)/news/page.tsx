@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { NewsCard } from '@/components/NewsCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { getNewsStories } from '@/lib/content'
 import { getNewsImage } from '@/lib/news-images'
 import { socialMetadata } from '@/lib/seo'
@@ -28,6 +29,12 @@ export default async function NewsPage({ searchParams }: { searchParams: Promise
 
   return (
     <main id="main" className="news-page">
+      <HubStructuredData
+        name="News from Finland"
+        description="Original news and explainers about Helsinki and Finland, with practical context for international residents."
+        path="/news/"
+        items={stories.slice(0, 50).map((story) => ({ name: story.title, path: `/news/${story.slug}/` }))}
+      />
       <header className="news-hero photo-hero photo-hero--dark">
         <HeroBackdrop src="/images/heroes/news-phone-coffee.webp" position="center 42%" />
         <div className="shell news-hero__inner">

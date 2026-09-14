@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { studyGuides, studyProviders } from '@/data/study'
 import { socialMetadata } from '@/lib/seo'
@@ -25,6 +26,12 @@ const providerTypes = ['University', 'University of applied sciences', 'Vocation
 export default function StudyPage() {
   return (
     <main id="main" className="study-hub family-hub">
+      <HubStructuredData
+        name="Study in Finland"
+        description="Guides to universities, universities of applied sciences, vocational education, integration training, flexible study, fees and permits in Finland."
+        path="/study/"
+        items={studyGuides.map((guide) => ({ name: guide.title, path: `/study/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Study in Finland"
         title="A new qualification, a new trade or simply a way forward."

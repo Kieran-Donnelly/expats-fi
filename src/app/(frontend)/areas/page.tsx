@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { SectionHero } from '@/components/SectionHero'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { areaGuides } from '@/data/areas'
 import { socialMetadata } from '@/lib/seo'
 
@@ -48,6 +49,12 @@ const guideGroups = [
 export default function AreasPage() {
   return (
     <main id="main" className="family-hub">
+      <HubStructuredData
+        name="Helsinki neighbourhood guides"
+        description="Guides to Helsinki neighbourhoods, including places to eat, cafés, free things to do and honest notes about living there."
+        path="/areas/"
+        items={areaGuides.map((guide) => ({ name: guide.title, path: `/areas/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Helsinki neighbourhoods"
         title="Good areas, good eats and a reason to get off at a different stop."

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SectionHero } from '@/components/SectionHero'
 import { familyGuides, familySystems } from '@/data/family'
@@ -26,6 +27,12 @@ const stageLinks = [
 export default function FamilyPage() {
   return (
     <main id="main" className="family-hub" data-hub-tone="warm">
+      <HubStructuredData
+        name="Family life in Finland"
+        description="Guides to healthcare, babies, daycare, school, teenagers, Kela, family support and urgent help in Finland."
+        path="/family/"
+        items={familyGuides.map((guide) => ({ name: guide.title, path: `/family/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Family life in Finland"
         title="Family life, without needing a Finnish relative on standby."

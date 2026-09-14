@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { EventCard } from '@/components/EventCard'
 import { EventsMap } from '@/components/EventsMap'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { eventCategories } from '@/data/events'
 import { getEvents } from '@/lib/content'
 import { socialMetadata } from '@/lib/seo'
@@ -56,6 +57,12 @@ export default async function EventsPage({ searchParams }: { searchParams: Promi
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Events in Helsinki"
+        description="Upcoming events, festivals, markets and gatherings in Helsinki, with practical details and transport tips."
+        path="/events/"
+        items={allEvents.slice(0, 50).map((event) => ({ name: event.title, path: `/events/${event.slug}/` }))}
+      />
       <header className="events-hero photo-hero photo-hero--dark">
         <HeroBackdrop src="/images/heroes/events-evening-gathering.webp" position="center 48%" />
         <div className="shell events-hero__inner">

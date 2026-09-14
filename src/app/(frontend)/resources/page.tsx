@@ -4,6 +4,7 @@ import Link from 'next/link'
 
 import { ArticleCard } from '@/components/ArticleCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { getArticles } from '@/lib/content'
 import { getCurrentMember } from '@/lib/member-auth'
 import { getSavedArticleIds } from '@/lib/saved-articles'
@@ -85,6 +86,12 @@ export default async function ResourcesPage({ searchParams }: { searchParams: Pr
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Life in Finland guides"
+        description="Plain-English guides covering permits, work, money, healthcare, housing, family and everyday life in Finland."
+        path="/resources/"
+        items={articles.slice(0, 50).map((article) => ({ name: article.title, path: `/resources/${article.slug}/` }))}
+      />
       <header className="page-hero photo-hero">
         <HeroBackdrop
           src={hero.src}

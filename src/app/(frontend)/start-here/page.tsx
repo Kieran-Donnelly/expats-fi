@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { settlingGuides } from '@/data/settling'
 import { socialMetadata } from '@/lib/seo'
@@ -30,6 +31,12 @@ const systems = [
 export default function StartHerePage() {
   return (
     <main id="main" className="family-hub">
+      <HubStructuredData
+        name="Moving to Finland checklist"
+        description="A practical moving-to-Finland checklist covering permits, registration, banking, tax, Kela, healthcare and the first 90 days."
+        path="/start-here/"
+        items={settlingGuides.map((guide) => ({ name: guide.title, path: `/start-here/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Start here"
         title="Your first months in Finland, without doing everything twice."

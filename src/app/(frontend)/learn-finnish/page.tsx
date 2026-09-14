@@ -3,6 +3,7 @@ import type { Metadata } from 'next'
 import type { LearningResource } from '@/data/finnishLearning'
 import { ContinueExploring } from '@/components/ContinueExploring'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { getLearningPageData } from '@/lib/content'
 import { socialMetadata } from '@/lib/seo'
 
@@ -71,6 +72,12 @@ export default async function LearnFinnishPage() {
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Learn Finnish"
+        description="Checked Finnish courses, free resources, apps, podcasts, videos, language cafés and YKI preparation."
+        path="/learn-finnish/"
+        items={sections.map((section) => ({ name: section.eyebrow, path: `/learn-finnish/#${section.id}` }))}
+      />
       <header className="learning-hero photo-hero photo-hero--dark">
         <HeroBackdrop src="/images/heroes/learn-finnish-class.webp" position="center 45%" />
         <div className="shell learning-hero__inner">

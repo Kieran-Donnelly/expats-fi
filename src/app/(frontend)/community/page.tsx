@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { communityGuides } from '@/data/community'
 import { socialMetadata } from '@/lib/seo'
@@ -37,6 +38,12 @@ const usefulDoorways = [
 export default function CommunityPage() {
   return (
     <main id="main" className="family-hub">
+      <HubStructuredData
+        name="Community in Helsinki"
+        description="Guides to meeting people through newcomer programmes, language cafés, hobbies, volunteering, family groups and community events."
+        path="/community/"
+        items={communityGuides.map((guide) => ({ name: guide.title, path: `/community/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Community in Helsinki"
         title="Find your people in Helsinki."

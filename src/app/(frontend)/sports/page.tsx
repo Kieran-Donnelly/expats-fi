@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { EventCard } from '@/components/EventCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
 import { SportsCard } from '@/components/SportsCard'
 import { SportsMap } from '@/components/SportsMap'
@@ -64,6 +65,12 @@ export default async function SportsPage({ searchParams }: { searchParams: Promi
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Sports and activities in Helsinki"
+        description="International sports clubs, beginner-friendly sessions, courses and places to get active around Helsinki."
+        path="/sports/"
+        items={branches.map((branch) => ({ name: branch.label, path: branch.href }))}
+      />
       <header className="sports-hero photo-hero photo-hero--dark">
         <HeroBackdrop src="/images/heroes/sports-rugby-team-v2.webp" position="center 48%" />
         <div className="shell sports-hero__inner">

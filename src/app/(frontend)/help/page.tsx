@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { ContinueExploring } from '@/components/ContinueExploring'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { socialMetadata } from '@/lib/seo'
 
@@ -108,6 +109,12 @@ const helpSections = [
 export default function HelpPage() {
   return (
     <main id="main" className="family-hub help-hub">
+      <HubStructuredData
+        name="When things go wrong in Finland"
+        description="Practical routes to urgent healthcare, housing help, scam and crime support, workplace advice, debt help and safety services in Finland."
+        path="/help/"
+        items={helpSections.map((section) => ({ name: section.title, path: `/help/#${section.id}` }))}
+      />
       <SectionHero
         eyebrow="When things go wrong"
         title="Take a breath. Find the right door. Deal with the next step."

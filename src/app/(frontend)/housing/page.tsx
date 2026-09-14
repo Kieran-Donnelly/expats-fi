@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 import { RelatedBusinesses } from '@/components/RelatedBusinesses'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { housingGuides } from '@/data/housing'
 import { socialMetadata } from '@/lib/seo'
@@ -32,6 +33,12 @@ const monthlyCosts = [
 export default function HousingPage() {
   return (
     <main id="main" className="family-hub">
+      <HubStructuredData
+        name="Housing in Finland"
+        description="Guides to finding a rental home, understanding Finnish leases, setting up utilities and solving housing problems."
+        path="/housing/"
+        items={housingGuides.map((guide) => ({ name: guide.title, path: `/housing/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Housing in Finland"
         title="Find a home, understand the paperwork and know who to call."

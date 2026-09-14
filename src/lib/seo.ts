@@ -71,3 +71,33 @@ export function breadcrumbJsonLd(items: { name: string; path: string }[]) {
     })),
   }
 }
+
+export function collectionPageJsonLd({ name, description, path, items }: {
+  name: string
+  description: string
+  path: string
+  items: { name: string; path: string }[]
+}) {
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name,
+    description: seoDescription(description),
+    url: absoluteUrl(path),
+    isPartOf: {
+      '@type': 'WebSite',
+      name: 'Expats.fi',
+      url: siteUrl,
+    },
+    mainEntity: {
+      '@type': 'ItemList',
+      numberOfItems: items.length,
+      itemListElement: items.map((item, index) => ({
+        '@type': 'ListItem',
+        position: index + 1,
+        name: item.name,
+        url: absoluteUrl(item.path),
+      })),
+    },
+  }
+}

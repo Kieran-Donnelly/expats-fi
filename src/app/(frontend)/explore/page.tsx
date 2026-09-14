@@ -3,6 +3,7 @@ import Link from 'next/link'
 
 import { ExploreCard } from '@/components/ExploreCard'
 import { HeroBackdrop } from '@/components/HeroBackdrop'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { exploreCategories, exploreFreeDates, exploreListings, exploreMemberships } from '@/data/explore'
 import { socialMetadata } from '@/lib/seo'
 
@@ -53,6 +54,12 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
 
   return (
     <main id="main">
+      <HubStructuredData
+        name="Things to do in Helsinki"
+        description="Museums, family attractions, islands, saunas, libraries, beaches and free things to do around Helsinki."
+        path="/explore/"
+        items={branches.map((branch) => ({ name: branch.label, path: `/explore/?category=${encodeURIComponent(branch.label)}#browse` }))}
+      />
       <header className="explore-hero photo-hero">
         <HeroBackdrop src="/images/heroes/explore-suomenlinna.webp" position="center 48%" />
         <div className="shell explore-hero__inner">
