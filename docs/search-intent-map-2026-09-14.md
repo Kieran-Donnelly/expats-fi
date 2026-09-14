@@ -49,3 +49,20 @@ Source: Google Search Console performance data reviewed 14 September 2026. The p
 5. Link from the parent hub and two genuinely related pages.
 6. Keep canonical URLs consistent with trailing slashes and let historical variants fall away.
 7. Recheck this map after 28 days of stable data, then use clicks, impressions, CTR and position together.
+
+# Google AI search visibility
+
+Search Console's beta **Generative AI features** report recorded **138 impressions across 71 Expats.fi pages** from 3 to 11 September 2026. This is an encouraging early signal for a new site and confirms that Google is already drawing on both practical guides and local discovery pages.
+
+The leading pages were:
+
+1. 15 ECTS of Finnish guide: 17 impressions split across slash variants
+2. Helsinki tram route changes: 9 impressions
+3. Three Finnish recipes to start with: 5 impressions
+4. National Museum of Finland: 9 impressions split across slash variants
+5. Babies and neuvola: 7 impressions split across slash variants
+6. Korkeasaari Zoo: 6 impressions split across slash variants
+7. Helsinki Design Week guide: 5 impressions split across slash variants
+8. Sports hub: 4 impressions
+
+The report exposed impressions being split between trailing-slash and non-trailing-slash versions of several pages. Public routes now redirect permanently to the trailing-slash form used in the sitemap and canonical metadata. Service routes, Payload admin and authentication callbacks remain excluded from that normalisation.
