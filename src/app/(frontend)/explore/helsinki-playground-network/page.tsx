@@ -3,6 +3,7 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { JsonLd } from '@/components/JsonLd'
+import { PlaygroundsMap } from '@/components/PlaygroundsMap'
 import { SectionHero } from '@/components/SectionHero'
 import { absoluteUrl, breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
@@ -22,6 +23,7 @@ const playgrounds = [
     name: 'Playground Loru',
     area: 'City centre',
     address: 'Töölönlahdenkatu 4, 00100 Helsinki',
+    coordinates: { latitude: 60.1739404, longitude: 24.9379816 },
     bestFor: 'Oodi days and bad-weather backup',
     image: '/images/playgrounds/loru-nest-swing.webp',
     imageAlt: 'Two children sharing a large nest swing in a sandy playground',
@@ -37,6 +39,7 @@ const playgrounds = [
     name: 'Playground Ruoholahti',
     area: 'Ruoholahti',
     address: 'Laivapojankatu 8, 00180 Helsinki',
+    coordinates: { latitude: 60.1607553, longitude: 24.9185486 },
     bestFor: 'Big equipment choice and easy transport',
     image: '/images/playgrounds/ruoholahti-colourful-playground.webp',
     imageAlt: 'Bright red and green playground equipment beneath leafy trees',
@@ -52,6 +55,7 @@ const playgrounds = [
     name: 'Playground Brahe',
     area: 'Kallio',
     address: 'Porvoonkatu 4, 00510 Helsinki',
+    coordinates: { latitude: 60.1889272, longitude: 24.9499005 },
     bestFor: 'Toddlers, ball games and seasonal variety',
     image: '/images/playgrounds/brahe-sandbox.webp',
     imageAlt: 'Young children playing together with sand in a leafy park',
@@ -67,6 +71,7 @@ const playgrounds = [
     name: 'Playground Taivallahti',
     area: 'Töölö',
     address: 'Pohjoinen Hesperiankatu 22, 00260 Helsinki',
+    coordinates: { latitude: 60.1766549, longitude: 24.9193143 },
     bestFor: 'A fenced central park with a toddler zone',
     image: '/images/playgrounds/taivallahti-family-swings.webp',
     imageAlt: 'Parents helping children enjoy playground swings on a sunny day',
@@ -82,6 +87,7 @@ const playgrounds = [
     name: 'Playground Maunula',
     area: 'Maunula',
     address: 'Kuusikkotie 2a, 00630 Helsinki',
+    coordinates: { latitude: 60.2310812, longitude: 24.9286428 },
     bestFor: 'Mixed ages and children who need movement',
     image: '/images/playgrounds/maunula-monkey-bars.webp',
     imageAlt: 'A group of children climbing together on outdoor monkey bars',
@@ -97,6 +103,7 @@ const playgrounds = [
     name: 'Playground Mellunmäki',
     area: 'Mellunmäki',
     address: 'Pyhätunturintie 2, 00970 Helsinki',
+    coordinates: { latitude: 60.2365626, longitude: 25.1231714 },
     bestFor: 'Water play, football and a quieter local feel',
     image: '/images/playgrounds/mellunmaki-climbing.webp',
     imageAlt: 'A young child climbing confidently on colourful playground equipment',
@@ -112,6 +119,7 @@ const playgrounds = [
     name: 'Playground Rusthollari',
     area: 'Puotila',
     address: 'Rusthollarintie 15, 00910 Helsinki',
+    coordinates: { latitude: 60.2125231, longitude: 25.1000619 },
     bestFor: 'A nature-backed local day with seasonal play',
     image: '/images/playgrounds/rusthollari-playground.webp',
     imageAlt: 'An empty playground with climbing frames and slides in a green park',
@@ -127,6 +135,7 @@ const playgrounds = [
     name: 'Playground Lohikäärmepuisto',
     area: 'Vuosaari',
     address: 'Lohikäärmeenpolku 3, 00980 Helsinki',
+    coordinates: { latitude: 60.2115759, longitude: 25.1394754 },
     bestFor: 'Imaginative play near the metro',
     image: '/images/playgrounds/lohikaarmepuisto-swing.webp',
     imageAlt: 'Two children laughing and sharing a playground swing outdoors',
@@ -208,6 +217,10 @@ export default function HelsinkiPlaygroundsPage() {
             <a href="#lohikaarmepuisto"><span>Imaginative play</span><strong>Lohikäärmepuisto</strong><small>Wooden animals and a playhouse near the metro.</small></a>
           </div>
         </div>
+      </section>
+
+      <section className="shell playground-map-section" aria-label="Playground map">
+        <PlaygroundsMap playgrounds={playgrounds} />
       </section>
 
       <section className="shell section playground-directory" aria-labelledby="playground-directory-heading">

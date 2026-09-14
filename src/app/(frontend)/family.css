@@ -152,6 +152,11 @@
 .playground-quick-grid span { color: var(--coral); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
 .playground-quick-grid strong { margin-block: auto .55rem; font-size: 1.4rem; }
 .playground-quick-grid small { color: var(--ink-soft); font-size: .78rem; line-height: 1.45; }
+.playground-map-section { padding-block: clamp(3rem, 7vw, 5.5rem) 0; }
+.playground-map { margin: 0; }
+.playground-map .events-map__intro h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.25rem); }
+.playground-map .events-map__list li[data-active] { background: var(--coral-soft); box-shadow: inset .25rem 0 var(--coral); }
+.playground-map-pin { background: var(--coral); }
 .playground-directory { scroll-margin-block-start: 7rem; }
 .playground-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .playground-card { scroll-margin-block-start: 8rem; min-inline-size: 0; display: flex; flex-direction: column; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
