@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { JsonLd } from '@/components/JsonLd'
 import { PlaygroundsMap, type PlaygroundMapItem } from '@/components/PlaygroundsMap'
 import { SectionHero } from '@/components/SectionHero'
-import { helsinkiPlaygrounds, playgroundOfficialUrl } from '@/data/helsinki-playgrounds'
+import { helsinkiPlaygrounds, playgroundGoogleMapsUrl, playgroundHslRouteUrl, playgroundOfficialUrl } from '@/data/helsinki-playgrounds'
 import { absoluteUrl, breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
 const pagePath = '/explore/helsinki-playground-network/'
@@ -42,8 +42,8 @@ const playgrounds = [
     address: 'Laivapojankatu 8, 00180 Helsinki',
     coordinates: { latitude: 60.1607553, longitude: 24.9185486 },
     bestFor: 'Big equipment choice and easy transport',
-    image: '/images/heroes/family-together.webp',
-    imageAlt: 'A family walking together through a green park',
+    image: '/images/playgrounds/taivallahti-family-swings.webp',
+    imageAlt: 'Parents helping their children on swings outdoors',
     intro: 'A well-equipped, computer-themed park that gives different ages plenty to get stuck into.',
     why: 'There is a separate small-child yard, football and basketball space, table tennis, floorball equipment, trampolines and distinctive computer-themed play equipment. The metro and tram connections make this a practical cross-city meeting point.',
     useful: ['Separate fenced area for smaller children', 'Trampolines and themed equipment', 'Indoor facilities and baby changing', 'Detailed accessibility information available'],
@@ -74,8 +74,8 @@ const playgrounds = [
     address: 'Pohjoinen Hesperiankatu 22, 00260 Helsinki',
     coordinates: { latitude: 60.1766549, longitude: 24.9193143 },
     bestFor: 'A fenced central park with a toddler zone',
-    image: '/images/heroes/family-parents-and-children.webp',
-    imageAlt: 'Parents following their children across an open grassy park',
+    image: '/images/playgrounds/loru-nest-swing.webp',
+    imageAlt: 'Children playing together on a large nest swing',
     intro: 'A reassuringly contained option near the centre, especially when one child is quicker than the adult holding the snacks.',
     why: 'The main playground is fully fenced and includes a separate small-child yard, climbing equipment, ball play and summer water features. The building has a ramp and accessible toilet, and there is space around several pieces of equipment for wheelchairs or prams.',
     useful: ['Fully fenced playground', 'Separate small-child yard', 'Summer water play', 'Accessible toilet in the playground building'],
@@ -90,8 +90,8 @@ const playgrounds = [
     address: 'Kuusikkotie 2a, 00630 Helsinki',
     coordinates: { latitude: 60.2310812, longitude: 24.9286428 },
     bestFor: 'Mixed ages and children who need movement',
-    image: '/images/family-kids/event-kids-minimarathon.webp',
-    imageAlt: 'A group of children running together outdoors',
+    image: '/images/playgrounds/maunula-monkey-bars.webp',
+    imageAlt: 'A group of children climbing together outdoors',
     intro: 'A recently renewed yard with enough going on that older children are less likely to declare themselves finished after six minutes.',
     why: 'Alongside the toddler yard and usual swings and climbing frames, Maunula has football areas, table tennis, floorball equipment and a skate park. In summer there is a paddling pool, and Jokeri Light Rail runs close by.',
     useful: ['Recently renovated yard', 'Skate park and ball-game space', 'Paddling pool in summer', 'Many wheelchair-friendly paths and features'],
@@ -106,8 +106,8 @@ const playgrounds = [
     address: 'Pyhätunturintie 2, 00970 Helsinki',
     coordinates: { latitude: 60.2365626, longitude: 25.1231714 },
     bestFor: 'Water play, football and a quieter local feel',
-    image: '/images/family-kids/hero-family-day-out.webp',
-    imageAlt: 'Parents and children enjoying a walk through a wooded park',
+    image: '/images/playgrounds/mellunmaki-climbing.webp',
+    imageAlt: 'A child climbing and playing outdoors',
     intro: 'A calmer residential option with a broad mix of play, sport and nearby nature.',
     why: 'The park has a separate small-child yard, artificial-turf football, basketball and floorball equipment, table tennis and summer water play. A nearby gravel pitch becomes an ice rink in winter when conditions cooperate.',
     useful: ['Separate small-child area', 'Artificial-turf football space', 'Water play and paddling pool in summer', 'Nearby pitch or winter ice rink'],
@@ -122,8 +122,8 @@ const playgrounds = [
     address: 'Rusthollarintie 15, 00910 Helsinki',
     coordinates: { latitude: 60.2125231, longitude: 25.1000619 },
     bestFor: 'A nature-backed local day with seasonal play',
-    image: '/images/family-kids/oittaa-family-lake.webp',
-    imageAlt: 'Parents and children spending relaxed time together outdoors',
+    image: '/images/family-kids/helsinki-playgrounds.webp',
+    imageAlt: 'A child enjoying outdoor play',
     intro: 'A neighbourhood playground surrounded by nature, with the metro close enough to keep the journey manageable.',
     why: 'Rusthollari has indoor rooms, climbing equipment, a separate small-child yard, summer water play and a winter ice rink when conditions allow. The building entrance has a ramp and the city lists an accessible toilet.',
     useful: ['Nature around the playground', 'Water play in summer', 'Ice rink in winter when available', 'Ramp and accessible toilet'],
@@ -138,8 +138,8 @@ const playgrounds = [
     address: 'Lohikäärmeenpolku 3, 00980 Helsinki',
     coordinates: { latitude: 60.2115759, longitude: 25.1394754 },
     bestFor: 'Imaginative play near the metro',
-    image: '/images/family-kids/playground-loru-library.webp',
-    imageAlt: 'A parent reading and laughing with two children indoors',
+    image: '/images/playgrounds/lohikaarmepuisto-swing.webp',
+    imageAlt: 'Two children playing together on a large swing',
     intro: 'A peaceful Vuosaari option with a bit more personality than another anonymous set of swings.',
     why: 'The small cowshed, wooden animals and playhouse give younger children an easy make-believe world, alongside the usual swings, climbing and a summer paddling pool. It is a short walk from Vuosaari metro.',
     useful: ['Short walk from Vuosaari metro', 'Wooden animals, cowshed and playhouse', 'Separate small-child yard', 'Paddling pool in summer'],
@@ -187,10 +187,6 @@ const playgroundMapItems: readonly PlaygroundMapItem[] = helsinkiPlaygrounds.map
   image: featuredImages[playground.id],
   coordinates: { latitude: playground.latitude, longitude: playground.longitude },
 }))
-
-function openStreetMapUrl(latitude: number, longitude: number) {
-  return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}`
-}
 
 export default function HelsinkiPlaygroundsPage() {
   return (
@@ -303,7 +299,7 @@ export default function HelsinkiPlaygroundsPage() {
         <div className="shell section">
           <div className="section-heading">
             <div><p className="eyebrow">The full staffed network</p><h2 id="all-playgrounds-heading">Every Helsinki playground in the city directory.</h2></div>
-            <p>All 62 are listed alphabetically. Open the official page for current hours and activities, or use the map link for directions.</p>
+            <p>All 62 are listed alphabetically. Open the official page for current hours and activities, plan a public-transport journey with HSL or open the destination in Google Maps.</p>
           </div>
           <ol className="playground-all-grid">
             {helsinkiPlaygrounds.map((playground, index) => (
@@ -317,7 +313,8 @@ export default function HelsinkiPlaygroundsPage() {
                 <div className="playground-all-card__links">
                   {featuredDirectoryIds[playground.id] && <a href={`#${featuredDirectoryIds[playground.id]}`}>Our note ↓</a>}
                   <a href={playgroundOfficialUrl(playground.id)} target="_blank" rel="noreferrer">Official details ↗</a>
-                  <a href={openStreetMapUrl(playground.latitude, playground.longitude)} target="_blank" rel="noreferrer">Map ↗</a>
+                  <a href={playgroundHslRouteUrl(playground.name, playground.address, playground.latitude, playground.longitude)} target="_blank" rel="noreferrer">HSL route ↗</a>
+                  <a href={playgroundGoogleMapsUrl(playground.latitude, playground.longitude)} target="_blank" rel="noreferrer">Google Maps ↗</a>
                 </div>
               </li>
             ))}

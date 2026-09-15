@@ -74,3 +74,12 @@ export const helsinkiPlaygrounds: readonly HelsinkiPlaygroundDirectoryItem[] = [
 export function playgroundOfficialUrl(id: string) {
   return `https://www.hel.fi/en/childhood-and-education/playground-${id}`
 }
+
+export function playgroundHslRouteUrl(name: string, address: string, latitude: number, longitude: number) {
+  const destination = `${name}, ${address}::${latitude},${longitude}`
+  return `https://reittiopas.hsl.fi/reitti/-/${encodeURIComponent(destination)}/?locale=en`
+}
+
+export function playgroundGoogleMapsUrl(latitude: number, longitude: number) {
+  return `https://www.google.com/maps/dir/?api=1&destination=${encodeURIComponent(`${latitude},${longitude}`)}`
+}

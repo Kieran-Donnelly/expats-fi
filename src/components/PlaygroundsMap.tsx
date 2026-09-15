@@ -4,6 +4,8 @@ import Image from 'next/image'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CircleMarker as LeafletCircleMarker, Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
+import { playgroundGoogleMapsUrl, playgroundHslRouteUrl } from '@/data/helsinki-playgrounds'
+
 export type PlaygroundMapItem = {
   id: string
   name: string
@@ -17,11 +19,6 @@ export type PlaygroundMapItem = {
     latitude: number
     longitude: number
   }
-}
-
-function openStreetMapUrl(playground: PlaygroundMapItem) {
-  const { latitude, longitude } = playground.coordinates
-  return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}`
 }
 
 function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewKey, onSelect }: {
@@ -282,7 +279,8 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
           <div>
             {selectedPlayground.detailId && <a href={`#${selectedPlayground.detailId}`}>Read our note ↓</a>}
             <a href={selectedPlayground.officialUrl} target="_blank" rel="noreferrer">Official details ↗</a>
-            <a href={openStreetMapUrl(selectedPlayground)} target="_blank" rel="noreferrer">Directions ↗</a>
+            <a href={playgroundHslRouteUrl(selectedPlayground.name, selectedPlayground.address, selectedPlayground.coordinates.latitude, selectedPlayground.coordinates.longitude)} target="_blank" rel="noreferrer">Plan with HSL ↗</a>
+            <a href={playgroundGoogleMapsUrl(selectedPlayground.coordinates.latitude, selectedPlayground.coordinates.longitude)} target="_blank" rel="noreferrer">Google Maps ↗</a>
             <button type="button" className="playground-map__back" onClick={showFullMap}>Back to full map</button>
           </div>
         </article>}
