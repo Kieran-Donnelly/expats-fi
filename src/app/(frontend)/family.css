@@ -154,19 +154,54 @@
 .playground-quick-grid small { color: var(--ink-soft); font-size: .78rem; line-height: 1.45; }
 .playground-map-section { padding-block: clamp(3rem, 7vw, 5.5rem) 0; }
 .playground-map { margin: 0; }
-.playground-map .events-map__intro h2 { margin: 0; font-size: clamp(1.65rem, 3vw, 2.25rem); }
-.playground-map__controls { display: flex; gap: 1rem; align-items: end; padding: 1rem 1.25rem; border: 1px solid var(--line); border-block-end: 0; background: var(--snow); }
-.playground-map__controls label { min-inline-size: min(100%, 20rem); display: grid; flex: 1; gap: .4rem; color: var(--ink-soft); font-size: .78rem; font-weight: 700; }
-.playground-map__controls input { min-block-size: 3rem; inline-size: 100%; padding-inline: .9rem; border: 1px solid var(--line-strong); border-radius: .55rem; background: var(--paper); color: var(--ink); font: inherit; font-size: 1rem; }
-.playground-map__controls input:focus { border-color: var(--blue); outline: 3px solid color-mix(in oklch, var(--blue) 18%, transparent); }
-.playground-map__controls > div { display: flex; flex-wrap: wrap; gap: .45rem; justify-content: flex-end; }
-.playground-map__controls button { min-block-size: 2.75rem; padding-inline: .85rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--paper); color: var(--ink-soft); font: inherit; font-size: .8rem; font-weight: 720; cursor: pointer; }
-.playground-map__controls button:hover, .playground-map__controls button[data-active] { border-color: var(--blue); background: var(--blue); color: var(--snow); }
-.playground-map__results { margin: 0; padding: .7rem 1.25rem; border-inline: 1px solid var(--line); color: var(--muted); font-size: .82rem; font-weight: 680; }
-.playground-map .events-map__list li[data-active] { background: var(--coral-soft); box-shadow: inset .25rem 0 var(--coral); }
-.playground-map-pin { background: var(--coral); }
-.playground-map__empty { min-block-size: 20rem; display: grid; place-content: center; padding: 2rem; border: 1px solid var(--line); text-align: center; }
-.playground-map__empty p { margin: .35rem 0 0; color: var(--ink-soft); }
+.playground-map__heading { display: flex; align-items: end; justify-content: space-between; gap: 2rem; padding-block-end: 1.35rem; }
+.playground-map__heading h2 { margin: 0; font-size: clamp(1.9rem, 4vw, 3.2rem); }
+.playground-map__heading > p { max-inline-size: 25rem; margin: 0; color: var(--ink-soft); font-size: 1rem; }
+.playground-map__stage { position: relative; min-block-size: clamp(38rem, 76vh, 52rem); overflow: hidden; border-block: 1px solid var(--line); background: var(--blue-pale); isolation: isolate; }
+.playground-map__stage .event-map__canvas { position: absolute; inset: 0; min-block-size: 100%; }
+.playground-map__toolbar { position: absolute; z-index: 500; inset: 1rem auto auto max(1rem, calc((100vw - 82rem) / 2)); display: flex; gap: .55rem; max-inline-size: calc(100% - 2rem); }
+.playground-map__search { inline-size: min(27rem, 45vw); min-block-size: 3.25rem; display: grid; grid-template-columns: 2.4rem minmax(0, 1fr); align-items: center; border: 1px solid color-mix(in oklch, var(--ink) 14%, transparent); border-radius: .72rem; background: color-mix(in oklch, var(--snow) 96%, transparent); box-shadow: 0 .45rem 1.5rem oklch(24% .06 250 / .14); backdrop-filter: blur(12px); }
+.playground-map__search > span:not(.sr-only) { display: grid; place-items: center; color: var(--blue); font-size: 1.4rem; }
+.playground-map__search input { min-inline-size: 0; block-size: 100%; padding: 0 .9rem 0 0; border: 0; outline: 0; background: transparent; color: var(--ink); font: inherit; font-size: 1rem; }
+.playground-map__filter-button, .playground-map__list-button, .playground-map__utility button { min-block-size: 3.25rem; padding-inline: 1rem; border: 1px solid color-mix(in oklch, var(--ink) 14%, transparent); border-radius: .72rem; background: color-mix(in oklch, var(--snow) 96%, transparent); box-shadow: 0 .45rem 1.5rem oklch(24% .06 250 / .12); color: var(--ink); font: inherit; font-size: .88rem; font-weight: 740; cursor: pointer; backdrop-filter: blur(12px); }
+.playground-map__filter-button:hover, .playground-map__list-button:hover, .playground-map__utility button:hover, .playground-map__filter-button[data-active], .playground-map__list-button[data-active] { border-color: var(--blue); background: var(--blue); color: var(--snow); }
+.playground-map__filter-panel, .playground-map__list-panel { position: absolute; z-index: 510; inline-size: min(24rem, calc(100% - 2rem)); inset: 4.8rem auto auto max(1rem, calc((100vw - 82rem) / 2)); overflow: hidden; border: 1px solid color-mix(in oklch, var(--ink) 14%, transparent); border-radius: .9rem; background: color-mix(in oklch, var(--snow) 97%, transparent); box-shadow: 0 1rem 3rem oklch(24% .06 250 / .2); backdrop-filter: blur(16px); }
+.playground-map__filter-panel > div:first-child, .playground-map__list-panel > div:first-child { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.1rem; border-block-end: 1px solid var(--line); }
+.playground-map__filter-panel > div:first-child button, .playground-map__list-panel > div:first-child button, .playground-map__card > button { inline-size: 2rem; aspect-ratio: 1; border: 0; border-radius: 50%; background: var(--blue-pale); color: var(--ink); font-size: 1.25rem; cursor: pointer; }
+.playground-map__filter-panel fieldset { margin: 0; padding: 1rem 1.1rem; border: 0; border-block-end: 1px solid var(--line); }
+.playground-map__filter-panel legend { padding: 0; color: var(--muted); font-size: .75rem; font-weight: 760; letter-spacing: .06em; text-transform: uppercase; }
+.playground-map__filter-panel fieldset > div { display: flex; flex-wrap: wrap; gap: .45rem; margin-block-start: .7rem; }
+.playground-map__filter-panel fieldset button { min-block-size: 2.5rem; padding-inline: .85rem; border: 1px solid var(--line-strong); border-radius: 999px; background: var(--snow); color: var(--ink-soft); font: inherit; font-size: .82rem; font-weight: 700; cursor: pointer; }
+.playground-map__filter-panel fieldset button[data-active] { border-color: var(--coral); background: var(--coral-soft); color: var(--ink); }
+.playground-map__check { display: grid; grid-template-columns: 1.3rem minmax(0, 1fr); gap: .7rem; padding: 1rem 1.1rem; border-block-end: 1px solid var(--line); cursor: pointer; }
+.playground-map__check input { inline-size: 1.1rem; block-size: 1.1rem; margin-block-start: .15rem; accent-color: var(--blue); }
+.playground-map__check span { display: grid; gap: .2rem; }
+.playground-map__check small { color: var(--muted); line-height: 1.45; }
+.playground-map__reset { margin: .9rem 1.1rem 1.1rem; padding: 0; border: 0; background: transparent; color: var(--blue); font: inherit; font-size: .85rem; font-weight: 730; cursor: pointer; }
+.playground-map__utility { position: absolute; z-index: 490; inset: auto auto 1rem max(1rem, calc((100vw - 82rem) / 2)); display: flex; align-items: center; gap: .8rem; }
+.playground-map__utility button { min-block-size: 2.8rem; }
+.playground-map__utility span { max-inline-size: 20rem; padding: .6rem .8rem; border-radius: .55rem; background: color-mix(in oklch, var(--snow) 90%, transparent); color: var(--ink-soft); font-size: .78rem; backdrop-filter: blur(10px); }
+.playground-map__list-panel { inset-inline: auto max(1rem, calc((100vw - 82rem) / 2)); max-block-size: calc(100% - 6rem); }
+.playground-map__list-panel ol { max-block-size: min(35rem, calc(76vh - 8rem)); margin: 0; padding: 0; overflow-y: auto; list-style: none; }
+.playground-map__list-panel li + li { border-block-start: 1px solid var(--line); }
+.playground-map__list-panel li button { inline-size: 100%; display: grid; gap: .25rem; padding: .85rem 1.1rem; border: 0; background: transparent; color: var(--ink); text-align: start; cursor: pointer; }
+.playground-map__list-panel li button:hover, .playground-map__list-panel li button[data-active] { background: var(--coral-soft); }
+.playground-map__list-panel li span { color: var(--muted); font-size: .78rem; }
+.playground-map__card { position: absolute; z-index: 500; inline-size: min(25rem, calc(100% - 2rem)); inset: auto max(1rem, calc((100vw - 82rem) / 2)) 1rem auto; padding: 1.25rem; border: 1px solid color-mix(in oklch, var(--ink) 14%, transparent); border-radius: .9rem; background: color-mix(in oklch, var(--snow) 97%, transparent); box-shadow: 0 1rem 3rem oklch(24% .06 250 / .2); backdrop-filter: blur(16px); }
+.playground-map__card > button { position: absolute; inset: .8rem .8rem auto auto; }
+.playground-map__card > span { color: var(--coral); font-size: .72rem; font-weight: 760; letter-spacing: .06em; text-transform: uppercase; }
+.playground-map__card h3 { margin: .65rem 2.2rem .25rem 0; font-size: 1.55rem; }
+.playground-map__card p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
+.playground-map__card > strong { display: block; margin-block-start: .85rem; color: var(--blue-dark); font-size: .84rem; }
+.playground-map__card > div { display: flex; flex-wrap: wrap; gap: .55rem 1rem; margin-block-start: 1rem; padding-block-start: .85rem; border-block-start: 1px solid var(--line); }
+.playground-map__card a { color: var(--blue); font-size: .82rem; font-weight: 730; text-decoration: none; }
+.playground-map__card a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.playground-map-pin { inline-size: 1.8rem; block-size: 1.8rem; border: 3px solid var(--snow); background: var(--coral); box-shadow: 0 .25rem .7rem oklch(24% .06 250 / .28); }
+.playground-map-pin b { inline-size: .42rem; aspect-ratio: 1; display: block; border-radius: 50%; background: var(--snow); }
+.playground-map__empty { position: absolute; z-index: 480; inset: 0; display: grid; place-content: center; padding: 2rem; background: var(--blue-pale); text-align: center; }
+.playground-map__empty p { margin: .35rem 0 1rem; color: var(--ink-soft); }
+.playground-map__empty button { justify-self: center; padding: .8rem 1rem; border: 0; border-radius: .55rem; background: var(--blue); color: var(--snow); font: inherit; font-weight: 720; cursor: pointer; }
+.playground-map__note { margin-block: 0; padding-block: .9rem; color: var(--ink-soft); font-size: .82rem; }
 .playground-directory { scroll-margin-block-start: 7rem; }
 .playground-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .playground-card { scroll-margin-block-start: 8rem; min-inline-size: 0; display: flex; flex-direction: column; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
@@ -313,8 +348,17 @@
   .kids-more { align-items: start; flex-direction: column; }
   .playground-intro, .playground-system__inner { grid-template-columns: 1fr; }
   .playground-grid { grid-template-columns: 1fr; }
-  .playground-map__controls { align-items: stretch; flex-direction: column; }
-  .playground-map__controls > div { justify-content: flex-start; }
+  .playground-map__heading { align-items: start; flex-direction: column; gap: .7rem; }
+  .playground-map__stage { min-block-size: 43rem; }
+  .playground-map__toolbar { inset: .75rem .75rem auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); max-inline-size: none; }
+  .playground-map__search { grid-column: 1 / -1; inline-size: auto; }
+  .playground-map__filter-button, .playground-map__list-button { inline-size: 100%; }
+  .playground-map__filter-panel, .playground-map__list-panel { inline-size: auto; inset: 8rem .75rem auto; max-block-size: calc(100% - 9rem); }
+  .playground-map__list-panel ol { max-block-size: calc(43rem - 12rem); }
+  .playground-map__utility { inset: auto .75rem .75rem; align-items: end; justify-content: space-between; }
+  .playground-map__utility span { max-inline-size: 14rem; }
+  .playground-map__card { inset: auto .75rem .75rem; inline-size: auto; }
+  .playground-map__stage:has(.playground-map__card) .playground-map__utility { display: none; }
   .playground-links { align-items: start; flex-direction: column; }
   .playground-links > div:last-child { justify-content: flex-start; }
 }
@@ -328,4 +372,5 @@
   .kids-place-card dl > div { grid-template-columns: 1fr; gap: .25rem; }
   .playground-quick-grid, .playground-card ul { grid-template-columns: 1fr; }
   .playground-all-grid { grid-template-columns: 1fr; }
+  .playground-map__utility span { display: none; }
 }

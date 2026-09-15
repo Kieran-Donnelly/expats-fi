@@ -178,6 +178,7 @@ const playgroundMapItems: readonly PlaygroundMapItem[] = helsinkiPlaygrounds.map
   address: playground.address,
   bestFor: featuredBestFor[playground.id],
   detailId: featuredDirectoryIds[playground.id],
+  officialUrl: playgroundOfficialUrl(playground.id),
   coordinates: { latitude: playground.latitude, longitude: playground.longitude },
 }))
 
@@ -260,7 +261,7 @@ export default function HelsinkiPlaygroundsPage() {
         </div>
       </section>
 
-      <section className="shell playground-map-section" aria-label="Playground map">
+      <section className="playground-map-section" aria-label="Playground map">
         <PlaygroundsMap playgrounds={playgroundMapItems} />
       </section>
 
