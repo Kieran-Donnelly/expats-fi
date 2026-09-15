@@ -75,6 +75,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
         href: '/family/',
         children: [
           { label: 'Things to do with kids', href: '/family/things-to-do-with-kids/' },
+          { label: 'Helsinki playground map', href: '/explore/helsinki-playground-network/' },
           { label: 'Healthcare & Maisa', href: '/family/healthcare-and-maisa/' },
           { label: 'Babies & neuvola', href: '/family/babies-and-neuvola/' },
           { label: 'Daycare & preschool', href: '/family/daycare-and-preschool/' },
@@ -136,6 +137,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
         href: '/explore/',
         children: [
           { label: 'Things to do with kids', href: '/family/things-to-do-with-kids/' },
+          { label: 'Helsinki playground map', href: '/explore/helsinki-playground-network/' },
           { label: 'Day trips & hidden Helsinki', href: '/explore/day-trips/' },
           { label: 'Museums & art', href: '/explore/?category=Museums%20%26%20art#browse' },
           { label: 'Family favourites', href: '/explore/?category=Family%20favourites#browse' },

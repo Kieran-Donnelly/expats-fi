@@ -165,10 +165,19 @@ export default async function ThingsToDoWithKidsPage() {
 
       <nav className="kids-jump" aria-label="Things to do with kids sections">
         <div className="shell">
+          <Link href="/explore/helsinki-playground-network/">Playground map</Link>
           {groups.map((group) => <a key={group.id} href={`#${group.id}`}>{group.label}</a>)}
           <a href="#coming-up">Coming up</a>
         </div>
       </nav>
+
+      <section className="kids-playground-shortcut" aria-label="Helsinki playground map">
+        <div className="shell">
+          <div><span>Interactive playground map</span><strong>Find all 62 staffed playgrounds across Helsinki.</strong></div>
+          <p>Search by playground, street or area, then check facilities and official details before heading out.</p>
+          <Link href="/explore/helsinki-playground-network/">Open the playground map <span aria-hidden="true">→</span></Link>
+        </div>
+      </section>
 
       <section className="shell section" aria-labelledby="kids-choose-heading">
         <div className="section-heading">

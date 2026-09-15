@@ -58,7 +58,10 @@ export default function FamilyPage() {
           <p className="eyebrow">Helsinki with kids</p>
           <h2 id="family-kids-callout-heading">Good shouts for getting out of the house.</h2>
           <p>Current family events, free fallbacks, rainy-day rescues and bigger days out, grouped around the sort of day you actually have.</p>
-          <Link className="button" href="/family/things-to-do-with-kids/">Find something to do</Link>
+          <div className="family-kids-callout__actions">
+            <Link className="button" href="/family/things-to-do-with-kids/">Find something to do</Link>
+            <Link className="family-kids-callout__map-link" href="/explore/helsinki-playground-network/">Open the playground map <span aria-hidden="true">→</span></Link>
+          </div>
         </div>
       </section>
 
