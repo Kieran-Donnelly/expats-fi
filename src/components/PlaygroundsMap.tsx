@@ -35,6 +35,7 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef(new Map<string, LeafletMarker>())
   const locationMarkerRef = useRef<LeafletCircleMarker | null>(null)
+  const expandedAreaZoomRef = useRef<number | null>(null)
   const selectRef = useRef(onSelect)
 
   useEffect(() => {
@@ -86,6 +87,19 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
         areaGroups.set(playground.region, [...(areaGroups.get(playground.region) ?? []), playground])
       })
 
+      function updateVisibleLayer() {
+        const expandedAtZoom = expandedAreaZoomRef.current
+        if (expandedAtZoom !== null && map.getZoom() < expandedAtZoom) expandedAreaZoomRef.current = null
+        const showAreas = playgrounds.length > 8 && areaGroups.size > 1 && expandedAreaZoomRef.current === null && map.getZoom() < 12
+        if (showAreas) {
+          if (map.hasLayer(playgroundLayer)) map.removeLayer(playgroundLayer)
+          if (!map.hasLayer(areaLayer)) areaLayer.addTo(map)
+        } else {
+          if (map.hasLayer(areaLayer)) map.removeLayer(areaLayer)
+          if (!map.hasLayer(playgroundLayer)) playgroundLayer.addTo(map)
+        }
+      }
+
       areaGroups.forEach((items, region) => {
         const areaBounds = L.latLngBounds(items.map((item) => [item.coordinates.latitude, item.coordinates.longitude]))
         const marker = L.marker(areaBounds.getCenter(), {
@@ -97,19 +111,13 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
           }),
           title: `${region} Helsinki, ${items.length} playgrounds`,
         })
-        marker.on('click', () => map.fitBounds(areaBounds, { padding: [70, 70], maxZoom: 13 })).addTo(areaLayer)
-      })
-
-      function updateVisibleLayer() {
-        const showAreas = playgrounds.length > 8 && areaGroups.size > 1 && map.getZoom() < 12
-        if (showAreas) {
-          if (map.hasLayer(playgroundLayer)) map.removeLayer(playgroundLayer)
-          if (!map.hasLayer(areaLayer)) areaLayer.addTo(map)
-        } else {
+        marker.on('click', () => {
+          expandedAreaZoomRef.current = Math.min(13, map.getBoundsZoom(areaBounds, false, L.point(70, 70)))
           if (map.hasLayer(areaLayer)) map.removeLayer(areaLayer)
           if (!map.hasLayer(playgroundLayer)) playgroundLayer.addTo(map)
-        }
-      }
+          map.fitBounds(areaBounds, { padding: [70, 70], maxZoom: 13 })
+        }).addTo(areaLayer)
+      })
 
       map.fitBounds(bounds, { padding: [44, 44], maxZoom: 13 })
       updateVisibleLayer()
@@ -122,10 +130,11 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
       cancelled = true
       markers.clear()
       locationMarkerRef.current = null
+      expandedAreaZoomRef.current = null
       mapRef.current?.remove()
       mapRef.current = null
     }
-  }, [playgrounds])
+  }, [playgrounds, resetViewKey])
 
   useEffect(() => {
     if (!userLocation || !mapRef.current) return
@@ -158,19 +167,6 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
     if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) mapRef.current.setView(position, zoom, { animate: false })
     else mapRef.current.flyTo(position, zoom, { duration: 0.65 })
   }, [playgrounds, selectedId])
-
-  useEffect(() => {
-    if (!resetViewKey || !mapRef.current || !playgrounds.length) return
-
-    let cancelled = false
-    import('leaflet').then((L) => {
-      if (cancelled || !mapRef.current) return
-      const bounds = L.latLngBounds(playgrounds.map((playground) => [playground.coordinates.latitude, playground.coordinates.longitude]))
-      mapRef.current.fitBounds(bounds, { padding: [44, 44], maxZoom: 13 })
-    })
-
-    return () => { cancelled = true }
-  }, [playgrounds, resetViewKey])
 
   return <div className="event-map__canvas" ref={containerRef} role="region" aria-label="Interactive map of Helsinki staffed playgrounds" />
 }
