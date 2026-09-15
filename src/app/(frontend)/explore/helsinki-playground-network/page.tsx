@@ -3,15 +3,16 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 import { JsonLd } from '@/components/JsonLd'
-import { PlaygroundsMap } from '@/components/PlaygroundsMap'
+import { PlaygroundsMap, type PlaygroundMapItem } from '@/components/PlaygroundsMap'
 import { SectionHero } from '@/components/SectionHero'
+import { helsinkiPlaygrounds, playgroundOfficialUrl } from '@/data/helsinki-playgrounds'
 import { absoluteUrl, breadcrumbJsonLd, socialMetadata } from '@/lib/seo'
 
 const pagePath = '/explore/helsinki-playground-network/'
 
 export const metadata: Metadata = socialMetadata({
-  title: 'Helsinki playgrounds: eight good parks for families',
-  description: 'Choose a Helsinki playground by area and what your family needs, with indoor spaces, water play, equipment, accessibility and official links.',
+  title: 'Helsinki playground map: all 62 staffed playgrounds',
+  description: 'Search and map every staffed Helsinki playground, then use our deeper family notes to choose by equipment, indoor backup, transport and accessibility.',
   path: pagePath,
   image: '/images/playgrounds/hero-helsinki-playgrounds.webp',
 })
@@ -147,6 +148,43 @@ const playgrounds = [
   },
 ] as const
 
+const featuredDirectoryIds: Record<string, string> = {
+  'loru-0': 'loru',
+  ruoholahti: 'ruoholahti',
+  brahe: 'brahe',
+  taivallahti: 'taivallahti',
+  maunula: 'maunula',
+  mellunmaki: 'mellunmaki',
+  rusthollari: 'rusthollari',
+  lohikaarmepuisto: 'lohikaarmepuisto',
+}
+
+const featuredBestFor = Object.fromEntries(playgrounds.map((playground) => [
+  playground.id === 'loru' ? 'loru-0' : playground.id,
+  playground.bestFor,
+]))
+
+function playgroundRegion(latitude: number, longitude: number): PlaygroundMapItem['region'] {
+  if (longitude < 24.91) return 'West'
+  if (latitude < 60.215 && longitude < 25.02) return 'Central'
+  if (latitude >= 60.225 && longitude < 25.06) return 'North'
+  return 'East'
+}
+
+const playgroundMapItems: readonly PlaygroundMapItem[] = helsinkiPlaygrounds.map((playground) => ({
+  id: playground.id,
+  name: playground.name,
+  region: playgroundRegion(playground.latitude, playground.longitude),
+  address: playground.address,
+  bestFor: featuredBestFor[playground.id],
+  detailId: featuredDirectoryIds[playground.id],
+  coordinates: { latitude: playground.latitude, longitude: playground.longitude },
+}))
+
+function openStreetMapUrl(latitude: number, longitude: number) {
+  return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}`
+}
+
 export default function HelsinkiPlaygroundsPage() {
   return (
     <main id="main" className="playground-hub family-hub" data-hub-tone="warm">
@@ -155,16 +193,16 @@ export default function HelsinkiPlaygroundsPage() {
           '@context': 'https://schema.org',
           '@type': 'CollectionPage',
           name: 'Helsinki playgrounds for families',
-          description: 'A practical guide to eight useful playgrounds across Helsinki, with equipment, indoor spaces, accessibility and official links.',
+          description: 'A complete map and directory of Helsinki staffed playgrounds, with deeper practical notes on eight particularly useful options.',
           url: absoluteUrl(pagePath),
           mainEntity: {
             '@type': 'ItemList',
-            numberOfItems: playgrounds.length,
-            itemListElement: playgrounds.map((playground, index) => ({
+            numberOfItems: helsinkiPlaygrounds.length,
+            itemListElement: helsinkiPlaygrounds.map((playground, index) => ({
               '@type': 'ListItem',
               position: index + 1,
               name: playground.name,
-              url: playground.officialUrl,
+              url: playgroundOfficialUrl(playground.id),
             })),
           },
         },
@@ -178,7 +216,7 @@ export default function HelsinkiPlaygroundsPage() {
       <SectionHero
         eyebrow="Helsinki playgrounds"
         title="Pick the park that suits the day you are actually having."
-        intro="Eight genuinely useful playgrounds across Helsinki, sorted with the equipment, indoor backup, transport and parent-level practicalities that matter once everybody has their shoes on."
+        intro="All 62 staffed Helsinki playgrounds on one searchable map, plus eight deeper recommendations with the equipment, indoor backup, transport and parent-level practicalities that matter once everybody has their shoes on."
         noteLabel="The important bit"
         noteTitle="The outdoor yard and staffed service are not the same thing."
         noteBody="Opening hours usually describe the building, staff and organised activities. Recheck the official page if you need indoor access, water play, a club or a particular session."
@@ -188,7 +226,9 @@ export default function HelsinkiPlaygroundsPage() {
 
       <nav className="playground-jump" aria-label="Playgrounds on this page">
         <div className="shell">
-          {playgrounds.map((playground) => <a key={playground.id} href={`#${playground.id}`}>{playground.area}</a>)}
+          <a href="#playground-map-heading">Search the map</a>
+          <a href="#featured-playgrounds">Eight deeper picks</a>
+          <a href="#all-playgrounds">All 62 playgrounds</a>
           <a href="#how-the-system-works">How it works</a>
         </div>
       </nav>
@@ -199,8 +239,9 @@ export default function HelsinkiPlaygroundsPage() {
           <h2 id="playground-intro-heading">A Finnish <em>leikkipuisto</em> is more than a few swings.</h2>
         </div>
         <div>
-          <p>Helsinki has more than 60 staffed playgrounds and family houses. Many combine a free outdoor yard with weekday indoor rooms, toilets, toys and guided activities. Families can meet other parents, heat food and find something to do without buying a ticket every time.</p>
+          <p>This page includes all 62 playgrounds in Helsinki’s current staffed playground directory. Many combine a free outdoor yard with weekday indoor rooms, toilets, toys and guided activities. Families can meet other parents, heat food and find something to do without buying a ticket every time.</p>
           <p>Organised activities are generally in Finnish. That does not mean international families should stay away. Ordinary play needs no translation, and the city specifically runs <em>Tänään tavataan</em> cafés where families from different language backgrounds can meet and practise everyday Finnish.</p>
+          <p>Helsinki also has more than 200 smaller, unstaffed play areas. They are useful local stops, but they do not necessarily have toilets, indoor rooms or organised sessions, so we keep them clearly separate from the staffed network below.</p>
         </div>
       </section>
 
@@ -220,12 +261,12 @@ export default function HelsinkiPlaygroundsPage() {
       </section>
 
       <section className="shell playground-map-section" aria-label="Playground map">
-        <PlaygroundsMap playgrounds={playgrounds} />
+        <PlaygroundsMap playgrounds={playgroundMapItems} />
       </section>
 
-      <section className="shell section playground-directory" aria-labelledby="playground-directory-heading">
+      <section className="shell section playground-directory" id="featured-playgrounds" aria-labelledby="playground-directory-heading">
         <div className="section-heading">
-          <div><p className="eyebrow">Eight good shouts</p><h2 id="playground-directory-heading">Find one that earns the journey.</h2></div>
+          <div><p className="eyebrow">Eight deeper picks</p><h2 id="playground-directory-heading">Find one that earns the journey.</h2></div>
           <p>Every practical detail below was checked against the City of Helsinki. Photos are licensed illustrations, not pictures of the named playgrounds.</p>
         </div>
         <div className="playground-grid">
@@ -251,6 +292,32 @@ export default function HelsinkiPlaygroundsPage() {
         </div>
       </section>
 
+      <section className="playground-all" id="all-playgrounds" aria-labelledby="all-playgrounds-heading">
+        <div className="shell section">
+          <div className="section-heading">
+            <div><p className="eyebrow">The full staffed network</p><h2 id="all-playgrounds-heading">Every Helsinki playground in the city directory.</h2></div>
+            <p>All 62 are listed alphabetically. Open the official page for current hours and activities, or use the map link for directions.</p>
+          </div>
+          <ol className="playground-all-grid">
+            {helsinkiPlaygrounds.map((playground, index) => (
+              <li className="playground-all-card" id={`directory-${playground.id}`} key={playground.id}>
+                <span className="playground-all-card__number">{String(index + 1).padStart(2, '0')}</span>
+                <div>
+                  <span className="playground-all-card__type">{featuredDirectoryIds[playground.id] ? 'Full note above' : 'City playground'}</span>
+                  <h3>{playground.name.replace(/^Playground /, '')}</h3>
+                  <p>{playground.address}</p>
+                </div>
+                <div className="playground-all-card__links">
+                  {featuredDirectoryIds[playground.id] && <a href={`#${featuredDirectoryIds[playground.id]}`}>Our note ↓</a>}
+                  <a href={playgroundOfficialUrl(playground.id)} target="_blank" rel="noreferrer">Official details ↗</a>
+                  <a href={openStreetMapUrl(playground.latitude, playground.longitude)} target="_blank" rel="noreferrer">Map ↗</a>
+                </div>
+              </li>
+            ))}
+          </ol>
+        </div>
+      </section>
+
       <section className="playground-system" id="how-the-system-works" aria-labelledby="playground-system-heading">
         <div className="shell section playground-system__inner">
           <div><p className="eyebrow">How the system works</p><h2 id="playground-system-heading">The free bits parents often discover too late.</h2><p>The city’s playground network is one of Helsinki’s genuinely brilliant family services. It is also spread across enough pages and Finnish terminology to be easy to miss when you have just arrived.</p></div>
@@ -264,9 +331,9 @@ export default function HelsinkiPlaygroundsPage() {
       </section>
 
       <section className="shell playground-links">
-        <div><p className="eyebrow">Go wider</p><h2>There are dozens more near home.</h2><p>Use Helsinki’s complete finder when proximity matters more than making a special trip. Then come back to our family guide for events, rainy-day ideas and bigger days out.</p></div>
+        <div><p className="eyebrow">Go wider</p><h2>Need an ordinary neighbourhood play area?</h2><p>The 62 places above are the staffed playground network. Helsinki’s Service Map also covers more than 200 smaller play areas, while the city finder is the final word on live playground programmes and opening arrangements.</p></div>
         <div>
-          <a className="button" href="https://www.hel.fi/en/childhood-and-education/playgrounds-and-family-houses/find-playgrounds-and-family-houses" target="_blank" rel="noreferrer">Find every city playground ↗</a>
+          <a className="button" href="https://www.hel.fi/en/childhood-and-education/playgrounds-and-family-houses/find-playgrounds-and-family-houses" target="_blank" rel="noreferrer">Check the city finder ↗</a>
           <Link className="button button--secondary" href="/family/things-to-do-with-kids/">More things to do with kids</Link>
         </div>
       </section>
