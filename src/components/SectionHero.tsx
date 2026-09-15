@@ -1,6 +1,7 @@
 import Image from 'next/image'
 
 type SectionHeroProps = {
+  className?: string
   eyebrow: string
   title: string
   intro: string
@@ -15,6 +16,7 @@ type SectionHeroProps = {
 }
 
 export function SectionHero({
+  className,
   eyebrow,
   title,
   intro,
@@ -25,7 +27,7 @@ export function SectionHero({
   image,
 }: SectionHeroProps) {
   return (
-    <header className={`hub-hero hub-hero--${tone}`} data-has-image={image ? true : undefined}>
+    <header className={`hub-hero hub-hero--${tone}${className ? ` ${className}` : ''}`} data-has-image={image ? true : undefined}>
       {image && (
         <div className="hub-hero__media" aria-hidden="true">
           <Image

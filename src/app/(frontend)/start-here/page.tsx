@@ -11,7 +11,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Moving to Finland checklist: start here',
   description: 'A practical moving-to-Finland checklist covering what to prepare before arrival, then permits, DVV registration, banking, tax, Kela and healthcare.',
   path: '/start-here/',
-  image: '/images/heroes/start-here-helsinki-station.webp',
+  image: '/images/heroes/start-here-central-station.webp',
 })
 
 const arrivalStages = [
@@ -38,13 +38,15 @@ export default function StartHerePage() {
         items={settlingGuides.map((guide) => ({ name: guide.title, path: `/start-here/${guide.slug}/` }))}
       />
       <SectionHero
+        className="hub-hero--arrival"
         eyebrow="Start here"
         title="Your first months in Finland, without doing everything twice."
         intro="One calm route through the authorities, accounts and ordinary jobs that turn arriving in Finland into actually living here."
         noteLabel="Start here first"
         noteTitle="One job at a time."
         noteBody="Open the 90-day route, find the step that applies today and keep a note of what each office still needs."
-        image={{ src: '/images/heroes/start-here-helsinki-station.webp', position: 'center 58%' }}
+        tone="dark"
+        image={{ src: '/images/heroes/start-here-central-station.webp', position: 'center 47%' }}
       />
 
       <section className="shell family-stages" aria-labelledby="arrival-stages-heading">
