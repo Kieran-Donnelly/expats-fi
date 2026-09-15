@@ -21,6 +21,20 @@ export type PlaygroundMapItem = {
   }
 }
 
+function distanceInKilometres(from: { latitude: number; longitude: number }, to: { latitude: number; longitude: number }) {
+  const earthRadius = 6371
+  const toRadians = (degrees: number) => degrees * Math.PI / 180
+  const latitudeDistance = toRadians(to.latitude - from.latitude)
+  const longitudeDistance = toRadians(to.longitude - from.longitude)
+  const a = Math.sin(latitudeDistance / 2) ** 2
+    + Math.cos(toRadians(from.latitude)) * Math.cos(toRadians(to.latitude)) * Math.sin(longitudeDistance / 2) ** 2
+  return earthRadius * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a))
+}
+
+function formatDistance(distance: number) {
+  return distance < 1 ? `${Math.round(distance * 1000)} m` : `${distance.toFixed(1)} km`
+}
+
 function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewKey, onSelect }: {
   playgrounds: readonly PlaygroundMapItem[]
   selectedId?: string
@@ -147,11 +161,19 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
         fillColor: '#075fae',
         fillOpacity: 1,
       }).bindTooltip('Your approximate location').addTo(mapRef.current)
-      mapRef.current.flyTo([userLocation.latitude, userLocation.longitude], 14, { duration: 0.7 })
+      const selectedPlayground = playgrounds.find((playground) => playground.id === selectedId)
+      if (selectedPlayground) {
+        mapRef.current.fitBounds([
+          [userLocation.latitude, userLocation.longitude],
+          [selectedPlayground.coordinates.latitude, selectedPlayground.coordinates.longitude],
+        ], { padding: [90, 90], maxZoom: 14 })
+      } else {
+        mapRef.current.flyTo([userLocation.latitude, userLocation.longitude], 14, { duration: 0.7 })
+      }
     })
 
     return () => { cancelled = true }
-  }, [playgrounds, userLocation])
+  }, [playgrounds, selectedId, userLocation])
 
   useEffect(() => {
     if (!selectedId) return
@@ -176,6 +198,8 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
   const [showFilters, setShowFilters] = useState(false)
   const [showList, setShowList] = useState(false)
   const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number }>()
+  const [nearestResult, setNearestResult] = useState<{ id: string; distance: number }>()
+  const [locating, setLocating] = useState(false)
   const [locationMessage, setLocationMessage] = useState('')
   const [resetViewKey, setResetViewKey] = useState(0)
   const filteredPlaygrounds = useMemo(() => {
@@ -200,14 +224,35 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
       setLocationMessage('Location is not available in this browser.')
       return
     }
+    setLocating(true)
     setLocationMessage('Finding you…')
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        setUserLocation({ latitude: position.coords.latitude, longitude: position.coords.longitude })
-        setLocationMessage('Your approximate location is marked in blue.')
+        const location = { latitude: position.coords.latitude, longitude: position.coords.longitude }
+        const nearest = playgrounds.reduce((closest, playground) => {
+          const distance = distanceInKilometres(location, playground.coordinates)
+          return !closest || distance < closest.distance ? { id: playground.id, name: playground.name, distance } : closest
+        }, undefined as { id: string; name: string; distance: number } | undefined)
+
+        setQuery('')
+        setRegion('All')
+        setFeaturedOnly(false)
+        setShowFilters(false)
+        setShowList(false)
+        setUserLocation(location)
+        setNearestResult(nearest && { id: nearest.id, distance: nearest.distance })
+        setSelectedId(nearest?.id)
+        setLocationMessage(nearest ? `${nearest.name.replace(/^Playground /, '')} is closest, about ${formatDistance(nearest.distance)} away.` : 'Your approximate location is marked in blue.')
+        setLocating(false)
       },
-      () => setLocationMessage('We could not access your location. You can still search by street.'),
-      { enableHighAccuracy: false, timeout: 8000 },
+      (error) => {
+        setNearestResult(undefined)
+        setLocating(false)
+        setLocationMessage(error.code === error.PERMISSION_DENIED
+          ? 'Location access is blocked. Allow it for Expats.fi in your browser settings, then try again.'
+          : 'We could not find your location. Try again or search by street instead.')
+      },
+      { enableHighAccuracy: false, timeout: 10000, maximumAge: 300000 },
     )
   }
 
@@ -226,6 +271,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
     setShowFilters(false)
     setShowList(false)
     setUserLocation(undefined)
+    setNearestResult(undefined)
     setLocationMessage('Showing all staffed playgrounds across Helsinki.')
     setResetViewKey((current) => current + 1)
   }
@@ -259,7 +305,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
         </aside>}
 
         <div className="playground-map__utility">
-          <button type="button" onClick={findMe}>◎ Near me</button>
+          <button type="button" onClick={findMe} disabled={locating} aria-busy={locating}>{locating ? '◎ Locating…' : '◎ Near me'}</button>
           <button type="button" onClick={showFullMap}>↺ Full map</button>
           <span aria-live="polite">{locationMessage || (region === 'All' && !query && !featuredOnly ? 'Choose an area bubble or zoom in to see each playground.' : `Showing ${filteredPlaygrounds.length} of ${playgrounds.length}`)}</span>
         </div>
@@ -275,6 +321,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
           <span>{selectedPlayground.region} Helsinki</span>
           <h3>{selectedPlayground.name}</h3>
           <p>{selectedPlayground.address}</p>
+          {nearestResult?.id === selectedPlayground.id && <strong>Closest to you · about {formatDistance(nearestResult.distance)} away</strong>}
           {selectedPlayground.bestFor && <strong>Best for: {selectedPlayground.bestFor}</strong>}
           <div>
             {selectedPlayground.detailId && <a href={`#${selectedPlayground.detailId}`}>Read our note ↓</a>}
