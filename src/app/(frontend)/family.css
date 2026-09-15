@@ -199,6 +199,8 @@
 .playground-map__card > div { display: flex; flex-wrap: wrap; gap: .55rem 1rem; margin-block-start: 1rem; padding-block-start: .85rem; border-block-start: 1px solid var(--line); }
 .playground-map__card a { color: var(--blue); font-size: .82rem; font-weight: 730; text-decoration: none; }
 .playground-map__card a:hover { text-decoration: underline; text-underline-offset: .2em; }
+.playground-map__card .playground-map__back { padding: 0; border: 0; background: transparent; color: var(--blue); font: inherit; font-size: .82rem; font-weight: 730; cursor: pointer; }
+.playground-map__card .playground-map__back:hover { text-decoration: underline; text-underline-offset: .2em; }
 .playground-map-pin { inline-size: 1.8rem; block-size: 1.8rem; border: 3px solid var(--snow); background: var(--coral); box-shadow: 0 .25rem .7rem oklch(24% .06 250 / .28); }
 .playground-map-pin b { inline-size: .42rem; aspect-ratio: 1; display: block; border-radius: 50%; background: var(--snow); }
 .playground-map-cluster-wrap { border: 0; background: transparent; }

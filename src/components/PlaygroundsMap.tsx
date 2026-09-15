@@ -24,10 +24,11 @@ function openStreetMapUrl(playground: PlaygroundMapItem) {
   return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}`
 }
 
-function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, onSelect }: {
+function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewKey, onSelect }: {
   playgrounds: readonly PlaygroundMapItem[]
   selectedId?: string
   userLocation?: { latitude: number; longitude: number }
+  resetViewKey: number
   onSelect: (id: string) => void
 }) {
   const containerRef = useRef<HTMLDivElement>(null)
@@ -158,6 +159,19 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, onSelect }
     else mapRef.current.flyTo(position, zoom, { duration: 0.65 })
   }, [playgrounds, selectedId])
 
+  useEffect(() => {
+    if (!resetViewKey || !mapRef.current || !playgrounds.length) return
+
+    let cancelled = false
+    import('leaflet').then((L) => {
+      if (cancelled || !mapRef.current) return
+      const bounds = L.latLngBounds(playgrounds.map((playground) => [playground.coordinates.latitude, playground.coordinates.longitude]))
+      mapRef.current.fitBounds(bounds, { padding: [44, 44], maxZoom: 13 })
+    })
+
+    return () => { cancelled = true }
+  }, [playgrounds, resetViewKey])
+
   return <div className="event-map__canvas" ref={containerRef} role="region" aria-label="Interactive map of Helsinki staffed playgrounds" />
 }
 
@@ -170,6 +184,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
   const [showList, setShowList] = useState(false)
   const [userLocation, setUserLocation] = useState<{ latitude: number; longitude: number }>()
   const [locationMessage, setLocationMessage] = useState('')
+  const [resetViewKey, setResetViewKey] = useState(0)
   const filteredPlaygrounds = useMemo(() => {
     const search = query.trim().toLocaleLowerCase('en')
     return playgrounds.filter((playground) => {
@@ -210,6 +225,18 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
     setSelectedId(undefined)
   }
 
+  function showFullMap() {
+    setQuery('')
+    setRegion('All')
+    setFeaturedOnly(false)
+    setSelectedId(undefined)
+    setShowFilters(false)
+    setShowList(false)
+    setUserLocation(undefined)
+    setLocationMessage('Showing all staffed playgrounds across Helsinki.')
+    setResetViewKey((current) => current + 1)
+  }
+
   return (
     <section className="playground-map" aria-labelledby="playground-map-heading">
       <div className="playground-map__heading shell">
@@ -218,7 +245,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
       </div>
       <div className="playground-map__stage">
         {filteredPlaygrounds.length
-          ? <PlaygroundMapCanvas playgrounds={filteredPlaygrounds} selectedId={selectedId} userLocation={userLocation} onSelect={setSelectedId} />
+          ? <PlaygroundMapCanvas playgrounds={filteredPlaygrounds} selectedId={selectedId} userLocation={userLocation} resetViewKey={resetViewKey} onSelect={setSelectedId} />
           : <div className="playground-map__empty"><strong>No playgrounds match that search.</strong><p>Try a shorter street name or clear the filters.</p><button type="button" onClick={resetFilters}>Show all playgrounds</button></div>}
 
         <div className="playground-map__toolbar">
@@ -240,6 +267,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
 
         <div className="playground-map__utility">
           <button type="button" onClick={findMe}>◎ Near me</button>
+          <button type="button" onClick={showFullMap}>↺ Full map</button>
           <span aria-live="polite">{locationMessage || (region === 'All' && !query && !featuredOnly ? 'Choose an area bubble or zoom in to see each playground.' : `Showing ${filteredPlaygrounds.length} of ${playgrounds.length}`)}</span>
         </div>
 
@@ -249,7 +277,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
         </aside>}
 
         {selectedPlayground && <article className="playground-map__card">
-          <button type="button" onClick={() => setSelectedId(undefined)} aria-label="Close playground details">×</button>
+          <button type="button" onClick={showFullMap} aria-label="Close playground details and return to the full map">×</button>
           {selectedPlayground.image && <div className="playground-map__card-image"><Image src={selectedPlayground.image.src} alt={selectedPlayground.image.alt} fill sizes="(max-width: 720px) calc(100vw - 1.5rem), 25rem" /></div>}
           <span>{selectedPlayground.region} Helsinki</span>
           <h3>{selectedPlayground.name}</h3>
@@ -259,6 +287,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
             {selectedPlayground.detailId && <a href={`#${selectedPlayground.detailId}`}>Read our note ↓</a>}
             <a href={selectedPlayground.officialUrl} target="_blank" rel="noreferrer">Official details ↗</a>
             <a href={openStreetMapUrl(selectedPlayground)} target="_blank" rel="noreferrer">Directions ↗</a>
+            <button type="button" className="playground-map__back" onClick={showFullMap}>Back to full map</button>
           </div>
         </article>}
       </div>
