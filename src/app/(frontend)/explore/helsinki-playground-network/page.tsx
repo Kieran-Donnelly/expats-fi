@@ -26,8 +26,8 @@ const playgrounds = [
     address: 'Töölönlahdenkatu 4, 00100 Helsinki',
     coordinates: { latitude: 60.1739404, longitude: 24.9379816 },
     bestFor: 'Oodi days and bad-weather backup',
-    image: '/images/playgrounds/loru-nest-swing.webp',
-    imageAlt: 'Two children sharing a large nest swing in a sandy playground',
+    image: '/images/family-kids/oodi-helsinki.webp',
+    imageAlt: 'Oodi Central Library beside Kansalaistori in central Helsinki',
     intro: 'The easiest central option when you are already near the station, Oodi or Töölönlahti.',
     why: 'Loru’s activity space is on Oodi’s third floor, while the outdoor play area sits beside Kansalaistori. That indoor-outdoor combination makes it especially handy when the weather cannot make up its mind.',
     useful: ['Indoor activity space inside Oodi', 'Smooth approach for prams and wheelchairs', 'Outdoor area is not gated', 'Official page lists Finnish and Swedish service'],
@@ -42,8 +42,8 @@ const playgrounds = [
     address: 'Laivapojankatu 8, 00180 Helsinki',
     coordinates: { latitude: 60.1607553, longitude: 24.9185486 },
     bestFor: 'Big equipment choice and easy transport',
-    image: '/images/playgrounds/ruoholahti-colourful-playground.webp',
-    imageAlt: 'Bright red and green playground equipment beneath leafy trees',
+    image: '/images/heroes/family-together.webp',
+    imageAlt: 'A family walking together through a green park',
     intro: 'A well-equipped, computer-themed park that gives different ages plenty to get stuck into.',
     why: 'There is a separate small-child yard, football and basketball space, table tennis, floorball equipment, trampolines and distinctive computer-themed play equipment. The metro and tram connections make this a practical cross-city meeting point.',
     useful: ['Separate fenced area for smaller children', 'Trampolines and themed equipment', 'Indoor facilities and baby changing', 'Detailed accessibility information available'],
@@ -74,8 +74,8 @@ const playgrounds = [
     address: 'Pohjoinen Hesperiankatu 22, 00260 Helsinki',
     coordinates: { latitude: 60.1766549, longitude: 24.9193143 },
     bestFor: 'A fenced central park with a toddler zone',
-    image: '/images/playgrounds/taivallahti-family-swings.webp',
-    imageAlt: 'Parents helping children enjoy playground swings on a sunny day',
+    image: '/images/heroes/family-parents-and-children.webp',
+    imageAlt: 'Parents following their children across an open grassy park',
     intro: 'A reassuringly contained option near the centre, especially when one child is quicker than the adult holding the snacks.',
     why: 'The main playground is fully fenced and includes a separate small-child yard, climbing equipment, ball play and summer water features. The building has a ramp and accessible toilet, and there is space around several pieces of equipment for wheelchairs or prams.',
     useful: ['Fully fenced playground', 'Separate small-child yard', 'Summer water play', 'Accessible toilet in the playground building'],
@@ -90,8 +90,8 @@ const playgrounds = [
     address: 'Kuusikkotie 2a, 00630 Helsinki',
     coordinates: { latitude: 60.2310812, longitude: 24.9286428 },
     bestFor: 'Mixed ages and children who need movement',
-    image: '/images/playgrounds/maunula-monkey-bars.webp',
-    imageAlt: 'A group of children climbing together on outdoor monkey bars',
+    image: '/images/family-kids/event-kids-minimarathon.webp',
+    imageAlt: 'A group of children running together outdoors',
     intro: 'A recently renewed yard with enough going on that older children are less likely to declare themselves finished after six minutes.',
     why: 'Alongside the toddler yard and usual swings and climbing frames, Maunula has football areas, table tennis, floorball equipment and a skate park. In summer there is a paddling pool, and Jokeri Light Rail runs close by.',
     useful: ['Recently renovated yard', 'Skate park and ball-game space', 'Paddling pool in summer', 'Many wheelchair-friendly paths and features'],
@@ -106,8 +106,8 @@ const playgrounds = [
     address: 'Pyhätunturintie 2, 00970 Helsinki',
     coordinates: { latitude: 60.2365626, longitude: 25.1231714 },
     bestFor: 'Water play, football and a quieter local feel',
-    image: '/images/playgrounds/mellunmaki-climbing.webp',
-    imageAlt: 'A young child climbing confidently on colourful playground equipment',
+    image: '/images/family-kids/hero-family-day-out.webp',
+    imageAlt: 'Parents and children enjoying a walk through a wooded park',
     intro: 'A calmer residential option with a broad mix of play, sport and nearby nature.',
     why: 'The park has a separate small-child yard, artificial-turf football, basketball and floorball equipment, table tennis and summer water play. A nearby gravel pitch becomes an ice rink in winter when conditions cooperate.',
     useful: ['Separate small-child area', 'Artificial-turf football space', 'Water play and paddling pool in summer', 'Nearby pitch or winter ice rink'],
@@ -122,8 +122,8 @@ const playgrounds = [
     address: 'Rusthollarintie 15, 00910 Helsinki',
     coordinates: { latitude: 60.2125231, longitude: 25.1000619 },
     bestFor: 'A nature-backed local day with seasonal play',
-    image: '/images/playgrounds/rusthollari-playground.webp',
-    imageAlt: 'An empty playground with climbing frames and slides in a green park',
+    image: '/images/family-kids/oittaa-family-lake.webp',
+    imageAlt: 'Parents and children spending relaxed time together outdoors',
     intro: 'A neighbourhood playground surrounded by nature, with the metro close enough to keep the journey manageable.',
     why: 'Rusthollari has indoor rooms, climbing equipment, a separate small-child yard, summer water play and a winter ice rink when conditions allow. The building entrance has a ramp and the city lists an accessible toilet.',
     useful: ['Nature around the playground', 'Water play in summer', 'Ice rink in winter when available', 'Ramp and accessible toilet'],
@@ -138,8 +138,8 @@ const playgrounds = [
     address: 'Lohikäärmeenpolku 3, 00980 Helsinki',
     coordinates: { latitude: 60.2115759, longitude: 25.1394754 },
     bestFor: 'Imaginative play near the metro',
-    image: '/images/playgrounds/lohikaarmepuisto-swing.webp',
-    imageAlt: 'Two children laughing and sharing a playground swing outdoors',
+    image: '/images/family-kids/playground-loru-library.webp',
+    imageAlt: 'A parent reading and laughing with two children indoors',
     intro: 'A peaceful Vuosaari option with a bit more personality than another anonymous set of swings.',
     why: 'The small cowshed, wooden animals and playhouse give younger children an easy make-believe world, alongside the usual swings, climbing and a summer paddling pool. It is a short walk from Vuosaari metro.',
     useful: ['Short walk from Vuosaari metro', 'Wooden animals, cowshed and playhouse', 'Separate small-child yard', 'Paddling pool in summer'],
@@ -164,6 +164,11 @@ const featuredBestFor = Object.fromEntries(playgrounds.map((playground) => [
   playground.bestFor,
 ]))
 
+const featuredImages = Object.fromEntries(playgrounds.map((playground) => [
+  playground.id === 'loru' ? 'loru-0' : playground.id,
+  { src: playground.image, alt: playground.imageAlt },
+]))
+
 function playgroundRegion(latitude: number, longitude: number): PlaygroundMapItem['region'] {
   if (longitude < 24.91) return 'West'
   if (latitude < 60.215 && longitude < 25.02) return 'Central'
@@ -179,6 +184,7 @@ const playgroundMapItems: readonly PlaygroundMapItem[] = helsinkiPlaygrounds.map
   bestFor: featuredBestFor[playground.id],
   detailId: featuredDirectoryIds[playground.id],
   officialUrl: playgroundOfficialUrl(playground.id),
+  image: featuredImages[playground.id],
   coordinates: { latitude: playground.latitude, longitude: playground.longitude },
 }))
 
@@ -216,7 +222,7 @@ export default function HelsinkiPlaygroundsPage() {
 
       <SectionHero
         eyebrow="Helsinki playgrounds"
-        title="Pick the park that suits the day you are actually having."
+        title="Find your next playground."
         intro="All 62 staffed Helsinki playgrounds on one searchable map, plus eight deeper recommendations with the equipment, indoor backup, transport and parent-level practicalities that matter once everybody has their shoes on."
         noteLabel="The important bit"
         noteTitle="The outdoor yard and staffed service are not the same thing."

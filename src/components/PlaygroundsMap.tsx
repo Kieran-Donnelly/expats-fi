@@ -1,5 +1,6 @@
 'use client'
 
+import Image from 'next/image'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CircleMarker as LeafletCircleMarker, Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
@@ -11,6 +12,7 @@ export type PlaygroundMapItem = {
   bestFor?: string
   detailId?: string
   officialUrl: string
+  image?: { src: string; alt: string }
   coordinates: {
     latitude: number
     longitude: number
@@ -60,6 +62,9 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, onSelect }
       }).addTo(map)
 
       const bounds = L.latLngBounds([])
+      const playgroundLayer = L.layerGroup()
+      const areaLayer = L.layerGroup()
+      const areaGroups = new Map<PlaygroundMapItem['region'], PlaygroundMapItem[]>()
 
       playgrounds.forEach((playground) => {
         const { latitude, longitude } = playground.coordinates
@@ -74,12 +79,40 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, onSelect }
           title: playground.name,
         })
 
-        marker.on('click', () => selectRef.current(playground.id)).addTo(map)
+        marker.on('click', () => selectRef.current(playground.id)).addTo(playgroundLayer)
         markers.set(playground.id, marker)
         bounds.extend([latitude, longitude])
+        areaGroups.set(playground.region, [...(areaGroups.get(playground.region) ?? []), playground])
       })
 
+      areaGroups.forEach((items, region) => {
+        const areaBounds = L.latLngBounds(items.map((item) => [item.coordinates.latitude, item.coordinates.longitude]))
+        const marker = L.marker(areaBounds.getCenter(), {
+          icon: L.divIcon({
+            className: 'playground-map-cluster-wrap',
+            html: `<span class="playground-map-cluster"><strong>${region}</strong><b>${items.length}</b></span>`,
+            iconAnchor: [54, 24],
+            iconSize: [108, 48],
+          }),
+          title: `${region} Helsinki, ${items.length} playgrounds`,
+        })
+        marker.on('click', () => map.fitBounds(areaBounds, { padding: [70, 70], maxZoom: 13 })).addTo(areaLayer)
+      })
+
+      function updateVisibleLayer() {
+        const showAreas = playgrounds.length > 8 && areaGroups.size > 1 && map.getZoom() < 12
+        if (showAreas) {
+          if (map.hasLayer(playgroundLayer)) map.removeLayer(playgroundLayer)
+          if (!map.hasLayer(areaLayer)) areaLayer.addTo(map)
+        } else {
+          if (map.hasLayer(areaLayer)) map.removeLayer(areaLayer)
+          if (!map.hasLayer(playgroundLayer)) playgroundLayer.addTo(map)
+        }
+      }
+
       map.fitBounds(bounds, { padding: [44, 44], maxZoom: 13 })
+      updateVisibleLayer()
+      map.on('zoomend', updateVisibleLayer)
     }
 
     createMap()
@@ -207,7 +240,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
 
         <div className="playground-map__utility">
           <button type="button" onClick={findMe}>◎ Near me</button>
-          <span aria-live="polite">{locationMessage || `Showing ${filteredPlaygrounds.length} of ${playgrounds.length}`}</span>
+          <span aria-live="polite">{locationMessage || (region === 'All' && !query && !featuredOnly ? 'Choose an area bubble or zoom in to see each playground.' : `Showing ${filteredPlaygrounds.length} of ${playgrounds.length}`)}</span>
         </div>
 
         {showList && <aside className="playground-map__list-panel" aria-label="Visible playgrounds">
@@ -217,6 +250,7 @@ export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly Playgrou
 
         {selectedPlayground && <article className="playground-map__card">
           <button type="button" onClick={() => setSelectedId(undefined)} aria-label="Close playground details">×</button>
+          {selectedPlayground.image && <div className="playground-map__card-image"><Image src={selectedPlayground.image.src} alt={selectedPlayground.image.alt} fill sizes="(max-width: 720px) calc(100vw - 1.5rem), 25rem" /></div>}
           <span>{selectedPlayground.region} Helsinki</span>
           <h3>{selectedPlayground.name}</h3>
           <p>{selectedPlayground.address}</p>

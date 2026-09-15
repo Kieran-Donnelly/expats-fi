@@ -189,6 +189,9 @@
 .playground-map__list-panel li span { color: var(--muted); font-size: .78rem; }
 .playground-map__card { position: absolute; z-index: 500; inline-size: min(25rem, calc(100% - 2rem)); inset: auto max(1rem, calc((100vw - 82rem) / 2)) 1rem auto; padding: 1.25rem; border: 1px solid color-mix(in oklch, var(--ink) 14%, transparent); border-radius: .9rem; background: color-mix(in oklch, var(--snow) 97%, transparent); box-shadow: 0 1rem 3rem oklch(24% .06 250 / .2); backdrop-filter: blur(16px); }
 .playground-map__card > button { position: absolute; inset: .8rem .8rem auto auto; }
+.playground-map__card-image { position: relative; overflow: hidden; aspect-ratio: 16 / 8; margin: -1.25rem -1.25rem 1rem; border-radius: .84rem .84rem 0 0; background: var(--blue-pale); }
+.playground-map__card-image img { object-fit: cover; }
+.playground-map__card:has(.playground-map__card-image) > button { z-index: 2; background: color-mix(in oklch, var(--snow) 92%, transparent); }
 .playground-map__card > span { color: var(--coral); font-size: .72rem; font-weight: 760; letter-spacing: .06em; text-transform: uppercase; }
 .playground-map__card h3 { margin: .65rem 2.2rem .25rem 0; font-size: 1.55rem; }
 .playground-map__card p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
@@ -198,6 +201,10 @@
 .playground-map__card a:hover { text-decoration: underline; text-underline-offset: .2em; }
 .playground-map-pin { inline-size: 1.8rem; block-size: 1.8rem; border: 3px solid var(--snow); background: var(--coral); box-shadow: 0 .25rem .7rem oklch(24% .06 250 / .28); }
 .playground-map-pin b { inline-size: .42rem; aspect-ratio: 1; display: block; border-radius: 50%; background: var(--snow); }
+.playground-map-cluster-wrap { border: 0; background: transparent; }
+.playground-map-cluster { min-inline-size: 6.75rem; block-size: 3rem; display: flex; align-items: center; justify-content: space-between; gap: .65rem; padding: .35rem .45rem .35rem .9rem; border: 2px solid var(--snow); border-radius: 999px; background: var(--blue); box-shadow: 0 .45rem 1.2rem oklch(24% .06 250 / .3); color: var(--snow); }
+.playground-map-cluster strong { font-size: .8rem; }
+.playground-map-cluster b { min-inline-size: 2.1rem; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: var(--coral); font-size: .78rem; }
 .playground-map__empty { position: absolute; z-index: 480; inset: 0; display: grid; place-content: center; padding: 2rem; background: var(--blue-pale); text-align: center; }
 .playground-map__empty p { margin: .35rem 0 1rem; color: var(--ink-soft); }
 .playground-map__empty button { justify-self: center; padding: .8rem 1rem; border: 0; border-radius: .55rem; background: var(--blue); color: var(--snow); font: inherit; font-weight: 720; cursor: pointer; }
