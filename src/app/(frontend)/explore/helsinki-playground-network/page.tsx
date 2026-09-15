@@ -255,8 +255,8 @@ export default function HelsinkiPlaygroundsPage() {
       <section className="playground-quick-picks" aria-labelledby="playground-quick-heading">
         <div className="shell section">
           <div className="section-heading">
-            <div><p className="eyebrow">Choose quickly</p><h2 id="playground-quick-heading">If nobody has the patience for research.</h2></div>
-            <p>These are not rankings. They are the shortest route from today’s problem to a sensible first option.</p>
+            <div><p className="eyebrow">Choose quickly</p><h2 id="playground-quick-heading">A few good places to start.</h2></div>
+            <p>Four useful options for different family days, from indoor backup and fenced spaces to room for older children to move.</p>
           </div>
           <div className="playground-quick-grid">
             <a href="#loru"><span>Central and rain-safe</span><strong>Loru</strong><small>Pair the outdoor yard with Oodi’s indoor space.</small></a>
