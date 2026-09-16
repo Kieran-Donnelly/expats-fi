@@ -12,13 +12,13 @@ function hasCoordinates(event: CityEvent): event is MappedEvent {
   return Boolean(event.coordinates)
 }
 
-function openStreetMapUrl(event: CityEvent) {
+function googleMapsUrl(event: CityEvent) {
   if (!event.coordinates) {
-    return `https://www.openstreetmap.org/search?query=${encodeURIComponent(`${event.location}, Helsinki`)}`
+    return `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${event.location}, Helsinki`)}`
   }
 
   const { latitude, longitude } = event.coordinates
-  return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=16/${latitude}/${longitude}`
+  return `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`
 }
 
 function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
@@ -160,7 +160,7 @@ export function EventLocationMap({ event }: { event: CityEvent }) {
     <div className="event-location-card">
       <div><p className="eyebrow">On the map</p><strong>{event.location}</strong></div>
       <MapCanvas compact events={[mappedEvent]} selectedSlug={event.slug} />
-      <a href={openStreetMapUrl(event)} target="_blank" rel="noreferrer">Open larger map <span aria-hidden="true">↗</span></a>
+      <a href={googleMapsUrl(event)} target="_blank" rel="noreferrer">Directions in Google Maps <span aria-hidden="true">↗</span></a>
     </div>
   )
 }

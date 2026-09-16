@@ -5,9 +5,9 @@ import type { Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
 import type { EatSpot } from '@/data/eats'
 
-function openStreetMapUrl(spot: EatSpot) {
+function googleMapsUrl(spot: EatSpot) {
   const { latitude, longitude } = spot.coordinates
-  return `https://www.openstreetmap.org/?mlat=${latitude}&mlon=${longitude}#map=17/${latitude}/${longitude}`
+  return `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`
 }
 
 function EatsMapCanvas({ spots, selectedSlug, onSelect, compact }: {
@@ -121,7 +121,7 @@ export function EatsMap({ spots, compact = false }: { spots: EatSpot[]; compact?
               <button type="button" onClick={() => setSelectedSlug(spot.slug)} aria-pressed={spot.slug === activeSlug}>
                 <span>{index + 1}</span><span><strong>{spot.name}</strong><small>{spot.address}</small></span>
               </button>
-              <a href={openStreetMapUrl(spot)} target="_blank" rel="noreferrer" aria-label={`Open ${spot.name} in OpenStreetMap`}>↗</a>
+              <a href={googleMapsUrl(spot)} target="_blank" rel="noreferrer" aria-label={`Get directions to ${spot.name} in Google Maps`}>↗</a>
             </li>
           ))}
         </ol>
