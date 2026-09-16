@@ -38,7 +38,7 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
         path="/businesses/"
         items={businesses.slice(0, 50).map((business) => ({ name: business.name, path: `/businesses/${business.slug}/` }))}
       />
-      <header className="page-hero photo-hero">
+      <header className="page-hero photo-hero photo-hero--dark">
         <HeroBackdrop src="/images/heroes/businesses-bookshop-owner.webp" position="center 45%" />
         <div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div>
       </header>

@@ -378,12 +378,15 @@
   .playground-map__filter-button, .playground-map__list-button { inline-size: 100%; }
   .playground-map__filter-panel, .playground-map__list-panel { inline-size: auto; inset: 8rem .75rem auto; max-block-size: calc(100% - 9rem); }
   .playground-map__list-panel ol { max-block-size: calc(43rem - 12rem); }
+  .playground-map__filter-panel > div:first-child button, .playground-map__list-panel > div:first-child button, .playground-map__card > button { inline-size: 2.75rem; }
+  .playground-map__stage .leaflet-control-zoom a { inline-size: 2.75rem; block-size: 2.75rem; line-height: 2.75rem; }
   .playground-map__utility { inset: auto .75rem .75rem; align-items: end; justify-content: space-between; }
   .playground-map__utility span { max-inline-size: 14rem; }
   .playground-map__card { inset: auto .75rem .75rem; inline-size: auto; }
   .playground-map__stage:has(.playground-map__card) .playground-map__utility { display: none; }
   .playground-links { align-items: start; flex-direction: column; }
   .playground-links > div:last-child { justify-content: flex-start; }
+  .playground-card .text-link, .playground-map__card a, .playground-map__card .playground-map__back { min-block-size: 2.75rem; display: inline-flex; align-items: center; }
 }
 
 @media (max-width: 520px) {

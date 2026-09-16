@@ -1615,6 +1615,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .directory-callout { align-items: start; flex-direction: column; }
   .directory-intro { grid-template-columns: 1fr; align-items: start; }
   .filter-form { grid-template-columns: 1fr; }
+  .save-business-button, .save-business--compact .save-business-button { min-block-size: 2.75rem; }
   .sports-filter { grid-template-columns: 1fr; }
   .sports-profile__header, .sports-profile__layout { grid-template-columns: 1fr; }
   .sports-profile__sport-list { max-inline-size: 24rem; }
@@ -1647,6 +1648,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
   .site-footer__intro { grid-column: 1 / -1; }
   .site-footer__grid nav:last-child { grid-column: auto; }
   .site-footer__bottom { align-items: start; flex-direction: column; gap: .3rem; }
+  .site-footer nav a { min-block-size: 2.5rem; display: flex; align-items: center; }
   .embassy-grid { grid-template-columns: 1fr; }
   .news-hero__inner, .news-lead, .news-letter, .news-story__layout { grid-template-columns: 1fr; }
   .news-hero__note { max-inline-size: 30rem; }
