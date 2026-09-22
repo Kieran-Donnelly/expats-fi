@@ -2,6 +2,59 @@
 
 This file records third-party images used by Expats.fi. Keep the asset ID, creator, source page and licence details here whenever a new licensed image is added.
 
+## Unsplash guide images
+
+Selected from their individual photo pages on 22 September 2026. Each page displayed “Free to use under the Unsplash License” and a “Download free” control. The [Unsplash License](https://unsplash.com/license) permits commercial website use without mandatory attribution; links and photographers are retained here for provenance. These are documentary illustrations, not representations of a named service unless the source explicitly identifies the location.
+
+- Site file: `public/images/heroes/study-aalto-lecture.avif`
+  - Photographer: Dom Fou
+  - Source: https://unsplash.com/photos/people-sitting-on-chair-in-front-of-computer-YRMWVcdyhmI
+  - Source description: Students in a class at Aalto University in Espoo, Finland.
+  - Use: Universities and universities of applied sciences guide; no claim that every programme uses this lecture hall.
+- Site file: `public/images/heroes/study-oodi-library.avif`
+  - Photographer: Yanhao Fang
+  - Source: https://unsplash.com/photos/people-working-at-library-workspace-CpZvCdyM2iI
+  - Source location: Helsinki Central Library Oodi, Helsinki, Finland.
+  - Use: Choosing the right study route guide; illustrative of independent research, not an education provider.
+- Site file: `public/images/heroes/study-uas-collaboration.avif`
+  - Photographer: Chidera Faustina Okeke
+  - Source: https://unsplash.com/photos/two-women-studying-together-at-a-table-with-laptop-2FDdgn0-W_o
+  - Use: Open university, online and flexible study guide; not presented as a specific Finnish institution.
+- Site file: `public/images/heroes/study-vocational-workshop.avif`
+  - Photographer: Septian Setiawan
+  - Source: https://unsplash.com/photos/a-group-of-men-working-on-a-piece-of-metal-x2y2rzLMKiA
+  - Source location: Indonesia.
+  - Use: Vocational study and apprenticeships guide; illustrative workshop training, not presented as a Finnish school or programme.
+- Site file: `public/images/heroes/study-integration-discussion.avif`
+  - Photographer: Christina (WOCinTech Chat)
+  - Source: https://unsplash.com/photos/five-people-sitting-at-table-and-talking-jzonFmreWok
+  - Use: Integration training and Finnish for working life guide; illustrative group discussion, not presented as a Finnish course provider.
+- Site file: `public/images/heroes/study-fees-budget.avif`
+  - Photographer: Recha Oktaviani
+  - Source: https://unsplash.com/photos/black-and-silver-calculator-beside-black-pen-h2aDKwigQeA
+  - Source location: Jakarta, Indonesia.
+  - Use: Tuition fees, permits and paying for study guide; generic calculator and notebook, with no Finnish forms or authority branding implied.
+- Site file: `public/images/heroes/start-here-digital-services.avif`
+  - Photographer: Jakub Żerdzicki
+  - Source: https://unsplash.com/photos/a-person-holding-a-cell-phone-next-to-a-laptop-k2yRxAZztKI
+  - Use: Digital Finland survival guide; blank phone screen does not suggest a particular authority's interface.
+- Site file: `public/images/heroes/housing-lease-keys.avif`
+  - Photographer: Jakub Żerdzicki
+  - Source: https://unsplash.com/photos/a-hand-holding-a-key-to-a-door-3HfGnyPfWqQ
+  - Use: Lease, deposit and moving-in guide; generic keys and doorway, not presented as a particular Finnish rental home or agency.
+- Site file: `public/images/heroes/family-neuvola-baby.avif`
+  - Photographer: Carolyn Christine
+  - Source: https://unsplash.com/photos/baby-on-bed-nek2P_N1rec
+  - Use: Babies and neuvola guide; close-up baby detail that does not imply a particular clinic, appointment or provider.
+- Site file: `public/images/heroes/family-healthcare-maisa.avif`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/a-mother-and-daughter-share-a-phone-together-XEvdAdYl7D4
+  - Use: Family healthcare and Maisa guide; illustrative family phone use, not presented as the Maisa interface or a Finnish healthcare provider.
+- Site file: `public/images/heroes/family-daycare-crafts.jpg`
+  - Photographer: Alan Rodriguez
+  - Source: https://unsplash.com/photos/two-young-girls-sitting-at-a-table-with-markers-and-crayons-N17Nkbsc-zY
+  - Use: Daycare and preschool guide; children drawing at a table, without presenting the setting as a named Helsinki facility or implying that its equipment is available locally.
+
 ## Unlimphotos hero images
 
 Downloaded on August 26, 2026 through the licensed Unlimphotos account connected by the site owners.

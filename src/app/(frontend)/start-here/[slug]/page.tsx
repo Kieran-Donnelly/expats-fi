@@ -18,7 +18,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     : guide.slug === 'digital-finland-survival-kit'
       ? 'Strong identification and online services in Finland'
     : guide.title
-  return socialMetadata({ title, description: guide.summary, path: `/start-here/${guide.slug}/`, image: '/images/heroes/start-here-helsinki-station.webp' })
+  return socialMetadata({
+    title,
+    description: guide.summary,
+    path: `/start-here/${guide.slug}/`,
+    image: guide.slug === 'digital-finland-survival-kit' ? '/images/heroes/start-here-digital-services.avif' : '/images/heroes/start-here-helsinki-station.webp',
+  })
 }
 
 export default async function SettlingGuidePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -33,7 +38,9 @@ export default async function SettlingGuidePage({ params }: { params: Promise<{ 
       hubLabel="The Start Here hub"
       relatedHeading="Keep getting settled"
       reviewedAt="2026-08-25"
-      heroImage={guide.slug === 'first-90-days-in-finland' ? { src: '/images/heroes/start-here-helsinki-station.webp', position: 'center 58%' } : undefined}
+      heroImage={guide.slug === 'first-90-days-in-finland'
+        ? { src: '/images/heroes/start-here-helsinki-station.webp', position: 'center 58%' }
+        : { src: '/images/heroes/start-here-digital-services.avif', position: 'center 52%' }}
     />
   )
 }

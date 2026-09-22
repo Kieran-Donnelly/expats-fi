@@ -114,6 +114,7 @@ async function inspectPage(url, index, total) {
     internalLinks: [],
     images: 0,
     imagesMissingAlt: 0,
+    editorialGuideHeaderImage: null,
     elapsedMs: 0,
     error: '',
   }
@@ -156,6 +157,9 @@ async function inspectPage(url, index, total) {
       const images = [...document.querySelectorAll('img')]
       result.images = images.length
       result.imagesMissingAlt = images.filter((image) => image.getAttribute('alt') === null).length
+      if (document.querySelector('main.family-detail')) {
+        result.editorialGuideHeaderImage = Boolean(document.querySelector('.family-detail__header-media img'))
+      }
       dom.window.close()
     }
   } catch (error) {
@@ -254,6 +258,7 @@ const findings = {
     missing: page.imagesMissingAlt,
     total: page.images,
   })),
+  editorialGuidesMissingHeaderImage: pages.filter((page) => page.editorialGuideHeaderImage === false).map((page) => page.url),
   brokenInternalLinks: linkedChecks.filter((check) => check.error || check.status >= 400).map((check) => ({
     ...check,
     foundOn: pages.filter((page) => page.internalLinks.includes(check.url)).map((page) => page.url),
