@@ -280,6 +280,8 @@
 .family-detail__header-media { position: absolute; z-index: 0; inset: 0; overflow: hidden; }
 .family-detail__header-media img { object-fit: cover; filter: saturate(.92) contrast(.96); transform: scale(1.012); }
 .family-detail__header-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--guide-accent-soft) 0%, var(--guide-accent-soft) 28%, color-mix(in oklch, var(--guide-accent-soft) 78%, transparent) 40%, color-mix(in oklch, var(--guide-accent-soft) 28%, transparent) 60%, color-mix(in oklch, var(--guide-accent-soft) 12%, transparent) 100%), linear-gradient(180deg, color-mix(in oklch, var(--blue) 7%, transparent), color-mix(in oklch, var(--guide-accent-soft) 14%, transparent)); }
+.family-detail__photo-credit { position: absolute; z-index: 2; inset: auto .7rem .7rem auto; padding: .32rem .5rem; border-radius: .3rem; background: oklch(20% .035 250 / .78); color: white; font-size: .58rem; line-height: 1.25; text-decoration: none; }
+.family-detail__photo-credit:hover { background: oklch(20% .035 250 / .92); }
 .family-detail__header > div:not(.family-detail__header-media), .family-detail__header > aside { position: relative; z-index: 2; }
 .family-detail__header h1 { max-inline-size: 18ch; }
 .family-detail__header > div:not(.family-detail__header-media) > h1 + p { max-inline-size: 48rem; margin: 1.1rem 0 0; color: var(--ink-soft); font-size: 1.12rem; }

@@ -114,6 +114,55 @@ Selected from their individual photo pages on 22–23 September 2026. Each page 
   - Photographer: Filip Rankovic Grobgaard
   - Source: https://unsplash.com/photos/group-of-people-talking-indoors-near-a-window-Ldp-pqZp1iI
   - Use: Community board landing page; illustrative group conversation, not Expats.fi members or an Expats.fi event.
+- Site file: `public/images/heroes/areas-kallio.jpg`
+  - Photographer: Marek Lumi
+  - Source: https://unsplash.com/photos/urban-street-with-colorful-planters-and-trees-G2Ahdf1j0nw
+  - Use: Kallio and Hakaniemi guide; photographed in Kallio, Helsinki.
+- Site file: `public/images/heroes/areas-punavuori.jpg`
+  - Photographer: Satvik
+  - Source: https://unsplash.com/photos/a-row-of-buildings-on-a-city-street-3OJu--IXOhE
+  - Use: Punavuori and the Design District guide; photographed in Punavuori, Helsinki.
+- Site file: `public/images/heroes/areas-toolo.jpg`
+  - Photographer: Marek Lumi
+  - Source: https://unsplash.com/photos/urban-plaza-with-outdoor-ping-pong-tables-and-kiosk-aRObX_KGoIg
+  - Use: Töölö guide; photographed in Töölönlahden puisto, Helsinki.
+- Site file: `public/images/heroes/areas-kruununhaka.jpg`
+  - Photographer: Tomi Blasic
+  - Source: https://unsplash.com/photos/a-street-leads-to-a-church-in-helsinki-Uwd6pW9h3Dk
+  - Use: Kruununhaka and Katajanokka guide; photographed in Kruununhaka, Helsinki.
+- Site file: `public/images/heroes/areas-roihuvuori.jpg`
+  - Photographer: Martti Salmi
+  - Source: https://unsplash.com/photos/a-large-metal-object-in-the-middle-of-a-field-ocycXgw0gjo
+  - Use: Herttoniemi and Roihuvuori guide; Roihuvuori water tower and cherry blossom photographed in Roihuvuori, Helsinki.
+- Site file: `public/images/heroes/areas-kamppi.jpg`
+  - Photographer: Pim de Boer
+  - Source: https://unsplash.com/photos/a-person-walking-down-a-walkway-in-front-of-a-building-sIhxkXV-Z_s
+  - Use: Kamppi and Kluuvi guide; Oodi Central Library in central Helsinki.
+- Site file: `public/images/heroes/areas-eira.jpg`
+  - Photographer: Tapio Haaja
+  - Source: https://unsplash.com/photos/brown-commercial-building-under-cloudy-sky-T30H0AcxthY
+  - Use: Eira and Ullanlinna guide; photographed in Ullanlinna, Helsinki.
+- Site file: `public/images/heroes/areas-vallila.jpg`
+  - Photographer: Noora Kuisma
+  - Source: https://unsplash.com/photos/a-row-of-houses-with-a-street-sign-in-front-of-them-LsCtlEaKjQU
+  - Use: Vallila and Konepaja guide; photographed in the wooden-house district of Vallila, Helsinki.
+- Site file: `public/images/heroes/areas-arabia-vanhakaupunki.jpg`
+  - Photographer: Tapio Haaja
+  - Source: https://unsplash.com/photos/red-house-near-bridge-JE2Oo1SZpps
+  - Use: Arabia and Vanhakaupunki guide; the Power Plant Museum and rapids at Vanhankaupunginkoski, Helsinki.
+
+## Wikimedia Commons area images
+
+- Site file: `public/images/heroes/areas-lauttasaari.jpg`
+  - Photographer: Giuseppe Milo
+  - Source: https://commons.wikimedia.org/wiki/File:A_Sunset_In_Lauttasaari_Helsinki_Finland_Seascape_Photography_(153009409).jpeg
+  - Licence: CC BY 3.0; the required credit and source link are rendered on the guide image.
+  - Use: Lauttasaari guide; photographed on the Lauttasaari shoreline.
+- Site file: `public/images/heroes/areas-vuosaari-uutela.jpg`
+  - Photographer: Timo Newton-Syms
+  - Source: https://commons.wikimedia.org/wiki/File:Uutela_(7585301066).jpg
+  - Licence: CC BY-SA 2.0; the required credit and source link are rendered on the guide image.
+  - Use: Vuosaari and Uutela guide; photographed on a forest path in Uutela.
 
 ## Unlimphotos hero images
 

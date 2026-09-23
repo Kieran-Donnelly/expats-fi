@@ -19,6 +19,10 @@ type EditorialGuideDetailProps = {
   heroImage?: {
     src: string
     position?: string
+    credit?: {
+      label: string
+      href: string
+    }
   }
   tone?: 'blue' | 'warm'
 }
@@ -67,7 +71,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
         <Link className="back-link" href={hubHref}>← {hubLabel}</Link>
         <header className="family-detail__header" data-has-image={heroImage ? true : undefined}>
           {heroImage && (
-            <div className="family-detail__header-media" aria-hidden="true">
+            <div className="family-detail__header-media">
               <Image
                 src={heroImage.src}
                 alt=""
@@ -76,6 +80,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
                 sizes="(max-width: 960px) 100vw, 1200px"
                 style={{ objectPosition: heroImage.position ?? 'center' }}
               />
+              {heroImage.credit && <a className="family-detail__photo-credit" href={heroImage.credit.href} target="_blank" rel="noreferrer">Photo: {heroImage.credit.label} ↗</a>}
             </div>
           )}
           <div><p className="eyebrow">{guide.number} · {guide.label}</p><h1>{guide.title}</h1><p>{guide.summary}</p>{guide.tags && <div className="explore-card__tags">{guide.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>}</div>

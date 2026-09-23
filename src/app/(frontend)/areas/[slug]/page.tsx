@@ -15,6 +15,38 @@ const seoOverrides: Record<string, { title: string; description: string }> = {
   },
 }
 
+const guideImages: Record<string, {
+  src: string
+  position: string
+  credit?: { label: string; href: string }
+}> = {
+  'kallio-and-hakaniemi': { src: '/images/heroes/areas-kallio.jpg', position: 'center 52%' },
+  'punavuori-and-the-design-district': { src: '/images/heroes/areas-punavuori.jpg', position: 'center 54%' },
+  toolo: { src: '/images/heroes/areas-toolo.jpg', position: 'center 46%' },
+  'kruununhaka-and-katajanokka': { src: '/images/heroes/areas-kruununhaka.jpg', position: 'center 48%' },
+  'herttoniemi-and-roihuvuori': { src: '/images/heroes/areas-roihuvuori.jpg', position: 'center 58%' },
+  'kamppi-and-kluuvi': { src: '/images/heroes/areas-kamppi.jpg', position: 'center 48%' },
+  'eira-and-ullanlinna': { src: '/images/heroes/areas-eira.jpg', position: 'center 50%' },
+  'vallila-and-konepaja': { src: '/images/heroes/areas-vallila.jpg', position: 'center 52%' },
+  'arabia-and-vanhakaupunki': { src: '/images/heroes/areas-arabia-vanhakaupunki.jpg', position: 'center 52%' },
+  lauttasaari: {
+    src: '/images/heroes/areas-lauttasaari.jpg',
+    position: 'center 54%',
+    credit: {
+      label: 'Giuseppe Milo, CC BY 3.0',
+      href: 'https://commons.wikimedia.org/wiki/File:A_Sunset_In_Lauttasaari_Helsinki_Finland_Seascape_Photography_(153009409).jpeg',
+    },
+  },
+  'vuosaari-and-uutela': {
+    src: '/images/heroes/areas-vuosaari-uutela.jpg',
+    position: 'center 48%',
+    credit: {
+      label: 'Timo Newton-Syms, CC BY-SA 2.0',
+      href: 'https://commons.wikimedia.org/wiki/File:Uutela_(7585301066).jpg',
+    },
+  },
+}
+
 export function generateStaticParams() {
   return areaGuides.map((guide) => ({ slug: guide.slug }))
 }
@@ -24,7 +56,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const guide = getAreaGuide(slug)
   if (!guide) return {}
   const seo = seoOverrides[guide.slug]
-  return socialMetadata({ title: seo?.title || guide.title, description: seo?.description || guide.summary, path: `/areas/${guide.slug}/`, image: '/images/heroes/areas-helsinki-street.webp' })
+  return socialMetadata({ title: seo?.title || guide.title, description: seo?.description || guide.summary, path: `/areas/${guide.slug}/`, image: guideImages[guide.slug]?.src || '/images/heroes/areas-helsinki-street.webp' })
 }
 
 export default async function AreaGuidePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -41,6 +73,7 @@ export default async function AreaGuidePage({ params }: { params: Promise<{ slug
       hubLabel="Helsinki neighbourhoods"
       relatedHeading="Try another part of Helsinki"
       reviewedAt="2026-08-25"
+      heroImage={guideImages[guide.slug]}
       extraSection={(
         <>
           <AreaEatsSection area={guide.label} />
