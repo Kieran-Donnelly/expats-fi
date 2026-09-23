@@ -806,6 +806,9 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .community-board-hero__inner .back-link { margin-block-end: 2.25rem; }
 .community-board-hero h1 { max-inline-size: 16ch; font-size: clamp(2.7rem, 6vw, 4.8rem); }
 .community-board-hero__inner > div > p:last-child { max-inline-size: 44rem; margin: 1.15rem 0 0; color: var(--ink-soft); font-size: 1.08rem; }
+.community-board-hero__rail { display: grid; gap: .9rem; }
+.community-board-hero__media { position: relative; min-block-size: clamp(12rem, 21vw, 18rem); overflow: hidden; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--blue-dark); }
+.community-board-hero__media img { object-fit: cover; object-position: center 48%; }
 .community-board-hero aside { display: grid; gap: .55rem; padding: 1.25rem; border: 1px solid var(--line-strong); border-radius: .8rem; background: var(--snow); }
 .community-board-hero aside strong { color: var(--blue-dark); font-size: .82rem; }
 .community-board-hero aside p { margin: 0; color: var(--ink-soft); font-size: .82rem; line-height: 1.55; }

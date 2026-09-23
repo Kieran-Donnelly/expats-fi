@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
+import Image from 'next/image'
 import Link from 'next/link'
 
 import { CommunityPostForm } from '@/components/CommunityPostForm'
@@ -15,7 +16,7 @@ export const metadata: Metadata = socialMetadata({
   title: 'Community board',
   description: 'Ask questions, share practical Finland advice and meet other people building a life here.',
   path: '/community/board/',
-  image: '/images/heroes/community-city-friends.webp',
+  image: '/images/heroes/community-board-conversation.jpg',
 })
 
 type BoardSearchParams = Promise<{ topic?: string; q?: string }>
@@ -43,7 +44,10 @@ export default async function CommunityBoardPage({ searchParams }: { searchParam
       <header className="community-board-hero">
         <div className="shell community-board-hero__inner">
           <div><Link className="back-link" href="/community/">← Community in Helsinki</Link><p className="eyebrow">The Expats.fi community board</p><h1>A place to ask, share and find your people.</h1><p>Practical questions, small discoveries and the kind of local knowledge that makes Finland feel easier to live in.</p><div className="community-board-hero__actions"><a className="button" href="#community-conversations">Browse conversations</a><a className="button button--secondary" href="#start-a-conversation">Start a post</a></div></div>
-          <aside><strong>Your name can stay private</strong><p>Post or answer under a friendly anonymous alias. The public will not see your account, but moderators can still step in if somebody abuses the feature.</p><Link href="/community/rules/">See how anonymity and moderation work →</Link></aside>
+          <div className="community-board-hero__rail">
+            <div className="community-board-hero__media"><Image src="/images/heroes/community-board-conversation.jpg" alt="People sharing a relaxed group conversation" fill priority sizes="(max-width: 760px) 100vw, 34vw" /></div>
+            <aside><strong>Your name can stay private</strong><p>Post or answer under a friendly anonymous alias. The public will not see your account, but moderators can still step in if somebody abuses the feature.</p><Link href="/community/rules/">See how anonymity and moderation work →</Link></aside>
+          </div>
         </div>
       </header>
 

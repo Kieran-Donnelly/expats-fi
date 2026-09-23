@@ -90,6 +90,30 @@ Selected from their individual photo pages on 22–23 September 2026. Each page 
   - Photographer: Joao Vitor Marcilio
   - Source: https://unsplash.com/photos/wrenches-and-level-rest-on-a-wooden-surface-D7LT-vTTt88
   - Use: Repairs, rent trouble and moving out guide; generic repair tools rather than a claim about a particular property or tradesperson.
+- Site file: `public/images/heroes/community-starting-alone.jpg`
+  - Photographer: Olena Kholina
+  - Source: https://unsplash.com/photos/people-mingling-at-an-indoor-event-with-warm-lighting-OsuDfn4vtLA
+  - Use: Where to start when you know nobody guide; illustrative mixed gathering, not a named Helsinki event or organisation.
+- Site file: `public/images/heroes/community-language-cafe.jpg`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/two-women-talking-at-a-cafe-table-gRmyW5p_4lQ
+  - Use: Language cafés and international communities guide; generic conversation over a drink, not a named language café or venue.
+- Site file: `public/images/heroes/community-hobbies-volunteer.jpg`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/volunteers-checking-a-clipboard-during-cleanup-x2j6lj09DhM
+  - Use: Hobbies, sport, volunteering and work connections guide; illustrates one route into community without identifying a Finnish programme or organiser.
+- Site file: `public/images/heroes/community-families-local.jpg`
+  - Photographer: Michal Vrba
+  - Source: https://unsplash.com/photos/parents-pushing-children-in-strollers-on-sidewalk-ATAZNoSgOxU
+  - Use: Parents, families and meeting locally guide; ordinary family life in a city, not a named Helsinki group, street or service.
+- Site file: `public/images/heroes/community-host-meetup.jpg`
+  - Photographer: Adhitya Sibikumar
+  - Source: https://unsplash.com/photos/two-men-sitting-at-a-table-talking-FGBBmEUzFIg
+  - Use: Hosting a small meetup safely guide; generic public conversation, not a named meetup, organiser or venue.
+- Site file: `public/images/heroes/community-board-conversation.jpg`
+  - Photographer: Filip Rankovic Grobgaard
+  - Source: https://unsplash.com/photos/group-of-people-talking-indoors-near-a-window-Ldp-pqZp1iI
+  - Use: Community board landing page; illustrative group conversation, not Expats.fi members or an Expats.fi event.
 
 ## Unlimphotos hero images
 
