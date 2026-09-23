@@ -34,7 +34,7 @@ export function SectionHero({
             src={image.src}
             alt=""
             fill
-            loading="eager"
+            priority
             sizes="100vw"
             style={{ objectPosition: image.position ?? 'center' }}
           />

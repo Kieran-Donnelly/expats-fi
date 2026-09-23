@@ -76,7 +76,7 @@ export function EditorialGuideDetail({ guide, guides, hubHref, hubLabel, related
                 src={heroImage.src}
                 alt=""
                 fill
-                loading="eager"
+                priority
                 sizes="(max-width: 960px) 100vw, 1200px"
                 style={{ objectPosition: heroImage.position ?? 'center' }}
               />
