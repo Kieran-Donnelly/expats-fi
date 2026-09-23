@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from 'react'
 import type { Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
 import type { EatSpot } from '@/data/eats'
+import { useNearViewport } from '@/hooks/useNearViewport'
 
 function googleMapsUrl(spot: EatSpot) {
   const { latitude, longitude } = spot.coordinates
@@ -16,7 +17,7 @@ function EatsMapCanvas({ spots, selectedSlug, onSelect, compact }: {
   onSelect: (slug: string) => void
   compact: boolean
 }) {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerRef, shouldLoad] = useNearViewport<HTMLDivElement>()
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef(new Map<string, LeafletMarker>())
   const selectRef = useRef(onSelect)
@@ -26,7 +27,7 @@ function EatsMapCanvas({ spots, selectedSlug, onSelect, compact }: {
   }, [onSelect])
 
   useEffect(() => {
-    if (!containerRef.current || !spots.length) return
+    if (!shouldLoad || !containerRef.current || !spots.length) return
 
     let cancelled = false
     const markers = markersRef.current
@@ -85,7 +86,7 @@ function EatsMapCanvas({ spots, selectedSlug, onSelect, compact }: {
       mapRef.current?.remove()
       mapRef.current = null
     }
-  }, [compact, spots])
+  }, [compact, containerRef, shouldLoad, spots])
 
   useEffect(() => {
     if (!selectedSlug) return
@@ -99,7 +100,7 @@ function EatsMapCanvas({ spots, selectedSlug, onSelect, compact }: {
     marker.openPopup()
   }, [selectedSlug, spots])
 
-  return <div className="event-map__canvas" data-compact={compact || undefined} ref={containerRef} role="region" aria-label="Interactive map of Helsinki places to eat" />
+  return <div className="event-map__canvas" data-compact={compact || undefined} ref={containerRef} role="region" aria-busy={!shouldLoad} aria-label="Interactive map of Helsinki places to eat" />
 }
 
 export function EatsMap({ spots, compact = false }: { spots: EatSpot[]; compact?: boolean }) {

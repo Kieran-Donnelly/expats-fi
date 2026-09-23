@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { CircleMarker as LeafletCircleMarker, Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
 import { playgroundGoogleMapsUrl, playgroundHslRouteUrl } from '@/data/helsinki-playgrounds'
+import { useNearViewport } from '@/hooks/useNearViewport'
 
 export type PlaygroundMapItem = {
   id: string
@@ -42,7 +43,7 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
   resetViewKey: number
   onSelect: (id: string) => void
 }) {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerRef, shouldLoad] = useNearViewport<HTMLDivElement>()
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef(new Map<string, LeafletMarker>())
   const locationMarkerRef = useRef<LeafletCircleMarker | null>(null)
@@ -54,7 +55,7 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
   }, [onSelect])
 
   useEffect(() => {
-    if (!containerRef.current || !playgrounds.length) return
+    if (!shouldLoad || !containerRef.current || !playgrounds.length) return
 
     let cancelled = false
     const markers = markersRef.current
@@ -145,7 +146,7 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
       mapRef.current?.remove()
       mapRef.current = null
     }
-  }, [playgrounds, resetViewKey])
+  }, [containerRef, playgrounds, resetViewKey, shouldLoad])
 
   useEffect(() => {
     if (!userLocation || !mapRef.current) return
@@ -187,7 +188,7 @@ function PlaygroundMapCanvas({ playgrounds, selectedId, userLocation, resetViewK
     else mapRef.current.flyTo(position, zoom, { duration: 0.65 })
   }, [playgrounds, selectedId])
 
-  return <div className="event-map__canvas" ref={containerRef} role="region" aria-label="Interactive map of Helsinki staffed playgrounds" />
+  return <div className="event-map__canvas" ref={containerRef} role="region" aria-busy={!shouldLoad} aria-label="Interactive map of Helsinki staffed playgrounds" />
 }
 
 export function PlaygroundsMap({ playgrounds }: { playgrounds: readonly PlaygroundMapItem[] }) {

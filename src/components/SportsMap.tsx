@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
 import type { SportsListing } from '@/data/sports'
+import { useNearViewport } from '@/hooks/useNearViewport'
 
 type MappedSportsListing = SportsListing & { coordinates: NonNullable<SportsListing['coordinates']> }
 
@@ -17,7 +18,7 @@ function SportsMapCanvas({ listings, selectedSlug, onSelect }: {
   selectedSlug?: string
   onSelect?: (slug: string) => void
 }) {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerRef, shouldLoad] = useNearViewport<HTMLDivElement>()
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef(new Map<string, LeafletMarker>())
   const selectRef = useRef(onSelect)
@@ -27,7 +28,7 @@ function SportsMapCanvas({ listings, selectedSlug, onSelect }: {
   }, [onSelect])
 
   useEffect(() => {
-    if (!containerRef.current || !listings.length) return
+    if (!shouldLoad || !containerRef.current || !listings.length) return
 
     let cancelled = false
     const markers = markersRef.current
@@ -90,7 +91,7 @@ function SportsMapCanvas({ listings, selectedSlug, onSelect }: {
       mapRef.current?.remove()
       mapRef.current = null
     }
-  }, [listings])
+  }, [containerRef, listings, shouldLoad])
 
   useEffect(() => {
     if (!selectedSlug) return
@@ -104,7 +105,7 @@ function SportsMapCanvas({ listings, selectedSlug, onSelect }: {
     marker.openPopup()
   }, [listings, selectedSlug])
 
-  return <div className="event-map__canvas" ref={containerRef} role="region" aria-label="Interactive map of Helsinki sports and activity locations" />
+  return <div className="event-map__canvas" ref={containerRef} role="region" aria-busy={!shouldLoad} aria-label="Interactive map of Helsinki sports and activity locations" />
 }
 
 export function SportsMap({ listings }: { listings: SportsListing[] }) {

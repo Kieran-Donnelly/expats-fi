@@ -5,6 +5,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import type { Map as LeafletMap, Marker as LeafletMarker } from 'leaflet'
 
 import type { CityEvent } from '@/data/events'
+import { useNearViewport } from '@/hooks/useNearViewport'
 
 type MappedEvent = CityEvent & { coordinates: NonNullable<CityEvent['coordinates']> }
 
@@ -27,29 +28,14 @@ function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
   onSelect?: (slug: string) => void
   compact?: boolean
 }) {
-  const containerRef = useRef<HTMLDivElement>(null)
+  const [containerRef, shouldLoad] = useNearViewport<HTMLDivElement>()
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef(new Map<string, LeafletMarker>())
   const selectRef = useRef(onSelect)
-  const [shouldLoad, setShouldLoad] = useState(false)
 
   useEffect(() => {
     selectRef.current = onSelect
   }, [onSelect])
-
-  useEffect(() => {
-    const container = containerRef.current
-    if (!container) return
-
-    const observer = new IntersectionObserver(([entry]) => {
-      if (!entry.isIntersecting) return
-      setShouldLoad(true)
-      observer.disconnect()
-    }, { rootMargin: '300px 0px' })
-
-    observer.observe(container)
-    return () => observer.disconnect()
-  }, [])
 
   useEffect(() => {
     if (!shouldLoad || !containerRef.current || !events.length) return
@@ -115,7 +101,7 @@ function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
       mapRef.current?.remove()
       mapRef.current = null
     }
-  }, [compact, events, shouldLoad])
+  }, [compact, containerRef, events, shouldLoad])
 
   useEffect(() => {
     if (!selectedSlug) return
