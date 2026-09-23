@@ -93,7 +93,7 @@
 .kids-choice-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .kids-choice-grid a { position: relative; min-block-size: 14rem; display: flex; flex-direction: column; padding: 1.35rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: background 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
 .kids-choice-grid a:hover { z-index: 1; background: var(--coral-soft); transform: translateY(-3px); }
-.kids-choice-grid span { color: var(--coral); font-size: .7rem; font-weight: 780; }
+.kids-choice-grid span { color: var(--coral-ink); font-size: .7rem; font-weight: 780; }
 .kids-choice-grid strong { margin-block: auto .65rem; font-size: 1.3rem; }
 .kids-choice-grid small { max-inline-size: 16rem; color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
 .kids-choice-grid i { position: absolute; inset: 1.1rem 1.1rem auto auto; color: var(--muted); font-style: normal; }
@@ -112,7 +112,7 @@
 .kids-pick-group { scroll-margin-block-start: 8rem; border-block-end: 1px solid var(--line); }
 .kids-pick-group:nth-of-type(even) { background: oklch(98% .014 75); }
 .kids-pick-group__heading { display: grid; grid-template-columns: minmax(0, 1fr) minmax(16rem, .7fr); gap: clamp(2rem, 7vw, 6rem); align-items: end; margin-block-end: 2rem; }
-.kids-pick-group__heading > div > span { display: block; margin-block-end: 2rem; color: var(--coral); font-size: .75rem; font-weight: 780; }
+.kids-pick-group__heading > div > span { display: block; margin-block-end: 2rem; color: var(--coral-ink); font-size: .75rem; font-weight: 780; }
 .kids-pick-group__heading h2 { max-inline-size: 17ch; }
 .kids-pick-group__heading > p { margin: 0; color: var(--ink-soft); }
 .kids-place-grid { display: grid; grid-template-columns: repeat(2, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
@@ -129,7 +129,7 @@
 .kids-place-card__body > p { color: var(--ink-soft); }
 .kids-place-card dl { display: grid; gap: .7rem; margin-block: auto 1.5rem; }
 .kids-place-card dl > div { display: grid; grid-template-columns: 6rem minmax(0, 1fr); gap: 1rem; padding-block-start: .7rem; border-block-start: 1px solid var(--line); }
-.kids-place-card dt { color: var(--coral); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
+.kids-place-card dt { color: var(--coral-ink); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
 .kids-place-card dd { margin: 0; color: var(--ink-soft); font-size: .78rem; line-height: 1.5; }
 
 .kids-checklist { background: var(--ink); color: var(--snow); }
@@ -160,7 +160,7 @@
 .playground-quick-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .playground-quick-grid a { min-block-size: 13rem; display: flex; flex-direction: column; padding: 1.35rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: background 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
 .playground-quick-grid a:hover { z-index: 1; background: var(--coral-soft); transform: translateY(-3px); }
-.playground-quick-grid span { color: oklch(54% .16 38); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
+.playground-quick-grid span { color: var(--coral-ink); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
 .playground-quick-grid strong { margin-block: auto .55rem; font-size: 1.4rem; }
 .playground-quick-grid small { color: var(--ink-soft); font-size: .78rem; line-height: 1.45; }
 .playground-map-section { padding-block: clamp(3rem, 7vw, 5.5rem) 0; }
@@ -204,7 +204,7 @@
 .playground-map__card-image { position: relative; overflow: hidden; aspect-ratio: 16 / 8; margin: -1.25rem -1.25rem 1rem; border-radius: .84rem .84rem 0 0; background: var(--blue-pale); }
 .playground-map__card-image img { object-fit: cover; }
 .playground-map__card:has(.playground-map__card-image) > button { z-index: 2; background: color-mix(in oklch, var(--snow) 92%, transparent); }
-.playground-map__card > span { color: var(--coral); font-size: .72rem; font-weight: 760; letter-spacing: .06em; text-transform: uppercase; }
+.playground-map__card > span { color: var(--coral-ink); font-size: .72rem; font-weight: 760; letter-spacing: .06em; text-transform: uppercase; }
 .playground-map__card h3 { margin: .65rem 2.2rem .25rem 0; font-size: 1.55rem; }
 .playground-map__card p { margin: 0; color: var(--ink-soft); font-size: .9rem; }
 .playground-map__card > strong { display: block; margin-block-start: .85rem; color: var(--blue-dark); font-size: .84rem; }
@@ -241,14 +241,14 @@
 .playground-card li { position: relative; padding: .7rem .75rem .7rem 1.8rem; border-radius: .55rem; background: var(--blue-pale); color: var(--ink-soft); font-size: .74rem; line-height: 1.45; }
 .playground-card li::before { content: ""; position: absolute; inline-size: .45rem; aspect-ratio: 1; inset: 1rem auto auto .8rem; border-radius: 50%; background: var(--coral); }
 .playground-card__note { margin-block: auto 1.3rem; padding: 1rem; border-radius: .65rem; background: var(--coral-soft); }
-.playground-card__note > strong { color: oklch(54% .16 38); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
+.playground-card__note > strong { color: var(--coral-ink); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
 .playground-card__note p { margin: .35rem 0 0; color: var(--ink-soft); font-size: .76rem; line-height: 1.55; }
 .playground-card .text-link { font-size: .8rem; }
 .playground-all { scroll-margin-block-start: 7rem; border-block: 1px solid var(--line); background: var(--blue-pale); }
 .playground-all .section-heading > p { max-inline-size: 34rem; margin: 0; color: var(--ink-soft); }
 .playground-all-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); margin: 0; padding: 0; border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); list-style: none; }
 .playground-all-card { scroll-margin-block-start: 8rem; min-block-size: 15rem; display: grid; grid-template-columns: 2rem minmax(0, 1fr); grid-template-rows: 1fr auto; gap: .9rem 1rem; padding: 1.3rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); }
-.playground-all-card__number { padding-block-start: .15rem; color: var(--coral); font-size: .72rem; font-weight: 780; }
+.playground-all-card__number { padding-block-start: .15rem; color: var(--coral-ink); font-size: .72rem; font-weight: 780; }
 .playground-all-card__type { color: var(--blue); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
 .playground-all-card h3 { margin: .55rem 0 .35rem; font-size: 1.3rem; }
 .playground-all-card p { margin: 0; color: var(--ink-soft); font-size: .86rem; line-height: 1.5; }
