@@ -10,7 +10,7 @@
   --amber-soft: oklch(96% 0.05 82);
   --ink: oklch(29% 0.025 255);
   --ink-soft: oklch(45% 0.025 255);
-  --muted: oklch(57% 0.018 255);
+  --muted: oklch(54% 0.018 255);
   --snow: oklch(99.5% 0.003 242);
   --line: oklch(91% 0.012 242);
   --line-strong: oklch(86% 0.024 242);
@@ -511,7 +511,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .event-card:nth-child(n + 4) { border-block-start: 0; }
 .event-card__date { inline-size: 4.15rem; block-size: 4.55rem; display: grid; align-content: center; justify-items: center; border-radius: .75rem; background: var(--amber-soft); color: var(--ink); line-height: 1; }
 .event-card__date strong { font-size: 1.65rem; letter-spacing: -.05em; }
-.event-card__date span { margin-block-start: .35rem; color: var(--coral); font-size: .7rem; font-weight: 780; letter-spacing: .08em; text-transform: uppercase; }
+.event-card__date span { margin-block-start: .35rem; color: oklch(55% .17 38); font-size: .7rem; font-weight: 780; letter-spacing: .08em; text-transform: uppercase; }
 .event-card__body { min-inline-size: 0; display: flex; flex-direction: column; }
 .event-card__meta { display: flex; flex-wrap: wrap; gap: .35rem .7rem; color: var(--muted); font-size: .69rem; font-weight: 700; letter-spacing: .045em; text-transform: uppercase; }
 .event-card__meta span + span::before { content: "·"; margin-inline-end: .7rem; }
