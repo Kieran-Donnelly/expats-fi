@@ -492,7 +492,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .events-map__list button > span:first-child { inline-size: 1.75rem; aspect-ratio: 1; display: grid; place-items: center; border-radius: 50%; background: var(--ink); color: var(--snow); font-size: .72rem; font-weight: 800; }
 .events-map__list button > span:last-child { min-inline-size: 0; display: grid; gap: .22rem; }
 .events-map__list strong { overflow: hidden; font-size: .9rem; text-overflow: ellipsis; white-space: nowrap; }
-.events-map__list small { color: var(--muted); font-size: .7rem; line-height: 1.35; }
+.events-map__list small { color: var(--ink-soft); font-size: .7rem; line-height: 1.35; }
 .events-map__list li > a { display: grid; place-items: center; color: var(--blue); font-weight: 750; text-decoration: none; }
 .events-map__note { margin: 0; padding: .75rem 1.5rem; border-block-start: 1px solid var(--line); color: var(--ink-soft); font-size: .78rem; }
 .event-map-pin-wrap { background: transparent; border: 0; }
