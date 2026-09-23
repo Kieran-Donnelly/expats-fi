@@ -31,13 +31,28 @@ function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
   const mapRef = useRef<LeafletMap | null>(null)
   const markersRef = useRef(new Map<string, LeafletMarker>())
   const selectRef = useRef(onSelect)
+  const [shouldLoad, setShouldLoad] = useState(false)
 
   useEffect(() => {
     selectRef.current = onSelect
   }, [onSelect])
 
   useEffect(() => {
-    if (!containerRef.current || !events.length) return
+    const container = containerRef.current
+    if (!container) return
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) return
+      setShouldLoad(true)
+      observer.disconnect()
+    }, { rootMargin: '300px 0px' })
+
+    observer.observe(container)
+    return () => observer.disconnect()
+  }, [])
+
+  useEffect(() => {
+    if (!shouldLoad || !containerRef.current || !events.length) return
 
     let cancelled = false
     const markers = markersRef.current
@@ -100,7 +115,7 @@ function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
       mapRef.current?.remove()
       mapRef.current = null
     }
-  }, [compact, events])
+  }, [compact, events, shouldLoad])
 
   useEffect(() => {
     if (!selectedSlug) return
@@ -114,7 +129,7 @@ function MapCanvas({ events, selectedSlug, onSelect, compact = false }: {
     marker.openPopup()
   }, [events, selectedSlug])
 
-  return <div className="event-map__canvas" data-compact={compact || undefined} ref={containerRef} role="region" aria-label={compact ? `Map showing ${events[0]?.location}` : 'Interactive map of Helsinki event locations'} />
+  return <div className="event-map__canvas" data-compact={compact || undefined} ref={containerRef} role="region" aria-busy={!shouldLoad} aria-label={compact ? `Map showing ${events[0]?.location}` : 'Interactive map of Helsinki event locations'} />
 }
 
 export function EventsMap({ events }: { events: CityEvent[] }) {

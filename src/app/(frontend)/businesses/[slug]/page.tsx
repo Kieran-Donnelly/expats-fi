@@ -76,7 +76,7 @@ export default async function BusinessPage({ params }: { params: Promise<{ slug:
           {business.description.split(/\n\s*\n/).map((paragraph, index) => (
             <p key={`${business.slug}-paragraph-${index}`}>{paragraph}</p>
           ))}
-          {business.imagePath && <figure className="business-profile__image" data-business={business.slug}><Image src={business.imagePath} alt={business.imageAlt || business.name} width={1200} height={900} /></figure>}
+          {business.imagePath && <figure className="business-profile__image" data-business={business.slug}><Image src={business.imagePath} alt={business.imageAlt || business.name} width={1200} height={900} sizes="(max-width: 760px) calc(100vw - 2rem), (max-width: 1280px) 65vw, 47rem" /></figure>}
         </article>
         <aside className="facts">
           {hasCurrentOffer && <div className="facts__offer"><strong>Current offer</strong><span>{business.currentOffer}</span></div>}
