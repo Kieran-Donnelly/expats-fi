@@ -279,7 +279,7 @@
 .family-detail__header[data-has-image]::before { content: ""; position: absolute; z-index: 1; inline-size: min(26rem, 46vw); aspect-ratio: 1; inset: -14rem clamp(7rem, 18vw, 16rem) auto auto; border: 1px solid oklch(58% .09 250 / .25); border-radius: 50%; box-shadow: 0 0 0 3.5rem oklch(58% .09 250 / .06), 0 0 0 7rem oklch(58% .09 250 / .035); pointer-events: none; }
 .family-detail__header-media { position: absolute; z-index: 0; inset: 0; overflow: hidden; }
 .family-detail__header-media img { object-fit: cover; filter: saturate(.92) contrast(.96); transform: scale(1.012); }
-.family-detail__header-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, var(--guide-accent-soft) 0%, var(--guide-accent-soft) 28%, color-mix(in oklch, var(--guide-accent-soft) 78%, transparent) 40%, color-mix(in oklch, var(--guide-accent-soft) 28%, transparent) 60%, color-mix(in oklch, var(--guide-accent-soft) 12%, transparent) 100%), linear-gradient(180deg, color-mix(in oklch, var(--blue) 7%, transparent), color-mix(in oklch, var(--guide-accent-soft) 14%, transparent)); }
+.family-detail__header-media::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, color-mix(in oklch, var(--guide-accent-soft) 94%, transparent) 0%, color-mix(in oklch, var(--guide-accent-soft) 88%, transparent) 26%, color-mix(in oklch, var(--guide-accent-soft) 64%, transparent) 40%, color-mix(in oklch, var(--guide-accent-soft) 20%, transparent) 62%, color-mix(in oklch, var(--guide-accent-soft) 6%, transparent) 100%), linear-gradient(180deg, color-mix(in oklch, var(--blue) 5%, transparent), color-mix(in oklch, var(--guide-accent-soft) 9%, transparent)); }
 .family-detail__photo-credit { position: absolute; z-index: 2; inset: auto .7rem .7rem auto; padding: .32rem .5rem; border-radius: .3rem; background: oklch(20% .035 250 / .78); color: white; font-size: .58rem; line-height: 1.25; text-decoration: none; }
 .family-detail__photo-credit:hover { background: oklch(20% .035 250 / .92); }
 .family-detail__header > div:not(.family-detail__header-media), .family-detail__header > aside { position: relative; z-index: 2; }
@@ -354,7 +354,7 @@
 }
 
 @media (max-width: 720px) {
-  .family-detail__header-media::after { background: linear-gradient(180deg, var(--guide-accent-soft) 0%, var(--guide-accent-soft) 28%, color-mix(in oklch, var(--guide-accent-soft) 74%, transparent) 52%, color-mix(in oklch, var(--guide-accent-soft) 28%, transparent) 100%); }
+  .family-detail__header-media::after { background: linear-gradient(180deg, color-mix(in oklch, var(--guide-accent-soft) 92%, transparent) 0%, color-mix(in oklch, var(--guide-accent-soft) 82%, transparent) 30%, color-mix(in oklch, var(--guide-accent-soft) 54%, transparent) 58%, color-mix(in oklch, var(--guide-accent-soft) 16%, transparent) 100%); }
   .family-real-life__inner, .family-detail__header, .family-detail__layout, .family-local-note { grid-template-columns: 1fr; }
   .family-urgent__inner { align-items: start; flex-direction: column; gap: .6rem; padding-block: 1rem; }
   .family-maisa-tip { grid-template-columns: 1fr; gap: .6rem; }
