@@ -6,7 +6,10 @@ import { getHousingGuide, housingGuides } from '@/data/housing'
 import { socialMetadata } from '@/lib/seo'
 
 const guideImages: Record<string, { src: string; position: string }> = {
+  'finding-a-rental-home-in-finland': { src: '/images/heroes/housing-rental-search.jpg', position: 'center 50%' },
   'lease-deposit-and-moving-in': { src: '/images/heroes/housing-lease-keys.avif', position: 'center 50%' },
+  'setting-up-and-running-your-home': { src: '/images/heroes/housing-running-home.jpg', position: 'center 50%' },
+  'repairs-rent-trouble-and-moving-out': { src: '/images/heroes/housing-repairs.jpg', position: 'center 48%' },
 }
 
 export function generateStaticParams() {

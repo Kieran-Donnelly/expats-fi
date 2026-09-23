@@ -78,6 +78,18 @@ Selected from their individual photo pages on 22–23 September 2026. Each page 
   - Photographer: Mad Fish Digital
   - Source: https://unsplash.com/photos/person-using-smartphone-inside-room-igQBZ6aBFIw
   - Use: Urgent help and safety guide; generic phone use that does not suggest a particular helpline, app or emergency service.
+- Site file: `public/images/heroes/housing-rental-search.jpg`
+  - Photographer: Lisa Anna
+  - Source: https://unsplash.com/photos/an-empty-kitchen-and-living-room-in-an-apartment-PfeKrK-V_XA
+  - Use: Finding a rental home guide; illustrative empty interior, not presented as an available Finnish property or listing.
+- Site file: `public/images/heroes/housing-running-home.jpg`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/couple-looking-at-phone-surrounded-by-moving-boxes-YDyRz7DmirA
+  - Use: Setting up and running a home guide; generic move-in planning scene, not a named property, utility or service provider.
+- Site file: `public/images/heroes/housing-repairs.jpg`
+  - Photographer: Joao Vitor Marcilio
+  - Source: https://unsplash.com/photos/wrenches-and-level-rest-on-a-wooden-surface-D7LT-vTTt88
+  - Use: Repairs, rent trouble and moving out guide; generic repair tools rather than a claim about a particular property or tradesperson.
 
 ## Unlimphotos hero images
 

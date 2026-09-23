@@ -29,7 +29,7 @@ These are visual/content gaps, not missing `alt` attributes. Several affected gu
 ## Next implementation order
 
 1. Source and add distinct photographs for Start Here, Study (especially the UAS guide), Areas and the community board.
-2. Work through Housing, Community and Culture; verify mobile crop and text contrast on each template.
+2. Work through Community and Culture; verify mobile crop and text contrast on each template.
 3. Rerun the sitemap audit and check that `editorialGuidesMissingHeaderImage` reaches zero, then spot-check representative routes in a browser.
 
-Unlimphotos was signed in during this review, but its download control failed with a page-side JavaScript error (`callbackCatch is not defined`). No preview/watermarked file was used as a substitute. Seventeen distinct, free-to-use Unsplash photographs were added in this batch. The Start Here digital guide, all six Study guide pages, the Housing lease-and-moving-in guide and all nine Family guides received individual header images and matching social images. Their source records are in `docs/image-licences.md`. This leaves **27 editorial guide headers** and the community board landing header still to source and implement.
+Unlimphotos was signed in during this review, but its download control failed with a page-side JavaScript error (`callbackCatch is not defined`). No preview/watermarked file was used as a substitute. Twenty distinct, free-to-use Unsplash photographs were added in this batch. The Start Here digital guide, all six Study guide pages, all four Housing guides and all nine Family guides received individual header images and matching social images. Their source records are in `docs/image-licences.md`. This leaves **24 editorial guide headers** and the community board landing header still to source and implement.
