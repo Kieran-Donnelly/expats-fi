@@ -160,7 +160,7 @@
 .playground-quick-grid { display: grid; grid-template-columns: repeat(4, 1fr); border-block-start: 1px solid var(--line); border-inline-start: 1px solid var(--line); }
 .playground-quick-grid a { min-block-size: 13rem; display: flex; flex-direction: column; padding: 1.35rem; border-inline-end: 1px solid var(--line); border-block-end: 1px solid var(--line); background: var(--snow); text-decoration: none; transition: background 160ms ease, transform 160ms cubic-bezier(.22,1,.36,1); }
 .playground-quick-grid a:hover { z-index: 1; background: var(--coral-soft); transform: translateY(-3px); }
-.playground-quick-grid span { color: var(--coral); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
+.playground-quick-grid span { color: oklch(54% .16 38); font-size: .68rem; font-weight: 760; letter-spacing: .05em; text-transform: uppercase; }
 .playground-quick-grid strong { margin-block: auto .55rem; font-size: 1.4rem; }
 .playground-quick-grid small { color: var(--ink-soft); font-size: .78rem; line-height: 1.45; }
 .playground-map-section { padding-block: clamp(3rem, 7vw, 5.5rem) 0; }
@@ -241,7 +241,7 @@
 .playground-card li { position: relative; padding: .7rem .75rem .7rem 1.8rem; border-radius: .55rem; background: var(--blue-pale); color: var(--ink-soft); font-size: .74rem; line-height: 1.45; }
 .playground-card li::before { content: ""; position: absolute; inline-size: .45rem; aspect-ratio: 1; inset: 1rem auto auto .8rem; border-radius: 50%; background: var(--coral); }
 .playground-card__note { margin-block: auto 1.3rem; padding: 1rem; border-radius: .65rem; background: var(--coral-soft); }
-.playground-card__note > strong { color: var(--coral); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
+.playground-card__note > strong { color: oklch(54% .16 38); font-size: .66rem; letter-spacing: .06em; text-transform: uppercase; }
 .playground-card__note p { margin: .35rem 0 0; color: var(--ink-soft); font-size: .76rem; line-height: 1.55; }
 .playground-card .text-link { font-size: .8rem; }
 .playground-all { scroll-margin-block-start: 7rem; border-block: 1px solid var(--line); background: var(--blue-pale); }

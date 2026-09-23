@@ -288,7 +288,7 @@ export default function HelsinkiPlaygroundsPage() {
                 <p>{playground.why}</p>
                 <ul>{playground.useful.map((item) => <li key={item}>{item}</li>)}</ul>
                 <div className="playground-card__note"><strong>Parent note</strong><p>{playground.note}</p></div>
-                <a className="text-link" href={playground.officialUrl} target="_blank" rel="noreferrer">Check today’s details with Helsinki <span aria-hidden="true">↗</span></a>
+                <a className="text-link" href={playground.officialUrl} target="_blank" rel="noreferrer" aria-label={`Check today’s details for ${playground.name} with Helsinki`}>Check today’s details with Helsinki <span aria-hidden="true">↗</span></a>
               </div>
             </article>
           ))}
@@ -312,9 +312,9 @@ export default function HelsinkiPlaygroundsPage() {
                 </div>
                 <div className="playground-all-card__links">
                   {featuredDirectoryIds[playground.id] && <a href={`#${featuredDirectoryIds[playground.id]}`}>Our note ↓</a>}
-                  <a href={playgroundOfficialUrl(playground.id)} target="_blank" rel="noreferrer">Official details ↗</a>
-                  <a href={playgroundHslRouteUrl(playground.name, playground.address, playground.latitude, playground.longitude)} target="_blank" rel="noreferrer">HSL route ↗</a>
-                  <a href={playgroundGoogleMapsUrl(playground.latitude, playground.longitude)} target="_blank" rel="noreferrer">Google Maps ↗</a>
+                  <a href={playgroundOfficialUrl(playground.id)} target="_blank" rel="noreferrer" aria-label={`Official details for ${playground.name}`}>Official details ↗</a>
+                  <a href={playgroundHslRouteUrl(playground.name, playground.address, playground.latitude, playground.longitude)} target="_blank" rel="noreferrer" aria-label={`Plan an HSL route to ${playground.name}`}>HSL route ↗</a>
+                  <a href={playgroundGoogleMapsUrl(playground.latitude, playground.longitude)} target="_blank" rel="noreferrer" aria-label={`Open ${playground.name} in Google Maps`}>Google Maps ↗</a>
                 </div>
               </li>
             ))}
