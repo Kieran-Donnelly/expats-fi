@@ -18,6 +18,30 @@ const guideImages: Record<string, { src: string; position: string }> = {
     src: '/images/heroes/family-daycare-crafts.jpg',
     position: 'center 46%',
   },
+  'schooling-in-helsinki': {
+    src: '/images/heroes/family-schooling-supplies.jpg',
+    position: 'center 58%',
+  },
+  'teenagers-and-next-steps': {
+    src: '/images/heroes/family-teen-next-steps.jpg',
+    position: 'center 52%',
+  },
+  'benefits-and-family-money': {
+    src: '/images/heroes/family-benefits-budget.jpg',
+    position: 'center 54%',
+  },
+  'social-services-and-family-support': {
+    src: '/images/heroes/family-social-support.jpg',
+    position: 'center 68%',
+  },
+  'community-and-support-groups': {
+    src: '/images/heroes/family-community-groups.jpg',
+    position: 'center 48%',
+  },
+  'urgent-help-and-safety': {
+    src: '/images/heroes/family-urgent-help.jpg',
+    position: 'center 45%',
+  },
 }
 
 const seoOverrides: Record<string, { title: string; description: string }> = {

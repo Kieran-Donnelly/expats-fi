@@ -4,7 +4,7 @@ This file records third-party images used by Expats.fi. Keep the asset ID, creat
 
 ## Unsplash guide images
 
-Selected from their individual photo pages on 22 September 2026. Each page displayed “Free to use under the Unsplash License” and a “Download free” control. The [Unsplash License](https://unsplash.com/license) permits commercial website use without mandatory attribution; links and photographers are retained here for provenance. These are documentary illustrations, not representations of a named service unless the source explicitly identifies the location.
+Selected from their individual photo pages on 22–23 September 2026. Each page displayed “Free to use under the Unsplash License” and a “Download free” control. The [Unsplash License](https://unsplash.com/license) permits commercial website use without mandatory attribution; links and photographers are retained here for provenance. These are documentary illustrations, not representations of a named service unless the source explicitly identifies the location.
 
 - Site file: `public/images/heroes/study-aalto-lecture.avif`
   - Photographer: Dom Fou
@@ -54,6 +54,30 @@ Selected from their individual photo pages on 22 September 2026. Each page displ
   - Photographer: Alan Rodriguez
   - Source: https://unsplash.com/photos/two-young-girls-sitting-at-a-table-with-markers-and-crayons-N17Nkbsc-zY
   - Use: Daycare and preschool guide; children drawing at a table, without presenting the setting as a named Helsinki facility or implying that its equipment is available locally.
+- Site file: `public/images/heroes/family-schooling-supplies.jpg`
+  - Photographer: Annie Spratt
+  - Source: https://unsplash.com/photos/coloring-pencils-on-brown-wooden-table-loRO40167Xg
+  - Use: Schooling in Helsinki guide; generic learning supplies rather than a photograph of a particular school or classroom.
+- Site file: `public/images/heroes/family-teen-next-steps.jpg`
+  - Photographer: Annie Spratt
+  - Source: https://unsplash.com/photos/woman-in-brown-sweater-using-macbook-pro-VzIsqZ8K9LI
+  - Use: Teenagers and next steps guide; illustrative home study scene, not a named school, service or programme.
+- Site file: `public/images/heroes/family-benefits-budget.jpg`
+  - Photographer: Jakub Żerdzicki
+  - Source: https://unsplash.com/photos/a-calculator-sitting-on-top-of-a-pile-of-money-zR7nFjjIAWE
+  - Use: Benefits and family money guide; generic euro notes, calculator and documents without showing a Finnish authority's forms or interface.
+- Site file: `public/images/heroes/family-social-support.jpg`
+  - Photographer: Sincerely Media
+  - Source: https://unsplash.com/photos/person-holding-hands-of-another-person-EtyBBUByPSQ
+  - Use: Social services and family support guide; symbolic human support rather than a photograph of a particular service or provider.
+- Site file: `public/images/heroes/family-community-groups.jpg`
+  - Photographer: Helena Lopes
+  - Source: https://unsplash.com/photos/photo-of-three-person-sitting-and-talking-UZe35tk5UoA
+  - Use: Community and support groups guide; illustrative informal conversation, not a named Helsinki group or venue.
+- Site file: `public/images/heroes/family-urgent-help.jpg`
+  - Photographer: Mad Fish Digital
+  - Source: https://unsplash.com/photos/person-using-smartphone-inside-room-igQBZ6aBFIw
+  - Use: Urgent help and safety guide; generic phone use that does not suggest a particular helpline, app or emergency service.
 
 ## Unlimphotos hero images
 
