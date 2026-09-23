@@ -28,7 +28,7 @@ These are visual/content gaps, not missing `alt` attributes. Several affected gu
 
 ## Next implementation order
 
-1. Work through Culture; verify mobile crop and text contrast on each template.
-2. Rerun the sitemap audit and check that `editorialGuidesMissingHeaderImage` reaches zero, then spot-check representative routes in a browser.
+1. Rerun the sitemap audit and confirm that `editorialGuidesMissingHeaderImage` reaches zero.
+2. Spot-check representative routes at desktop and mobile widths before deployment.
 
-Unlimphotos was signed in during this review, but its download control failed with a page-side JavaScript error (`callbackCatch is not defined`). No preview/watermarked file was used as a substitute. Thirty-five distinct, free-to-use Unsplash photographs and two properly attributed Wikimedia Commons photographs were added in this batch. The Start Here digital guide, all six Study guide pages, all four Housing guides, all nine Family guides, all five Community guides, the Community Board landing page and all eleven Area guides received individual header images and matching social images. Their source records are in `docs/image-licences.md`. This leaves **8 editorial guide headers** still to source and implement.
+Unlimphotos was signed in during this review, but its download control failed with a page-side JavaScript error (`callbackCatch is not defined`). No preview/watermarked file was used as a substitute. Forty-three distinct, free-to-use Unsplash photographs and two properly attributed Wikimedia Commons photographs were added in this batch. The Start Here digital guide, all six Study guide pages, all four Housing guides, all nine Family guides, all five Community guides, the Community Board landing page, all eleven Area guides and all eight previously uncovered Culture guides received individual header images and matching social images. Their source records are in `docs/image-licences.md`. This leaves **zero known editorial guide headers** without a photograph.

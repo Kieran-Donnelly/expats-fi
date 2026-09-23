@@ -150,6 +150,38 @@ Selected from their individual photo pages on 22–23 September 2026. Each page 
   - Photographer: Tapio Haaja
   - Source: https://unsplash.com/photos/red-house-near-bridge-JE2Oo1SZpps
   - Use: Arabia and Vanhakaupunki guide; the Power Plant Museum and rapids at Vanhankaupunginkoski, Helsinki.
+- Site file: `public/images/heroes/culture-directness-conversation.jpg`
+  - Photographer: Truong Tuyet Ly
+  - Source: https://unsplash.com/photos/two-people-talking-at-a-table-in-a-restaurant-7KVfoSyNEzY
+  - Use: Finnish directness, silence and making plans guide; an illustrative conversation, not a claim about the people pictured.
+- Site file: `public/images/heroes/culture-invited-home.jpg`
+  - Photographer: Andrii Solok
+  - Source: https://unsplash.com/photos/friends-gathered-around-a-table-with-food-and-candles-YfidYnwtXok
+  - Use: Invited to a Finnish home guide; an illustrative home meal, not a named Finnish household.
+- Site file: `public/images/heroes/culture-sauna.jpg`
+  - Photographer: HUUM
+  - Source: https://unsplash.com/photos/a-wooden-sauna-with-a-heater-and-bucket-qebj2v4x1KA
+  - Use: Finnish sauna guide; a recognisable sauna interior without implying a particular Finnish venue.
+- Site file: `public/images/heroes/culture-workplace.jpg`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/diverse-group-of-people-in-a-modern-office-meeting-5V6KbvRcnV8
+  - Use: Finnish workplace culture guide; illustrative office discussion, not a named Finnish employer.
+- Site file: `public/images/heroes/culture-eating-ordering.jpg`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/a-waiter-takes-an-order-from-customers-at-a-cafe-9CR19q291ac
+  - Use: Eating, drinking and ordering guide; an illustrative café order, not a named Finnish restaurant.
+- Site file: `public/images/heroes/culture-year-holidays.jpg`
+  - Photographer: Conor Hennessy
+  - Source: https://unsplash.com/photos/people-in-traditional-clothing-are-holding-finnish-flags-xtIISovJoXE
+  - Use: Finnish year, holidays and closures guide; a Finnish midsummer flag procession at Seurasaari Open-Air Museum.
+- Site file: `public/images/heroes/culture-everyday-etiquette.jpg`
+  - Photographer: Markus Winkler
+  - Source: https://unsplash.com/photos/blue-and-gray-bus-surrounded-with-trees-y45m-lVaJOc
+  - Use: Public transport, queues, laundry and recycling guide; a tram photographed in Helsinki.
+- Site file: `public/images/heroes/culture-making-friends.jpg`
+  - Photographer: Vitaly Gariev
+  - Source: https://unsplash.com/photos/friends-are-walking-and-smiling-together-outdoors-2VkUdNANwdA
+  - Use: Making friends and finding your people guide; an illustrative group of friends, not a named Finnish community.
 
 ## Wikimedia Commons area images
 
