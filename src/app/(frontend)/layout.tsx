@@ -6,13 +6,8 @@ import { PrivacyConsent } from '@/components/PrivacyConsent'
 import { SiteFooter } from '@/components/SiteFooter'
 import { SiteHeader } from '@/components/SiteHeader'
 
-import 'flag-icons/css/flag-icons.min.css'
-import 'leaflet/dist/leaflet.css'
 import './styles.css'
-import './sports.css'
 import './family.css'
-import './eats.css'
-import './study.css'
 
 import { defaultSocialImage } from '@/lib/seo'
 
