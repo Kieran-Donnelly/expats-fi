@@ -5,6 +5,7 @@ export type ArticleJourneyLink = {
 }
 
 export const articleSeoTitles: Record<string, string> = {
+  'fishing-licence-finland': 'Fishing licence in Finland: fees, permits and free angling',
   '15-ects-of-finnish-fast-the-smartest-routes-for-expats-in-finland': 'How to earn 15 ECTS of Finnish language credits',
   'guide-moving-to-finland-registration': 'Registering in Finland: identity code, address and kotikunta',
   'guide-finance-account': 'Opening a bank account in Finland as a newcomer',
@@ -83,10 +84,28 @@ export const articleSeoTitles: Record<string, string> = {
 }
 
 export const articleSeoDescriptions: Record<string, string> = {
+  'fishing-licence-finland': 'Learn when Finland’s fishing fee is required, when hook-and-line fishing is free, what extra permits cover and how to check local restrictions.',
   '15-ects-of-finnish-fast-the-smartest-routes-for-expats-in-finland': 'Compare university, open-study and online routes to 15 ECTS of Finnish, including realistic timing, costs and the checks to make before enrolling.',
 }
 
 export const articleJourneyLinks: Record<string, ArticleJourneyLink[]> = {
+  'fishing-licence-finland': [
+    {
+      href: '/explore/day-trips/',
+      title: 'Plan an easy day trip from Helsinki',
+      description: 'Pair the practical permit checks with islands, lakes, forests and other simple routes out of the city.',
+    },
+    {
+      href: '/family/things-to-do-with-kids/',
+      title: 'Find more family-friendly ideas',
+      description: 'Browse low-pressure outings, indoor backups and useful places to go with children around the capital region.',
+    },
+    {
+      href: 'https://www.kalastusrajoitus.fi/',
+      title: 'Check the official restriction map',
+      description: 'Confirm the exact water, local restrictions and whether an additional permit is needed before you fish.',
+    },
+  ],
   '15-ects-of-finnish-fast-the-smartest-routes-for-expats-in-finland': [
     {
       href: '/study/open-university-online-and-flexible-study/',

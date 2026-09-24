@@ -2,6 +2,7 @@ import type { SerializedEditorState } from '@payloadcms/richtext-lexical/lexical
 import { RichText } from '@payloadcms/richtext-lexical/react'
 import type { Metadata } from 'next'
 import { headers } from 'next/headers'
+import Image from 'next/image'
 import Link from 'next/link'
 import { notFound, permanentRedirect } from 'next/navigation'
 
@@ -15,11 +16,11 @@ import { getCurrentMember } from '@/lib/member-auth'
 import { demoteEmbeddedH1Headings } from '@/lib/rich-text'
 import { getSavedArticleIds } from '@/lib/saved-articles'
 import { articleJourneyLinks, articleSeoDescription, articleSeoTitle } from '@/lib/article-journeys'
+import { articleImages } from '@/lib/article-images'
 import { retiredArticleDestination } from '@/lib/article-lifecycle'
 import { absoluteUrl, breadcrumbJsonLd, publisher, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
-const resourceSocialImage = absoluteUrl('/images/heroes/resources-documents-laptop.webp')
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params
@@ -29,12 +30,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!article) return {}
   const title = articleSeoTitle(article.slug, article.title)
   const description = seoDescription(articleSeoDescription(article.slug, article.description))
+  const articleImage = articleImages[article.slug]
+  const socialImage = absoluteUrl(articleImage?.src ?? '/images/heroes/resources-documents-laptop.webp')
   return {
     title,
     description,
     alternates: { canonical: `/resources/${article.slug}/` },
-    openGraph: { title, description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [resourceSocialImage] },
-    twitter: { card: 'summary_large_image', title, description, images: [resourceSocialImage] },
+    openGraph: { title, description, type: 'article', url: `/resources/${article.slug}/`, publishedTime: article.publishedAt, modifiedTime: article.updatedAt, images: [socialImage] },
+    twitter: { card: 'summary_large_image', title, description, images: [socialImage] },
   }
 }
 
@@ -60,20 +63,25 @@ export default async function ArticlePage({ params }: { params: Promise<{ slug: 
         categoryArticles[(currentIndex + offset + 1) % categoryArticles.length],
       )
   const journeyLinks = articleJourneyLinks[article.slug] ?? []
+  const articleImage = articleImages[article.slug]
+  const schemaImage = absoluteUrl(articleImage?.src ?? '/images/heroes/resources-documents-laptop.webp')
 
   return (
     <main id="main">
       <ReadingProgress />
       <div className="shell detail-shell article-page">
         <JsonLd data={[
-          { '@context': 'https://schema.org', '@type': 'Article', headline: title, description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: resourceSocialImage, inLanguage: 'en', isAccessibleForFree: true },
+          { '@context': 'https://schema.org', '@type': 'Article', headline: title, description, datePublished: article.publishedAt, dateModified: article.updatedAt, articleSection: article.category, mainEntityOfPage: absoluteUrl(`/resources/${article.slug}/`), author: publisher, publisher, image: schemaImage, inLanguage: 'en', isAccessibleForFree: true },
           breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Guides', path: '/resources/' }, { name: title, path: `/resources/${article.slug}/` }]),
         ]} />
         <Link className="back-link" href="/resources/">← All Finland guides</Link>
-        <header className="article-page__header"><p className="eyebrow">{article.category}</p><h1>{title}</h1><p className="article-page__description">{description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /><ShareButton contentType="guide" path={`/resources/${article.slug}/`} title={title} text={description} /></div></header>
+        <header className={`article-page__header${articleImage ? ' article-page__header--with-image' : ''}`}>
+          <div className="article-page__intro"><p className="eyebrow">{article.category}</p><h1>{title}</h1><p className="article-page__description">{description}</p><div className="article-page__meta"><span>Published {publishedDate}</span>{wasUpdated && <span>Updated {updatedDate}</span>}<span>{article.readingMinutes} min read</span><span>General guidance</span></div><div className="article-page__actions"><SaveArticleButton articleSlug={article.slug} initialSaved={saved} /><ShareButton contentType="guide" path={`/resources/${article.slug}/`} title={title} text={description} /></div></div>
+          {articleImage && <figure className="article-page__hero"><Image alt={articleImage.alt} fill priority sizes="(max-width: 960px) 100vw, 42vw" src={articleImage.src} /><figcaption>{articleImage.creditUrl ? <a href={articleImage.creditUrl} rel="noreferrer" target="_blank">Photo: {articleImage.credit}</a> : articleImage.credit}</figcaption></figure>}
+        </header>
         <div className="article-page__layout">
           <article className="prose"><RichText data={demoteEmbeddedH1Headings(article.content) as SerializedEditorState} /></article>
-          <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This is part of the original Expats.fi guide library, kept here and updated as the practical details change.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div>{journeyLinks.length > 0 && <nav className="article-next-steps" aria-label="Next useful steps"><strong>Next useful steps</strong>{journeyLinks.map((item) => <Link href={item.href} key={item.href}><span>{item.title}</span><small>{item.description}</small></Link>)}</nav>}<div><strong>Check before acting</strong><p>Immigration, tax and benefit rules can change. Confirm decisions with the relevant Finnish authority.</p></div></aside>
+          <aside className="article-aside"><div><strong>About this guide</strong><p>{article.sourceUrl?.includes('expats.fi') ? 'This is part of the original Expats.fi guide library, kept here and updated as the practical details change.' : 'This is an original Expats.fi editorial guide, written as a practical starting point for life in Finland.'}</p></div>{journeyLinks.length > 0 && <nav className="article-next-steps" aria-label="Next useful steps"><strong>Next useful steps</strong>{journeyLinks.map((item) => <Link href={item.href} key={item.href}><span>{item.title}</span><small>{item.description}</small></Link>)}</nav>}<div><strong>Check before acting</strong><p>Rules, prices and available services can change. Confirm important decisions with the relevant Finnish authority.</p></div></aside>
         </div>
       </div>
       {relatedArticles.length > 0 && (
