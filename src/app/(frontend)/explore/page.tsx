@@ -58,7 +58,10 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
         name="Things to do in Helsinki"
         description="Museums, family attractions, islands, saunas, libraries, beaches and free things to do around Helsinki."
         path="/explore/"
-        items={branches.map((branch) => ({ name: branch.label, path: `/explore/?category=${encodeURIComponent(branch.label)}#browse` }))}
+        items={[
+          { name: 'Fishing licences and rules', path: '/resources/fishing-licence-finland/' },
+          ...branches.map((branch) => ({ name: branch.label, path: `/explore/?category=${encodeURIComponent(branch.label)}#browse` })),
+        ]}
       />
       <header className="explore-hero photo-hero">
         <HeroBackdrop src="/images/heroes/explore-suomenlinna.webp" position="center 48%" />
@@ -78,7 +81,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       </header>
 
       <nav className="explore-jump" aria-label="Explore page sections">
-        <div className="shell"><strong>Jump to</strong><a href="#day-trips">Day trips</a><a href="#browse">Browse places</a><a href="#free-days">Free days</a><a href="#join">Cards & joining</a></div>
+        <div className="shell"><strong>Jump to</strong><a href="#day-trips">Day trips</a><a href="#fishing-guide">Fishing</a><a href="#browse">Browse places</a><a href="#free-days">Free days</a><a href="#join">Cards & joining</a></div>
       </nav>
 
       <section className="shell explore-day-trip-callout" id="day-trips" aria-labelledby="day-trip-callout-heading">
@@ -88,6 +91,15 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
           <p>Car-free routes to forest, islands, old towns and the coast, with the realistic travel time and the awkward bits explained first.</p>
         </div>
         <Link href="/explore/day-trips/">Open the day-trip guide →</Link>
+      </section>
+
+      <section className="shell explore-day-trip-callout explore-fishing-callout" id="fishing-guide" aria-labelledby="fishing-guide-heading">
+        <div>
+          <p className="eyebrow">Thinking about fishing?</p>
+          <h2 id="fishing-guide-heading">Check the rod, the water and the permit first.</h2>
+          <p>See when fishing is free, when the national fee applies and when a particular lake, river or stretch of coast needs extra permission.</p>
+        </div>
+        <Link href="/resources/fishing-licence-finland/">Open the fishing guide →</Link>
       </section>
 
       <section className="shell explore-branches" aria-labelledby="explore-branches-heading">

@@ -139,6 +139,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
           { label: 'Things to do with kids', href: '/family/things-to-do-with-kids/' },
           { label: 'Helsinki playground map', href: '/explore/helsinki-playground-network/' },
           { label: 'Day trips & hidden Helsinki', href: '/explore/day-trips/' },
+          { label: 'Fishing licences & rules', href: '/resources/fishing-licence-finland/' },
           { label: 'Museums & art', href: '/explore/?category=Museums%20%26%20art#browse' },
           { label: 'Family favourites', href: '/explore/?category=Family%20favourites#browse' },
           { label: 'Islands & nature', href: '/explore/?category=Islands%20%26%20nature#browse' },

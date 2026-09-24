@@ -1169,6 +1169,7 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .explore-day-trip-callout p:last-child { max-inline-size: 43rem; margin: .8rem 0 0; color: var(--ink-soft); line-height: 1.65; }
 .explore-day-trip-callout > a { justify-self: end; padding: .9rem 1.1rem; border-radius: .6rem; background: var(--blue); color: var(--snow); font-size: .82rem; font-weight: 720; text-decoration: none; }
 .explore-day-trip-callout > a:hover { background: var(--blue-dark); }
+.explore-fishing-callout { margin-block-start: 1.25rem; border-color: color-mix(in oklch, var(--green) 28%, var(--line-strong)); background: oklch(96% .025 145); }
 .explore-branches { padding-block: clamp(4.5rem, 8vw, 7rem); }
 .explore-branches .section-heading > p { max-inline-size: 27rem; margin: 0; color: var(--ink-soft); }
 .explore-branch-grid { display: grid; grid-template-columns: repeat(3, 1fr); border-block: 1px solid var(--line); }
