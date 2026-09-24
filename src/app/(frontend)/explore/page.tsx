@@ -16,6 +16,15 @@ export const metadata: Metadata = socialMetadata({
   image: '/images/heroes/explore-suomenlinna.webp',
 })
 
+const outdoorRoutes = [
+  { number: '01', eyebrow: 'Permits first', title: 'Fishing in Finland', description: 'When fishing is free, when the national fee applies and where local restrictions change the answer.', href: '/resources/fishing-licence-finland/' },
+  { number: '02', eyebrow: 'Leave the streets', title: 'Forest days', description: 'Start with Nuuksio, Haltia and Sipoonkorpi, including realistic car-free routes and return connections.', href: '/explore/day-trips/#nuuksio-and-haltia' },
+  { number: '03', eyebrow: 'Sea air', title: 'Islands and nature', description: 'Fortress paths, picnic rocks, seasonal boats and quieter places where Helsinki opens towards the sea.', href: '/explore/?category=Islands%20%26%20nature#browse' },
+  { number: '04', eyebrow: 'Warm weather plan', title: 'Beaches and swimming', description: 'Sea beaches, freshwater dips and the practical information worth checking before packing the towel.', href: '/explore/?category=Beaches%20%26%20swimming#browse' },
+  { number: '05', eyebrow: 'A change of scene', title: 'Easy day trips', description: 'Forests, old towns, coast and lakes with honest travel times and routes that do not assume you own a car.', href: '/explore/day-trips/' },
+  { number: '06', eyebrow: 'Something organised', title: 'Outdoor events', description: 'Runs, walks, matches and seasonal outdoor events when you would rather join something than plan it alone.', href: '/events/?category=Sports%20%26%20outdoors#events-listing' },
+] as const
+
 export default async function ExplorePage({ searchParams }: { searchParams: Promise<{ category?: string; cost?: string; fit?: string; setting?: string; q?: string }> }) {
   const { category = '', cost = '', fit = '', setting = '', q = '' } = await searchParams
   const query = q.trim().toLocaleLowerCase('en')
@@ -59,7 +68,7 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
         description="Museums, family attractions, islands, saunas, libraries, beaches and free things to do around Helsinki."
         path="/explore/"
         items={[
-          { name: 'Fishing licences and rules', path: '/resources/fishing-licence-finland/' },
+          ...outdoorRoutes.map((route) => ({ name: route.title, path: route.href })),
           ...branches.map((branch) => ({ name: branch.label, path: `/explore/?category=${encodeURIComponent(branch.label)}#browse` })),
         ]}
       />
@@ -81,25 +90,16 @@ export default async function ExplorePage({ searchParams }: { searchParams: Prom
       </header>
 
       <nav className="explore-jump" aria-label="Explore page sections">
-        <div className="shell"><strong>Jump to</strong><a href="#day-trips">Day trips</a><a href="#fishing-guide">Fishing</a><a href="#browse">Browse places</a><a href="#free-days">Free days</a><a href="#join">Cards & joining</a></div>
+        <div className="shell"><strong>Jump to</strong><a href="#outdoors">Outdoors</a><a href="#browse">Browse places</a><a href="#free-days">Free days</a><a href="#join">Cards & joining</a></div>
       </nav>
 
-      <section className="shell explore-day-trip-callout" id="day-trips" aria-labelledby="day-trip-callout-heading">
-        <div>
-          <p className="eyebrow">Need a change of scene?</p>
-          <h2 id="day-trip-callout-heading">Leave Helsinki for a few hours.</h2>
-          <p>Car-free routes to forest, islands, old towns and the coast, with the realistic travel time and the awkward bits explained first.</p>
+      <section className="explore-outdoors" id="outdoors" aria-labelledby="outdoors-heading">
+        <div className="shell section">
+          <div className="section-heading explore-outdoors__heading"><div><p className="eyebrow">Outdoors, without the guesswork</p><h2 id="outdoors-heading">Find the water, forest or fresh air you need.</h2></div><p>Start with the kind of day you want. We will point you towards the route, permit or practical check that belongs with it.</p></div>
+          <div className="explore-outdoor-grid">
+            {outdoorRoutes.map((route) => <Link href={route.href} id={route.number === '01' ? 'fishing-guide' : undefined} key={route.title}><span>{route.number}</span><small>{route.eyebrow}</small><strong>{route.title}</strong><p>{route.description}</p><i aria-hidden="true">→</i></Link>)}
+          </div>
         </div>
-        <Link href="/explore/day-trips/">Open the day-trip guide →</Link>
-      </section>
-
-      <section className="shell explore-day-trip-callout explore-fishing-callout" id="fishing-guide" aria-labelledby="fishing-guide-heading">
-        <div>
-          <p className="eyebrow">Thinking about fishing?</p>
-          <h2 id="fishing-guide-heading">Check the rod, the water and the permit first.</h2>
-          <p>See when fishing is free, when the national fee applies and when a particular lake, river or stretch of coast needs extra permission.</p>
-        </div>
-        <Link href="/resources/fishing-licence-finland/">Open the fishing guide →</Link>
       </section>
 
       <section className="shell explore-branches" aria-labelledby="explore-branches-heading">

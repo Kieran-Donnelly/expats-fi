@@ -138,6 +138,7 @@ export const primaryNavigation: readonly NavigationItem[] = [
         children: [
           { label: 'Things to do with kids', href: '/family/things-to-do-with-kids/' },
           { label: 'Helsinki playground map', href: '/explore/helsinki-playground-network/' },
+          { label: 'Outdoors & nature', href: '/explore/#outdoors' },
           { label: 'Day trips & hidden Helsinki', href: '/explore/day-trips/' },
           { label: 'Fishing licences & rules', href: '/resources/fishing-licence-finland/' },
           { label: 'Museums & art', href: '/explore/?category=Museums%20%26%20art#browse' },
