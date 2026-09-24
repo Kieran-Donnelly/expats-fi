@@ -5,6 +5,7 @@ import type { FormEvent } from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+import { trackAnalyticsEvent } from '@/lib/analytics'
 import { communityTopicOptions } from '@/lib/community-options'
 
 const starterPrompts = [
@@ -51,6 +52,9 @@ export function CommunityPostForm({ canPost = true, isAuthenticated, rulesAccept
       })
       const result = await response.json().catch(() => ({})) as { message?: string; slug?: string; status?: string }
       if (!response.ok) throw new Error(result.message || 'We could not publish that post.')
+      trackAnalyticsEvent('community_post_submitted', {
+        moderation_status: result.status === 'published' ? 'published' : 'review_queue',
+      })
       if (result.status === 'published') {
         setMessage('Post published. Opening the conversation…')
         if (result.slug) router.push(`/community/board/${result.slug}/`)
