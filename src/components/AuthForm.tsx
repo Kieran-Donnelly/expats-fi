@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation'
 import { FormEvent, useState } from 'react'
 
 import { authJourneyMessages, type AuthJourney } from '@/lib/auth-journey'
+import { trackAnalyticsEvent } from '@/lib/analytics'
 
 type AuthMode = 'login' | 'register'
 
@@ -46,6 +47,7 @@ export function AuthForm({ authJourney, mode, googleEnabled, returnTo = '/accoun
         throw new Error(body?.errors?.[0]?.message || 'The email or password is not correct.')
       }
 
+      trackAnalyticsEvent(isRegister ? 'account_created' : 'account_signed_in', { auth_method: 'email' })
       router.push(returnTo)
       router.refresh()
     } catch (caught) {

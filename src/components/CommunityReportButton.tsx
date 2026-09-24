@@ -4,6 +4,7 @@ import Link from 'next/link'
 import type { FormEvent } from 'react'
 import { useRef, useState } from 'react'
 
+import { trackAnalyticsEvent } from '@/lib/analytics'
 import { communityReportReasonOptions, type CommunityReportReason } from '@/lib/community-options'
 
 type CommunityReportButtonProps = {
@@ -42,6 +43,7 @@ export function CommunityReportButton({ targetType, targetId, isAuthenticated, n
       })
       const result = await response.json().catch(() => ({})) as { message?: string }
       if (!response.ok) throw new Error(result.message || 'We could not send that report.')
+      trackAnalyticsEvent('community_report_submitted', { target_type: targetType })
       dialogRef.current?.close()
       setState('sent')
     } catch (reportError) {

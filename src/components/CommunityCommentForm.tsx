@@ -5,6 +5,8 @@ import type { FormEvent } from 'react'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 
+import { trackAnalyticsEvent } from '@/lib/analytics'
+
 export function CommunityCommentForm({ canPost = true, postSlug, isAuthenticated, rulesAccepted = false }: { canPost?: boolean; postSlug: string; isAuthenticated: boolean; rulesAccepted?: boolean }) {
   const router = useRouter()
   const [body, setBody] = useState('')
@@ -33,6 +35,9 @@ export function CommunityCommentForm({ canPost = true, postSlug, isAuthenticated
       })
       const result = await response.json().catch(() => ({})) as { message?: string; status?: string }
       if (!response.ok) throw new Error(result.message || 'We could not publish that reply.')
+      trackAnalyticsEvent('community_reply_submitted', {
+        moderation_status: result.status === 'published' ? 'published' : 'review_queue',
+      })
       setBody('')
       setAnonymous(false)
       if (result.status === 'published') {
