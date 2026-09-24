@@ -40,9 +40,16 @@ const nextConfig: NextConfig = {
     return [
       // Preserve useful links from the former WordPress site. Do not redirect
       // retired system endpoints or unknown URLs to unrelated home-page content.
+      {
+        source: '/',
+        has: [{ type: 'query', key: 's', value: '(?<query>.+)' }],
+        destination: '/search/?q=:query',
+        permanent: true,
+      },
       { source: '/privacy-policy', destination: '/privacy/', permanent: true },
       { source: '/contact', destination: '/about/#about-invitation-heading', permanent: true },
       { source: '/list-your-business', destination: '/submit-business/', permanent: true },
+      { source: '/services', destination: '/businesses/', permanent: true },
       ...Object.entries(retiredArticleRedirects).map(([slug, destination]) => ({
         source: `/resources/${slug}`,
         destination,
