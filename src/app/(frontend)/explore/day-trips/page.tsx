@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { dayTripGroups, dayTrips } from '@/data/day-trips'
 
@@ -41,6 +42,12 @@ const quickRoutes = [
 export default function DayTripsPage() {
   return (
     <main id="main" className="family-hub escape-hub">
+      <HubStructuredData
+        name="Easy day trips from Helsinki"
+        description="Car-free day trips from Helsinki, nearby nature escapes and honest transport notes for Porvoo, Nuuksio, Hanko, Fiskars and more."
+        path="/explore/day-trips/"
+        items={dayTrips.map((trip) => ({ name: trip.name, path: `/explore/day-trips/#${trip.id}` }))}
+      />
       <SectionHero
         eyebrow="Easy escapes from Helsinki"
         title="Leave town for the day. Come back liking Helsinki again."

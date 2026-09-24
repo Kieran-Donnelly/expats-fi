@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { SectionHero } from '@/components/SectionHero'
 import { finlandFoodGuides } from '@/data/finland-food-guides'
 
@@ -13,6 +14,12 @@ export const metadata: Metadata = {
 export default function FinlandOnAPlatePage() {
   return (
     <main id="main" className="family-hub finland-plate-hub">
+      <HubStructuredData
+        name="Finland on a Plate"
+        description="A warm guide to Finnish dishes, seasonal food, supermarket essentials and straightforward recipes."
+        path="/eats/finland-on-a-plate/"
+        items={finlandFoodGuides.map((guide) => ({ name: guide.title, path: `/eats/finland-on-a-plate/${guide.slug}/` }))}
+      />
       <SectionHero
         eyebrow="Finland on a Plate"
         title="Local favourites, ready-made classics and recipes worth keeping."

@@ -5,6 +5,7 @@ import Link from 'next/link'
 
 import { CommunityPostForm } from '@/components/CommunityPostForm'
 import { CommunityReportButton } from '@/components/CommunityReportButton'
+import { HubStructuredData } from '@/components/HubStructuredData'
 import { getCurrentMember } from '@/lib/member-auth'
 import { communityAuthorName, getCommunityPostCommentCounts, getCommunityPosts, topicLabel } from '@/lib/community'
 import { communityTopicOptions, isCommunityTopic } from '@/lib/community-options'
@@ -41,6 +42,12 @@ export default async function CommunityBoardPage({ searchParams }: { searchParam
 
   return (
     <main id="main" className="community-board-page">
+      <HubStructuredData
+        name="Expats.fi community board"
+        description="Ask questions, share practical Finland advice and meet other people building a life here."
+        path="/community/board/"
+        items={posts.map((post) => ({ name: post.title, path: `/community/board/${post.slug}/` }))}
+      />
       <header className="community-board-hero">
         <div className="shell community-board-hero__inner">
           <div><Link className="back-link" href="/community/">← Community in Helsinki</Link><p className="eyebrow">The Expats.fi community board</p><h1>A place to ask, share and find your people.</h1><p>Practical questions, small discoveries and the kind of local knowledge that makes Finland feel easier to live in.</p><div className="community-board-hero__actions"><a className="button" href="#community-conversations">Browse conversations</a><a className="button button--secondary" href="#start-a-conversation">Start a post</a></div></div>
