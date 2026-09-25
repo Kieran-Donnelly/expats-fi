@@ -87,7 +87,7 @@ Share one visually strong Helsinki or Finland page. The playground map is ideal 
 
 ### Day 8: introduce the directory
 
-Show three varied expat-owned or international-friendly businesses rather than posting a generic directory link on its own. Explain that listings are free and written properly, with owner approval where relevant.
+Introduce the directory with an Expats.fi-branded graphic rather than reusing a member's listing photos or logo. Explain that listings are free and written properly, with owner approval where relevant.
 
 ### Day 11: invite participation
 
@@ -141,13 +141,9 @@ Five children running and playing together in a colourful urban play area covere
 
 ### 30 September: business directory
 
-Use an Instagram carousel of three real, approved directory businesses rather than a generic stock image. Keep the businesses in this order so the carousel moves from a social venue to a practical service and then food:
+Use a clean Expats.fi-branded graphic with the line **Local businesses worth knowing**. Build it from the Expats.fi colours, typography and simple directory-style category labels. Do not include a directory member's photo, logo, testimonial or listing screenshot unless that business has separately agreed to its use in social promotion.
 
-1. Aussie Bar: `/public/businesses/aussie-bar/crowd-behind-the-bar.jpg`
-2. Byrne Carpentry: `/public/businesses/byrne-carpentry/patrick-byrne-at-work.webp`
-3. Home Chef Mark: `/public/businesses/home-chef-mark/mark-in-pizza-trailer.webp`
-
-Use a consistent 4:3 crop across the carousel. The Byrne Carpentry and Home Chef Mark images are already 4:3. Crop the Aussie Bar image gently from the sides in Instagram's preview and keep all five faces visible.
+Permission to publish material on a directory profile is not permission to reuse it on Instagram, Facebook or other promotional channels. Record any future social-use approval separately and keep the exact image or asset covered by that approval.
 
 #### Instagram and Facebook caption
 
@@ -155,9 +151,7 @@ One part of Expats.fi we really care about is the local business directory.
 
 Finding the right person can be hard enough without a language barrier or ten tabs of half-finished searches. We want the directory to feel more like a useful recommendation from somebody local, with the proper contact details and a warm, honest explanation of what each business actually does.
 
-These three give you a wee taste of what is already in there: Aussie Bar in Kamppi, Byrne Carpentry and Home Chef Mark.
-
-There are also barbers, trainers, therapists, bookshops, cafés, galleries, yoga teachers and plenty more taking shape.
+There are already bars, builders, caterers, barbers, trainers, therapists, bookshops, cafés, galleries, yoga teachers and plenty more taking shape.
 
 Listings are free. We do the background research, write them properly and give businesses the chance to check their details before they go live.
 
@@ -169,11 +163,9 @@ Browse the directory here:
 
 `https://expats.fi/businesses/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=directory_intro`
 
-#### Carousel alt text
+#### Graphic alt text
 
-1. Members of the Aussie Bar Helsinki team smiling together behind the bar in a lively pub.
-2. Patrick Byrne of Byrne Carpentry standing on scaffolding while working on the brick exterior of a Helsinki home.
-3. Home Chef Mark smiling from the serving window of his mobile pizza trailer surrounded by green summer foliage.
+Blue and white Expats.fi directory graphic reading “Local businesses worth knowing”, with simple category labels representing food, wellbeing, home services, fitness and culture.
 
 ### 3 October: moderated community board
 
