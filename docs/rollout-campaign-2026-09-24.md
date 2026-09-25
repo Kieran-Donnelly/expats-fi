@@ -2,6 +2,18 @@
 
 Prepared: 24 September 2026
 
+## Live rollout status
+
+- 24 September: main Expats.fi introduction published on Instagram and Facebook
+- 25 September: Start Here post published on Instagram and Facebook
+- 27 September: Helsinki playground map
+- 30 September: business directory carousel
+- 3 October: moderated community board
+
+Keep at least two clear days between the remaining main posts. Smaller Stories, replies and genuine community conversations can continue between them.
+
+As checked on 25 September, the Instagram profile still does not show a clickable website link. Add `https://expats.fi/` through the mobile app before the 27 September post, otherwise "link in bio" will send people nowhere.
+
 ## The honest recommendation
 
 Expats.fi is ready to be shared. The site is fast, technically sound, substantial enough to be useful and already appearing in both ordinary Google results and Google's AI search features.
@@ -46,6 +58,15 @@ Use one link per channel and purpose. Google Analytics will keep the campaign so
 - Community board: `https://expats.fi/community/board/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=community_invite`
 - Learn Finnish: `https://expats.fi/learn-finnish/?utm_source=facebook&utm_medium=community_group&utm_campaign=site_rollout&utm_content=learn_finnish`
 
+### Remaining rollout links by channel
+
+- Playground map, Instagram: `https://expats.fi/explore/helsinki-playground-network/?utm_source=instagram&utm_medium=social&utm_campaign=site_rollout&utm_content=playground_map`
+- Playground map, Facebook: `https://expats.fi/explore/helsinki-playground-network/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=playground_map`
+- Business directory, Instagram: `https://expats.fi/businesses/?utm_source=instagram&utm_medium=social&utm_campaign=site_rollout&utm_content=directory_intro`
+- Business directory, Facebook: `https://expats.fi/businesses/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=directory_intro`
+- Community board, Instagram: `https://expats.fi/community/board/?utm_source=instagram&utm_medium=social&utm_campaign=site_rollout&utm_content=community_invite`
+- Community board, Facebook: `https://expats.fi/community/board/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=community_invite`
+
 Change only the `utm_source` when the same post is genuinely being adapted for another channel. Do not create dozens of slightly different links that nobody will be able to interpret later.
 
 ## Rollout order
@@ -81,6 +102,130 @@ Post two or three times per week, not every day for the sake of it:
 - one question that invites useful community experience
 
 Keep news for stories that materially affect international residents. Do not turn the social channels into an automated headline feed.
+
+## Remaining post pack
+
+### 27 September: Helsinki playground map
+
+Use `/public/images/playgrounds/hero-helsinki-playgrounds.webp`. It shows children playing in a real urban setting without suggesting that a particular piece of equipment belongs to one of the mapped parks.
+
+#### Instagram caption
+
+Not every family day needs a grand plan. Sometimes you just need a decent playground, somewhere nearby, and a quick idea of what is actually there 🛝
+
+We have pulled Helsinki's playgrounds into one interactive map so you can browse by area, find somewhere close and open directions without hopping between a pile of different pages.
+
+It is especially handy when you are new to the city, looking after somebody else's kids or trying to rescue a long afternoon before everyone starts climbing the furniture.
+
+The map is live on Expats.fi now. Link in bio.
+
+If there is a brilliant local playground we should look at more closely, let us know below.
+
+#### Facebook caption
+
+Not every family day needs a grand plan. Sometimes you just need a decent playground, somewhere nearby, and a quick idea of what is actually there 🛝
+
+We have pulled Helsinki's playgrounds into one interactive map so families can browse by area, find somewhere close and open directions without hopping between a pile of different city pages.
+
+It is especially handy when you are new to Helsinki, looking after somebody else's kids or trying to rescue a long afternoon before everyone starts climbing the furniture.
+
+Have a look here:
+
+`https://expats.fi/explore/helsinki-playground-network/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=playground_map`
+
+If there is a brilliant local playground we should look at more closely, let us know. We want the guide to keep improving as families actually use it.
+
+#### Alt text
+
+Five children running and playing together in a colourful urban play area covered with bright painted artwork.
+
+### 30 September: business directory
+
+Use an Instagram carousel of three real, approved directory businesses rather than a generic stock image. Keep the businesses in this order so the carousel moves from a social venue to a practical service and then food:
+
+1. Aussie Bar: `/public/businesses/aussie-bar/crowd-behind-the-bar.jpg`
+2. Byrne Carpentry: `/public/businesses/byrne-carpentry/patrick-byrne-at-work.webp`
+3. Home Chef Mark: `/public/businesses/home-chef-mark/mark-in-pizza-trailer.webp`
+
+Use a consistent 4:3 crop across the carousel. The Byrne Carpentry and Home Chef Mark images are already 4:3. Crop the Aussie Bar image gently from the sides in Instagram's preview and keep all five faces visible.
+
+#### Instagram and Facebook caption
+
+One part of Expats.fi we really care about is the local business directory.
+
+Finding the right person can be hard enough without a language barrier or ten tabs of half-finished searches. We want the directory to feel more like a useful recommendation from somebody local, with the proper contact details and a warm, honest explanation of what each business actually does.
+
+These three give you a wee taste of what is already in there: Aussie Bar in Kamppi, Byrne Carpentry and Home Chef Mark.
+
+There are also barbers, trainers, therapists, bookshops, cafés, galleries, yoga teachers and plenty more taking shape.
+
+Listings are free. We do the background research, write them properly and give businesses the chance to check their details before they go live.
+
+Browse the directory through the link in our bio, or tag an expat-owned or international-friendly business we should know about 👇
+
+For Facebook, replace the bio sentence with:
+
+Browse the directory here:
+
+`https://expats.fi/businesses/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=directory_intro`
+
+#### Carousel alt text
+
+1. Members of the Aussie Bar Helsinki team smiling together behind the bar in a lively pub.
+2. Patrick Byrne of Byrne Carpentry standing on scaffolding while working on the brick exterior of a Helsinki home.
+3. Home Chef Mark smiling from the serving window of his mobile pizza trailer surrounded by green summer foliage.
+
+### 3 October: moderated community board
+
+Use `/public/images/heroes/community-board-conversation.jpg`.
+
+#### Instagram caption
+
+The most useful advice about moving to Finland often starts with somebody asking a very ordinary question.
+
+So we have built a moderated community board into Expats.fi.
+
+You can ask for help, share something useful or reply from experience. If you would rather keep your name off the public post, you can use a friendly anonymous name instead.
+
+New posts and replies are reviewed before they appear. That gives the community room to be open and helpful without turning the place into a free-for-all.
+
+We will also be watching for the questions that deserve a proper guide, an event listing or a fix somewhere else on the site. The idea is not just to collect conversations. It is to make Expats.fi better because of them.
+
+The board is open now through the link in our bio. What is one thing you wish somebody had explained when you first arrived in Finland?
+
+#### Facebook caption
+
+The most useful advice about moving to Finland often starts with somebody asking a very ordinary question.
+
+So we have built a moderated community board into Expats.fi.
+
+You can ask for help, share something useful or reply from experience. If you would rather keep your name off the public post, you can use a friendly anonymous name instead.
+
+New posts and replies are reviewed before they appear. That gives the community room to be open and helpful without turning the place into a free-for-all.
+
+We will also be watching for the questions that deserve a proper guide, an event listing or a fix somewhere else on the site. The idea is not just to collect conversations. It is to make Expats.fi better because of them.
+
+Have a look here:
+
+`https://expats.fi/community/board/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=community_invite`
+
+What is one thing you wish somebody had explained when you first arrived in Finland?
+
+#### Alt text
+
+A group of adults sitting together and laughing during a relaxed conversation in a bright waterside venue.
+
+## Posting checks
+
+Before each post goes live:
+
+1. Test the exact destination link while signed out.
+2. Check the crop in the Instagram preview rather than assuming the website crop will work.
+3. Add the written alt text in the platform's accessibility field.
+4. Keep paragraph spacing intact after pasting.
+5. If an emoji closes a casual sentence, do not put a full stop immediately before it.
+6. Check names, handles and business details against the live listing.
+7. After publishing, open the post once on mobile and once on desktop.
 
 ## Main launch copy
 
