@@ -347,6 +347,8 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .business-card__image { display: block; overflow: hidden; aspect-ratio: 16 / 10; margin: -1.7rem -1.7rem 1.7rem; border-block-end: 1px solid var(--line); background: var(--blue-pale); }
 .business-card__image img { display: block; inline-size: 100%; block-size: 100%; object-fit: cover; transition: transform 180ms cubic-bezier(.22,1,.36,1); }
 .business-card__image:hover img { transform: scale(1.025); }
+.business-card__logo { display: grid; place-items: center; overflow: hidden; aspect-ratio: 16 / 10; margin: -1.7rem -1.7rem 1.7rem; padding: 2rem; border-block-end: 1px solid var(--line); background: var(--blue-pale); }
+.business-card__logo img { display: block; inline-size: 100%; block-size: 100%; object-fit: contain; }
 .business-card__mark { inline-size: 3rem; aspect-ratio: 1; display: grid; place-items: center; margin-block-end: 1.7rem; border-radius: .75rem; background: var(--blue-soft); color: var(--blue); font-size: 1.15rem; font-weight: 760; }
 .business-card h3 { margin-block: .8rem; }
 .directory-callout { display: flex; align-items: center; justify-content: space-between; gap: 2rem; margin-block-start: 1.4rem; padding: 1.5rem 1.7rem; border-radius: .85rem; background: var(--ink); color: var(--snow); }

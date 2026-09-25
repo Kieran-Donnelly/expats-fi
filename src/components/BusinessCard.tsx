@@ -36,6 +36,16 @@ export function BusinessCard({ business, saved = false, showSave = false }: { bu
             unoptimized={image.unoptimized}
           />
         </Link>
+      ) : business.logoPath ? (
+        <Link className="business-card__logo" href={href} aria-label={`View ${business.name}`} data-analytics-event="business_profile_opened" data-analytics-label={business.slug} data-analytics-position="logo">
+          <Image
+            src={business.logoPath}
+            alt={business.logoAlt || `${business.name} logo`}
+            width={960}
+            height={600}
+            sizes="(max-width: 720px) calc(100vw - 2.5rem), (max-width: 1100px) 50vw, 33vw"
+          />
+        </Link>
       ) : (
         <div className="business-card__mark" aria-hidden="true">{business.name.slice(0, 1)}</div>
       )}
