@@ -4,6 +4,14 @@ type NewsImage = {
 }
 
 const newsImages: Record<string, NewsImage> = {
+  'coastal-line-trains-september-2026': {
+    src: '/images/news/coastal-line-trains-september-2026.png',
+    alt: 'Passengers changing between a commuter train and replacement bus at a Helsinki-area station',
+  },
+  'helsinki-autumn-vaccinations-2026': {
+    src: '/images/news/helsinki-autumn-vaccinations-2026.png',
+    alt: 'A healthcare professional preparing an adult patient for a seasonal vaccination',
+  },
   'finland-international-student-family-reunion-proposal-2026': {
     src: '/images/news/finland-international-student-family-reunion-proposal-2026.jpg',
     alt: 'A student saying goodbye to her parents at an airport before travelling abroad',
