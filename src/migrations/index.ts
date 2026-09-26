@@ -5,6 +5,7 @@ import * as migration_20260910_090000_publish_vacek_valmennus from './20260910_0
 import * as migration_20260910_220000_publish_vitaldon_therapy from './20260910_220000_publish_vitaldon_therapy';
 import * as migration_20260924_120000_publish_fishing_guide from './20260924_120000_publish_fishing_guide';
 import * as migration_20260925_150000_publish_mik_oy from './20260925_150000_publish_mik_oy';
+import * as migration_20260926_130000_publish_transport_vaccination_news from './20260926_130000_publish_transport_vaccination_news';
 import * as migration_20260913_090000_publish_student_kela_news from './20260913_090000_publish_student_kela_news';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
@@ -257,5 +258,10 @@ export const migrations = [
     up: migration_20260925_150000_publish_mik_oy.up,
     down: migration_20260925_150000_publish_mik_oy.down,
     name: '20260925_150000_publish_mik_oy',
+  },
+  {
+    up: migration_20260926_130000_publish_transport_vaccination_news.up,
+    down: migration_20260926_130000_publish_transport_vaccination_news.down,
+    name: '20260926_130000_publish_transport_vaccination_news',
   },
 ];
