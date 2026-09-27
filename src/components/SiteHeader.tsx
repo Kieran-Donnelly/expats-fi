@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { DesktopNavigation, MobileNavigation, SearchIcon } from './HeaderNavigation'
 import { AccountNav } from './AccountNav'
 import { businessDirectoryHref } from './siteNavigation'
+import { SocialLinks } from './SocialLinks'
 
 export function Logo() {
   return (
@@ -20,6 +21,7 @@ export function SiteHeader() {
         <Link href="/" className="site-header__brand" aria-label="Expats.fi home"><Logo /></Link>
         <DesktopNavigation />
         <div className="site-header__actions">
+          <SocialLinks compact className="site-header__socials" />
           <Link className="icon-button site-header__search" href="/search/" aria-label="Search Expats.fi"><SearchIcon /></Link>
           <AccountNav />
           <Link className="button button--small site-header__directory" href={businessDirectoryHref}>Business directory</Link>
