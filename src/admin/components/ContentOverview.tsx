@@ -18,6 +18,7 @@ type Metric = {
 }
 
 const activeEditorialStatuses = ['watch', 'article', 'event', 'site-improvement'] as const
+const highChangeGuideCategories = ['Immigration & permits', 'Work & money', 'Housing', 'Health & wellbeing', 'Family'] as const
 
 const editorialStatusLabels: Record<(typeof activeEditorialStatuses)[number], string> = {
   watch: 'Worth watching',
@@ -104,8 +105,16 @@ async function getMetrics() {
     ])
 
     const reviewCutoff = new Date(Date.now() - (180 * 24 * 60 * 60 * 1000)).toISOString()
+    const highChangeGuideCutoff = new Date(Date.now() - (90 * 24 * 60 * 60 * 1000)).toISOString()
     const today = new Date().toISOString()
-    const [staleEmbassies, staleLearningResources, stalePracticeGroups, staleYkiResources, endedEvents] = await Promise.all([
+    const [staleHighChangeGuides, staleEmbassies, staleLearningResources, stalePracticeGroups, staleYkiResources, endedEvents] = await Promise.all([
+      countCollection(payload, 'articles', {
+        and: [
+          { _status: { equals: 'published' } },
+          { category: { in: [...highChangeGuideCategories] } },
+          { updatedAt: { less_than: highChangeGuideCutoff } },
+        ],
+      }),
       countCollection(payload, 'embassies', { lastVerifiedAt: { less_than: reviewCutoff } }),
       countCollection(payload, 'learning-resources', { lastReviewedAt: { less_than: reviewCutoff } }),
       countCollection(payload, 'practice-groups', { lastReviewedAt: { less_than: reviewCutoff } }),
@@ -118,7 +127,7 @@ async function getMetrics() {
       ...pendingCommunityCommentsResult.docs.map((comment) => ({ kind: 'comment' as const, item: comment as CommunityComment })),
     ].sort((a, b) => new Date(a.item.createdAt).getTime() - new Date(b.item.createdAt).getTime()).slice(0, 10)
 
-    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityContent, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[], editorialLeadsCount, editorialLeads: editorialLeadsResult.docs as CommunityPost[], reviewCutoff, today, staleEmbassies, staleLearningResources, stalePracticeGroups, staleYkiResources, endedEvents }
+    return { articles, newsStories, businesses, embassies, events, learningResources, practiceGroups, draftBusinesses, draftArticles, draftNewsStories, pendingSubmissionsCount, pendingSubmissions: pendingSubmissionsResult.docs as BusinessSubmission[], communityPosts, communityComments, pendingCommunityContentCount, pendingCommunityContent, pendingCommunityReportsCount, pendingCommunityReports: pendingCommunityReportsResult.docs as CommunityReport[], editorialLeadsCount, editorialLeads: editorialLeadsResult.docs as CommunityPost[], reviewCutoff, highChangeGuideCutoff, today, staleHighChangeGuides, staleEmbassies, staleLearningResources, stalePracticeGroups, staleYkiResources, endedEvents }
   } catch {
     return null
   }
@@ -175,6 +184,15 @@ function dateFilterHref(collection: string, field: string, operator: 'less_than'
   if (!value) return `/admin/collections/${collection}`
   const query = new URLSearchParams({ [`where[${field}][${operator}]`]: value })
   return `/admin/collections/${collection}?${query.toString()}`
+}
+
+function highChangeGuideReviewHref(value: string | undefined): string {
+  if (!value) return '/admin/collections/articles'
+  const query = new URLSearchParams()
+  highChangeGuideCategories.forEach((category, index) => query.set(`where[category][in][${index}]`, category))
+  query.set('where[updatedAt][less_than]', value)
+  query.set('where[_status][equals]', 'published')
+  return `/admin/collections/articles?${query.toString()}`
 }
 
 export default async function ContentOverview() {
@@ -308,9 +326,10 @@ export default async function ContentOverview() {
       <section className="expats-admin-dashboard__panel" aria-labelledby="expats-admin-maintenance">
         <div className="expats-admin-dashboard__panel-heading">
           <div><p className="expats-admin-dashboard__eyebrow">Routine maintenance</p><h3 id="expats-admin-maintenance">Details due a fresh look</h3></div>
-          <p>Records older than six months, plus events that have ended. A number here means check the source and update, archive or remove the record when needed.</p>
+          <p>High-change guides are checked every three months. Reference records are checked every six months, and ended events are cleared separately.</p>
         </div>
         <div className="expats-admin-dashboard__attention-list">
+          <Link href={highChangeGuideReviewHref(metrics?.highChangeGuideCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--red" /> <strong>{metrics?.staleHighChangeGuides ?? '—'}</strong><span>high-change guides due a source review</span><b aria-hidden="true">→</b></Link>
           <Link href={dateFilterHref('embassies', 'lastVerifiedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.staleEmbassies ?? '—'}</strong><span>embassy records due a recheck</span><b aria-hidden="true">→</b></Link>
           <Link href={dateFilterHref('learning-resources', 'lastReviewedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.staleLearningResources ?? '—'}</strong><span>learning resources due a recheck</span><b aria-hidden="true">→</b></Link>
           <Link href={dateFilterHref('practice-groups', 'lastReviewedAt', 'less_than', metrics?.reviewCutoff)}><span className="expats-admin-dashboard__status-dot expats-admin-dashboard__status-dot--amber" /> <strong>{metrics?.stalePracticeGroups ?? '—'}</strong><span>language groups due a recheck</span><b aria-hidden="true">→</b></Link>
