@@ -28,9 +28,9 @@ export function SocialLinks({ compact = false, className = '' }: SocialLinksProp
         <span className="social-links__icon"><InstagramIcon /></span>
         {!compact && <span><b>Instagram</b><small>@expats_fi</small></span>}
       </a>
-      <a href="https://www.facebook.com/expats.fi" target="_blank" rel="noreferrer" aria-label="Follow Expats.fi on Facebook">
+      <a href="https://www.facebook.com/groups/1579279056393368" target="_blank" rel="noreferrer" aria-label="Join the Expats.fi Facebook group">
         <span className="social-links__icon social-links__icon--facebook"><FacebookIcon /></span>
-        {!compact && <span><b>Facebook</b><small>Expats.fi</small></span>}
+        {!compact && <span><b>Facebook group</b><small>Join the community</small></span>}
       </a>
     </div>
   )
