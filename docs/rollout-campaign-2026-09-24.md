@@ -32,7 +32,8 @@ Use one link per channel and purpose. Google Analytics will keep the campaign so
 ### General launch
 
 - Instagram: `https://expats.fi/?utm_source=instagram&utm_medium=social&utm_campaign=site_rollout&utm_content=launch_intro`
-- Expats.fi Facebook group: `https://expats.fi/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=launch_intro`
+- Expats.fi Facebook Page: `https://expats.fi/?utm_source=facebook&utm_medium=owned_social&utm_campaign=site_rollout&utm_content=launch_intro`
+- Expats.fi Facebook group: `https://expats.fi/?utm_source=facebook&utm_medium=community_group&utm_campaign=site_rollout&utm_content=launch_intro`
 - Other Facebook groups: `https://expats.fi/?utm_source=facebook&utm_medium=community_group&utm_campaign=site_rollout&utm_content=launch_intro`
 - WhatsApp: `https://expats.fi/?utm_source=whatsapp&utm_medium=direct_share&utm_campaign=site_rollout&utm_content=launch_intro`
 
@@ -52,7 +53,7 @@ Change only the `utm_source` when the same post is genuinely being adapted for a
 
 ### Day 1: introduce Expats.fi
 
-Publish the main introduction on Instagram and the Expats.fi Facebook group. Pin it where the platform allows.
+Publish the main introduction on Instagram and as Expats.fi on the official Facebook Page. Pin it where the platform allows. Share or adapt it for the Expats.fi Facebook group afterwards so the Page remains the public brand identity.
 
 Use the branded Helsinki Cathedral artwork. Keep the caption focused on why the site exists, who it is for and what people can already find there.
 
@@ -127,6 +128,14 @@ Find your place, your people and your feet in Finland. 🇫🇮
 - Do not post to many overlapping groups on the same day.
 - Reply helpfully to comments without turning every answer into another link.
 - Never use private-group conversations or member details as content without clear permission.
+
+## Social image permission
+
+- A business supplying a logo or photograph for its directory profile does not automatically grant permission to reuse it in social posts.
+- Use Expats.fi-owned artwork, appropriately licensed stock photography or platform-native link previews by default.
+- Ask the business for clear permission before placing its logo, staff, premises, products or supplied photographs into an Expats.fi social graphic or standalone post.
+- Record the permission with the business correspondence so Kieran and Uriah can both verify it later.
+- Linking to a published business profile is fine. Do not download the profile image and turn it into separate social content unless permission covers that use.
 
 ## Seven-day review
 
