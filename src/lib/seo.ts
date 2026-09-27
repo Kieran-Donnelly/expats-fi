@@ -5,12 +5,18 @@ export const defaultSocialImage = `${siteUrl}/images/heroes/home-helsinki-cathed
 
 export const publisher = {
   '@type': 'Organization',
+  '@id': `${siteUrl}/#organization`,
   name: 'Expats.fi',
   url: siteUrl,
+  email: 'moi@expats.fi',
   logo: {
     '@type': 'ImageObject',
     url: `${siteUrl}/apple-touch-icon-expats-mark.png`,
   },
+  sameAs: [
+    'https://www.facebook.com/expats.fi',
+    'https://www.instagram.com/expats_fi/',
+  ],
 }
 
 export function absoluteUrl(path: string): string {
