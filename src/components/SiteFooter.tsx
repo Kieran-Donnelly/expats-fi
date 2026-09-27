@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { Logo } from './SiteHeader'
+import { SocialLinks } from './SocialLinks'
 
 export function SiteFooter() {
   return (
@@ -8,6 +9,10 @@ export function SiteFooter() {
         <div className="site-footer__intro">
           <Link href="/" aria-label="Expats.fi home"><Logo /></Link>
           <p>An independent guide to moving to, living in and settling in Finland.</p>
+          <div className="site-footer__connect">
+            <strong>Connect with us</strong>
+            <SocialLinks />
+          </div>
         </div>
         <nav aria-label="Guide categories">
           <strong>Guides</strong>
@@ -43,8 +48,6 @@ export function SiteFooter() {
           <Link href="/admin">Editor login</Link>
           <Link href="/privacy/">Privacy</Link>
           <a href="mailto:moi@expats.fi">Contact</a>
-          <a href="https://www.instagram.com/expats_fi/" target="_blank" rel="noreferrer">Instagram @expats_fi <span aria-hidden="true">↗</span></a>
-          <a href="https://www.facebook.com/expats.fi" target="_blank" rel="noreferrer">Facebook Expats.fi <span aria-hidden="true">↗</span></a>
           <Link href="/sitemap.xml">Sitemap</Link>
         </nav>
       </div>
