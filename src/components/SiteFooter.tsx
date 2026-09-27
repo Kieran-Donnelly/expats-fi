@@ -44,6 +44,7 @@ export function SiteFooter() {
           <Link href="/privacy/">Privacy</Link>
           <a href="mailto:moi@expats.fi">Contact</a>
           <a href="https://www.instagram.com/expats_fi/" target="_blank" rel="noreferrer">Instagram @expats_fi <span aria-hidden="true">↗</span></a>
+          <a href="https://www.facebook.com/expats.fi" target="_blank" rel="noreferrer">Facebook Expats.fi <span aria-hidden="true">↗</span></a>
           <Link href="/sitemap.xml">Sitemap</Link>
         </nav>
       </div>
