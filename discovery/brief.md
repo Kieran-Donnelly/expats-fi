@@ -56,5 +56,5 @@ _Status: complete · Last updated: 2026-08-03 · Approved for MVP execution by d
 
 ## Open questions / research tasks
 - [x] Use moi@expats.fi as the durable public mailbox.
-- [ ] Establish a content review cadence for legal and immigration articles.
+- [x] Review high-change guides every 90 days and surface overdue reviews in the admin dashboard. See `docs/content-review-cadence.md`.
 - [ ] Recruit the first 25 businesses outside Helsinki.

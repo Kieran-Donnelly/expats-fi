@@ -39,14 +39,7 @@ export default function AboutPage() {
         name: 'About Expats.fi',
         description: 'Why two Kiwi expats built a warmer, clearer guide to moving to Finland, settling in and finding your people here.',
         url: absoluteUrl('/about/'),
-        mainEntity: {
-          ...publisher,
-          email: 'moi@expats.fi',
-          sameAs: [
-            'https://www.facebook.com/groups/1579279056393368',
-            'https://www.instagram.com/expats_fi/',
-          ],
-        },
+        mainEntity: publisher,
       }} />
       <SectionHero
         eyebrow="About Expats.fi"
