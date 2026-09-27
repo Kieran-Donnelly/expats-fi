@@ -25,6 +25,7 @@ const communityRoutes = [
 ] as const
 
 const usefulDoorways = [
+  { label: 'The Expats.fi community', name: 'Join the Facebook group', description: 'Ask a question, share something useful and meet other people building a life in Finland.', href: 'https://www.facebook.com/groups/1579279056393368', external: true },
   { label: 'Newcomer route', name: 'Friend Program', description: 'Free one-to-one, small-group and community activities for international newcomers.', href: 'https://ihhelsinki.fi/guidance-and-settling-in/friend-program/', external: true },
   { label: 'Close to home', name: 'Community houses', description: 'Open neighbourhood spaces with free groups, events, support and people to ask what is happening locally.', href: 'https://www.hel.fi/en/decision-making/get-involved/support-and-collaboration/helsinkis-community-houses', external: true },
   { label: 'Practise speaking', name: 'Language cafés', description: 'Public and recurring Finnish conversation groups around Helsinki, with current organiser links.', href: '/learn-finnish/#practice', external: false },
