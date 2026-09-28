@@ -57,7 +57,7 @@ export default function CommunityPage() {
 
       <section className="shell community-board-callout" aria-labelledby="community-board-callout-heading">
         <div><p className="eyebrow">New: the community board</p><h2 id="community-board-callout-heading">Ask the question that does not belong in a guide.</h2><p>Compare neighbourhood notes, share a small win and get practical answers from people who are also making a life in Finland.</p><div className="community-board-callout__promises"><span>Post under a friendly alias</span><span>New accounts reviewed first</span><span>Real questions, practical answers</span></div></div>
-        <div className="community-board-callout__actions"><Link className="button" href="/community/board/">Open the community board →</Link><Link className="text-link" href="/community/rules/">How we keep it useful</Link></div>
+        <div className="community-board-callout__actions"><Link className="button" href="/community/board/" data-analytics-event="community_board_opened" data-analytics-position="community_hub_callout">Open the community board →</Link><Link className="text-link" href="/community/rules/">How we keep it useful</Link></div>
       </section>
 
       <section className="shell family-stages" aria-labelledby="community-routes-heading">
@@ -79,7 +79,7 @@ export default function CommunityPage() {
           <div className="family-system-grid">
             {usefulDoorways.map((doorway) => (
               doorway.external
-                ? <a href={doorway.href} target="_blank" rel="noreferrer" key={doorway.name}><small>{doorway.label}</small><strong>{doorway.name}</strong><p>{doorway.description}</p><span>Check the current details ↗</span></a>
+                ? <a href={doorway.href} target="_blank" rel="noreferrer" key={doorway.name} data-analytics-event="community_doorway_clicked" data-analytics-label={doorway.name}><small>{doorway.label}</small><strong>{doorway.name}</strong><p>{doorway.description}</p><span>Check the current details ↗</span></a>
                 : <Link href={doorway.href} key={doorway.name}><small>{doorway.label}</small><strong>{doorway.name}</strong><p>{doorway.description}</p><span>Find a way in →</span></Link>
             ))}
           </div>
