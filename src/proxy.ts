@@ -1,23 +1,15 @@
-import { NextRequest, NextResponse } from 'next/server'
+import { NextResponse } from 'next/server'
 
 /**
- * Keep public page URLs on the same trailing-slash convention used by our
- * canonicals and sitemap. Service routes are excluded by the matcher so
- * Payload, the admin panel and OAuth callbacks keep their exact URLs.
+ * Let the application serve both URL forms directly.
+ *
+ * Expats.fi publishes trailing-slash canonicals and sitemap URLs, but the
+ * production edge currently normalises those requests before they reach the
+ * app. Redirecting them back to the slash form here creates a redirect loop
+ * for fresh visitors arriving from search or social links.
  */
-export function proxy(request: NextRequest) {
-  const { pathname } = request.nextUrl
-
-  if (pathname === '/' || pathname.endsWith('/') || /\.[^/]+$/.test(pathname)) {
-    return NextResponse.next()
-  }
-
-  // Use the platform URL object here. NextURL applies the app's global slash
-  // setting while cloning and would otherwise strip the slash we are adding.
-  const canonicalUrl = new URL(request.url)
-  canonicalUrl.pathname = `${pathname}/`
-
-  return NextResponse.redirect(canonicalUrl, 308)
+export function proxy() {
+  return NextResponse.next()
 }
 
 export const config = {
