@@ -22,13 +22,15 @@ function FacebookIcon() {
 }
 
 export function SocialLinks({ compact = false, className = '' }: SocialLinksProps) {
+  const placement = compact ? 'header' : 'footer'
+
   return (
     <div className={`social-links${compact ? ' social-links--compact' : ''}${className ? ` ${className}` : ''}`}>
-      <a href="https://www.instagram.com/expats_fi/" target="_blank" rel="noreferrer" aria-label="Follow Expats.fi on Instagram">
+      <a href="https://www.instagram.com/expats_fi/" target="_blank" rel="noreferrer" aria-label="Follow Expats.fi on Instagram" data-analytics-event="social_channel_clicked" data-analytics-label="instagram" data-analytics-position={placement}>
         <span className="social-links__icon"><InstagramIcon /></span>
         {!compact && <span><b>Instagram</b><small>@expats_fi</small></span>}
       </a>
-      <a href="https://www.facebook.com/groups/1579279056393368" target="_blank" rel="noreferrer" aria-label="Join the Expats.fi Facebook group">
+      <a href="https://www.facebook.com/groups/1579279056393368" target="_blank" rel="noreferrer" aria-label="Join the Expats.fi Facebook group" data-analytics-event="social_channel_clicked" data-analytics-label="facebook_group" data-analytics-position={placement}>
         <span className="social-links__icon social-links__icon--facebook"><FacebookIcon /></span>
         {!compact && <span><b>Facebook group</b><small>Join the community</small></span>}
       </a>
