@@ -108,6 +108,10 @@ async function inspectPage(url, index, total) {
     description: '',
     canonical: '',
     robots: '',
+    openGraphTitle: '',
+    openGraphDescription: '',
+    openGraphImage: '',
+    twitterCard: '',
     h1: [],
     wordCount: 0,
     jsonLdTypes: [],
@@ -137,6 +141,10 @@ async function inspectPage(url, index, total) {
       result.description = metaContent(document, 'meta[name="description"]')
       result.canonical = document.querySelector('link[rel="canonical"]')?.href || ''
       result.robots = metaContent(document, 'meta[name="robots"]')
+      result.openGraphTitle = metaContent(document, 'meta[property="og:title"]')
+      result.openGraphDescription = metaContent(document, 'meta[property="og:description"]')
+      result.openGraphImage = metaContent(document, 'meta[property="og:image"]')
+      result.twitterCard = metaContent(document, 'meta[name="twitter:card"]')
       result.h1 = [...document.querySelectorAll('h1')].map(textContent).filter(Boolean)
       result.jsonLdTypes = jsonLdTypes(document)
 
@@ -226,6 +234,16 @@ const normalizedCanonical = (page) => {
   }
 }
 
+const inboundLinks = new Map(sitemapUrls.map((url) => [normalizeUrl(url), new Set()]))
+for (const page of pages) {
+  for (const link of page.internalLinks) {
+    const normalizedLink = normalizeUrl(link)
+    if (normalizeUrl(page.url) !== normalizedLink && inboundLinks.has(normalizedLink)) {
+      inboundLinks.get(normalizedLink).add(page.url)
+    }
+  }
+}
+
 const findings = {
   sitemapNon200: pages.filter((page) => page.status !== 200 || page.error).map((page) => ({
     url: page.url,
@@ -253,6 +271,22 @@ const findings = {
   multipleH1: pages.filter((page) => page.h1.length > 1).map((page) => ({ url: page.url, h1: page.h1 })),
   duplicateTitles: duplicates(pages, 'title'),
   duplicateDescriptions: duplicates(pages, 'description'),
+  invalidJsonLd: pages.filter((page) => page.jsonLdTypes.includes('INVALID_JSON_LD')).map((page) => page.url),
+  missingSocialPreview: pages.filter((page) =>
+    !page.openGraphTitle ||
+    !page.openGraphDescription ||
+    !page.openGraphImage ||
+    !page.twitterCard
+  ).map((page) => ({
+    url: page.url,
+    openGraphTitle: Boolean(page.openGraphTitle),
+    openGraphDescription: Boolean(page.openGraphDescription),
+    openGraphImage: Boolean(page.openGraphImage),
+    twitterCard: Boolean(page.twitterCard),
+  })),
+  orphanedSitemapPages: [...inboundLinks.entries()]
+    .filter(([url, sources]) => normalizeUrl(url) !== normalizeUrl(ORIGIN) && sources.size === 0)
+    .map(([url]) => url),
   missingImageAlt: pages.filter((page) => page.imagesMissingAlt > 0).map((page) => ({
     url: page.url,
     missing: page.imagesMissingAlt,
