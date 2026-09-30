@@ -40,7 +40,7 @@ function mark(x = 70, y = 62, scale = 1) {
     </g>`
 }
 
-function footer(number, total = 6, dark = false) {
+function footer(number, total = 8, dark = false) {
   const colour = dark ? colours.white : colours.ink
   return `
     <text x="70" y="1288" class="footer" fill="${colour}">EXPATS.FI</text>
@@ -97,6 +97,7 @@ async function build() {
   const station = await imageData('public/images/heroes/start-here-helsinki-station.webp')
   const cityMuseum = await imageData('public/images/family-kids/helsinki-city-museum-kids.webp')
   const tram = await imageData('public/images/family-kids/tram-museum-helsinki.webp')
+  const tiger = await imageData('public/images/family-kids/korkeasaari-tiger.webp')
 
   const slides = [
     svg(`
@@ -109,16 +110,35 @@ async function build() {
       ${ring(910, 520, 250, colours.green, 0.62, 4)}
       ${ring(910, 520, 190, colours.green, 0.48, 3)}
       <text x="66" y="565" class="display" font-size="175" fill="${colours.white}">FREE</text>
-      <text x="66" y="718" class="display" font-size="142" fill="${colours.white}">MUSEUM</text>
-      <text x="66" y="868" class="display" font-size="142" fill="${colours.white}">DAYS</text>
-      <rect x="68" y="925" width="590" height="62" rx="31" fill="${colours.orange}"/>
-      <text x="363" y="968" class="eyebrow" fill="${colours.ink}" text-anchor="middle">HELSINKI · OCTOBER 2026</text>
-      <text x="70" y="1100" class="body" fill="${colours.white}">Four dates worth putting in the calendar.</text>
+      <text x="66" y="718" class="display" font-size="142" fill="${colours.white}">DAYS</text>
+      <text x="66" y="868" class="display" font-size="122" fill="${colours.white}">COMING UP</text>
+      <rect x="68" y="925" width="690" height="62" rx="31" fill="${colours.orange}"/>
+      <text x="413" y="968" class="eyebrow" fill="${colours.ink}" text-anchor="middle">HELSINKI · OCT + EARLY NOV</text>
+      <text x="70" y="1100" class="body" fill="${colours.white}">The zoo, museums and a few useful regulars.</text>
       <text x="70" y="1150" class="small" fill="${colours.paleBlue}">Swipe for times, addresses and the useful bits →</text>
-      ${footer(1, 6, true)}
+      ${footer(1, 8, true)}
     `),
     infoSlide({ number: 2, date: '02', title: 'KIASMA', time: 'FRIDAY · 10–20', address: 'Mannerheiminaukio 2', noteLines: ['Free entry all day, plus an English guided tour at 18.00.', 'No advance booking. Sign up for the tour at the info desk.'], accent: colours.orange }),
-    infoSlide({ number: 3, date: '09', title: 'NATURAL HISTORY', time: 'FRIDAY · 10–17', address: 'Pohjoinen Rautatiekatu 13', noteLines: ['Free admission for private visitors. Register at the ticket', 'desk when you arrive. Earlier is usually the calmer shout.'], accent: colours.green, reverse: true }),
+    svg(`
+      <defs><linearGradient id="zooFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${colours.deepBlue}" stop-opacity=".02"/><stop offset=".68" stop-color="${colours.deepBlue}" stop-opacity=".68"/><stop offset="1" stop-color="${colours.ink}" stop-opacity=".96"/></linearGradient></defs>
+      <image href="${tiger}" width="1080" height="1350" preserveAspectRatio="xMidYMid slice"/>
+      <rect width="1080" height="1350" fill="url(#zooFade)"/>
+      <path d="M0 0H1080V180C760 245 420 220 0 140Z" fill="${colours.paleBlue}" opacity=".94"/>
+      ${mark()}
+      <text x="151" y="101" class="eyebrow" fill="${colours.deepBlue}">THE BIG FAMILY ONE</text>
+      <text x="70" y="550" class="display" font-size="205" fill="${colours.orange}">05</text>
+      <text x="75" y="620" class="eyebrow" fill="${colours.white}">OCTOBER 2026</text>
+      <text x="70" y="758" class="display" font-size="86" fill="${colours.white}">KORKEASAARI ZOO</text>
+      <text x="70" y="842" class="display" font-size="58" fill="${colours.orange}">MONDAY · 10–16</text>
+      <rect x="70" y="900" width="940" height="205" rx="34" fill="${colours.cream}" opacity=".96"/>
+      <text x="112" y="970" class="eyebrow" fill="${colours.blue}">GOOD TO KNOW</text>
+      <text x="112" y="1025" class="small" font-size="28" fill="${colours.ink}">
+        <tspan x="112">No advance booking. Last entry is at 15.00 and visitor</tspan>
+        <tspan x="112" dy="38">numbers may be limited, so arriving early is sensible.</tspan>
+      </text>
+      ${footer(3, 8, true)}
+    `),
+    infoSlide({ number: 4, date: '09', title: 'NATURAL HISTORY', time: 'FRIDAY · 10–17', address: 'Pohjoinen Rautatiekatu 13', noteLines: ['Free admission for private visitors. Register at the ticket', 'desk when you arrive. Earlier is usually the calmer shout.'], accent: colours.green, reverse: true }),
     svg(`
       <rect width="1080" height="1350" fill="${colours.cream}"/>
       <rect width="1080" height="250" fill="${colours.paleBlue}"/>
@@ -136,7 +156,30 @@ async function build() {
       <text x="112" y="980" class="display" font-size="50" fill="${colours.orange}">15–18</text>
       <text x="955" y="943" class="small" fill="${colours.white}" text-anchor="end">Bulevardi 40</text>
       <text x="70" y="1150" class="body" fill="${colours.ink}">Both museums are free on the final Friday of October.</text>
-      ${footer(4)}
+      ${footer(5)}
+    `),
+    svg(`
+      <rect width="1080" height="1350" fill="${colours.deepBlue}"/>
+      <path d="M0 0H1080V250C760 330 410 290 0 195Z" fill="${colours.blue}"/>
+      ${ring(900, 200, 235, colours.green, 0.55, 4)}
+      ${ring(900, 200, 175, colours.green, 0.38, 3)}
+      ${mark()}
+      <text x="151" y="101" class="eyebrow" fill="${colours.white}">KEEP THE CALENDAR OUT</text>
+      <text x="70" y="425" class="display" font-size="110" fill="${colours.white}">EARLY NOVEMBER</text>
+      <rect x="70" y="505" width="940" height="145" rx="30" fill="${colours.cream}"/>
+      <text x="105" y="568" class="display" font-size="58" fill="${colours.orange}">02 NOV</text>
+      <text x="375" y="568" class="display" font-size="50" fill="${colours.ink}">KORKEASAARI ZOO</text>
+      <text x="375" y="613" class="small" fill="${colours.ink}">Monday · 10–16 · no booking</text>
+      <rect x="70" y="680" width="940" height="180" rx="30" fill="#ffffff"/>
+      <text x="105" y="743" class="display" font-size="58" fill="${colours.orange}">06 NOV</text>
+      <text x="375" y="743" class="display" font-size="50" fill="${colours.ink}">ATENEUM + KIASMA</text>
+      <text x="375" y="790" class="small" fill="${colours.ink}">Ateneum 10–18 · Kiasma 10–20</text>
+      <rect x="70" y="890" width="940" height="180" rx="30" fill="${colours.green}"/>
+      <text x="105" y="953" class="display" font-size="58" fill="${colours.deepBlue}">11 NOV</text>
+      <text x="375" y="953" class="display" font-size="49" fill="${colours.white}">NATURAL HISTORY</text>
+      <text x="375" y="1000" class="small" fill="${colours.white}">Wednesday · 10–17</text>
+      <text x="70" y="1160" class="small" fill="${colours.paleBlue}">All three are free-admission dates for private visitors.</text>
+      ${footer(6, 8, true)}
     `),
     svg(`
       <defs><linearGradient id="photoFade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="${colours.deepBlue}" stop-opacity=".88"/><stop offset=".72" stop-color="${colours.deepBlue}" stop-opacity=".18"/><stop offset="1" stop-color="${colours.deepBlue}" stop-opacity=".04"/></linearGradient></defs>
@@ -156,7 +199,7 @@ async function build() {
       <text x="105" y="1049" class="display" font-size="46" fill="${colours.white}">WORKER’S MUSEUM</text>
       <text x="105" y="1088" class="small" fill="${colours.paleBlue}">Kirstinkuja 4 · Wed–Sun 11–17 · through 1 Nov</text>
       <text x="70" y="1190" class="small" fill="${colours.ink}">Check exceptional hours before setting off.</text>
-      ${footer(5)}
+      ${footer(7)}
     `),
     svg(`
       <defs><linearGradient id="tramFade" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="${colours.deepBlue}" stop-opacity=".18"/><stop offset=".58" stop-color="${colours.deepBlue}" stop-opacity=".75"/><stop offset="1" stop-color="${colours.ink}" stop-opacity=".98"/></linearGradient></defs>
@@ -176,7 +219,7 @@ async function build() {
       </text>
       <text x="70" y="1110" class="body" fill="${colours.white}">More useful Helsinki finds at expats.fi</text>
       <text x="70" y="1160" class="small" fill="${colours.paleBlue}">@expats_fi</text>
-      ${footer(6, 6, true)}
+      ${footer(8, 8, true)}
     `),
   ]
 
@@ -187,8 +230,8 @@ async function build() {
   const thumbWidth = 270
   const thumbHeight = Math.round(thumbWidth * HEIGHT / WIDTH)
   const thumbnails = await Promise.all(slides.map((slide) => sharp(Buffer.from(slide)).resize(thumbWidth, thumbHeight).png().toBuffer()))
-  await sharp({ create: { width: thumbWidth * 3, height: thumbHeight * 2, channels: 4, background: '#e8edf2' } })
-    .composite(thumbnails.map((input, index) => ({ input, left: (index % 3) * thumbWidth, top: Math.floor(index / 3) * thumbHeight })))
+  await sharp({ create: { width: thumbWidth * 4, height: thumbHeight * 2, channels: 4, background: '#e8edf2' } })
+    .composite(thumbnails.map((input, index) => ({ input, left: (index % 4) * thumbWidth, top: Math.floor(index / 4) * thumbHeight })))
     .png()
     .toFile(path.join(outputDirectory, 'preview.png'))
 }
