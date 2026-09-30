@@ -131,6 +131,8 @@ Find your place, your people and your feet in Finland. 🇫🇮
 
 ## Social image permission
 
+All new Instagram artwork should follow the dedicated [Expats.fi social visual style](./social-visual-style.md). A relevant photograph on its own is not a finished Instagram post. Add purposeful Expats.fi typography, colour and graphic detail while keeping the subject legible and the layout uncluttered.
+
 - A business supplying a logo or photograph for its directory profile does not automatically grant permission to reuse it in social posts.
 - Use Expats.fi-owned artwork, appropriately licensed stock photography or platform-native link previews by default.
 - Ask the business for clear permission before placing its logo, staff, premises, products or supplied photographs into an Expats.fi social graphic or standalone post.
