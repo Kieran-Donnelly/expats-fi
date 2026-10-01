@@ -4,6 +4,10 @@ type NewsImage = {
 }
 
 const newsImages: Record<string, NewsImage> = {
+  'free-days-helsinki-october-november-2026': {
+    src: '/images/news/free-days-helsinki-october-november-2026.webp',
+    alt: 'Helsinki Central Station with a bright Expats.fi guide to upcoming free days',
+  },
   'coastal-line-trains-september-2026': {
     src: '/images/news/coastal-line-trains-september-2026.png',
     alt: 'Passengers changing between a commuter train and replacement bus at a Helsinki-area station',

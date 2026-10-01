@@ -7,6 +7,7 @@ import * as migration_20260924_120000_publish_fishing_guide from './20260924_120
 import * as migration_20260925_150000_publish_mik_oy from './20260925_150000_publish_mik_oy';
 import * as migration_20260926_130000_publish_transport_vaccination_news from './20260926_130000_publish_transport_vaccination_news';
 import * as migration_20260928_210000_publish_klub_studio from './20260928_210000_publish_klub_studio';
+import * as migration_20261001_100000_publish_free_days_guide from './20261001_100000_publish_free_days_guide';
 import * as migration_20260913_090000_publish_student_kela_news from './20260913_090000_publish_student_kela_news';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
@@ -269,5 +270,10 @@ export const migrations = [
     up: migration_20260928_210000_publish_klub_studio.up,
     down: migration_20260928_210000_publish_klub_studio.down,
     name: '20260928_210000_publish_klub_studio',
+  },
+  {
+    up: migration_20261001_100000_publish_free_days_guide.up,
+    down: migration_20261001_100000_publish_free_days_guide.down,
+    name: '20261001_100000_publish_free_days_guide',
   },
 ];

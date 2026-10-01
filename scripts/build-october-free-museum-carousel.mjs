@@ -234,6 +234,34 @@ async function build() {
     .composite(thumbnails.map((input, index) => ({ input, left: (index % 4) * thumbWidth, top: Math.floor(index / 4) * thumbHeight })))
     .png()
     .toFile(path.join(outputDirectory, 'preview.png'))
+
+  const newsHero = `<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900">
+    ${sharedStyles()}
+    <defs>
+      <linearGradient id="heroFade" x1="0" y1="0" x2="1" y2="0">
+        <stop offset="0" stop-color="${colours.ink}" stop-opacity=".96"/>
+        <stop offset=".58" stop-color="${colours.deepBlue}" stop-opacity=".72"/>
+        <stop offset="1" stop-color="${colours.deepBlue}" stop-opacity=".18"/>
+      </linearGradient>
+    </defs>
+    <image href="${station}" width="1600" height="900" preserveAspectRatio="xMidYMid slice"/>
+    <rect width="1600" height="900" fill="url(#heroFade)"/>
+    <path d="M0 0H1600V120C1120 200 600 180 0 105Z" fill="${colours.paleBlue}" opacity=".94"/>
+    ${mark(65, 36, 1)}
+    <text x="148" y="77" class="eyebrow" fill="${colours.deepBlue}">SAVE THE DATES · OCT + EARLY NOV</text>
+    ${ring(1330, 300, 245, colours.green, 0.62, 4)}
+    ${ring(1330, 300, 175, colours.green, 0.48, 3)}
+    <text x="70" y="390" class="display" font-size="158" fill="${colours.white}">FREE DAYS</text>
+    <text x="70" y="545" class="display" font-size="132" fill="${colours.white}">COMING UP</text>
+    <rect x="72" y="610" width="730" height="72" rx="36" fill="${colours.orange}"/>
+    <text x="437" y="659" class="eyebrow" fill="${colours.ink}" text-anchor="middle">ZOO · MUSEUMS · FAMILY FAVOURITES</text>
+    <text x="72" y="770" class="body" fill="${colours.white}">Times, addresses and the useful bits before you go.</text>
+    <text x="72" y="834" class="footer" fill="${colours.paleBlue}">EXPATS.FI</text>
+  </svg>`
+
+  await sharp(Buffer.from(newsHero))
+    .webp({ quality: 88 })
+    .toFile('public/images/news/free-days-helsinki-october-november-2026.webp')
 }
 
 await build()
