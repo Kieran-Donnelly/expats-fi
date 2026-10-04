@@ -61,6 +61,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/eats/', lastModified: updated14September, priority: .9 },
     { url: 'https://expats.fi/explore/', lastModified: latestExploreListing, priority: .9 },
     { url: 'https://expats.fi/explore/day-trips/', lastModified: updated24September, priority: .85 },
+    { url: 'https://expats.fi/explore/walks-and-hikes/', lastModified: new Date('2026-10-04T00:00:00.000Z'), priority: .9 },
     { url: 'https://expats.fi/events/', lastModified: latestEvent, priority: .9 },
     { url: 'https://expats.fi/sports/', lastModified: latestSportsListing, priority: .9 },
     { url: 'https://expats.fi/businesses/', lastModified: latestBusiness, priority: .9 },

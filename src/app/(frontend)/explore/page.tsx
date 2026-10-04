@@ -18,7 +18,7 @@ export const metadata: Metadata = socialMetadata({
 
 const outdoorRoutes = [
   { number: '01', eyebrow: 'Permits first', title: 'Fishing in Finland', description: 'When fishing is free, when the national fee applies and where local restrictions change the answer.', href: '/resources/fishing-licence-finland/' },
-  { number: '02', eyebrow: 'Leave the streets', title: 'Forest days', description: 'Start with Nuuksio, Haltia and Sipoonkorpi, including realistic car-free routes and return connections.', href: '/explore/day-trips/#nuuksio-and-haltia' },
+  { number: '02', eyebrow: 'Leave the streets', title: 'Walks and hikes', description: 'Lakes, forest and coastal trails with starting points, transport, grill places, toilets and honest route notes.', href: '/explore/walks-and-hikes/' },
   { number: '03', eyebrow: 'Sea air', title: 'Islands and nature', description: 'Fortress paths, picnic rocks, seasonal boats and quieter places where Helsinki opens towards the sea.', href: '/explore/?category=Islands%20%26%20nature#browse' },
   { number: '04', eyebrow: 'Warm weather plan', title: 'Beaches and swimming', description: 'Sea beaches, freshwater dips and the practical information worth checking before packing the towel.', href: '/explore/?category=Beaches%20%26%20swimming#browse' },
   { number: '05', eyebrow: 'A change of scene', title: 'Easy day trips', description: 'Forests, old towns, coast and lakes with honest travel times and routes that do not assume you own a car.', href: '/explore/day-trips/' },

@@ -8,6 +8,7 @@ Expats.fi should remain useful after publication. A guide that still reads well 
 
 - Review high-change guides every 90 days. This includes immigration and permits, work and money, housing, health and wellbeing, and family guidance.
 - Review lower-change practical guides every 180 days.
+- Review outdoor route and facility guides at least every 90 days and at the start of summer and winter. Recheck trail access, fire sites, toilets, transport and seasonal restrictions against the landowner or municipality.
 - Check event details against the organiser before publication and remove ended events from active discovery automatically.
 - Correct material changes as soon as they are discovered. The calendar is a backstop, not a reason to wait.
 
