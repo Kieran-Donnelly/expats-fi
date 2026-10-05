@@ -2,6 +2,48 @@
 
 This file records third-party images used by Expats.fi. Keep the asset ID, creator, source page and licence details here whenever a new licensed image is added.
 
+## Unlimphotos walks and hikes images
+
+Downloaded on 4–5 October 2026 through the licensed Unlimphotos account connected by the site owners. These are clearly described in the page alt text as representative nature or activity images. They are not presented as photographs of a named destination unless the source itself identifies that location.
+
+- Site file: `public/images/hikes/kaitalampi-lake-jetty.webp`
+  - Unlimphotos asset ID: `22782088`
+  - Title: Wooden pier on lake
+  - Creator: `destillat`
+  - Source: https://unlimphotos.com/22782088/wooden-pier-on-lake.html
+  - Licence shown at download: Royalty Free License
+  - Source description: Small wooden pier with stairs on a calm lake in Finland.
+  - Use: Kaitalampi card; illustrative Finnish lakeside detail, not presented as a photograph of Kaitalampi's own infrastructure.
+- Site file: `public/images/hikes/pilvijarvi-family-lake.webp`
+  - Unlimphotos asset ID: `104179970`
+  - Title: Rear view of a young boy crouching at the water's edge
+  - Creator: `Karolinamatus`
+  - Source: https://unlimphotos.com/104179970/rear-view-of-a-young-boy-crouching-at-the-waters-edge-while-holding-a-stick-on-a-sunny-summer-day-a-candid-outdoor-image-capturing-exploration-creativity-and-carefree-moments-by-the-lake.html
+  - Licence shown at download: Royalty Free License; model released
+  - Use: Pilvijärvi card; illustrative family lakeside moment, not presented as the Pilvijärvi shoreline.
+- Site file: `public/images/hikes/luukki-forest-walk.webp`
+  - Unlimphotos asset ID: `100345440`
+  - Title: Hiking through a lush green forest
+  - Creator: `anytka`
+  - Source: https://unlimphotos.com/100345440/hiking-through-a-lush-green-forest.html
+  - Licence shown at download: Royalty Free License; property released
+  - Use: Luukki card; close-up forest-walking detail, not presented as a named Luukki trail or structure.
+- Site file: `public/images/hikes/lammassaari-wetland-boardwalk.webp`
+  - Unlimphotos asset ID: `104969098`
+  - Title: Tall reeds flank a wooden boardwalk through wetland area
+  - Creator: `JGD6253`
+  - Source: https://unlimphotos.com/104969098/tall-reeds-flank-a-wooden-boardwalk-through-wetland-area.html
+  - Licence shown at download: Royalty Free License
+  - Use: Lammassaari card; illustrative wetland boardwalk, not presented as Lammassaari's actual boardwalk.
+- Site file: `public/images/hikes/paloheina-winter-forest.webp`
+  - Unlimphotos asset ID: `15799736`
+  - Title: Cross country skiing path in the forest
+  - Creator: `Alexanderphoto`
+  - Source: https://unlimphotos.com/15799736/cross-country-skiing-path-in-the-forest.html
+  - Licence shown at download: Royalty Free License
+  - Source keywords identify the image as Finland.
+  - Use: Paloheinä card; illustrative Finnish winter forest and skiing route, not presented as a photograph of Paloheinä itself.
+
 ## Unsplash guide images
 
 Selected from their individual photo pages on 22–23 September 2026. Each page displayed “Free to use under the Unsplash License” and a “Download free” control. The [Unsplash License](https://unsplash.com/license) permits commercial website use without mandatory attribution; links and photographers are retained here for provenance. These are documentary illustrations, not representations of a named service unless the source explicitly identifies the location.

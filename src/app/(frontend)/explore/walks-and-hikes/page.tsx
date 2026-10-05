@@ -67,7 +67,7 @@ export default function WalksAndHikesPage() {
                     <section><span>Winter</span><p>{hike.winter}</p></section>
                     <section><span>Getting there</span><p>{hike.transport}</p></section>
                   </div>
-                  <aside className="hike-guide__honest"><strong>The honest bit</strong><p>{hike.honest}</p></aside>
+                  <aside className="hike-guide__honest"><strong>Worth knowing</strong><p>{hike.honest}</p></aside>
                   <div className="hike-guide__links">
                     <a href={hike.officialUrl} target="_blank" rel="noreferrer">{hike.officialLabel} ↗</a>
                     <a href={hikeHslUrl(hike)} target="_blank" rel="noreferrer">Plan with HSL ↗</a>
