@@ -419,6 +419,16 @@ Downloaded on September 5, 2026 through the licensed Unlimphotos account connect
 - Treatment: Cropped, resized and compressed for the web. Used as a generic service image and not as a photograph of ALstudio, its staff or its premises.
 - Replaced source: asset `59531252` was removed because its in-progress haircut did not present the quality of finish intended for the profile.
 
+## Owner-approved business assets
+
+### Kallombo Studios
+
+- Site file: `public/businesses/kallombo-studios/wedding-photography.webp`
+- Source: `https://www.kallombostudios.com/`
+- Original hosted file: `https://images-pw.pixieset.com/elementfield/710045091/Destionation-wedding-photographer-helsinki-wedding-best-wedding-photographer-in-helsinki-fine-art-wedding-photographer-Kevin-Kallombo-Kallombo-Studios-Top-wedding-phographer-in-Finland-f8cf4b76.jpg`
+- Permission: Kevin Kallombo approved the Expats.fi listing and the use of a small selection of images from the Kallombo Studios website by email on October 6, 2026.
+- Treatment: Resized and compressed to WebP for the directory. The photographed scenes were not altered.
+
 ## Working rule
 
 Do not use an asset marked Editorial License as a decorative or promotional site image. Do not commit the untouched high-resolution source files. Keep only the web-ready derivative required by the site and retain this record for provenance.
