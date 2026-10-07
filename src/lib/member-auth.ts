@@ -8,6 +8,7 @@ import { isCommunityTrustLevel, type CommunityTrustLevel } from '@/lib/community
 export const GOOGLE_SESSION_COOKIE = 'expats-google-session'
 export const GOOGLE_OAUTH_COOKIE = 'expats-google-oauth'
 export const GOOGLE_OAUTH_RETURN_COOKIE = 'expats-google-return'
+export const GOOGLE_OAUTH_TERMS_COOKIE = 'expats-google-terms'
 export const ADMIN_GOOGLE_OAUTH_COOKIE = 'expats-admin-google-oauth'
 
 export type MemberSession = {
@@ -23,6 +24,9 @@ export type MemberSession = {
   emailUpdates?: boolean
   newsletter?: boolean
   emailVerifiedAt?: string | null
+  termsAcceptedAt?: string | null
+  termsVersion?: string | null
+  ageConfirmedAt?: string | null
   communityTrust?: CommunityTrustLevel
   communityRulesAcceptedAt?: string | null
 }
@@ -83,6 +87,9 @@ function toMemberSession(user: Record<string, unknown>): MemberSession | null {
     emailUpdates: user.emailUpdates === true,
     newsletter: user.newsletter === true,
     emailVerifiedAt: typeof user.emailVerifiedAt === 'string' ? user.emailVerifiedAt : null,
+    termsAcceptedAt: typeof user.termsAcceptedAt === 'string' ? user.termsAcceptedAt : null,
+    termsVersion: typeof user.termsVersion === 'string' ? user.termsVersion : null,
+    ageConfirmedAt: typeof user.ageConfirmedAt === 'string' ? user.ageConfirmedAt : null,
     communityTrust: isCommunityTrustLevel(user.communityTrust) ? user.communityTrust : 'new',
     communityRulesAcceptedAt: typeof user.communityRulesAcceptedAt === 'string' ? user.communityRulesAcceptedAt : null,
   }

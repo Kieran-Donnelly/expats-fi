@@ -5,6 +5,7 @@ import { getCurrentMember } from '@/lib/member-auth'
 import { anonymousCommunityAlias } from '@/lib/community-options'
 import { communitySubmissionStatus, screenCommunityContent } from '@/lib/community-safety'
 import { isSameOrigin } from '@/lib/request-origin'
+import { hasAcceptedCurrentTerms } from '@/lib/legal'
 
 type RouteContext = { params: Promise<{ slug: string }> }
 
@@ -21,6 +22,7 @@ export async function POST(request: Request, { params }: RouteContext) {
 
   const member = await getCurrentMember(request.headers)
   if (!member) return json({ message: 'Sign in to reply to a community post.' }, 401)
+  if (!hasAcceptedCurrentTerms(member)) return json({ message: 'Please confirm the current account terms in My Account before replying.' }, 403)
 
   const { slug } = await params
   const data = await request.json().catch(() => null) as Record<string, unknown> | null

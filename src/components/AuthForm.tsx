@@ -6,6 +6,7 @@ import { FormEvent, useState } from 'react'
 
 import { authJourneyMessages, type AuthJourney } from '@/lib/auth-journey'
 import { trackAnalyticsEvent } from '@/lib/analytics'
+import { ACCOUNT_MINIMUM_AGE } from '@/lib/legal'
 
 type AuthMode = 'login' | 'register'
 
@@ -13,6 +14,7 @@ export function AuthForm({ authJourney, mode, googleEnabled, returnTo = '/accoun
   const router = useRouter()
   const [error, setError] = useState('')
   const [pending, setPending] = useState(false)
+  const [legalAccepted, setLegalAccepted] = useState(false)
   const isRegister = mode === 'register'
   const switchParams = new URLSearchParams({ next: returnTo })
   if (authJourney) switchParams.set('reason', authJourney)
@@ -30,7 +32,7 @@ export function AuthForm({ authJourney, mode, googleEnabled, returnTo = '/accoun
         const registration = await fetch('/api/auth/register', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ name: String(form.get('name') || '').trim(), email, password }),
+          body: JSON.stringify({ name: String(form.get('name') || '').trim(), email, password, ageConfirmed: legalAccepted, termsAccepted: legalAccepted }),
         })
         const registrationBody = await registration.json()
         if (!registration.ok) throw new Error(registrationBody.message || 'We could not create your account.')
@@ -60,7 +62,13 @@ export function AuthForm({ authJourney, mode, googleEnabled, returnTo = '/accoun
   return (
     <div className="auth-panel">
       {authJourney && <p className="auth-panel__context">{authJourneyMessages[authJourney]}</p>}
-      <a className={`google-button${googleEnabled ? '' : ' google-button--disabled'}`} href={googleEnabled ? `/api/auth/google/start?next=${encodeURIComponent(returnTo)}` : undefined} aria-disabled={!googleEnabled}>
+      {isRegister && (
+        <label className="auth-form__legal">
+          <input type="checkbox" checked={legalAccepted} onChange={(event) => setLegalAccepted(event.target.checked)} />
+          <span>I confirm I am at least {ACCOUNT_MINIMUM_AGE} and accept the <Link href="/terms/" target="_blank">Terms of Use</Link> and <Link href="/privacy/" target="_blank">Privacy Notice</Link>.</span>
+        </label>
+      )}
+      <a className={`google-button${googleEnabled && (!isRegister || legalAccepted) ? '' : ' google-button--disabled'}`} href={googleEnabled && (!isRegister || legalAccepted) ? `/api/auth/google/start?next=${encodeURIComponent(returnTo)}${isRegister ? '&join=1' : ''}` : undefined} aria-disabled={!googleEnabled || (isRegister && !legalAccepted)}>
         <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M21.6 12.2c0-.7-.1-1.4-.2-2H12v3.8h5.4a4.6 4.6 0 0 1-2 3v2.5h3.2c1.9-1.8 3-4.3 3-7.3Z"/><path fill="#34A853" d="M12 22c2.7 0 5-.9 6.6-2.4l-3.2-2.5c-.9.6-2 1-3.4 1a5.8 5.8 0 0 1-5.5-4H3.2v2.6A10 10 0 0 0 12 22Z"/><path fill="#FBBC05" d="M6.5 14a6 6 0 0 1 0-3.9V7.5H3.2a10 10 0 0 0 0 9.1L6.5 14Z"/><path fill="#EA4335" d="M12 6.1c1.5 0 2.8.5 3.9 1.5l2.8-2.8A9.4 9.4 0 0 0 3.2 7.5l3.3 2.6a5.8 5.8 0 0 1 5.5-4Z"/></svg>
         Continue with Google
       </a>
@@ -85,12 +93,12 @@ export function AuthForm({ authJourney, mode, googleEnabled, returnTo = '/accoun
         </label>
 
         {error && <p className="auth-error" role="alert">{error}</p>}
-        <button className="button auth-form__submit" type="submit" disabled={pending}>
+        <button className="button auth-form__submit" type="submit" disabled={pending || (isRegister && !legalAccepted)}>
           {pending ? (isRegister ? 'Creating account…' : 'Signing in…') : (isRegister ? 'Create account' : 'Sign in')}
         </button>
       </form>
 
-      {isRegister && <p className="auth-panel__privacy">Before joining, read how we handle account and community data in the <Link href="/privacy/">privacy details</Link>.</p>}
+      {!isRegister && <p className="auth-panel__privacy">New Google accounts must be created from the registration page so the account terms and minimum age can be confirmed.</p>}
 
       <p className="auth-panel__switch">
         {isRegister ? 'Already have an account?' : 'New to Expats.fi?'}{' '}

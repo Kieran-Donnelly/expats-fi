@@ -3,6 +3,7 @@ import { getPayload } from 'payload'
 
 import { getCurrentMember } from '@/lib/member-auth'
 import { isSameOrigin } from '@/lib/request-origin'
+import { hasAcceptedCurrentTerms } from '@/lib/legal'
 
 function json(data: Record<string, unknown>, status = 200) {
   return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } })
@@ -17,6 +18,7 @@ export async function POST(request: Request) {
 
   const member = await getCurrentMember(request.headers)
   if (!member) return json({ message: 'Sign in to submit a business and track its review.' }, 401)
+  if (!hasAcceptedCurrentTerms(member)) return json({ message: 'Please confirm the current account terms in My Account before submitting a business.' }, 403)
 
   const data = await request.json().catch(() => null) as Record<string, unknown> | null
   const businessName = text(data?.businessName, 160)
@@ -26,6 +28,7 @@ export async function POST(request: Request) {
   const description = text(data?.description, 3000)
   const contactName = text(data?.contactName, 120)
   const contactEmail = text(data?.contactEmail, 254).toLowerCase()
+  const rightsConfirmed = data?.rightsConfirmed === true
 
   if (businessName.length < 2) return json({ message: 'Please enter the business name.' }, 400)
   if (!website) return json({ message: 'Please enter the business website.' }, 400)
@@ -40,6 +43,7 @@ export async function POST(request: Request) {
   if (description.length < 20) return json({ message: 'Please tell us a little more about the business.' }, 400)
   if (contactName.length < 2) return json({ message: 'Please enter your name.' }, 400)
   if (!/^\S+@\S+\.\S+$/.test(contactEmail)) return json({ message: 'Please enter a valid email address.' }, 400)
+  if (!rightsConfirmed) return json({ message: 'Please confirm you have permission to provide the listing material.' }, 400)
 
   const payload = await getPayload({ config: configPromise })
   const submission = await payload.create({
@@ -54,6 +58,7 @@ export async function POST(request: Request) {
       contactName,
       contactEmail,
       status: 'pending',
+      rightsConfirmedAt: new Date().toISOString(),
     },
     overrideAccess: true,
   })

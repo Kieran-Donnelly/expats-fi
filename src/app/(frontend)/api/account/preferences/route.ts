@@ -22,6 +22,7 @@ export async function PATCH(request: Request) {
 
   const interests = normaliseMemberInterests(data?.interests)
   const payload = await getPayload({ config: configPromise })
+  const emailPreferencesChanged = member.emailUpdates !== data.emailUpdates || member.newsletter !== data.newsletter
   await payload.update({
     collection: 'members',
     id: member.id,
@@ -29,6 +30,7 @@ export async function PATCH(request: Request) {
       interests,
       emailUpdates: data.emailUpdates,
       newsletter: data.newsletter,
+      emailConsentUpdatedAt: emailPreferencesChanged ? new Date().toISOString() : undefined,
     },
     overrideAccess: true,
   })

@@ -60,6 +60,12 @@ export const BusinessSubmissions: CollectionConfig = {
     { name: 'contactName', type: 'text', required: true },
     { name: 'contactEmail', type: 'email', required: true },
     {
+      name: 'rightsConfirmedAt',
+      type: 'date',
+      access: { update: ({ req: { user } }) => canManageContent(user) },
+      admin: { position: 'sidebar', readOnly: true, description: 'Set for new submissions when the submitter confirms permission. Older submissions predate this record.' },
+    },
+    {
       name: 'status',
       type: 'select',
       required: true,

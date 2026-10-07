@@ -25,6 +25,7 @@ export function SubmissionForm({
   const [pending, setPending] = useState(false)
   const [status, setStatus] = useState('')
   const [error, setError] = useState('')
+  const [rightsConfirmed, setRightsConfirmed] = useState(false)
 
   if (!isAuthenticated) {
     return (
@@ -51,7 +52,7 @@ export function SubmissionForm({
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ businessName, website, location, category, description, contactName, contactEmail }),
+        body: JSON.stringify({ businessName, website, location, category, description, contactName, contactEmail, rightsConfirmed }),
       })
       const body = await response.json().catch(() => null) as { message?: string } | null
       if (!response.ok) throw new Error(body?.message || 'We could not save this submission.')
@@ -78,10 +79,11 @@ export function SubmissionForm({
       <label>What does the business do?<textarea name="description" value={description} onChange={(event) => setDescription(event.target.value)} required /></label>
       <label>Your name<input name="contactName" value={contactName} onChange={(event) => setContactName(event.target.value)} required /></label>
       <label>Your email<input name="contactEmail" type="email" value={contactEmail} onChange={(event) => setContactEmail(event.target.value)} required /></label>
+      <label className="form-check"><input type="checkbox" checked={rightsConfirmed} onChange={(event) => setRightsConfirmed(event.target.checked)} required /><span>I have permission to submit this business information and any material I provide for the listing.</span></label>
       {error && <p className="form-note form-note--error" role="alert">{error}</p>}
       {status && <p className="form-note form-note--success" role="status">{status}</p>}
       <button className="button" type="submit" disabled={pending}>{pending ? 'Sending…' : 'Submit for review'}</button>
-      <p className="form-note">We will check that the business is Finland-based and expat-owned before publishing it.</p>
+      <p className="form-note">We will check that the business is Finland-based and expat-owned before publishing it. Please read the <Link href="/terms/">submission terms</Link>.</p>
     </form>
   )
 }

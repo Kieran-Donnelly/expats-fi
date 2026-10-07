@@ -216,6 +216,12 @@ export interface Member {
    * Set when an identity provider or future email flow verifies this address.
    */
   emailVerifiedAt?: string | null;
+  termsAcceptedAt?: string | null;
+  termsVersion?: string | null;
+  /**
+   * Records the member’s confirmation that they meet the minimum account age.
+   */
+  ageConfirmedAt?: string | null;
   /**
    * Controls the community moderation lane. Change deliberately after reviewing the member’s contributions.
    */
@@ -257,6 +263,10 @@ export interface Member {
    * The monthly Expats.fi newsletter, when available.
    */
   newsletter?: boolean | null;
+  /**
+   * Last time the member changed either email preference.
+   */
+  emailConsentUpdatedAt?: string | null;
   /**
    * Guides this member has saved for later.
    */
@@ -399,6 +409,10 @@ export interface BusinessSubmission {
   description: string;
   contactName: string;
   contactEmail: string;
+  /**
+   * Set for new submissions when the submitter confirms permission. Older submissions predate this record.
+   */
+  rightsConfirmedAt?: string | null;
   status: 'pending' | 'approved' | 'needs-changes' | 'declined';
   /**
    * Internal notes shown to administrators.
@@ -1030,6 +1044,9 @@ export interface MembersSelect<T extends boolean = true> {
   googleSubject?: T;
   picture?: T;
   emailVerifiedAt?: T;
+  termsAcceptedAt?: T;
+  termsVersion?: T;
+  ageConfirmedAt?: T;
   communityTrust?: T;
   communityRulesAcceptedAt?: T;
   communityRestrictionReason?: T;
@@ -1039,6 +1056,7 @@ export interface MembersSelect<T extends boolean = true> {
   interests?: T;
   emailUpdates?: T;
   newsletter?: T;
+  emailConsentUpdatedAt?: T;
   savedArticles?: T;
   savedBusinesses?: T;
   updatedAt?: T;
@@ -1159,6 +1177,7 @@ export interface BusinessSubmissionsSelect<T extends boolean = true> {
   description?: T;
   contactName?: T;
   contactEmail?: T;
+  rightsConfirmedAt?: T;
   status?: T;
   reviewerNotes?: T;
   reviewedAt?: T;

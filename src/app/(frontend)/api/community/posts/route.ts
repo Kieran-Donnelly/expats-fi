@@ -5,6 +5,7 @@ import { getCurrentMember } from '@/lib/member-auth'
 import { anonymousCommunityAlias, isCommunityTopic, slugifyCommunityTitle } from '@/lib/community-options'
 import { communitySubmissionStatus, screenCommunityContent } from '@/lib/community-safety'
 import { isSameOrigin } from '@/lib/request-origin'
+import { hasAcceptedCurrentTerms } from '@/lib/legal'
 
 function json(data: Record<string, unknown>, status = 200) {
   return Response.json(data, { status, headers: { 'Cache-Control': 'no-store' } })
@@ -37,6 +38,7 @@ export async function POST(request: Request) {
 
   const member = await getCurrentMember(request.headers)
   if (!member) return json({ message: 'Sign in to start a community conversation.' }, 401)
+  if (!hasAcceptedCurrentTerms(member)) return json({ message: 'Please confirm the current account terms in My Account before posting.' }, 403)
 
   const data = await request.json().catch(() => null) as Record<string, unknown> | null
   const title = text(data?.title, 120)

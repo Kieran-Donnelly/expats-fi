@@ -60,6 +60,26 @@ export const Members: CollectionConfig = {
       admin: { position: 'sidebar', readOnly: true, description: 'Set when an identity provider or future email flow verifies this address.' },
     },
     {
+      name: 'termsAcceptedAt',
+      type: 'date',
+      index: true,
+      access: { update: ({ req: { user } }) => canManageMembers(user) },
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'termsVersion',
+      type: 'text',
+      access: { update: ({ req: { user } }) => canManageMembers(user) },
+      admin: { position: 'sidebar', readOnly: true },
+    },
+    {
+      name: 'ageConfirmedAt',
+      type: 'date',
+      index: true,
+      access: { update: ({ req: { user } }) => canManageMembers(user) },
+      admin: { position: 'sidebar', readOnly: true, description: 'Records the member’s confirmation that they meet the minimum account age.' },
+    },
+    {
       name: 'communityTrust',
       type: 'select',
       required: true,
@@ -124,6 +144,12 @@ export const Members: CollectionConfig = {
       type: 'checkbox',
       defaultValue: false,
       admin: { description: 'The monthly Expats.fi newsletter, when available.' },
+    },
+    {
+      name: 'emailConsentUpdatedAt',
+      type: 'date',
+      access: { update: ({ req: { user } }) => canManageMembers(user) },
+      admin: { position: 'sidebar', readOnly: true, description: 'Last time the member changed either email preference.' },
     },
     {
       name: 'savedArticles',

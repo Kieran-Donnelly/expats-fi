@@ -1009,6 +1009,11 @@ h3 { font-size: clamp(1.3rem, 2vw, 1.65rem); line-height: 1.25; }
 .auth-panel__switch a { color: var(--blue); font-weight: 680; }
 .auth-panel__privacy { margin: 1rem 0 0; padding-block-start: 1rem; border-block-start: 1px solid var(--line); color: var(--muted); font-size: .72rem; line-height: 1.5; text-align: center; }
 .auth-panel__privacy a { color: var(--blue); font-weight: 680; }
+.auth-form__legal { grid-template-columns: auto 1fr; gap: .7rem; align-items: start; color: var(--ink-soft); font-size: .76rem; font-weight: 500; line-height: 1.5; }
+.auth-form__legal input { inline-size: 1rem; block-size: 1rem; margin-block-start: .15rem; }
+.auth-form__legal a, .form-note a { color: var(--blue); font-weight: 700; }
+.form-check { display: grid; grid-template-columns: auto 1fr; gap: .7rem; align-items: start; }
+.form-check input { inline-size: 1rem; block-size: 1rem; margin-block-start: .2rem; }
 
 .account-page { background: var(--blue-pale); }
 .account-page__layout { padding-block: clamp(3rem, 8vw, 6rem) 7rem; }

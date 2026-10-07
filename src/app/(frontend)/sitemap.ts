@@ -49,6 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: 'https://expats.fi/community/', lastModified: updated14September, priority: .9 },
     { url: 'https://expats.fi/community/board/', lastModified: updated24September, priority: .8 },
     { url: 'https://expats.fi/privacy/', priority: .3 },
+    { url: 'https://expats.fi/terms/', priority: .3 },
     { url: 'https://expats.fi/housing/', lastModified: updated14September, priority: .9 },
     { url: 'https://expats.fi/help/', lastModified: updated14September, priority: .9 },
     { url: 'https://expats.fi/resources/', lastModified: latestArticle, priority: .9 },

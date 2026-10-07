@@ -47,6 +47,7 @@ export function SiteFooter() {
           <Link href="/about/">About us</Link>
           <Link href="/admin">Editor login</Link>
           <Link href="/privacy/">Privacy</Link>
+          <Link href="/terms/">Terms</Link>
           <a href="mailto:moi@expats.fi">Contact</a>
           <Link href="/sitemap.xml">Sitemap</Link>
         </nav>

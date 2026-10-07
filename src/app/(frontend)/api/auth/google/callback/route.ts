@@ -4,8 +4,9 @@ import { createHash, randomBytes } from 'node:crypto'
 import { generatePayloadCookie, getPayload } from 'payload'
 import { NextRequest, NextResponse } from 'next/server'
 
-import { ADMIN_GOOGLE_OAUTH_COOKIE, createGoogleSessionToken, GOOGLE_OAUTH_COOKIE, GOOGLE_OAUTH_RETURN_COOKIE, GOOGLE_SESSION_COOKIE, secureCookieOptions } from '@/lib/member-auth'
+import { ADMIN_GOOGLE_OAUTH_COOKIE, createGoogleSessionToken, GOOGLE_OAUTH_COOKIE, GOOGLE_OAUTH_RETURN_COOKIE, GOOGLE_OAUTH_TERMS_COOKIE, GOOGLE_SESSION_COOKIE, secureCookieOptions } from '@/lib/member-auth'
 import { isSuperAdminEmail } from '@/lib/admin-access'
+import { TERMS_VERSION } from '@/lib/legal'
 import { safeReturnPath } from '@/lib/return-path'
 
 const googleKeys = createRemoteJWKSet(new URL('https://www.googleapis.com/oauth2/v3/certs'))
@@ -23,6 +24,7 @@ export async function GET(request: NextRequest) {
     response.cookies.set(ADMIN_GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     response.cookies.set(GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     response.cookies.set(GOOGLE_OAUTH_RETURN_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+    response.cookies.set(GOOGLE_OAUTH_TERMS_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     return response
   }
   const clientId = process.env.GOOGLE_CLIENT_ID
@@ -32,6 +34,7 @@ export async function GET(request: NextRequest) {
   const expectedAdminState = request.cookies.get(ADMIN_GOOGLE_OAUTH_COOKIE)?.value
   const expectedState = request.cookies.get(GOOGLE_OAUTH_COOKIE)?.value
   const isAdminFlow = Boolean(expectedAdminState && state && state === expectedAdminState)
+  const acceptedCurrentTerms = request.cookies.get(GOOGLE_OAUTH_TERMS_COOKIE)?.value === TERMS_VERSION
   if (!clientId || !clientSecret || !code || !state || (!isAdminFlow && state !== expectedState)) return fail(isAdminFlow)
 
   try {
@@ -126,6 +129,17 @@ export async function GET(request: NextRequest) {
         overrideAccess: true,
       })
     } else {
+      if (!acceptedCurrentTerms) {
+        const destination = new URL('/register/', appURL)
+        destination.searchParams.set('error', 'terms')
+        destination.searchParams.set('next', returnTo)
+        const response = NextResponse.redirect(destination)
+        response.cookies.set(GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+        response.cookies.set(GOOGLE_OAUTH_RETURN_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+        response.cookies.set(GOOGLE_OAUTH_TERMS_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+        return response
+      }
+      const acceptedAt = new Date().toISOString()
       member = await payload.create({
         collection: 'members',
         data: {
@@ -137,6 +151,9 @@ export async function GET(request: NextRequest) {
           provider: 'google',
           emailVerifiedAt: new Date().toISOString(),
           communityTrust: 'new',
+          ageConfirmedAt: acceptedAt,
+          termsAcceptedAt: acceptedAt,
+          termsVersion: TERMS_VERSION,
         },
         overrideAccess: true,
       })
@@ -147,6 +164,7 @@ export async function GET(request: NextRequest) {
     response.cookies.set(GOOGLE_SESSION_COOKIE, session, { ...secureCookieOptions(), maxAge: 60 * 60 * 24 * 30 })
     response.cookies.set(GOOGLE_OAUTH_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     response.cookies.set(GOOGLE_OAUTH_RETURN_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
+    response.cookies.set(GOOGLE_OAUTH_TERMS_COOKIE, '', { ...secureCookieOptions(), maxAge: 0 })
     return response
   } catch {
     return fail(isAdminFlow)

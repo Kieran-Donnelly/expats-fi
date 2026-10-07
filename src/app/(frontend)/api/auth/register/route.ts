@@ -2,6 +2,7 @@ import configPromise from '@payload-config'
 import { getPayload } from 'payload'
 
 import { isSameOrigin } from '@/lib/request-origin'
+import { TERMS_VERSION } from '@/lib/legal'
 
 export async function POST(request: Request) {
   if (!isSameOrigin(request)) return Response.json({ message: 'Invalid request origin.' }, { status: 403 })
@@ -11,6 +12,10 @@ export async function POST(request: Request) {
   const email = typeof data?.email === 'string' ? data.email.trim().toLowerCase() : ''
   const password = typeof data?.password === 'string' ? data.password : ''
 
+  if (data?.ageConfirmed !== true || data?.termsAccepted !== true) {
+    return Response.json({ message: 'Please confirm the minimum age and accept the account terms.' }, { status: 400 })
+  }
+
   if (name.length < 2) return Response.json({ message: 'Please enter your name.' }, { status: 400 })
   if (!/^\S+@\S+\.\S+$/.test(email)) return Response.json({ message: 'Please enter a valid email address.' }, { status: 400 })
   if (password.length < 8) return Response.json({ message: 'Use at least 8 characters for your password.' }, { status: 400 })
@@ -19,9 +24,10 @@ export async function POST(request: Request) {
   const existing = await payload.find({ collection: 'members', where: { email: { equals: email } }, limit: 1, overrideAccess: true })
   if (existing.totalDocs) return Response.json({ message: 'An account already exists for this email. Try signing in instead.' }, { status: 409 })
 
+  const acceptedAt = new Date().toISOString()
   await payload.create({
     collection: 'members',
-    data: { name, email, password, provider: 'password', communityTrust: 'new' },
+    data: { name, email, password, provider: 'password', communityTrust: 'new', ageConfirmedAt: acceptedAt, termsAcceptedAt: acceptedAt, termsVersion: TERMS_VERSION },
     overrideAccess: true,
   })
 

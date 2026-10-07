@@ -10,6 +10,7 @@ import * as migration_20260928_210000_publish_klub_studio from './20260928_21000
 import * as migration_20261001_100000_publish_free_days_guide from './20261001_100000_publish_free_days_guide';
 import * as migration_20261006_100000_publish_kallombo_studios from './20261006_100000_publish_kallombo_studios';
 import * as migration_20261006_123000_publish_october_six_editorial from './20261006_123000_publish_october_six_editorial';
+import * as migration_20261007_120000_add_legal_consents from './20261007_120000_add_legal_consents';
 import * as migration_20260913_090000_publish_student_kela_news from './20260913_090000_publish_student_kela_news';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
@@ -287,5 +288,10 @@ export const migrations = [
     up: migration_20261006_123000_publish_october_six_editorial.up,
     down: migration_20261006_123000_publish_october_six_editorial.down,
     name: '20261006_123000_publish_october_six_editorial',
+  },
+  {
+    up: migration_20261007_120000_add_legal_consents.up,
+    down: migration_20261007_120000_add_legal_consents.down,
+    name: '20261007_120000_add_legal_consents',
   },
 ];

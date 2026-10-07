@@ -9,9 +9,11 @@ import { AccountProfileForm } from '@/components/AccountProfileForm'
 import { AccountSecurity } from '@/components/AccountSecurity'
 import { ArticleCard } from '@/components/ArticleCard'
 import { BusinessCard } from '@/components/BusinessCard'
+import { LegalAcceptanceForm } from '@/components/LegalAcceptanceForm'
 import { getMemberSubmissions } from '@/lib/business-submissions'
 import { formatCommunityDate, getMemberCommunityPosts, topicLabel } from '@/lib/community'
 import { getCurrentMember } from '@/lib/member-auth'
+import { hasAcceptedCurrentTerms } from '@/lib/legal'
 import { getSavedArticles } from '@/lib/saved-articles'
 import { getSavedBusinesses } from '@/lib/saved-businesses'
 
@@ -82,6 +84,7 @@ export default async function AccountPage() {
         </header>
 
         <div className="account-content">
+          {!hasAcceptedCurrentTerms(member) && <LegalAcceptanceForm />}
           {isFreshAccount && (
             <section className="account-welcome" aria-labelledby="account-welcome-title">
               <div className="account-welcome__intro">

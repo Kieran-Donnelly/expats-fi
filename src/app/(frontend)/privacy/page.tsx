@@ -16,7 +16,7 @@ export default function PrivacyPage() {
           <p className="eyebrow">Privacy at Expats.fi</p>
           <h1>Plain answers about your data.</h1>
           <p>We collect the information needed to run accounts, keep the community board safe and understand whether the site is useful. This page explains what that means without burying the important bits.</p>
-          <small>Last updated 1 September 2026</small>
+          <small>Last updated 7 October 2026</small>
         </div>
       </header>
 
@@ -24,7 +24,8 @@ export default function PrivacyPage() {
         <article className="privacy-content">
           <section>
             <h2>Who is responsible</h2>
-            <p>Expats.fi is operated by the Expats.fi founding team, who decide why and how information is used on this service. For privacy questions, access requests, corrections or account deletion requests, email <a href="mailto:moi@expats.fi?subject=Privacy%20request">moi@expats.fi</a>.</p>
+            <p>Expats.fi is an independent service operated from Finland. The people operating Expats.fi jointly decide why and how personal information is used and act as the data controllers. The service contact for privacy questions, access requests, corrections and account deletion is <a href="mailto:moi@expats.fi?subject=Privacy%20request">moi@expats.fi</a>.</p>
+            <p>If Expats.fi is transferred to or begins operating through a registered company, this notice will be updated with the company’s legal name and registration details before it takes over the processing.</p>
           </section>
 
           <section>
@@ -57,12 +58,13 @@ export default function PrivacyPage() {
 
           <section>
             <h2>Who helps us run the service</h2>
-            <p>Expats.fi uses service providers for hosting, database storage, security, media delivery, Google sign-in and, when permitted, analytics. They receive only the information needed for their part of the service and may process it under their own infrastructure and contractual safeguards.</p>
+            <p>Service providers help with website and database hosting, media storage, security and delivery. Google provides optional sign-in and, when you allow analytics, Google Analytics. Podium provides the second consent-based analytics service. These providers receive only the information needed for their part of the service.</p>
+            <p>Some providers may process information outside Finland or the European Economic Area. Where required, those transfers rely on an adequacy decision, standard contractual clauses or another lawful safeguard. You can ask us for more information about the providers and safeguards relevant to your data.</p>
           </section>
 
           <section>
             <h2>How long we keep information</h2>
-            <p>Account information is kept while the account is active or until a valid deletion request is completed. Community and moderation records are kept only for as long as they remain useful for the conversation, safety, dispute handling or a legal obligation. Technical security logs and backups follow limited operational schedules.</p>
+            <p>Account information is kept while the account is active or until a valid deletion request is completed. Email-consent records may be retained after an opt-out where needed to prove and respect that choice. Community and moderation records are reviewed and kept only while they remain useful for the conversation, safety, dispute handling or a legal obligation. Technical security logs and backups follow limited provider and operational schedules.</p>
             <p>If an account closes, some public contributions may remain so existing conversations still make sense. We will remove or separate identifying profile information where reasonably possible and explain any information that cannot be erased.</p>
           </section>
 
