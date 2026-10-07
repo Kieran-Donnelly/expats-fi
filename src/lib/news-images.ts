@@ -4,6 +4,18 @@ type NewsImage = {
 }
 
 const newsImages: Record<string, NewsImage> = {
+  'kela-two-benefits-income-rules-2026': {
+    src: '/images/news/kela-two-benefits-income-rules-2026.webp',
+    alt: 'Two adults calmly reviewing benefit paperwork beside a laptop at home',
+  },
+  'finland-work-burnout-2026': {
+    src: '/images/news/finland-work-burnout-2026.webp',
+    alt: 'An office worker taking a quiet pause at her desk in a busy Helsinki workplace',
+  },
+  'helsinki-autumn-break-family-guide-2026': {
+    src: '/images/news/helsinki-autumn-break-family-guide-2026.webp',
+    alt: 'Children and parents making autumn crafts together in a bright activity space',
+  },
   'free-days-helsinki-october-november-2026': {
     src: '/images/news/free-days-helsinki-october-november-2026.webp',
     alt: 'Helsinki Central Station with a bright Expats.fi guide to upcoming free days',
