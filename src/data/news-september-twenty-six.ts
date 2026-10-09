@@ -68,7 +68,7 @@ export const septemberTwentySixStories: SeedNewsStory[] = [
     publishedAt: '2026-09-26T10:15:00.000Z',
     readingMinutes: 7,
     featured: true,
-    practicalSummary: 'Helsinki residents aged 65 and over can already book through Maisa. Booking for eligible people under 65 opens on 7 October. Health-station vaccinations run from 6 October to 20 November, with different dates for age and risk groups.',
+    practicalSummary: 'Booking is now open for eligible Helsinki residents under 65 through Maisa or the city vaccination line. Their health-station appointments run from 19 October to 20 November. Check the eligibility rules for influenza and COVID-19 separately before booking.',
     html: `
       <p>Autumn in Finland has a familiar rhythm. The leaves change, the daylight quietly starts disappearing and somebody in every office announces that they are “not really ill” while coughing into the coffee machine.</p>
       <p>Helsinki has now published its plan for this year’s free influenza and COVID-19 vaccinations.</p>
@@ -100,10 +100,10 @@ export const septemberTwentySixStories: SeedNewsStory[] = [
       <p>If you qualify for the flu vaccine because you are 65, pregnant or in one medical risk group, that does not by itself mean you are in the COVID-19 target group. Check the official criteria for each vaccine separately.</p>
 
       <h2>When can you book?</h2>
-      <p>Booking is staggered by age.</p>
+      <p>Booking opened in stages and is now available for every eligible age group.</p>
       <ul>
         <li>People aged 65 and over can book now through Maisa. Telephone booking opened on 23 September.</li>
-        <li>Eligible people under 65 can book from <strong>7 October</strong> through Maisa or the vaccination booking line.</li>
+        <li>Eligible people under 65 can now book through Maisa or the vaccination booking line. Their appointments are available from 19 October to 20 November, with plenty of availability particularly in November.</li>
       </ul>
       <p>The dedicated vaccination number is <strong>09 310 46300</strong>, open on weekdays from 08:00 to 16:00.</p>
       <p>Health-station vaccinations are by appointment only and are available at selected locations, so do not simply arrive at your usual station and hope for the best.</p>
@@ -115,7 +115,7 @@ export const septemberTwentySixStories: SeedNewsStory[] = [
 
       <h2>What about children and pregnancy?</h2>
       <p>Pregnant people and children aged six months to six years can receive the influenza vaccination through maternity and child health clinics from 19 October.</p>
-      <p>If a routine health check is already booked, a separate vaccination appointment is not needed. Otherwise, appointments are available during vaccination weeks from 2 to 13 November. Booking opens on 7 October through Maisa or the maternity and child health clinic number, 09 310 55530.</p>
+      <p>If a routine health check is already booked, a separate vaccination appointment is not needed. Otherwise, appointments are available during vaccination weeks from 16 to 27 November. Booking is now open through Maisa or the maternity and child health clinic number, 09 310 55530, on weekdays from 08:00 to 14:00.</p>
       <p>Helsinki is also piloting nasal-spray flu vaccinations at around ten day-care centres for children aged two to six. Families at participating centres will receive information directly. It is not a citywide drop-in service.</p>
 
       <h2>School, student and care-service arrangements</h2>
@@ -136,6 +136,7 @@ export const septemberTwentySixStories: SeedNewsStory[] = [
       <p>For everyone else, the useful job is simple: check the group, note the correct booking date and let Maisa do one genuinely helpful thing before winter arrives.</p>
     `,
     sources: [
+      { name: 'City of Helsinki: booking open for eligible people under 65', url: 'https://www.hel.fi/en/news/appointment-booking-for-vaccinations-for-people-under-65-to-open' },
       { name: 'City of Helsinki: autumn influenza and COVID-19 vaccinations', url: 'https://www.hel.fi/en/news/helsinki-offers-influenza-and-covid-19-vaccinations-for-target-groups-from-october' },
       { name: 'City of Helsinki: vaccination services and booking', url: 'https://www.hel.fi/en/health-and-social-services/health-care/health-stations/vaccinations' },
     ],
