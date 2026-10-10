@@ -225,7 +225,7 @@ export default async function HomePage() {
         <div className="shell section">
           <div className="section-heading">
             <div><p className="eyebrow">Expat-owned in Finland</p><h2>Spend local. Meet the people building here.</h2></div>
-            <Link className="text-link" href="/businesses/#business-directory">Open the directory <span aria-hidden="true">→</span></Link>
+            <Link className="text-link" href="/businesses/">Open the directory <span aria-hidden="true">→</span></Link>
           </div>
           <div className="business-grid">{businesses.map((business) => <BusinessCard business={business} key={business.id} />)}</div>
           <div className="directory-callout"><div><strong>Know a business we should include?</strong><p>Help us grow the directory beyond the capital region.</p></div><Link className="button" href="/submit-business/" data-analytics-event="business_submission_started" data-analytics-section="home">List a business for free</Link></div>

@@ -45,8 +45,8 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
       <section className="shell directory-submit-callout" aria-labelledby="directory-submit-title">
         <div>
           <p className="eyebrow">Join the directory</p>
-          <h2 id="directory-submit-title">Run an expat-owned business in Finland?</h2>
-          <p>Send us the details and we will review the submission, put together a warm profile and share it with you before it goes live. Listing is free.</p>
+          <h2 id="directory-submit-title">Run an expat-owned business?</h2>
+          <p>Send us the details. Listings are free, reviewed and shared with you before they go live.</p>
         </div>
         <Link className="button" href="/submit-business/" data-analytics-event="business_submission_started" data-analytics-section="business-directory-top">Submit your business <span aria-hidden="true">→</span></Link>
       </section>
