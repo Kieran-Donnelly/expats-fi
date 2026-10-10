@@ -12,6 +12,7 @@ import * as migration_20261006_100000_publish_kallombo_studios from './20261006_
 import * as migration_20261006_123000_publish_october_six_editorial from './20261006_123000_publish_october_six_editorial';
 import * as migration_20261007_120000_add_legal_consents from './20261007_120000_add_legal_consents';
 import * as migration_20261009_090000_refresh_vaccination_booking from './20261009_090000_refresh_vaccination_booking';
+import * as migration_20261010_090000_publish_hima_holistic from './20261010_090000_publish_hima_holistic';
 import * as migration_20260913_090000_publish_student_kela_news from './20260913_090000_publish_student_kela_news';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
@@ -299,5 +300,10 @@ export const migrations = [
     up: migration_20261009_090000_refresh_vaccination_booking.up,
     down: migration_20261009_090000_refresh_vaccination_booking.down,
     name: '20261009_090000_refresh_vaccination_booking',
+  },
+  {
+    up: migration_20261010_090000_publish_hima_holistic.up,
+    down: migration_20261010_090000_publish_hima_holistic.down,
+    name: '20261010_090000_publish_hima_holistic',
   },
 ];
