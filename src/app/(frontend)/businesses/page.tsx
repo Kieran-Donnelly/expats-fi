@@ -42,6 +42,14 @@ export default async function BusinessesPage({ searchParams }: { searchParams: P
         <HeroBackdrop src="/images/heroes/businesses-bookshop-owner.webp" position="center 45%" />
         <div className="shell page-hero__inner"><p className="eyebrow">Community directory</p><h1>Find expat-owned businesses across Finland.</h1><p>Spend locally and discover the people building restaurants, services and independent companies here.</p></div>
       </header>
+      <section className="shell directory-submit-callout" aria-labelledby="directory-submit-title">
+        <div>
+          <p className="eyebrow">Join the directory</p>
+          <h2 id="directory-submit-title">Run an expat-owned business in Finland?</h2>
+          <p>Send us the details and we will review the submission, put together a warm profile and share it with you before it goes live. Listing is free.</p>
+        </div>
+        <Link className="button" href="/submit-business/" data-analytics-event="business_submission_started" data-analytics-section="business-directory-top">Submit your business <span aria-hidden="true">→</span></Link>
+      </section>
       <section className="shell directory-intro" aria-labelledby="directory-shortcuts-title">
         <div>
           <p className="eyebrow">A useful way in</p>
