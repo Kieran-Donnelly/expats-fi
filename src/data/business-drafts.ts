@@ -91,7 +91,7 @@ export const businessDrafts: BusinessDraft[] = [
     locations: ['Helsinki', 'Online'],
     address: 'Kirstinkatu 2, 00530 Helsinki',
     website: 'https://himaholistic.com/',
-    email: 'info@himaholistic.fi',
+    email: 'info@himaholistic.com',
     phone: '+358 44 270 3344',
     instagramHandle: '@hima_holistic',
     instagram: 'https://www.instagram.com/hima_holistic/',
