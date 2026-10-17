@@ -15,6 +15,7 @@ import * as migration_20261009_090000_refresh_vaccination_booking from './202610
 import * as migration_20261010_090000_publish_hima_holistic from './20261010_090000_publish_hima_holistic';
 import * as migration_20261011_090000_fix_hima_holistic_email from './20261011_090000_fix_hima_holistic_email';
 import * as migration_20261011_100000_remove_unverified_hima_email from './20261011_100000_remove_unverified_hima_email';
+import * as migration_20261017_203500_add_event_offer_fields from './20261017_203500_add_event_offer_fields';
 import * as migration_20260913_090000_publish_student_kela_news from './20260913_090000_publish_student_kela_news';
 import * as migration_20260907_100000_publish_september_news from './20260907_100000_publish_september_news';
 import * as migration_20260803_075626_initial from './20260803_075626_initial';
@@ -317,5 +318,10 @@ export const migrations = [
     up: migration_20261011_100000_remove_unverified_hima_email.up,
     down: migration_20261011_100000_remove_unverified_hima_email.down,
     name: '20261011_100000_remove_unverified_hima_email',
+  },
+  {
+    up: migration_20261017_203500_add_event_offer_fields.up,
+    down: migration_20261017_203500_add_event_offer_fields.down,
+    name: '20261017_203500_add_event_offer_fields',
   },
 ];
