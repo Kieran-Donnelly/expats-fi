@@ -672,6 +672,14 @@ export interface Event {
     | boolean
     | null;
   price: string;
+  /**
+   * Lowest public ticket price in EUR for Google event data. Leave blank until the exact price is verified.
+   */
+  offerPrice?: number | null;
+  /**
+   * Direct official ticket page. Leave blank to use the main source URL.
+   */
+  offerUrl?: string | null;
   free?: boolean | null;
   familyFriendly?: boolean | null;
   ageNote?: string | null;
@@ -1287,6 +1295,8 @@ export interface EventsSelect<T extends boolean = true> {
   blurb?: T;
   description?: T;
   price?: T;
+  offerPrice?: T;
+  offerUrl?: T;
   free?: T;
   familyFriendly?: T;
   ageNote?: T;

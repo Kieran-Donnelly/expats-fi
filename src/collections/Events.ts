@@ -34,6 +34,21 @@ export const Events: CollectionConfig = {
     { name: 'blurb', type: 'textarea', required: true },
     { name: 'description', type: 'json', required: true, admin: { description: 'An array of story paragraphs.' } },
     { name: 'price', type: 'text', required: true },
+    {
+      name: 'offerPrice',
+      type: 'number',
+      min: 0,
+      admin: {
+        description: 'Lowest public ticket price in EUR for Google event data. Leave blank until the exact price is verified.',
+      },
+    },
+    {
+      name: 'offerUrl',
+      type: 'text',
+      admin: {
+        description: 'Direct official ticket page. Leave blank to use the main source URL.',
+      },
+    },
     { name: 'free', type: 'checkbox', defaultValue: false, admin: { position: 'sidebar' } },
     { name: 'familyFriendly', type: 'checkbox', defaultValue: false, admin: { position: 'sidebar' } },
     { name: 'ageNote', type: 'text' },

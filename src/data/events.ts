@@ -33,6 +33,8 @@ export type CityEvent = {
   blurb: string
   description: string[]
   price: string
+  offerPrice?: number
+  offerUrl?: string
   free: boolean
   familyFriendly: boolean
   ageNote?: string

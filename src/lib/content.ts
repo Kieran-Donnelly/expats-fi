@@ -329,6 +329,8 @@ function mapEvent(record: Record<string, unknown>): CityEvent {
     blurb: String(record.blurb || ''),
     description: stringArray(record.description),
     price: String(record.price || ''),
+    offerPrice: typeof record.offerPrice === 'number' ? record.offerPrice : undefined,
+    offerUrl: typeof record.offerUrl === 'string' ? record.offerUrl : undefined,
     free: Boolean(record.free),
     familyFriendly: Boolean(record.familyFriendly),
     ageNote: typeof record.ageNote === 'string' ? record.ageNote : undefined,

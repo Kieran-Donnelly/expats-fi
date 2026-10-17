@@ -6,7 +6,7 @@ import { EventLocationMap } from '@/components/EventsMap'
 import { JsonLd } from '@/components/JsonLd'
 import { ShareButton } from '@/components/ShareButton'
 import { getEvent } from '@/lib/content'
-import { isPastEvent } from '@/lib/events'
+import { eventOfferJsonLd, isPastEvent } from '@/lib/events'
 import { absoluteUrl, breadcrumbJsonLd, seoDescription } from '@/lib/seo'
 
 export const dynamic = 'force-dynamic'
@@ -37,7 +37,7 @@ export default async function EventPage({ params }: { params: Promise<{ slug: st
   return (
     <main id="main"><div className="shell detail-shell event-detail">
       <JsonLd data={[
-        { '@context': 'https://schema.org', '@type': 'Event', name: event.title, description: event.blurb, startDate: event.startDate, endDate: event.endDate, eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', eventStatus: 'https://schema.org/EventScheduled', url: absoluteUrl(`/events/${event.slug}/`), image: eventSocialImage, location: { '@type': 'Place', name: event.location, address: { '@type': 'PostalAddress', streetAddress: event.address, addressLocality: 'Helsinki', addressCountry: 'FI' } }, organizer: { '@type': 'Organization', name: event.sourceName, url: event.sourceUrl }, ...(event.free ? { offers: { '@type': 'Offer', price: 0, priceCurrency: 'EUR', availability: 'https://schema.org/InStock', url: event.sourceUrl } } : {}) },
+        { '@context': 'https://schema.org', '@type': 'Event', name: event.title, description: event.blurb, startDate: event.startDate, endDate: event.endDate, eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode', eventStatus: 'https://schema.org/EventScheduled', url: absoluteUrl(`/events/${event.slug}/`), image: eventSocialImage, location: { '@type': 'Place', name: event.location, address: { '@type': 'PostalAddress', streetAddress: event.address, addressLocality: 'Helsinki', addressCountry: 'FI' } }, organizer: { '@type': 'Organization', name: event.sourceName, url: event.sourceUrl }, offers: eventOfferJsonLd(event) },
         breadcrumbJsonLd([{ name: 'Home', path: '/' }, { name: 'Events', path: '/events/' }, { name: event.title, path: `/events/${event.slug}/` }]),
       ]} />
       <Link className="back-link" href="/events/">← All Helsinki events</Link>
